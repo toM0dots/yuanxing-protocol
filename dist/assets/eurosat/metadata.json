@@ -1,0 +1,39 @@
+{
+  "name": "EuroSAT RGB classroom subset",
+  "classes": [
+    {
+      "id": 0,
+      "name": "Forest",
+      "name_zh": "森林"
+    },
+    {
+      "id": 1,
+      "name": "SeaLake",
+      "name_zh": "水域"
+    },
+    {
+      "id": 2,
+      "name": "Residential",
+      "name_zh": "居民区"
+    }
+  ],
+  "width": 24,
+  "height": 24,
+  "channels": 3,
+  "layout": "HWC / row-major RGB uint8. Browser maps v to v/127.5 - 1.",
+  "source": "https://zenodo.org/records/7711810",
+  "archive": "https://zenodo.org/records/7711810/files/EuroSAT_RGB.zip",
+  "source_repository": "https://github.com/phelber/EuroSAT",
+  "license": "MIT (EuroSAT repository); Copernicus Sentinel data terms also apply",
+  "license_file": "LICENSE-EuroSAT.txt",
+  "attribution": "EuroSAT: Patrick Helber, Benjamin Bischke, Andreas Dengel, Damian Borth. Contains modified Copernicus Sentinel data; RGB image chips resized for this educational demonstration.",
+  "citation": "Helber et al. (2019), EuroSAT: A Novel Dataset and Deep Learning Benchmark for Land Use and Land Cover Classification. DOI: 10.1109/JSTARS.2019.2918242",
+  "split_method": "Deterministic class-stratified image-level subset: seed 7711810 + class index. Per class 60 train, 20 development, 20 final. Unique original file IDs, no derivative image crosses splits.",
+  "limitations": [
+    "Educational subset of 300 images and 3 of 10 classes; not the full benchmark.",
+    "Image-level split only: geographic independence and overlap between neighbouring scenes have not been established; no claim of new-region generalisation.",
+    "64x64 RGB chips downsampled to 24x24; not live satellite data or a physical contiguous map.",
+    "A gallery mosaic of chips is a classification summary, not a georeferenced land-cover map.",
+    "Development images can be used for inspection and changes; keep final images out of training/augmentation and do not use final scores to repeatedly select models."
+  ]
+}

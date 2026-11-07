@@ -1,0 +1,10 @@
+{
+  "source": "robot/EV04_Aegis.blend",
+  "design": "EV\u201304 Aegis",
+  "original_parts": 226,
+  "rigid_joints": 15,
+  "forward": "-Z",
+  "up": "+Y",
+  "animation": "Runtime rigid-joint walk, boost, aim, recoil and ground contact",
+  "notes": "Original armor and materials, grouped by joint for game rendering. Source Blender file unchanged."
+}

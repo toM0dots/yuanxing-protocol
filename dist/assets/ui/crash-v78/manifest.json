@@ -1,0 +1,29 @@
+{
+  "asset": "crashed-metal.webp",
+  "type": "opaque metal surface texture",
+  "dimensions": [
+    1024,
+    1024
+  ],
+  "bytes": 161530,
+  "sha256": "762477f025c0c41ff9278f4e0cede4f547f42ba9005e79a9421df4ba2a0bd47a",
+  "source": "OpenAI built-in image_gen tool; generated 2026-11-06",
+  "source_original": "output/crash-console-v78/generated-crashed-metal-original.png",
+  "normalization": "Resized to 1024x1024 with Lanczos; RGB WebP quality 84, method 6. No aesthetic edits.",
+  "usage": "Console metal casing/background. Use cropped/no-repeat on large panels or restrained repetition; exact seamlessness is not guaranteed. Keep reading areas separately shaded.",
+  "approval": "Selected by agent under user direction; native-scale UI verification by integrating agent.",
+  "companion_assets": [
+    {
+      "asset": "impact-corner.svg",
+      "source": "Code-native SVG authored for this project",
+      "bytes": 1745,
+      "sha256": "eae657fc25215e32bd78dec966015c5b6d36bc6f4fd8dac154f0669365f05ed1"
+    },
+    {
+      "asset": "worn-rim.svg",
+      "source": "Code-native SVG authored for this project",
+      "bytes": 1172,
+      "sha256": "6f7c31635b0746731a14ef327a128f6a6a83f03465e47087c3ecf50d241a4426"
+    }
+  ]
+}

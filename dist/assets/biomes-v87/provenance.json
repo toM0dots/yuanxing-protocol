@@ -1,0 +1,46 @@
+{
+  "credit": "Powered by Poly Haven",
+  "assets": [
+    {
+      "file": "grass-color.jpg",
+      "source": "https://polyhaven.com/a/sparse_grass",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "download": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sparse_grass/sparse_grass_diff_1k.jpg",
+      "md5": "5d0aba796e1b5882555161c16b10ee9d",
+      "resolution": "1k",
+      "role": "Diffuse"
+    },
+    {
+      "file": "grass-height.jpg",
+      "source": "https://polyhaven.com/a/sparse_grass",
+      "author": "Amal Kumar",
+      "license": "CC0-1.0",
+      "download": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/sparse_grass/sparse_grass_disp_1k.jpg",
+      "md5": "6efc347cdcc87ae206bf691ff082a009",
+      "resolution": "1k",
+      "role": "Displacement"
+    },
+    {
+      "file": "forest-color.jpg",
+      "source": "https://polyhaven.com/a/forrest_ground_01",
+      "author": "Rob Tuytel",
+      "license": "CC0-1.0",
+      "download": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/forrest_ground_01/forrest_ground_01_diff_1k.jpg",
+      "md5": "236e7d928f5e357a194fd92de189cbe4",
+      "resolution": "1k",
+      "role": "Diffuse"
+    },
+    {
+      "file": "forest-height.jpg",
+      "source": "https://polyhaven.com/a/forrest_ground_01",
+      "author": "Rob Tuytel",
+      "license": "CC0-1.0",
+      "download": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/forrest_ground_01/forrest_ground_01_disp_1k.jpg",
+      "md5": "2ef1913c910da346874776055ae6cc83",
+      "resolution": "1k",
+      "role": "Displacement"
+    }
+  ],
+  "vegetation": "Original deterministic branching trees, leaf cutouts and grass geometry in exo-biomes.mjs / exo-biome-textures.mjs. Ground scans retain original pixels."
+}

@@ -1,0 +1,20 @@
+{
+  "design": "ECHO-9 / Hero v7",
+  "revision": "v7 reference adaptation: cobalt/ivory/crimson palette, curved armor, enclosed swept-crest helmet, slim pauldrons, tactical harness, compact pack and thigh gear; runtime four-tube right launcher",
+  "source": "art/echo9-hero-v7/Echo9_Hero_V7.blend",
+  "generator": "tools/build-echo9-hero-v7.py",
+  "reference": "User-approved output/echo9-hero-views-v7/01-turnaround.png and output/echo9-hero-helmet-v6/echo9-hero.png; remodeled original Blender geometry, no downloaded model",
+  "parts": 815,
+  "triangles": 109628,
+  "joints": 20,
+  "materials": 10,
+  "forward": "-Z",
+  "up": "+Y",
+  "rig": "Unchanged leg lengths and sole footprint; arms and muzzle shifted inward by .22 m; independent pauldrons, hip guards and functional jet sockets",
+  "textures": {
+    "source": "https://polyhaven.com/a/blue_metal_plate",
+    "license": "CC0-1.0",
+    "maps": "../hangar-v1/panel-color.jpg + panel-normal-rough.png",
+    "credit": "Powered by Poly Haven"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "design": "EV-04 AEGIS Strike",
+  "source": "art/aegis-v3/EV04_Aegis_Strike.blend",
+  "generator": "tools/build-aegis-strike.py",
+  "reference": "User-supplied mecha illustration; newly authored 3D geometry",
+  "parts": 253,
+  "triangles": 47192,
+  "joints": 20,
+  "forward": "-Z",
+  "up": "+Y",
+  "textures": {
+    "source": "https://polyhaven.com/a/blue_metal_plate",
+    "license": "CC0-1.0",
+    "maps": "../hangar-v1/panel-normal.jpg + panel-rough.jpg",
+    "credit": "Powered by Poly Haven"
+  },
+  "revision": "v3: independent shoulder pauldrons and floating hip guards; original visible geometry and PBR palette retained",
+  "runtime": "exo-aegis.mjs: world-space support feet, authored bone-offset IK, blended flight/aim, socket-preserving recoil"
+}

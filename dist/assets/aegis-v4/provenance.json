@@ -1,0 +1,20 @@
+{
+  "design": "EV-04 AEGIS Field",
+  "revision": "v4: newly authored grounded expedition chassis; all visible v3 armor replaced",
+  "source": "art/aegis-v4/EV04_Aegis_Field.blend",
+  "generator": "tools/build-aegis-field.py",
+  "reference": "Original design for the requested realistic expedition style; not a third-party model",
+  "parts": 455,
+  "triangles": 55044,
+  "joints": 20,
+  "materials": 8,
+  "forward": "-Z",
+  "up": "+Y",
+  "rig": "Unchanged Aegis joint transforms, forearm muzzle and chest jet sockets; sole footprint preserved",
+  "textures": {
+    "source": "https://polyhaven.com/a/blue_metal_plate",
+    "license": "CC0-1.0",
+    "maps": "../hangar-v1/panel-color.jpg + panel-normal-rough.png",
+    "credit": "Powered by Poly Haven"
+  }
+}

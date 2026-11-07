@@ -1,0 +1,63 @@
+/* Personal field notebook: wear lives in the margins; text remains legible. */
+#modal.exo-diary-modal{width:min(1060px,96vw);max-width:1060px;max-height:94dvh;padding:0;border:0;background:#131919;color:#29302c;box-shadow:0 25px 100px #000b;overflow:auto;border-radius:3px}
+#modal.exo-diary-modal::backdrop{background:#050a0bd9;backdrop-filter:blur(5px)}
+#modal.exo-diary-modal>.modalhead{position:absolute;right:9px;top:6px;z-index:5;background:none;border:0;box-shadow:none;padding:0}
+#modal.exo-diary-modal>.modalhead h2{display:none}
+#modal.exo-diary-modal>.modalhead button{border:0;background:none;color:#d0d4c6;width:34px;height:34px;min-width:34px;padding:3px;font-size:20px}
+.diary-desk{padding:20px 22px 12px;background:repeating-linear-gradient(111deg,transparent 0 31px,#becbc006 32px 33px),radial-gradient(ellipse at 22% 0,#36403c,#151c1b 70%);min-height:500px}
+.field-diary{--ink:#2b342f;--faded:#586156;--paper:#c5c8b6;--pencil:#705b4c;color:var(--ink);font:16px/1.95 'Kaiti SC','STKaiti','KaiTi','Noto Serif CJK SC','Songti SC',serif;max-width:100%;text-align:left;isolation:isolate}
+.field-diary *{box-sizing:border-box}
+.diary-bookmarks{display:flex;gap:8px;align-items:end;padding:0 34px 0 15px;min-height:41px}
+.field-diary .diary-bookmarks button{font:14px/1.4 'Chakra Petch','WDXL Lubrifont SC',sans-serif;letter-spacing:.08em;padding:8px 22px 10px;border:0;border-radius:1px 5px 0 0;background:#6c7869;color:#0f211d;text-decoration:none;transform:rotate(-1deg);box-shadow:0 -2px 0 #ffffff13 inset}
+.field-diary .diary-bookmarks button:nth-child(2){background:#9c9b7d;transform:rotate(1.4deg)}
+.field-diary .diary-bookmarks button.is-current{background:#d1d2be;transform:none;padding-top:13px}
+.field-diary .diary-bookmarks .diary-close{margin-left:auto;background:transparent;color:#c4c9b9;box-shadow:none;padding:8px 0}
+.diary-binding{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);position:relative;padding:7px 9px 9px;background:repeating-linear-gradient(172deg,#24322d 0 3px,#2b3932 4px 6px,#26382f 7px 10px);border:1px solid #89958165;border-radius:3px 12px 9px 4px;box-shadow:0 17px 25px #0007,1px 3px 0 #7b8170,2px 6px 0 #2a342b}
+.diary-binding::after{content:'';position:absolute;top:9px;bottom:10px;left:calc(50% - 8px);width:16px;background:linear-gradient(90deg,transparent,#3d463c70 42%,#253129 49%,#6c7762 53%,#727c5a44 58%,transparent);pointer-events:none;z-index:2}
+.diary-page{position:relative;min-width:0;min-height:600px;padding:27px 36px 43px;background-image:url('assets/diary-v1/fibers.svg'),radial-gradient(ellipse at 0 0,#6e796d55,transparent 33%),radial-gradient(ellipse at 94% 85%,#7f7f6040,transparent 25%),linear-gradient(98deg,#b0b69f,#d2d3bf 15%,#c6cab6 85%,#a2aa93);box-shadow:inset 0 0 25px #494f3930;background-size:220px 220px,auto,auto,auto;overflow-wrap:anywhere}
+.diary-left{clip-path:polygon(0 0,100% .2%,100% 100%,90% 99.3%,83% 99.9%,81% 98.8%,69% 99.6%,53% 99%,40% 99.7%,27% 99%,15% 99.9%,9% 99.2%,2% 100%,.3% 98%,0 87%,.5% 72%,0 51%,.7% 26%);border-right:1px solid #656e4f50}
+.diary-right{background-image:url('assets/diary-v1/fibers.svg'),radial-gradient(ellipse 120px 80px at 101% 0,#20251e 0 15%,#5e604b 27%,#7c816144 43%,transparent 70%),linear-gradient(87deg,#a9b19a,#d5d6c1 17%,#c6cab6 90%,#a4ad96);background-size:220px 220px,auto,auto;clip-path:polygon(0 .2%,92% 0,93% 2%,95% 1.7%,95.5% 3.8%,98% 3.1%,96.9% 6.2%,100% 5.6%,99.4% 23%,100% 42%,99.3% 67%,100% 89%,99.1% 100%,80% 99.1%,78% 100%,60% 99.4%,43% 100%,24% 99.5%,0 100%)}
+.diary-page::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(141deg,transparent 47.7%,#e2e3c44a 48%,#424d2d0c 48.3%,transparent 49%),linear-gradient(176deg,transparent 71%,#454d3912 71.3%,#e2e4c64d 71.7%,transparent 72%);z-index:-1}
+.diary-hole{position:absolute;top:82px;left:12px;width:6px;height:7px;border-radius:50%;background:#495143;box-shadow:0 1px 1px #f0edcc,0 122px #495143,0 123px 1px #eeeace,0 244px #495143,0 245px 1px #eeeace,0 366px #495143,0 367px 1px #eeeace}
+.diary-left .diary-hole{left:auto;right:12px}
+.diary-folio{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #68745a55;margin-bottom:24px;padding-bottom:6px;color:#5a6454;font:11px/1.4 'Chakra Petch',sans-serif;letter-spacing:.14em}
+.field-diary h1{font:400 clamp(25px,2.5vw,37px)/1.45 'Kaiti SC','STKaiti','KaiTi',serif;color:#24362e;letter-spacing:.08em;margin:11px 0 14px;text-wrap:balance;text-shadow:.5px .4px #43553c55}
+.field-diary h2{font:500 20px/1.6 'Kaiti SC','STKaiti','KaiTi',serif;color:#344238;margin:20px 0 8px;letter-spacing:.04em}
+.field-diary p{margin:10px 0 16px;max-width:none;font-size:16px;line-height:1.95;color:var(--ink)}
+.field-diary .diary-subtitle{color:#606a58;font-size:14px;margin-top:-5px}
+.field-diary .diary-hand{font-size:17px;color:#555a42;transform:rotate(-1.3deg);margin:25px 0 27px;line-height:1.9}
+.field-diary .diary-section{font-size:15px;border-bottom:1px solid #737b5e50;padding-bottom:7px;margin-top:30px}
+.field-diary .diary-link{display:inline-block;min-height:36px;padding:4px 0;color:#294b3c;background:transparent;border:0;border-radius:0;box-shadow:none;font:inherit;text-align:left;letter-spacing:0;text-decoration:underline;text-decoration-color:#66785877;text-underline-offset:5px;cursor:pointer;white-space:normal;transition:color .15s}
+.field-diary .diary-link:hover{color:#182b22;text-decoration-color:currentColor;background:#8f9e7826}
+.field-diary button:focus-visible,.field-diary summary:focus-visible{outline:2px solid #325d50;outline-offset:4px}
+.diary-places,.diary-entries{list-style:none;margin:0 0 25px;padding:0}
+.diary-places li{display:flex;align-items:baseline;gap:10px;border-bottom:1px dashed #59694840;padding:5px 0}
+.diary-places button{flex:1}.diary-places li>span{font:12px 'Chakra Petch',sans-serif;color:#586c55}
+.diary-entries li{display:flex;align-items:baseline;gap:12px;padding:7px 0;border-bottom:1px solid #6b785c3b}
+.diary-entries small{font:11px 'Chakra Petch',sans-serif;color:#657052;min-width:23px}.diary-entries button{flex:1}.diary-entries li>span{color:#6e785c}
+.field-diary .diary-blank{margin:30px 0 70px;color:#64705d;line-height:2.2}
+.field-diary .diary-question{color:#595d47;font-size:17px;font-style:italic;border-left:2px solid #65745660;padding-left:13px;margin:22px 0}
+.diary-stamp{display:inline-block;border:2px solid #5f75675e;padding:6px 11px;color:#58705e8f;font:10px/1.4 'Chakra Petch',sans-serif;letter-spacing:.18em;transform:rotate(-6deg);margin-bottom:15px;mask-image:repeating-linear-gradient(171deg,#000 0 3px,#0006 4px 5px)}
+.diary-sketch{margin:6px auto 15px;max-width:280px;color:#414c3cbf;transform:rotate(-2.5deg);position:relative}
+.diary-sketch svg{display:block;width:100%;height:auto;max-height:250px;background:radial-gradient(ellipse at center,#ededce24,transparent 70%)}
+.diary-sketch figcaption{font-size:13px;color:#5d6651;line-height:1.6;text-align:center}.diary-sketch figcaption span{padding-left:10px}
+.diary-tape{position:absolute;width:85px;height:23px;top:67px;right:60px;background:repeating-linear-gradient(88deg,#aaa97e4f 0 3px,#c3c09c66 4px 5px);box-shadow:0 1px 1px #74794b33;transform:rotate(14deg);border-left:2px dashed #bcc39a80;border-right:2px dashed #bcc39a80;pointer-events:none}
+.field-diary .diary-margin{color:#765744;font-size:15px;border-left:2px solid #8064456b;padding:5px 0 4px 14px;margin:25px 0;transform:rotate(-.7deg)}
+.diary-margin p{font-size:15px;line-height:1.85;color:inherit;margin:4px 0 12px}.diary-margin .diary-link{font-size:14px;margin-right:12px}
+.field-diary .diary-overline{color:#5d6954;font-size:12px;letter-spacing:.12em}.field-diary .diary-caption{font-size:13px;text-align:center;color:#626b56}.field-diary .diary-source{font-size:12px;color:#5b6654;border-top:1px dashed #67745355;padding-top:15px;margin-top:28px}
+.diary-thought{padding:17px 0 13px;border-top:1px dashed #68725577;margin-top:30px}.diary-thought>span{font-size:12px;color:#745a45}.diary-thought p{color:#4d543e}
+.field-diary details.diary-fold{display:block;background:transparent;border:0;border-top:1px solid #68745155;border-radius:0;padding:12px 0;box-shadow:none;margin:23px 0 5px;color:#47563f}
+.diary-fold summary{font-size:14px;cursor:pointer;list-style:disclosure-closed}.diary-fold[open] summary{list-style:disclosure-open}.diary-fold>p{font-size:14px}.diary-fold small{font-size:12px;color:#646c55}
+.diary-page-turns{display:flex;justify-content:space-between;gap:15px;border-top:1px solid #64725355;margin-top:35px;padding-top:12px;font-size:14px}
+.diary-connection{margin:25px 0 35px}.diary-connection h2{border-bottom:1px solid #6d78545c;padding-bottom:7px}.diary-connection p{font-size:15px}.diary-citation{display:block;font-size:12px;color:#5b6855}.diary-citation .diary-link{font-size:12px}
+.diary-footer{display:flex;justify-content:space-between;gap:12px;color:#a6ae9c;font:11px/1.5 'Chakra Petch','PingFang SC',sans-serif;margin:17px 8px 0;letter-spacing:.04em}
+.diary-save-warning{color:#733a2b!important;border-top:2px solid #8e4c3a;padding-top:10px}
+.field-observation{position:absolute;z-index:12;left:30px;bottom:90px;transform:none;width:min(430px,calc(100% - 40px));padding:16px 45px 15px 19px;background:linear-gradient(113deg,#17241feb,#0a1614f2);border:1px solid #8eaa7b65;border-left:3px solid #adb78b;box-shadow:0 9px 30px #0006;color:#e0e5d1;pointer-events:auto;font:14px/1.8 'PingFang SC','Microsoft YaHei',sans-serif}
+.field-observation[hidden]{display:none}.field-observation small{display:block;color:#9fb19a;font-size:11px;letter-spacing:.1em}.field-observation strong{display:block;font-size:17px;font-weight:500;margin:2px 0 4px}.field-observation p{font-size:14px;margin:3px 0 8px;line-height:1.8;color:#e0e5d1}.field-observation button{background:none;border:0;color:#b8caa2;font:inherit;cursor:pointer;padding:3px 0;text-decoration:underline;text-underline-offset:4px}.field-observation .field-observation-close{position:absolute;right:12px;top:10px;font-size:21px;text-decoration:none;padding:2px 7px}
+.field-cue{position:absolute;left:50%;transform:translateX(-50%);bottom:119px;width:min(430px,calc(100% - 40px));color:#dce2c7;font:13px/1.8 'PingFang SC',sans-serif;text-align:center;text-shadow:0 1px 5px #000,0 2px 10px #000;pointer-events:none;z-index:8}.field-cue[hidden]{display:none}
+@media(max-width:720px){#modal.exo-diary-modal{width:100vw;max-width:100vw;max-height:100dvh;margin:0;border-radius:0}.diary-desk{padding:12px 8px}.diary-binding{display:block;padding:5px 6px 8px}.diary-binding::after{display:none}.diary-page{min-height:0;padding:23px 31px 38px}.diary-left{border:0;border-bottom:1px solid #6d78584d}.diary-right{margin-top:3px}.diary-left .diary-hole{right:auto;left:10px}.diary-bookmarks{padding-left:10px;padding-right:30px}.field-diary .diary-bookmarks button{padding:8px 14px}.field-diary .diary-bookmarks .diary-close{font-size:12px}.diary-footer{display:block}.diary-footer span{display:block;margin:3px 0}.field-diary h1{font-size:28px}.diary-sketch{max-width:220px}.field-observation{bottom:190px;left:14px;width:calc(100% - 28px)}.field-cue{bottom:155px}}
+@media(prefers-reduced-motion:reduce){.field-diary *{transition:none!important}}
+/* On touch layouts the observation occupies the task card's space, keeping
+   the interaction prompt and thumb controls clear. Combat restores the HUD. */
+@media(max-width:760px),(pointer:coarse){.field-observation{top:112px;bottom:auto;left:14px;transform:none;width:min(430px,calc(100% - 28px));max-height:calc(100dvh - 460px);overflow-y:auto}.exo .hud-clean:has(.field-observation:not([hidden])) .campaign-hud,.exo .hud-clean:has(.field-observation:not([hidden])) .hud-facility{visibility:hidden}.field-cue{bottom:340px}}
+@media(max-height:560px){.field-observation{top:68px;bottom:auto;left:auto;right:16px;max-height:calc(100dvh - 210px);width:min(430px,calc(100% - 32px));overflow-y:auto}.exo .hud-clean:has(.field-observation:not([hidden])) .hud-stack{visibility:hidden}}

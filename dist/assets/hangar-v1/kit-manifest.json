@@ -1,0 +1,52 @@
+{
+  "WallBay": {
+    "meshes": 6,
+    "vertices": 1664,
+    "triangles": 3184
+  },
+  "DoorFrame": {
+    "meshes": 5,
+    "vertices": 896,
+    "triangles": 1680
+  },
+  "FloorTile": {
+    "meshes": 3,
+    "vertices": 160,
+    "triangles": 296
+  },
+  "Buttress": {
+    "meshes": 5,
+    "vertices": 448,
+    "triangles": 864
+  },
+  "Crate": {
+    "meshes": 4,
+    "vertices": 1008,
+    "triangles": 1944
+  },
+  "Terminal": {
+    "meshes": 6,
+    "vertices": 784,
+    "triangles": 1512
+  },
+  "ServiceArm": {
+    "meshes": 5,
+    "vertices": 1232,
+    "triangles": 2420
+  },
+  "Reactor": {
+    "meshes": 5,
+    "vertices": 2016,
+    "triangles": 3952
+  },
+  "CeilingLight": {
+    "meshes": 3,
+    "vertices": 336,
+    "triangles": 648
+  },
+  "PipeRack": {
+    "meshes": 3,
+    "vertices": 1840,
+    "triangles": 3624
+  }
+}

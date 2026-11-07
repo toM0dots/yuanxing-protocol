@@ -1,0 +1,55 @@
+{
+  "triangles": 14604,
+  "material_groups": 6,
+  "source": "Blender 4.5.14 / tools/build-k09-hero.py",
+  "model": "k09-hangar-field.glb",
+  "hangar": {
+    "center_local": [
+      38,
+      0
+    ],
+    "floor_local": -0.15328571428571422,
+    "width": 36,
+    "depth": 22,
+    "height": 54,
+    "entry_local": [
+      38,
+      -17
+    ]
+  },
+  "lamps_local": [
+    [
+      1.1,
+      8.37
+    ],
+    [
+      13,
+      18.87
+    ],
+    [
+      5,
+      26.87
+    ],
+    [
+      14,
+      27.87
+    ],
+    [
+      2.8,
+      17.37
+    ],
+    [
+      14,
+      9.37
+    ],
+    [
+      -1,
+      8.48
+    ]
+  ],
+  "runtime_lamps": "exo-field-lamps.mjs / sealed optical evacuation fixtures at the retained sockets",
+  "textures": "World-scale UVs; runtime reuses existing Poly Haven CC0 packed metal/panel maps",
+  "collision": "hangar axis-aligned footprint / open south portal; canyon floor and cave collision remain authoritative",
+  "reference": "nine-regions-multiview-v1/09-k09-layered-canyon",
+  "status": "exported; runtime exterior and shared lamps inspected in browser v81"
+}

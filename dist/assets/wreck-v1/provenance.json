@@ -1,0 +1,45 @@
+{
+  "name": "ECHO-9 crashed orbital drive",
+  "source": "art/wreck-v1/ECHO9_Orbital_Drive_Wreck.blend",
+  "generator": "tools/build-wreck.py",
+  "reference": "User-provided crashed spacecraft image; custom geometry, no third-party model",
+  "geometry": {
+    "triangles": 93979,
+    "material_draws": 12,
+    "forward": "-Z",
+    "up": "+Y",
+    "mouth": "Open at both ends; lower front lip torn away for 13m-wide boarding ramp",
+    "deck_height": 3.85,
+    "deck_width": 13.4,
+    "ramp_game_z": [
+      -29,
+      -19.4
+    ],
+    "source_triangles": 174352,
+    "dimensions": [
+      37.73899,
+      31.41006,
+      53.62934
+    ],
+    "bounds_min": [
+      -19.04243,
+      -1.32572,
+      -29
+    ],
+    "bounds_max": [
+      18.69656,
+      30.08434,
+      24.62934
+    ]
+  },
+  "surface": {
+    "source": "https://polyhaven.com/a/blue_metal_plate",
+    "license": "CC0-1.0",
+    "credit": "Powered by Poly Haven",
+    "maps": [
+      "../hangar-v1/panel-normal.jpg",
+      "../hangar-v1/panel-rough.jpg"
+    ],
+    "application": "Runtime normal and roughness on ivory/steel/liner; source Blender has packed copies. GLB intentionally contains no embedded images."
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "source": "ECHO9_Canyon_V2.blend",
+  "sha256": "057aa370dd8cc355b6ac170d5606c90aaf93446fa0d994a6e2f5ada575c8697b",
+  "export": "direct mesh datablocks; y-up glTF",
+  "objects": 796,
+  "source_triangles": 292062,
+  "render_triangles": 202062,
+  "glb_bytes": 8574888,
+  "meshes": {
+    "floor": {
+      "vertices": 15246,
+      "triangles": 30000
+    },
+    "massif": {
+      "vertices": 41216,
+      "triangles": 82428
+    },
+    "ridge": {
+      "vertices": 13968,
+      "triangles": 27790
+    },
+    "talus": {
+      "vertices": 182880,
+      "triangles": 60960
+    },
+    "FIELD | dark coated steel": {
+      "vertices": 2076,
+      "triangles": 692
+    },
+    "FIELD | weathered safety enamel": {
+      "vertices": 324,
+      "triangles": 108
+    },
+    "FIELD | guidance strips": {
+      "vertices": 252,
+      "triangles": 84
+    }
+  },
+  "omitted_equipment_bevels": 23,
+  "floor_samples": [
+    121,
+    126
+  ],
+  "navigation_samples": [
+    255,
+    219
+  ],
+  "texture_source": "Packed Poly Haven CC0 scans supplied with the Blender scene"
+}

@@ -1,0 +1,31 @@
+{
+  "material": {
+    "name": "Metal Plate",
+    "source": "https://polyhaven.com/a/metal_plate",
+    "license": "CC0-1.0",
+    "maps": {
+      "color": "metal-color.jpg",
+      "normal": "metal-normal.jpg",
+      "roughness": "metal-rough.jpg"
+    },
+    "resolution": "2k catalog variant",
+    "credit": "Powered by Poly Haven"
+  },
+  "geometry": {
+    "source": "art/hangar-v1/Helios_Hangar_Kit.blend",
+    "generator": "tools/build-hangar-kit.py",
+    "authoring": "Custom beveled modular hard-surface geometry authored in Blender for this game",
+    "external_models": false
+  },
+  "panel_material": {
+    "name": "Blue Metal Plate",
+    "source": "https://polyhaven.com/a/blue_metal_plate",
+    "license": "CC0-1.0",
+    "maps": [
+      "panel-color.jpg",
+      "panel-normal.jpg",
+      "panel-rough.jpg"
+    ],
+    "credit": "Powered by Poly Haven"
+  }
+}

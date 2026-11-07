@@ -1,0 +1,29 @@
+{
+  "bark": {
+    "source": "https://polyhaven.com/a/bark_brown_02",
+    "author": "Rob Tuytel",
+    "license": "CC0",
+    "files": [
+      {
+        "file": "bark-color.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_diff_1k.jpg",
+        "md5": "6669cca520594bdca19f94084984ab72"
+      },
+      {
+        "file": "bark-normal.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_nor_gl_1k.jpg",
+        "md5": "1cad3fe0349a44df2d4d1c2859c79920"
+      },
+      {
+        "file": "bark-roughness.jpg",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/bark_brown_02/bark_brown_02_rough_1k.jpg",
+        "md5": "bbcde696e5b9418cdcb2abe638965417"
+      }
+    ]
+  },
+  "foliage": {
+    "file": "foliage-atlas.png",
+    "source": "OpenAI built-in image generation",
+    "edit": "Original RGBA output copied unmodified; four botanical quadrant UVs used in runtime geometry."
+  }
+}

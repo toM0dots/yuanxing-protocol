@@ -1,0 +1,20 @@
+{
+  "design": "EV-04 AEGIS Vanguard",
+  "revision": "v5: newly authored detailed mobile-suit hero; planar primary armor faces, shallow edge chamfers, independently layered panels and filled mechanical substrate",
+  "source": "art/aegis-v5/EV04_Aegis_Vanguard.blend",
+  "generator": "tools/build-aegis-vanguard.py",
+  "reference": "User-requested Gundam-like silhouette and the existing title illustration; original geometry, no downloaded third-party model",
+  "parts": 759,
+  "triangles": 117436,
+  "joints": 20,
+  "materials": 10,
+  "forward": "-Z",
+  "up": "+Y",
+  "rig": "Unchanged Aegis joint transforms, forearm muzzle and chest jet sockets; sole footprint preserved",
+  "textures": {
+    "source": "https://polyhaven.com/a/blue_metal_plate",
+    "license": "CC0-1.0",
+    "maps": "../hangar-v1/panel-color.jpg + panel-normal-rough.png",
+    "credit": "Powered by Poly Haven"
+  }
+}

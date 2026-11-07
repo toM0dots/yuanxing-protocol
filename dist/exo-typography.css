@@ -1,0 +1,60 @@
+/* Local OFL fonts: angular instrument labels, compact Chinese display, native reading text.
+   Full licenses and reproducible source notes live in assets/fonts/exo-console/. */
+@font-face{font-family:"Exo Console Latin";src:url("assets/fonts/exo-console/ChakraPetch-Medium-latin.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap}
+@font-face{font-family:"Exo Console Latin";src:url("assets/fonts/exo-console/ChakraPetch-SemiBold-latin.woff2") format("woff2");font-style:normal;font-weight:600 800;font-display:swap}
+@font-face{font-family:"Exo Console Han";src:url("assets/fonts/exo-console/WDXLLubrifontSC-game.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+:root{--exo-ui:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;--exo-display:"Exo Console Latin","Exo Console Han",var(--exo-ui);--exo-data:"Exo Console Latin","SFMono-Regular",Consolas,"Liberation Mono",monospace}
+.exo,.exo-cinema,.fc-panel,.exp-journal,.exo-map-gate{font-family:var(--exo-ui);font-kerning:normal;font-variant-numeric:tabular-nums;letter-spacing:0}
+.exo button,.exo input,.exo select{font-family:var(--exo-ui)}
+.exo :is(h1,h2,h3),.fc-panel :is(h1,h2,h3),.exp-journal :is(h1,h2,h3){font-weight:600;letter-spacing:.015em}
+.exo-intro h1{font-weight:650;letter-spacing:.055em}
+.exo-intro p,.story-copy p{font-weight:400;line-height:1.9;color:#d2e0e4}
+.exo-intro .exo-tag,.story-top,.fc-eyebrow,.exp-eyebrow{font-size:11px;font-weight:600;letter-spacing:.12em}
+.hud-top>strong{font:700 14px/1 var(--exo-ui);letter-spacing:.12em}
+.hud-top>span{font:500 13px/1.4 var(--exo-ui);color:#c2d4db;letter-spacing:.015em}
+.hud-top button{font-size:13px;font-weight:500}
+.exp-strip button{font:500 13px/1.45 var(--exo-ui)}
+.exp-strip #exp-rank b{font-weight:600}.exp-strip #exp-objective{color:#c8dcda}
+.hud-vitals{font:500 12px/1.5 var(--exo-ui);color:#d0e0e5;gap:14px;text-shadow:0 1px 3px #000}
+.hud-vitals b{font:600 16px/1 var(--exo-data);letter-spacing:-.03em}
+.hud-target{font:600 13px/1.5 var(--exo-ui)}
+.hud-look-hint{font:500 11px/1.5 var(--exo-ui);letter-spacing:0;color:#c0d0d6;background:#0a182ac7;border-radius:3px}
+.hud-camera-reset{font:500 12px/1.4 var(--exo-ui);color:#dae8ec;min-height:32px}
+.hud-radar{font:500 12px/1.4 var(--exo-ui)}
+.hud-clean .hud-context,.hud-tools>button,.hud-trim>summary{font:500 12px/1.5 var(--exo-ui)}
+.hud-notice{font:500 13px/1.6 var(--exo-ui);white-space:normal;max-width:min(72%,650px);color:#dfebed;background:#0a1b29e6;padding:9px 14px;text-wrap:pretty}
+.hud-flight{width:152px;gap:6px;padding:9px}
+.hud-flight button{font:600 13px/1.4 var(--exo-ui)}
+.hud-flight small{font:500 11px/1.55 var(--exo-ui);letter-spacing:0;color:#c6dce5}
+.hud-flight #flight-readout{font-weight:600;color:#e2f7ff}
+.hud-weapons button{min-width:110px;min-height:64px;padding:10px 12px;grid-template-columns:18px 1fr}
+.hud-weapons b{font:600 13px/1.4 var(--exo-ui)}
+.hud-weapons small{font:500 11px/1.4 var(--exo-ui);color:#d3dfe5}
+.hud-clean .exo-drive-actions #exo-fire{font:600 12px/1.4 var(--exo-ui)}
+.hud-clean .exo-drive-actions #exo-boost{font:500 11px/1.4 var(--exo-ui)}
+.exo-joystick>span{font:500 12px/1.4 var(--exo-ui);color:#dfebef}
+.hud-navigation b,.hud-terrain b{font-size:14px;font-weight:600}.hud-navigation small,.hud-terrain small,.hud-facility{font-size:12px;line-height:1.65}
+.exp-transmission>div>span{font-size:11px;font-weight:600;letter-spacing:.08em}.exp-transmission>b{font-size:17px;font-weight:600}.exp-transmission p{font-size:14px;line-height:1.8}.exp-transmission>button{font-size:12px}
+.exp-journal,.fc-panel{font-size:15px;line-height:1.8}.exp-journal button,.fc-panel button{font-family:var(--exo-ui);font-size:14px;font-weight:500}
+.exp-current h3{font-size:23px;font-weight:600}.exp-current p,.exp-upgrades p{font-size:14px;line-height:1.85}.exp-document>p:not(.exp-hint){font-size:16px;line-height:2.1;letter-spacing:.02em}
+.exp-trail b{font-size:14px;font-weight:600}.exp-trail small,.exp-records small,.exp-records span{font-size:12px;color:#adc7c0}.exp-records b{font-size:16px;font-weight:600}
+.exp-hint{font:13px/1.8 var(--exo-ui)!important}.exp-journal footer>span,.exp-document>small{font-size:12px;color:#a6c2bc}
+.atlas-camps b,.atlas-legend,.atlas-connected .atlas-lead{font-size:13px}.atlas-camps small,.atlas-note{font-size:12px!important}.exo-atlas text{font-family:var(--exo-ui);font-weight:500}
+@media(max-width:760px){
+ .hud-top>span{font-size:12px}.hud-top button{font-size:12px}
+ .exp-strip #exp-rank{width:134px;font-size:11px}.exp-strip #exp-rank b{font-size:11px}.exp-strip #exp-objective{font-size:12px}
+ .hud-vitals{font-size:11px}.hud-vitals b{font-size:14px}.hud-target{font-size:12px}
+ .hud-flight{width:140px;bottom:135px;padding:8px}.hud-flight button{font-size:12px}.hud-flight small{font-size:10px}
+ .hud-weapons{right:87px;gap:5px}.hud-weapons button{min-width:88px;min-height:60px;padding:8px 7px;grid-template-columns:12px 1fr}.hud-weapons b{font-size:12px}.hud-weapons small{font-size:10px}
+ .hud-clean:has(.hud-weapons) .hud-look-hint{font-size:10px;bottom:151px}
+ .hud-notice{font-size:12px;line-height:1.6;max-width:calc(100% - 28px)}
+ .hud-tools>button,.hud-trim>summary{font-size:11px}.hud-camera-reset{font-size:11px}
+ .exp-transmission p{font-size:13px}.exp-transmission>b{font-size:16px}
+}
+@media(max-width:390px){.hud-top{gap:6px}.hud-top nav{gap:3px}.hud-top button{padding:5px 7px}.hud-weapons button{min-width:80px}.hud-weapons span{display:none}.hud-weapons button{grid-template-columns:1fr}.hud-look-hint{display:none}.exp-strip #exp-rank{width:124px}}
+@media(max-height:520px) and (orientation:landscape){.hud-flight{width:138px;bottom:120px}.hud-weapons button{min-height:53px}.hud-notice{font-size:12px;max-width:58%}.hud-clean:has(.hud-weapons) .hud-look-hint{display:none}}
+
+/* Display faces are reserved for headings; full sentences retain familiar Chinese forms. */
+.exo :is(h1,h2,h3),.exo-shell :is(h1,h2,h3),.fc-panel :is(h1,h2,h3),.exp-journal :is(h1,h2,h3),.exo-shell-brand>b{font-family:var(--exo-display);font-weight:400;font-synthesis:none;letter-spacing:.045em}
+.exo-title-top,.exo-title .exo-tag,.exo-shell-brand>small,.exo-shell-pilot>span,.campaign-kicker,.tg-eyebrow,.hud-top>strong{font-family:var(--exo-data);font-variant-numeric:tabular-nums}
+.exo-shell :is(p,li,dd,label),.story-copy p{font-family:var(--exo-ui);word-break:normal;overflow-wrap:break-word;line-break:strict}

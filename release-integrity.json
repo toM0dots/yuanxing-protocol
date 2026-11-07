@@ -1,0 +1,2900 @@
+{
+  "release": "20261107-performance89",
+  "files": [
+    {
+      "path": ".nojekyll",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "app.js",
+      "bytes": 21827,
+      "sha256": "bf4097dc21266e7fe11cda1e9adb1c300ba448a8d35e4ae74738ca4c04bd2f79"
+    },
+    {
+      "path": "applications.js",
+      "bytes": 15254,
+      "sha256": "7065dd6b23a8a18a8de0686460422ba5050287e98dfd87eb97f849580a1cd5b0"
+    },
+    {
+      "path": "assets/aegis/EV04_Aegis_game.glb",
+      "bytes": 3068300,
+      "sha256": "6d9c3fb67931eda02bf9ffc6a201075c50324f2bc5ba711969846be5fd4ef914"
+    },
+    {
+      "path": "assets/aegis/provenance.json",
+      "bytes": 346,
+      "sha256": "60a0b3dad0f61f9cf3527f7f44c338ab69c14ce9076172bc4e342dcb89b127e1"
+    },
+    {
+      "path": "assets/aegis-v2/EV04_Aegis_Strike.glb",
+      "bytes": 2686536,
+      "sha256": "a90e7d5c2930f13650b122fd04f5459e9aa2fb516d84d66d7e6d9fca02bea1e3"
+    },
+    {
+      "path": "assets/aegis-v2/provenance.json",
+      "bytes": 506,
+      "sha256": "0d6eb9c9a416527ea5b003adf9f0e785c2efbc751083ffa7a27f42e463ade382"
+    },
+    {
+      "path": "assets/aegis-v3/EV04_Aegis_Strike.glb",
+      "bytes": 2695188,
+      "sha256": "45649f0f5c218f491923785fabf63ae3c59ca9b7066f252e276eea7754de5d3f"
+    },
+    {
+      "path": "assets/aegis-v3/provenance.json",
+      "bytes": 762,
+      "sha256": "ee13db5aa829d8145b8c1390043b50125b48e3eda6bf0a296bd9496a715773bc"
+    },
+    {
+      "path": "assets/aegis-v4/EV04_Aegis_Field.glb",
+      "bytes": 3311248,
+      "sha256": "f655c7bf24061ebdcd793922532d2e0c9aaf3323af1d9fc230e38b9396968dc6"
+    },
+    {
+      "path": "assets/aegis-v4/provenance.json",
+      "bytes": 756,
+      "sha256": "4cea5888238ef0f4941d0feca8a43d002ea5da6bf1a232687e845722da98a05e"
+    },
+    {
+      "path": "assets/aegis-v5/EV04_Aegis_Vanguard.glb",
+      "bytes": 6593896,
+      "sha256": "54b0be4fcce40a99384df68e17bd37a5af1607d140d53ce498e9798215675939"
+    },
+    {
+      "path": "assets/aegis-v5/provenance.json",
+      "bytes": 887,
+      "sha256": "dc0181906962c66fdfece807bb87affe407e77eda19d4f9dda76b9cdd966ce1f"
+    },
+    {
+      "path": "assets/ashland-v1/ash-color.jpg",
+      "bytes": 4127752,
+      "sha256": "3d7f67558e6ec57a50b56e196c37665ea4a1b3d7f8dc4049618f9002e08c109d"
+    },
+    {
+      "path": "assets/ashland-v1/ash-normal-rough.png",
+      "bytes": 10757356,
+      "sha256": "ec37efd0e4581e081cd376fbba9f22cd8bc1e3109665fc95505f4f0e7eab96eb"
+    },
+    {
+      "path": "assets/ashland-v1/ash-normal.jpg",
+      "bytes": 1433507,
+      "sha256": "703e907fe5cdf952aea61134600be985453da66d1a6d88519e5b7cd71d93c9f0"
+    },
+    {
+      "path": "assets/ashland-v1/ash-rough.jpg",
+      "bytes": 1358903,
+      "sha256": "7ab3d961e8d6bf8ae56e993dc32df3b5466d257f4c7547e8739b91615f45d1a9"
+    },
+    {
+      "path": "assets/ashland-v1/provenance.json",
+      "bytes": 583,
+      "sha256": "f5ca53aefe8b9509153573a7df9593b553192f66addc575805951d1c5fbc7120"
+    },
+    {
+      "path": "assets/biomes-v87/forest-color.jpg",
+      "bytes": 833711,
+      "sha256": "3dd6875cb3908e022a3c45ebbffa5e84c670ff2691fbbb6dc9ea4bff88523800"
+    },
+    {
+      "path": "assets/biomes-v87/forest-height.jpg",
+      "bytes": 321227,
+      "sha256": "a1ce10a2426d20d7fec2e48efa255638055922c809ff3ea03067257c0a594953"
+    },
+    {
+      "path": "assets/biomes-v87/grass-color.jpg",
+      "bytes": 955945,
+      "sha256": "ae94f2b34597b9108eefd88217f55eccaec6d6b382e858a478ee92df90e66617"
+    },
+    {
+      "path": "assets/biomes-v87/grass-height.jpg",
+      "bytes": 694376,
+      "sha256": "b38a605af66737ebe078ef5fdffe79e59f17a5ee4ed9dd187caaef67e4f8ac2a"
+    },
+    {
+      "path": "assets/biomes-v87/provenance.json",
+      "bytes": 1769,
+      "sha256": "e3f58a8c18e32bbd7922a6c204fce91bce54f177474b02a000b14674b59629bb"
+    },
+    {
+      "path": "assets/canyon-v2/canyon-authored.glb",
+      "bytes": 8574888,
+      "sha256": "601f565583d37aede0c2c8862b798aaf080b4c3f4941c740f1e82c51fbebdd04"
+    },
+    {
+      "path": "assets/canyon-v2/canyon-equipment-v87.glb",
+      "bytes": 78188,
+      "sha256": "b2af96c4a513a20abeb4d6ef642c719d2caaac6d1e03f6e4ac914c7d739125b3"
+    },
+    {
+      "path": "assets/canyon-v2/canyon-equipment-v87.json",
+      "bytes": 483,
+      "sha256": "a0ec87cab255521db20535803f9fab2b4411f056b5d92c7903dd78dc80931879"
+    },
+    {
+      "path": "assets/canyon-v2/canyon-flight.js",
+      "bytes": 34988,
+      "sha256": "4137e1d3ff9bdc72f15b49a56b197b03e33070d0811e99bb3787312a8c1b8193"
+    },
+    {
+      "path": "assets/canyon-v2/canyon-hero.jpg",
+      "bytes": 339847,
+      "sha256": "d00e28d8427767a1b6c52ea508fdb04e43b4cae811d17a80237b4ea654b16b7c"
+    },
+    {
+      "path": "assets/canyon-v2/canyon-manifest.json",
+      "bytes": 1054,
+      "sha256": "e6bc5d7bb4e40009b282015c8bbcb29974ec94d77e68b14845f94245399be902"
+    },
+    {
+      "path": "assets/canyon-v2/canyon-nav.js",
+      "bytes": 506563,
+      "sha256": "bfcf34ac437f14342143b5b6267142daccdef84e3eb0d4600713e5ba711828e5"
+    },
+    {
+      "path": "assets/canyon-v2/rock-diff-height.png",
+      "bytes": 6504096,
+      "sha256": "b4231c967d2f3f60bc1cfc0ff7ca6185718e35331b279985fa191095af29eb66"
+    },
+    {
+      "path": "assets/canyon-v2/rock-diff.jpg",
+      "bytes": 634218,
+      "sha256": "4bde57a732999d4ee3c390f18d7da59f0ae7ebc3385c7995b9b90e3c77b0f7f1"
+    },
+    {
+      "path": "assets/canyon-v2/rock-height.jpg",
+      "bytes": 274357,
+      "sha256": "a7286cbd95857ad1e7dc584cfb1669a6be38ec3cb8ad78da960a3a8bd1c62098"
+    },
+    {
+      "path": "assets/canyon-v2/rock-rough.jpg",
+      "bytes": 48659,
+      "sha256": "1b43497e29214fa8093bc33b75f46854c6cc200176a18514bd3d2057aeda766d"
+    },
+    {
+      "path": "assets/canyon-v2/trail-diff-height.png",
+      "bytes": 10568345,
+      "sha256": "980744230ec551282d9a4a1bcf853b4d4a30bfbdffd698b7460f8f3d14443f84"
+    },
+    {
+      "path": "assets/canyon-v2/trail-diff.jpg",
+      "bytes": 1236815,
+      "sha256": "ebae8255ac701d5ddcbfbc32bb416d93e5f9683c7458ccc9b1424b91724e8464"
+    },
+    {
+      "path": "assets/canyon-v2/trail-height.jpg",
+      "bytes": 410604,
+      "sha256": "506109b418f57b69251369f2bf15e986305d17db9c8c73131eff49cfeb90aebb"
+    },
+    {
+      "path": "assets/canyon-v2/trail-rough.jpg",
+      "bytes": 683246,
+      "sha256": "0ce63fb662cc451907af71ad048f67bce7fcfe6cf3a6ee296039d689486fa9a9"
+    },
+    {
+      "path": "assets/diary-v1/fibers.svg",
+      "bytes": 547,
+      "sha256": "c9ccec3e318263b5c041910782846566fc5cc34ee913895694e5e6c7c0299400"
+    },
+    {
+      "path": "assets/echo9-hero-v7/Echo9_Hero_V7.glb",
+      "bytes": 6084604,
+      "sha256": "0ec8c9954bebd40020211f010c29da46448dd1ee7f8fd37b7fc3ee8e43745380"
+    },
+    {
+      "path": "assets/echo9-hero-v7/provenance.json",
+      "bytes": 1002,
+      "sha256": "86978a267323d17f4bce5ad422fab1a82802c6d1449d20a0eb3830725efdee2d"
+    },
+    {
+      "path": "assets/eurosat/LICENSE-EuroSAT.txt",
+      "bytes": 1071,
+      "sha256": "73b8c5d100ff46a84845702b9e78d76ddb1effaacdb386b91dc07061c6123362"
+    },
+    {
+      "path": "assets/eurosat/dataset-u8.json",
+      "bytes": 1749682,
+      "sha256": "bd20cffff28c9d7cb75e1adff877faa711728e30d551552109b29b4e003b9a41"
+    },
+    {
+      "path": "assets/eurosat/metadata.json",
+      "bytes": 1946,
+      "sha256": "766631b20a1ea37d85e6b4db2c06c3ecc974a769906f3a11484a3017e453667a"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1031.jpg",
+      "bytes": 1399,
+      "sha256": "6ab4448468cd61ccf629fbdf754e7606a88138e85e5380449261df9078948ec3"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1043.jpg",
+      "bytes": 1250,
+      "sha256": "3a720a097e209518ca8dec1fd936a0b366f1c2613bc5c94af354996ab2904410"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1065.jpg",
+      "bytes": 1283,
+      "sha256": "3b470fc1e7ecbd2ccbbf02873f15fd555d24a78b77acd36afa951f802b7e4085"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1070.jpg",
+      "bytes": 1262,
+      "sha256": "13de3bce07fe33f92dcab2c06f4dff4f06cd2688a129afd6a5ee8024e506a510"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1115.jpg",
+      "bytes": 1709,
+      "sha256": "1c4a5c698c5aad16d6bf0e69fd611fb0db5c89c57fc9f4531ef45440f102aad3"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1143.jpg",
+      "bytes": 1308,
+      "sha256": "f8bf950128d8e49a570cdb34593c49a0329a278f1ca1c2f7820ccd786b78eddc"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1159.jpg",
+      "bytes": 1358,
+      "sha256": "4f078a671359899151b9a2a428ab1cb3607f0d9de7d08dfb76adc7a34ae4904d"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1186.jpg",
+      "bytes": 1276,
+      "sha256": "c215099fcd7e9a2c78a0095a9b2050e2e58203291105924a30479717bd8668fa"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_119.jpg",
+      "bytes": 1183,
+      "sha256": "d0a8dd604fa4486972a4692941dab6fdc217f77e76d7533500c1b1e39568b92f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1230.jpg",
+      "bytes": 1174,
+      "sha256": "b0653c60983ec6954a89c9bdac60a0352dd8c56faafec2dbd069f72c6b6b6923"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1233.jpg",
+      "bytes": 1243,
+      "sha256": "27bef2694913f82ddf24cee7b5d03d9c023b53944dc6d1801b12e2ae6be9aa80"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1235.jpg",
+      "bytes": 1274,
+      "sha256": "31519b63ce6e8d8cafdd2634b8b8abc753bead29aa997d4ac6ab20e4c9a0000f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1277.jpg",
+      "bytes": 1599,
+      "sha256": "e32fe1fac8af0f27e244c60004f285ba942eec6eff42a9aff4f96680338bb070"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1287.jpg",
+      "bytes": 1316,
+      "sha256": "37e6d387ed512df097f6d0009bd118555d5bccd1a0203e28a965464767851f47"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1292.jpg",
+      "bytes": 1676,
+      "sha256": "da7e237423e87804a01ea3f6371d3c9348eafdf485334a472193597fa44a2880"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1372.jpg",
+      "bytes": 1182,
+      "sha256": "a3cf2e6cb31d2c18aeb70fb34302df70dbb0aa866ab42fe20abff3d3422c359b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1380.jpg",
+      "bytes": 1507,
+      "sha256": "90d76e95ba19414ca1cd855473640fbd416272d45f55fc766d33e169237b8731"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_142.jpg",
+      "bytes": 1202,
+      "sha256": "200de28b7148ab8e7a41240d37771493fcc42b776360d6cd6789090ef7638772"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1437.jpg",
+      "bytes": 1277,
+      "sha256": "784c3701d073c4e80f562dabad053308fc79f0c3ebdfdaed1191e9e3ac248c25"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1440.jpg",
+      "bytes": 1326,
+      "sha256": "ba19c5dbb67687b4b2e139441ae22d6a58ca9852be381422bfc0f0cd1faaab10"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1452.jpg",
+      "bytes": 1267,
+      "sha256": "7754aed83248abd14d96f525e9110fff715b0c2bae9585c014370addd3e6917a"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1455.jpg",
+      "bytes": 1249,
+      "sha256": "2c92428ad7fff36a27dcd18cd5c1053d31ce09cb5077e4a0a375ac8c6a499fd8"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1474.jpg",
+      "bytes": 1272,
+      "sha256": "a3e16c79360ec495c8043534a5bcd4b072813fb7179939ee996da24156331c5e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1495.jpg",
+      "bytes": 1519,
+      "sha256": "ad90889b8123acdc0f957b2c2d460cbc667b5d45ed0863fcd64de92c4be45ba5"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1502.jpg",
+      "bytes": 1221,
+      "sha256": "c6ce8bbe10f78e16ae343fb9a1206e20b4e19dae663eeecbba0da7a4c16b8df8"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1529.jpg",
+      "bytes": 1556,
+      "sha256": "6b8b654be8666a43c044c1341c4637b24e2114a2f56599c41751405909d9dd3b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1543.jpg",
+      "bytes": 1277,
+      "sha256": "8d23cdc336761096dcf85104b4e6f0a2035e14d3241eb7558b0c9f3c6ddc1e1d"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_155.jpg",
+      "bytes": 1176,
+      "sha256": "c67afcd7de09e0af550df4313b5660ec5d8bf8b6e16013aed2997eb6e288303a"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1559.jpg",
+      "bytes": 1209,
+      "sha256": "f80c819c95579131901a4759fec64d35289d24627905fc874877a27f3abfc1c7"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1572.jpg",
+      "bytes": 1306,
+      "sha256": "783a3edfff650a4fc859729fdb41ecdffc09c383bc79f96366b2385ed79daa20"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1596.jpg",
+      "bytes": 1177,
+      "sha256": "6d6aa7594a4d122aeb378fcdc814fa8fa775a39ab5463236c87a321ffd28a584"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_163.jpg",
+      "bytes": 1374,
+      "sha256": "5a4a34572ba87405de0f73ca59782f0ebf16d36da018b6175b97eae888ad9d21"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1643.jpg",
+      "bytes": 1212,
+      "sha256": "e17d1416117e881955a5bd308021321ae383e28aad7e36200b294fe79d4d02bb"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1649.jpg",
+      "bytes": 1259,
+      "sha256": "518d268764995f28432c57f02d19399b698f714e7f9a52f206e759033980080b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_166.jpg",
+      "bytes": 1439,
+      "sha256": "bc5bd75bd1d4615dfa1c89a85636eceaccb35be67a6a73d6a660f530c354087f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1747.jpg",
+      "bytes": 1244,
+      "sha256": "8b064f1c3c7f1281187f20fff7e08bc5b0f440cb21d98088a7a7c8d521dc6d7e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1779.jpg",
+      "bytes": 1456,
+      "sha256": "3d9e0db51e16a7591dae890f78b43cb21a9401e330380160139b59bd0ca98eb5"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1816.jpg",
+      "bytes": 1182,
+      "sha256": "2fce95009d70402e3ccbde5ebcd696a7bc66c9a96a9df534591a7d8652aaf4d5"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1821.jpg",
+      "bytes": 1294,
+      "sha256": "80bd146837a235a81e34c0ce329da33bba0513bd42ed56761765f9c6e6522676"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1835.jpg",
+      "bytes": 1183,
+      "sha256": "48a211ddd5499370cf2df597695f01dd9d9e47d7f1b4fddc926191faf66ba178"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1845.jpg",
+      "bytes": 1082,
+      "sha256": "7e7f86ba8cb826a7e4bf307b348b5301448fab876a4ce745d8eec9b2ca34cafd"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1863.jpg",
+      "bytes": 1145,
+      "sha256": "2de42b0640c00236733b0dfcb0888118420889d4ba7bbd961dbd5e96c5937a42"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1882.jpg",
+      "bytes": 1343,
+      "sha256": "96be44d38e22d19316f880b0011e241fd3d15545a86eeeee4f5082b6f3a1b8fc"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1895.jpg",
+      "bytes": 1333,
+      "sha256": "7ca803251b646fe30db3190ea64bffd9a6571c7087395f47cfd6af981d25540e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1901.jpg",
+      "bytes": 1110,
+      "sha256": "3ff65880ebf34b76ab4a7b8f24e3184b33909ffda58fa0d56abf98f770ce2ea8"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_1939.jpg",
+      "bytes": 1493,
+      "sha256": "fdce52933dbaa7c22240da913056b3d6ef7ac441a5d93ff661a5ba1ed056c464"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2063.jpg",
+      "bytes": 1548,
+      "sha256": "fbc233535145abf928ca0818756db8dcee737e7fc70f69d8783901c263041e63"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2089.jpg",
+      "bytes": 1601,
+      "sha256": "1a9fdc6c5f48bce630434f16e9798ba7885e9c20abb82b9ff63197ca1cb05e68"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_212.jpg",
+      "bytes": 1355,
+      "sha256": "7e7fc15cb97f46be44de074c3926ccfe0fef8d8c2b34a57bc97bbba86c5f3294"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2190.jpg",
+      "bytes": 1224,
+      "sha256": "3423e3e9df4ecd8605ee5112e24e06363bea0cb7cdde6b7a835ea7761f71db33"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2202.jpg",
+      "bytes": 1076,
+      "sha256": "b15900801d8d3354e13a9d36bd12ca828cd61a5575d6f9c4fa2e54587268bbe1"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2217.jpg",
+      "bytes": 1312,
+      "sha256": "8f4229a425c7680be38f49d90974a1c15f05612c83e64bc16b218b01747397b6"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2256.jpg",
+      "bytes": 1449,
+      "sha256": "be53967a2b6e7c5270ba11845af61846541d7aaf5b50f6214f8a5ce0a239c33c"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_226.jpg",
+      "bytes": 1476,
+      "sha256": "5ccff11bfbfaf86ddf5b8c6b431598a3a8a7eca2b28786b5626d7aba313d568e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2275.jpg",
+      "bytes": 1186,
+      "sha256": "8c399faa44c081fe90b5080cfe97c2f4e01a781024f9ea22de9dd6c9f79c4754"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2288.jpg",
+      "bytes": 1247,
+      "sha256": "1a5b3b9128ccf5c2482b953f82cf023c7e020bae8e3978f75fd3d1a5875488dc"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2308.jpg",
+      "bytes": 1173,
+      "sha256": "7eeae6708405337933ed18547b6f40bfd1c6b19acb933fa73ff8208c1d6ba29a"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2318.jpg",
+      "bytes": 1213,
+      "sha256": "8fa7832345d634f441231e9d5a467e67cc9d3c78e626baeafe6041b3cc2e7439"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2324.jpg",
+      "bytes": 1242,
+      "sha256": "d27302687d40b6aa21009ab0b65bfb0af5495f7af007c38623362e13762b3e36"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2334.jpg",
+      "bytes": 1178,
+      "sha256": "4c2ed1c4f13d4d6ac07127ce62477c3d106754babcb2012382623c8e5ea45b67"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2336.jpg",
+      "bytes": 1234,
+      "sha256": "e87c9827dea807ab114187d829c6147580f0fa9c85635605b547dae8f6b6529c"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2340.jpg",
+      "bytes": 1185,
+      "sha256": "3991fdc5f1d8c3015b830aa99a4886417f995200d2c4205325834e80306db536"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2349.jpg",
+      "bytes": 1140,
+      "sha256": "adba437f386d25a6561366eb3d8339a3e686f959dc55a3cc7da4a989e87a25f6"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2407.jpg",
+      "bytes": 1328,
+      "sha256": "db57c3c8da1a74b80036777d1fb76520bec060929aa6ca29fd6b67325945d6af"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2435.jpg",
+      "bytes": 1299,
+      "sha256": "9bf83ea49cffdcbefcd2ef49116e8edc3b0c3c87f52fa17f4cf4af278f5daac2"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_249.jpg",
+      "bytes": 1243,
+      "sha256": "0c7ededb9da0c6a3675378dce440db7e15b2ce1fb5cbc23d0821ac421fc8631d"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2528.jpg",
+      "bytes": 1180,
+      "sha256": "fecefaf8cc0ad611b10f077225b417257ec9c8afcd7d7068f32d540aad443ef6"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2553.jpg",
+      "bytes": 1177,
+      "sha256": "c3cb65aa6ea827be8d10e3369d82c077694d21f91be8c9ff69b6970d917538db"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2579.jpg",
+      "bytes": 1349,
+      "sha256": "b7fc590f24eb77551053a402b20d7cdc04a14120fc82e0791d9211d304de7225"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2617.jpg",
+      "bytes": 1159,
+      "sha256": "41307c1f7d02df0113e8ac410b2f22f2c19c5605eadaf061f98fa9b11ab62092"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_262.jpg",
+      "bytes": 1246,
+      "sha256": "7eb9a70bbbac930c26b3a7df28a784b91de0f7602388c2256b1ea617a35538af"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2694.jpg",
+      "bytes": 1338,
+      "sha256": "1beb6f1f1bcee32184d25f265236076e12ef6cbc52f669cb8e1e4910a6fe2fac"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2697.jpg",
+      "bytes": 1319,
+      "sha256": "9fe0f4038a41755f66b4ae9fc9e0489018b30df59aaea766ee51f580e0a1b5f4"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2712.jpg",
+      "bytes": 1290,
+      "sha256": "605e31c09525a1408801bda29094d7835adab2b47bdff700ff895e2525d2b11b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2754.jpg",
+      "bytes": 1112,
+      "sha256": "f016df15ba22bf3aa2c67ff66be3a33efe0da671082a7d24bdbf8732cbc2742e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2771.jpg",
+      "bytes": 1027,
+      "sha256": "be5991b611bf233e49ece268e4b8c0e0ffd7574c1e0fabb244b9bf723562c5d1"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2790.jpg",
+      "bytes": 1398,
+      "sha256": "248959371b10ed88fd3d3c2cfe9bf3d578d154a16d0ed7d1d52d6a0792d35fe4"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2793.jpg",
+      "bytes": 1072,
+      "sha256": "0c409fbef494b121a5b50103ec76659ba10b0568ddf279ce21e5791deb86982e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_280.jpg",
+      "bytes": 1399,
+      "sha256": "55e51394e9b2d45a3c2b8ae7eb119c8feabd20c78b5f3e15308230358d422a65"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2937.jpg",
+      "bytes": 1134,
+      "sha256": "c058f8a2af8e0f1c85f4ca9c80dd97923a3f42c7f18fa18bbd28cfff48e5082e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2954.jpg",
+      "bytes": 1319,
+      "sha256": "9e371988f722362e2461e9fa42ec7dd139eb29b2daba4897eacb4c73f125ca8f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_2960.jpg",
+      "bytes": 1451,
+      "sha256": "4f00a4607eac6443e1be7e523097b6db7349a2a9f9913c3e3c5ad3b2b8b24014"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_33.jpg",
+      "bytes": 1227,
+      "sha256": "0e144641d5720de463098c47e2e8b3cd67dd092cda2fc44f9df49fbf88befcba"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_454.jpg",
+      "bytes": 1478,
+      "sha256": "8f73d68641ae02c49f9590c1c0d041d6b86ab7b2d44bd4e4a344e25a633063a4"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_47.jpg",
+      "bytes": 1225,
+      "sha256": "c0f4181adc1f73130f5a0efbf541f2503454ec4065741e94e222ca3a7be0f7d1"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_517.jpg",
+      "bytes": 1311,
+      "sha256": "f00621efb7371d0045f653d09191cc567149f261a6807669d89e30fab09185d2"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_529.jpg",
+      "bytes": 1351,
+      "sha256": "00f500ecb902fda0d1eaee28a9a17a701c05e381949c31b15a75de5aeae893c2"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_550.jpg",
+      "bytes": 1513,
+      "sha256": "44b91d427c96cfc00532b4f0435efbdd2b91eb650a6c28b330309e568a759cbd"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_600.jpg",
+      "bytes": 1351,
+      "sha256": "e529b9e46e9183b01c689da782c960855a6104da7fe917c212af70cc64a11fea"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_604.jpg",
+      "bytes": 1141,
+      "sha256": "285c6d8175745d1ae2a00bffb8cf34f92baa50e77e29d4213a1545d72f05bbd4"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_606.jpg",
+      "bytes": 1214,
+      "sha256": "917d98f30313a6921f6b16a537bd4b5056caa68e38dc14e2a7a51e953a52865d"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_86.jpg",
+      "bytes": 1104,
+      "sha256": "27f4967ffbbda9940ea228ea65a64597d87f108cb854c1f19ab43df06baaee0f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_867.jpg",
+      "bytes": 1176,
+      "sha256": "4895d306d2c6e1fd6f5f76866230901530468e6921f63270eebb3cfdaeb289ea"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_87.jpg",
+      "bytes": 1003,
+      "sha256": "9047a8f96a2c335429f7bb4ebe88265d23573f27b8031ed1eebf2cc7beedadf8"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_884.jpg",
+      "bytes": 1265,
+      "sha256": "351ae1056fd41e4a621aa4f6a38555450501096423cf70482ec63ab5d2b293ee"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_91.jpg",
+      "bytes": 1165,
+      "sha256": "bdce9b367027e727fc1a6dceeb4e365ee010c3ce9cdc8d14b73e6c6d00c8c498"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_924.jpg",
+      "bytes": 1348,
+      "sha256": "3f7394fc78f4934ef0215898cb8e16bf098393e23d0eac1129b833236dc9ffd5"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_958.jpg",
+      "bytes": 1317,
+      "sha256": "7dbc8d7cb7213f52e0181a3292584f2fdd0bd4272233e378596122bbb7b96867"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_988.jpg",
+      "bytes": 1213,
+      "sha256": "95be7303768c293667fbb6dbab20b0a90d6a64b2ae60a03befc3158a493b9e56"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Forest_999.jpg",
+      "bytes": 1198,
+      "sha256": "fdfeaff90557cd413c41cc0a2e56fba15bbb61eab7c00d239527f24af39babc5"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_102.jpg",
+      "bytes": 2448,
+      "sha256": "5250461745d2758b0306a5214f76c2326357e6516dd9f4808870bb83e7f3eb3a"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1132.jpg",
+      "bytes": 2357,
+      "sha256": "1b0284b4b11651824394240a0e6018ab993b5aa76e54f77574d3aa070f6fe103"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1138.jpg",
+      "bytes": 2408,
+      "sha256": "0b36985dfbf79ac855ddd02fb09a17c0b051a5bfad5dbab24cb04b4612b5927e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1154.jpg",
+      "bytes": 2714,
+      "sha256": "aca8a98f6d1a5fb1e1b99cb9682ced56a6b5f4ccf0d0f2416e16227c61abbeef"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1178.jpg",
+      "bytes": 2616,
+      "sha256": "e8f6659e615398cba94eb65ff779fd252c144badc7ddcc956e5964e80a3571c2"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1190.jpg",
+      "bytes": 2177,
+      "sha256": "646691eea20449c0ea988f964cb1231c48924c2e189b53ab029c5186d100a0c1"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1214.jpg",
+      "bytes": 2896,
+      "sha256": "85c2e19b9264530603f9ea412514df06a2a25468ad94d5da4420380ed3f904a7"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1215.jpg",
+      "bytes": 2103,
+      "sha256": "f3f1a9064ae8107be4b6eb356c181ce6a11ac8b741317d27ba18c340ca09b79b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1227.jpg",
+      "bytes": 2078,
+      "sha256": "17854cef571a8712a4be6d1c0f599544db4fc16938a495e3c63b020d144ef0b9"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1319.jpg",
+      "bytes": 2911,
+      "sha256": "ef62d211199abfe8905671279ddd1aa0ccaff873aefef9df4fc9051123b7d8bb"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_133.jpg",
+      "bytes": 1828,
+      "sha256": "a7585e86f4371a3180ab1d731ac100d5c2dbaa12a3d8d2d8934bf589c54d786c"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1337.jpg",
+      "bytes": 2443,
+      "sha256": "7b63c8a5103c6211b09b74059756d60982a61d86a1a976894b800d2c51fbc7dc"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1341.jpg",
+      "bytes": 2490,
+      "sha256": "b30c60993535df4e9bd67e5532ecd8138a5cc2dc63d1fa7ea9646d6bb3c3df09"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_138.jpg",
+      "bytes": 2976,
+      "sha256": "073022a3c2dd0e49590e6442f1947821c13664a53c7e8af82f2a0f22f134f7cc"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1388.jpg",
+      "bytes": 2616,
+      "sha256": "45b5cb9a92199e1e70d2c4b279a9f2407b2a4bbb506a4f778e4fd65fb86694ce"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1402.jpg",
+      "bytes": 1968,
+      "sha256": "3d8847b52bcf18222f742052a347510fe3c57ccc6b398c899730513bf6cf81d1"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1407.jpg",
+      "bytes": 2436,
+      "sha256": "61df670f96a4f882ea286434ebfe6a1dcc7e2be99dc3e81a0b447273395c457b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1440.jpg",
+      "bytes": 2294,
+      "sha256": "0af38051cc2b1d3908c42f55c8cf1214e5375adc3e2dcc33f6e67c4b5feed4e9"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1494.jpg",
+      "bytes": 2291,
+      "sha256": "8079f2049d40025a34d95b888a4e647e7f80149c316d45d70a21b88cfb3f3c88"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1572.jpg",
+      "bytes": 3041,
+      "sha256": "ebb4bf8d6175deffe790a50b18d3bef00b49ec32eaefa5e52101101816a44a7d"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1667.jpg",
+      "bytes": 2268,
+      "sha256": "154496b3daee9a2bcebb80914e26a58fa56bda132f5ff98b88b6e06ca2515683"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1687.jpg",
+      "bytes": 2677,
+      "sha256": "a823974efd87a966b53cd2c9278fc26cc25d4e2323c35ffe4264ff42b5fc3936"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1698.jpg",
+      "bytes": 2684,
+      "sha256": "0cbf58b4f8baf6ecfe651e9f2bc3daffb8cbbd4528e6495f75098dac9793b881"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1701.jpg",
+      "bytes": 2046,
+      "sha256": "71baf8b13cc76054f1a7150ca7e62d2bec864037551c5f3e167e4a4230fc6df3"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1719.jpg",
+      "bytes": 2394,
+      "sha256": "f1ecee4bfdb6a4e0d0a56f707e6aeddd2b285ce16a1c3fdc80206110dc0194d2"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_175.jpg",
+      "bytes": 2801,
+      "sha256": "7d4281c958d87287f0057a30077d1451452bb083bd1b85b846b9c9de8af517c3"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1796.jpg",
+      "bytes": 2139,
+      "sha256": "2891d228fac0052a9be5499c2f6a6771f372773650e51701dc3704db1c0135e3"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1808.jpg",
+      "bytes": 2375,
+      "sha256": "8e19847a1bd7bd4ff9cf393189b6c6a57c833e50bfe72b2b54b1322eb8c9224f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1873.jpg",
+      "bytes": 2331,
+      "sha256": "24963bed1b9774b2e1f6a5372ccbb64de3f790f3e4affbd71e52a65f26d400b5"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1969.jpg",
+      "bytes": 2479,
+      "sha256": "1d1c97e5fa2e45dc3b9c6597385123afbff8d649f193dc6fd1035adf20b375d5"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_1987.jpg",
+      "bytes": 2487,
+      "sha256": "5501988727957f3c43083b5269299216cf426beca4a37f8b54bdab4c85e48035"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2001.jpg",
+      "bytes": 2669,
+      "sha256": "93d2168d1ed2b78292b15fe6e3280771103877d9c15bad8888f09025f5e0e4ec"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2005.jpg",
+      "bytes": 2951,
+      "sha256": "cc8e55f71cb1366b47cefda42f3aa55e4ffe160b4b678e72b8a2475fb908a5a9"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2011.jpg",
+      "bytes": 3022,
+      "sha256": "a35e456bad171b1ceed754cb5493cde9f3d488951614d4bee2c0e3dcb8dc12c5"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2016.jpg",
+      "bytes": 2468,
+      "sha256": "180cb6e40d81f556391e8111acab02bbbed7299dcc26dfa47214050e92f91952"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2017.jpg",
+      "bytes": 2793,
+      "sha256": "b846aad275e66af25ad1d496e30e0c2725f20c382e43e46854ea4781f942acc9"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2071.jpg",
+      "bytes": 2107,
+      "sha256": "1b969a89ebc67f962187e126f9447b6f2b6d44d2214f79ba1ebfbaee3619aac8"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2116.jpg",
+      "bytes": 2394,
+      "sha256": "879c8a016516d74b45ac1fed1cbbcc3ae405d7a3142e0634bd21b261b2f997aa"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2145.jpg",
+      "bytes": 2840,
+      "sha256": "58380e723227aefa5a94ca6ac242502533ee543d4ada9a6d3826c30d8a316d62"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2168.jpg",
+      "bytes": 2347,
+      "sha256": "377bde4b979b3cb955900c3517ed93c3989fc93edfc241f9aaec4b110c6242b3"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2212.jpg",
+      "bytes": 2937,
+      "sha256": "ce31788ad9df84199c9e75fa6630697e4bf79351a8dd98c5652a8d80dcc2f198"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2219.jpg",
+      "bytes": 2370,
+      "sha256": "8d28180d86efffb61018bb07115c90afda777a8ce5aee0e5844dc4574242e00d"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2248.jpg",
+      "bytes": 2174,
+      "sha256": "fe9e6ae97fd3e2d1ba4d7363e74df51d3a5d25841dabfb5999c0a1f43e4f911c"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2257.jpg",
+      "bytes": 2344,
+      "sha256": "66ee516368be70ee8642ffba57302c836feabf1998d8e4c1612c029802af182c"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2275.jpg",
+      "bytes": 2641,
+      "sha256": "0b263d41f7ef42aabce31b4f1b95d6a069217178462e415444e033d7269188b0"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2282.jpg",
+      "bytes": 2069,
+      "sha256": "2e3fb6d5671521c25ca140dc018b078b82467e723bde33ca0346eb4311dc1aa0"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2284.jpg",
+      "bytes": 2829,
+      "sha256": "a8ee4875a0308da7cff6799f979b43c1e802167927978ec25cd3c7506d188dc3"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2337.jpg",
+      "bytes": 2351,
+      "sha256": "a742d69a6367490832d89493229ae8dfb2e2e8b10699789c1e3d503655dcf358"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_238.jpg",
+      "bytes": 2348,
+      "sha256": "cdc6b5d3f5afa6c926f0669c36a6b0216f809c3896f93a399c862c01bc1335ee"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2413.jpg",
+      "bytes": 2515,
+      "sha256": "7f26eb0dea6d6240a0bd094827421a24cf394f0eb2061995b966d5987b8dac55"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2427.jpg",
+      "bytes": 2526,
+      "sha256": "665a3d299ff74b875629c60e8b40444baa07469a7cc21815e5b358eece742ca4"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2449.jpg",
+      "bytes": 2835,
+      "sha256": "562ee038cb3fe25aa8c2d9a0b08885050e051e92d0aee245de329aaa01559ebb"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2475.jpg",
+      "bytes": 2808,
+      "sha256": "bc0a6c0a4edaf58f4dd71941deb8c04a466171bdb44deec786c33b70af6d8752"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_251.jpg",
+      "bytes": 2635,
+      "sha256": "88144b6938bd6e845449b873edadf1c7757a25f07e0e81f5480bee28583d4510"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2553.jpg",
+      "bytes": 1618,
+      "sha256": "6a1a42b9014d3833ece5eb8762a277177bd5ea4e11fe2735a913b9f3698a0830"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2558.jpg",
+      "bytes": 2058,
+      "sha256": "a1c74ae910128a2f544a8a289b512552e5418b123c8e363b2eee8f49e95e9052"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2563.jpg",
+      "bytes": 2558,
+      "sha256": "a2580a2f68e306c81d3b84a8e8f380392f994868209ff05f0c187b2839e50756"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_258.jpg",
+      "bytes": 2472,
+      "sha256": "994343655c2f8e9149b881bde85bae1faef996a4b944b38dd7b1807d78a1d73c"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2586.jpg",
+      "bytes": 2621,
+      "sha256": "893bb50c92cf4ded1ceb8e7a01991154575a6fffbbd081143f8f4556fb092f4b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2601.jpg",
+      "bytes": 2944,
+      "sha256": "8f3de2c289ab4042c0ed3bc597a770d34d585d995f6f9564f4bafaea21ebe2d1"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2651.jpg",
+      "bytes": 2566,
+      "sha256": "e6a22da9c78529a932f8dd386361b520999891edbb9983597d1c5c3aeac3c0f5"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2656.jpg",
+      "bytes": 2184,
+      "sha256": "feed4d2738d460e0ee7c3b534acc76e2320e979a0633972e4c7139e6fba8ef59"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2682.jpg",
+      "bytes": 2401,
+      "sha256": "ac0b238cc5914c3d8e25579550b9b2bbf30b48d4a592804ba6841fe208d42d21"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2765.jpg",
+      "bytes": 2795,
+      "sha256": "2e7f9551ff6e1887ae44d169fa3d8ec8786c2dedcb9aef3c042c1c5a371146d5"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2805.jpg",
+      "bytes": 2189,
+      "sha256": "e28c2a92814552f0ca78d317aaf7c6cd9fa2fb30652d0a74ce743a2f6a090948"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_281.jpg",
+      "bytes": 2667,
+      "sha256": "175c0b3f47160ba6cf86c6394d172cfd2d2917223541ddaaa6dd571f97cff746"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2889.jpg",
+      "bytes": 2832,
+      "sha256": "6e8edeafa63586d3dd3c4123d4e7ca589d5d9e2b6942f1c06cd2c59d29ca7fb1"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2898.jpg",
+      "bytes": 3070,
+      "sha256": "124a5ea1ead15b01101d9e060abd71945d11de89ee992d8af518ff1ceb893245"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2899.jpg",
+      "bytes": 2378,
+      "sha256": "af97372ec55c600869fecb6242bb830ee69332f9eb21bcefdea934a1d6148793"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2903.jpg",
+      "bytes": 2394,
+      "sha256": "6db0318f60352e03abfcd30e805bebf46e43ae098f8ec35fd00f086f863c01c0"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_291.jpg",
+      "bytes": 2542,
+      "sha256": "d30015e2ead70590f85e653657c3383e3f4cbb0c3c4117d2ba38865181c7ea49"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_2911.jpg",
+      "bytes": 2544,
+      "sha256": "bb6b1d3cfb741079928bbb4676c189260e836c0bc0f18fa894b0b46b874b9701"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_327.jpg",
+      "bytes": 2845,
+      "sha256": "0dfbf567c121ca4328822376e7ba374f77b387f6a1a927a124bd4b939f5d6f24"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_345.jpg",
+      "bytes": 2585,
+      "sha256": "7341d306bd008e21856e0d6d87dede6e7c859577be2f87e60396217feef48cfb"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_36.jpg",
+      "bytes": 2098,
+      "sha256": "a7c07048c9d78c6c88b8bf63f3706ca37a4b4c4e4262cdf4bb39550b7518df15"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_363.jpg",
+      "bytes": 2267,
+      "sha256": "d0794d1525c319dd4a157a83c29de48b9b8cb4771263b0b499ec6b8c8f2292f3"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_386.jpg",
+      "bytes": 2874,
+      "sha256": "f7a5f16021d415b4129ce5de8ba793dcc6234c926a57a452a7c688c79669e709"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_392.jpg",
+      "bytes": 2912,
+      "sha256": "79049a25ceb7f7c513338b9ca5750cf8025f657cfdf7ca29a2c3bb09cc7957d4"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_407.jpg",
+      "bytes": 2948,
+      "sha256": "898ed4c49aeba87d481c833650bf15ec7b1c183893df89180fac8ee7af248516"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_423.jpg",
+      "bytes": 2105,
+      "sha256": "8562eb9fbbed2077ee97929065818bf3ad62b21bfc46f033b881c6a567926e82"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_442.jpg",
+      "bytes": 2992,
+      "sha256": "c5f5e329a9cbac4907ccf1ff993cf3fedb8ee42d40f274c4649732754fbfd38b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_460.jpg",
+      "bytes": 2713,
+      "sha256": "e99ca426065e871dd0afb7766c27e8153329268f6c9d58c598f05dee85bbeb6c"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_462.jpg",
+      "bytes": 1775,
+      "sha256": "bea397319ca5861d2f3e80dcd26cd99bd29f747d1a8ae7155b45ed4047b5c0c0"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_578.jpg",
+      "bytes": 2279,
+      "sha256": "158d1266e46131ede1f87ab0f6d778c4ca9f2a32a96cc9879d5493c10cd3a68c"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_614.jpg",
+      "bytes": 2164,
+      "sha256": "0f6845bc78cfdff2d5be787bdf05910f8bc96007f48c65b16e68a1886e98fe7a"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_641.jpg",
+      "bytes": 3036,
+      "sha256": "96a57313e82b037ce71c930355c00bbc5d64227270fe869d2c9d9fedba63b39b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_693.jpg",
+      "bytes": 2417,
+      "sha256": "a76df0b02c151d47145427a557807409793b4eaa59e1f071016fc5f80ae001d1"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_696.jpg",
+      "bytes": 2922,
+      "sha256": "b5a3b38c70b867f870af2740297bfd58c2da48b67c58c5fa44c959670cf65d60"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_709.jpg",
+      "bytes": 2235,
+      "sha256": "895ded23ed9e90f53320d523c4dd5a0e52cb8273ce43e0ae7b8ccde3cf39c548"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_741.jpg",
+      "bytes": 2863,
+      "sha256": "8ebf483df1465c051ad940624a7a5b43bafb385d99010b1f7bbd67fa3cb9ef53"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_783.jpg",
+      "bytes": 2291,
+      "sha256": "d441774f453398ce19b56256d4175ade267bb5e362220f80e808bb61ddcae2c8"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_79.jpg",
+      "bytes": 2235,
+      "sha256": "e891dd1b6d48bbb5acf967d6427044e6f20487aadbbfc7177aab23d66b85391b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_796.jpg",
+      "bytes": 2633,
+      "sha256": "7783cf76999b0d0ac935c20d9842c586f746a648c49a7f1f1247fc95baecb33b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_875.jpg",
+      "bytes": 2249,
+      "sha256": "095b9aaa9d3dec1489659c8968760acd68e74f29a91ef90918c52c7c25d5ad9c"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_902.jpg",
+      "bytes": 2861,
+      "sha256": "110bf6a1136425bd35dec95b5c7b12e8ad618dd69419c2c4c40c962e9ebe88b0"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_922.jpg",
+      "bytes": 2964,
+      "sha256": "20162eb575050e570098c75e4422de3e1cf6ea6ed831797733c0b1d85c5439ca"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_969.jpg",
+      "bytes": 2586,
+      "sha256": "c4d0fdaf009d52aa2992168c7fe6af8d6dc8339e984bcf00cc038d3e14a611ba"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_976.jpg",
+      "bytes": 2760,
+      "sha256": "d39f5b3423072549a366594d7e9efd6a4db9e63aa87c0f06cb8134f5c1158b14"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_992.jpg",
+      "bytes": 2096,
+      "sha256": "80cffe70142100ae3c7ec5d55f2bd08266eb6f57accfed3c46cdd9a682e6738b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/Residential_995.jpg",
+      "bytes": 2095,
+      "sha256": "0926a39b472ac5ed19a8bec3764d9006fbed0f6879425802409b429ebc296487"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1000.jpg",
+      "bytes": 829,
+      "sha256": "6b91c64edee4dbad3bc837cfde47b4dfb273567a011e10062ddc267238b563a2"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1084.jpg",
+      "bytes": 807,
+      "sha256": "26c00cd9af95426c123ad695d8f54cefd2a318950fed99d94baa05f95a5527d5"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1120.jpg",
+      "bytes": 800,
+      "sha256": "f604d2c2551ab1a3b90bf7719e26c1482e5833305ccf97340b31b3180ab503e0"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_113.jpg",
+      "bytes": 903,
+      "sha256": "d85395edf931704f1284f669e5ae4c4ad228ad1424332c9d0537db58bdf0d56d"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1140.jpg",
+      "bytes": 782,
+      "sha256": "a466b96002339f44f5204e557681af71c17bd5435d26ed718f32a90926ae94b8"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1169.jpg",
+      "bytes": 768,
+      "sha256": "59cf4d64bf486a3446f46d2f4a98baffe3fece2e10fef980646ba2a2cb4cf87f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1194.jpg",
+      "bytes": 814,
+      "sha256": "db9a82ad95dc4d36d1cb5db822e02b011ecf5078745592ab8d8db2c03b2b0832"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1266.jpg",
+      "bytes": 825,
+      "sha256": "95e5bf643e6d5b328c647f755a60fc922ca34d4fd1b64aa6ba4cdf143b1535a5"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1323.jpg",
+      "bytes": 832,
+      "sha256": "51f7eb6847df640712ea80a6797bc88f750742a20a7473c514de880901c35a94"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1401.jpg",
+      "bytes": 808,
+      "sha256": "018bcf6acb2c2bba3dee9991bb2594fe4ce271e14d1eb8d4866c9bc38605c629"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1415.jpg",
+      "bytes": 1093,
+      "sha256": "f7ed493573fbe95be42aaf5def486565f793b4a21d43d6999960913b52714668"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1419.jpg",
+      "bytes": 818,
+      "sha256": "754bca56f80d4ebfc2c22b62e08816a1f4b7b26e210ba544776b3b7e5df39b4d"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1436.jpg",
+      "bytes": 885,
+      "sha256": "560a8b115a45d29d0f353bc9a400d4cc0885f7b51a80d536a616db0a0956335e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1443.jpg",
+      "bytes": 984,
+      "sha256": "9496a66b87731f1f092c5320256b8b9b3674f6fca0221ef72b6263bcd40e1573"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1467.jpg",
+      "bytes": 963,
+      "sha256": "ab7f7d0e8f45dd85602d02111cf21d83aefca879714b1835f24b299dce46782e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1468.jpg",
+      "bytes": 798,
+      "sha256": "c1178e05c02153c1f833c0e53f1f35fe43a031129d5356567b62a8872a04fbf7"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1490.jpg",
+      "bytes": 1001,
+      "sha256": "17de8b0ca8f6389d1ee09f49d407497712bda56aa59e7f02625ad9d07bdefa85"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1498.jpg",
+      "bytes": 975,
+      "sha256": "ece5f7ec70094f6b08e5768d18d2ceae87a784e3aaf36e1829a5a96cd09a7047"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1501.jpg",
+      "bytes": 794,
+      "sha256": "94d4e8c7de840aa946719a49811b71bc77e35fefb37cb1082da27f67e6c6c210"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1556.jpg",
+      "bytes": 1128,
+      "sha256": "36be3878c6aa821fd93ce4e2694524539b7f02d8477a1f77a86626970ad151fe"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1593.jpg",
+      "bytes": 842,
+      "sha256": "78a64bfddf152be99148b695babc82fb33cd2e774085ad9d5736eef56dc0567a"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_162.jpg",
+      "bytes": 789,
+      "sha256": "99c69989b28cd36666356987e0f18ac4c747439dda3874828814abd52a38ec38"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1637.jpg",
+      "bytes": 1064,
+      "sha256": "cc8bb15f8dfd0aca0ad067d794770471740f055f47d5ab158888b51c49a857dd"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1639.jpg",
+      "bytes": 803,
+      "sha256": "3b6c46690717a88a3c58a97a3ad7609a7ec479c2bd25a8cfea0cf7e9a3bdbadc"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1690.jpg",
+      "bytes": 786,
+      "sha256": "c00446fe2b2f1d2784c3c1cf251e5a4d3fa8b12f375d462f3c4245e07575810a"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1725.jpg",
+      "bytes": 795,
+      "sha256": "5bd91ba84cbe2b0e4159bc30ce467d801d9492117c1cf9ffbe4254e989082ab0"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1842.jpg",
+      "bytes": 787,
+      "sha256": "b22b035fdfacf19c39d7fa6d67f5569de0f8b6fcf590dae4de558c7f797b9691"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1845.jpg",
+      "bytes": 784,
+      "sha256": "ccdea7dec6c2284cea1f73c1a8fb3359f55467df9b2c4d98d66fda46ee4f558c"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1900.jpg",
+      "bytes": 815,
+      "sha256": "752c971ecfab1965fb240af5c8607c8ef7c273421f8a3a0c673a2ba1c7388c9b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1902.jpg",
+      "bytes": 825,
+      "sha256": "ddf1ee5d2de547361ce88d9ad2baa3a54c5dfed02daf987df8eba520cf0b746f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1912.jpg",
+      "bytes": 854,
+      "sha256": "ca1662b14d0b46796d7d182c61995efda2fd81d88d416bfe9c2771fac0130ca0"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1918.jpg",
+      "bytes": 806,
+      "sha256": "b637b7af8084a9b184ee9daf889fde48c3a1063be984d06be00c11cd74a88c8e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1938.jpg",
+      "bytes": 957,
+      "sha256": "e85d61018ece10da67f5dac146a09e246068111dc2c2c2de412329b5ff82bec4"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1979.jpg",
+      "bytes": 1204,
+      "sha256": "9d4840e77704a34f4743b5827716951199c0cc02a7847ff2f85f222cc19d66fe"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_1994.jpg",
+      "bytes": 984,
+      "sha256": "61095e8faf0f6a153092caa2c4708fe896ee4715f358aab656c2fe33c9d3063f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2017.jpg",
+      "bytes": 955,
+      "sha256": "bf86ae792c60c9641b2ac885780cd6bdd14c602251048da4bca07bc75ac6b24c"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2021.jpg",
+      "bytes": 1021,
+      "sha256": "7a33fc8a1413e858995dd5204799a79530f3ac09f2aff46560b3dabeab58d38d"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2029.jpg",
+      "bytes": 782,
+      "sha256": "946b16c1a1aade2399ff5a28cbb86ee5e5382713e042a6986e194be057d2ab03"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2065.jpg",
+      "bytes": 860,
+      "sha256": "e982fae6971e37a4c0616299e8db182cc74f476403da7eeed02418c320b3ae57"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2071.jpg",
+      "bytes": 757,
+      "sha256": "f3731bca6bdff5226d56a7b2bf431149c11ada3a1c9dc1ff8cbac5d857f917f0"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_22.jpg",
+      "bytes": 798,
+      "sha256": "6d8e3cb960f468e952683f2b6616ecf64cb82b16305223bba357556dc597d682"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2203.jpg",
+      "bytes": 774,
+      "sha256": "cf3d5acc070cfbf7b978bfb6783d9146faca06efb9626c15dd704d14b049f4ab"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2271.jpg",
+      "bytes": 783,
+      "sha256": "46223e41ebc8ac43d845a471d071238809e9a722039115249af1e578d15cfb99"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2274.jpg",
+      "bytes": 887,
+      "sha256": "c7439cc80fd9090accd5d5b3b82c67fefb38e6154e87dc74aa11c59618dd342b"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2275.jpg",
+      "bytes": 908,
+      "sha256": "8aeb8b787ca7f88b5d2357e345b2341cce8e3302b5a18daa2dae02cd3feb7153"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2318.jpg",
+      "bytes": 772,
+      "sha256": "b6181a4156843f30374067ea62b3e0be8bb69c85409b66cdeb1ddb719cd301f3"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2366.jpg",
+      "bytes": 775,
+      "sha256": "803d6a02cbfd55cd34e85d4fd119665c694b851293c35f4794c6353be3ce30ee"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2393.jpg",
+      "bytes": 1086,
+      "sha256": "26c7c1e0fd08448984e317c77765137555aff79c2acb4fd53d2a8cb071456861"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2404.jpg",
+      "bytes": 787,
+      "sha256": "6e598b94fc5d84516432fd86318a7b3c56bd206444e943e0addb864b794a2553"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2411.jpg",
+      "bytes": 878,
+      "sha256": "11d99bd92774775fe9e8c479a987b8c24da035d520324cab0d1f8a1c9e095f2e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2413.jpg",
+      "bytes": 914,
+      "sha256": "da70380a8e3953f4d4ca66097dc5732e720940e2f07360383e8338567977fdff"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2495.jpg",
+      "bytes": 1034,
+      "sha256": "c7610d773762bc5f4fd30622a537f3bcb022ac4b0ccd3a7f83586855b3325345"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2498.jpg",
+      "bytes": 765,
+      "sha256": "62deae1e48c3e35fa9c3fb9d56cc4b338a04279ca0cd2e7f0d9d4f892c25599a"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2500.jpg",
+      "bytes": 894,
+      "sha256": "ce1b735528e5f65126891ea22ccafbff2fb62006117ea4f4889438583934ddda"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2531.jpg",
+      "bytes": 1002,
+      "sha256": "88a8f9cfbd231a07d11414fd1e7de39e033c594ac3280a936e74f8b162e281bd"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2538.jpg",
+      "bytes": 801,
+      "sha256": "9340469045397d0502b887f0c0ee6ac8341a49d5e4a23b83b8493d33a22599a3"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2544.jpg",
+      "bytes": 857,
+      "sha256": "bad12eec539aa2fb25e4dfd88ff1c491d01a88b4835b2d7da6878803c46234b9"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2580.jpg",
+      "bytes": 812,
+      "sha256": "bc9c792d8ef70935111a57870620ae608d13408e894daf6f01b2539cb1e32620"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_259.jpg",
+      "bytes": 858,
+      "sha256": "26f06993b8b72a7788236b1ab28adf51fc1fced5cab8ceaa295a9fb001d15e11"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2590.jpg",
+      "bytes": 771,
+      "sha256": "ed7201a7bf72bc4a86da33291effa10203fc64152c99b484517380d06ca8b3ea"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_262.jpg",
+      "bytes": 985,
+      "sha256": "9d0647dfee84b2ea6e99c88540c24e21c64f74d27149e606c3622459c0d5d7be"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2686.jpg",
+      "bytes": 778,
+      "sha256": "30301925b5584d18546e8c5f676d7320c181706d2636e0562aeff36e562bc017"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2688.jpg",
+      "bytes": 853,
+      "sha256": "97c5df5c39ea7fab5aa95923a25e9098808ca2baf3235c272cc1b138a308559f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_272.jpg",
+      "bytes": 795,
+      "sha256": "169b504f93697f4c10a6239991027eb2d170b6e98a945024ceed1ed4d3b1c576"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_273.jpg",
+      "bytes": 804,
+      "sha256": "568a77ba98c1314fc217d5874633dfc1ffb1fb4210d7dec7c71ee6773078ffcf"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2751.jpg",
+      "bytes": 831,
+      "sha256": "51576834a9f529bb7a4cedb54a1c71fb0f341e66a0d534f17dc818ab0f501898"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2769.jpg",
+      "bytes": 784,
+      "sha256": "d6168597b41601da643e5a9487d60fdfe4485ec120b36bc9ca98e94f6984903e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2803.jpg",
+      "bytes": 938,
+      "sha256": "11b2967918f52a4ba40e4a0430fe0e6f751a84d12b65fb4298966e426c9b9775"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2805.jpg",
+      "bytes": 770,
+      "sha256": "00470892cc500f99b28b0241eadd23dd84e063f5e259e58b632f47955e39e35e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2812.jpg",
+      "bytes": 792,
+      "sha256": "6b294bb66242a41fa0581879c6158ec22c1819515a0fe53cf6705ca2bedf0208"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2816.jpg",
+      "bytes": 881,
+      "sha256": "c3f29d2ed82d881680c0031636e859e9a871727d6da675229aea60c7257eb20f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_284.jpg",
+      "bytes": 871,
+      "sha256": "b5ea2cd1e009d4573b07c7560b072fa2bb5332b1bbd12f72a30ac69b07be4ffe"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2843.jpg",
+      "bytes": 824,
+      "sha256": "eb49eaf8b2bd7853c6e0e260004074d46f25dedcc4832625a04da55cc9836ceb"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2846.jpg",
+      "bytes": 814,
+      "sha256": "5e7e6a4e8dc7ba670d1be6b86c05224008ed5dbabd2a7561dea531285166404d"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2854.jpg",
+      "bytes": 809,
+      "sha256": "45b7ac53d4f8e794b6e3febaad563c55c599b77abe7f4a7c63001db58d5de092"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2922.jpg",
+      "bytes": 871,
+      "sha256": "eca83080b99998446b8b57f657e68ffbddbee8a43ca65db52521eb495e6d5a7e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2939.jpg",
+      "bytes": 833,
+      "sha256": "a41e74a4574867f331f6624f16a1eefc76bedd1eb0310f635f47beca4588647c"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_2948.jpg",
+      "bytes": 907,
+      "sha256": "c51852af12a6f22bcbca86fdd09ea44da7e80224fd7e7dc069ac41f0fada7e45"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_314.jpg",
+      "bytes": 784,
+      "sha256": "1ff1daf3ced975a1c4cae036df4a6f8985047c86738439465a8247df81235910"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_325.jpg",
+      "bytes": 797,
+      "sha256": "af0a44c36591303631e5c6e1052704cf85fe288d11ee7bb8d3f77dbb84d33893"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_459.jpg",
+      "bytes": 1208,
+      "sha256": "96848c45a7b0b906890b81a420cff1482fb5d81f75fd0c822fd3fcdaf2eef37f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_475.jpg",
+      "bytes": 949,
+      "sha256": "96aa387ccfae75386604d2c41ff5f66e93c158ae7b85bf987ea00b2688b91e95"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_489.jpg",
+      "bytes": 802,
+      "sha256": "aadf3fe09e9c1343a731639ede5a4f845b1357a6faf06b27c2d53f66a2f3964d"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_508.jpg",
+      "bytes": 1062,
+      "sha256": "4b461d7b54587a249b8199e257bcab1eb1874fdae7a7a0193417590667f53cf3"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_597.jpg",
+      "bytes": 759,
+      "sha256": "b1d3962d56093ec942dec699f95e6daa83982fd07d57a44e884567103baf6bd0"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_604.jpg",
+      "bytes": 888,
+      "sha256": "da5aff721ca5551adcb88c296a8757bebcd03bccb6c647e77f9cf066f5fc1a45"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_621.jpg",
+      "bytes": 783,
+      "sha256": "f47ed5baa117d81ffd3aeec2eb4630515ca64d5f3894a7396048790781051a1d"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_623.jpg",
+      "bytes": 925,
+      "sha256": "fe90f7984f730f2be8697b0178d319d93787f60e698200768e50474c62d22019"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_64.jpg",
+      "bytes": 772,
+      "sha256": "3154d577d3bcb20f615d885479eed042085f3c8caa3272378c3886b52e6370aa"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_686.jpg",
+      "bytes": 829,
+      "sha256": "e2e2106a41ada507c1aae7ca1ed8fa1fb6490d27319fad0eb901b52ce5c4270e"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_698.jpg",
+      "bytes": 1068,
+      "sha256": "3f1b882071ea644fcce6e6b5e4a78ad0a1481b803833d2ee6fedbf694f33c6fb"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_745.jpg",
+      "bytes": 798,
+      "sha256": "9b6b3049879b3ff8bfed75fd3eecae46f513595107f02c573f446d8f75846ede"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_751.jpg",
+      "bytes": 820,
+      "sha256": "fc6045f6a804013faab20bc6504a2a0fa6d6ca21e95f273df245eda5667e36d7"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_779.jpg",
+      "bytes": 769,
+      "sha256": "08627fc16120564bbba3fbdc6dc3ece867764afaa1c325ec973f4210a9877bb0"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_813.jpg",
+      "bytes": 987,
+      "sha256": "570c53d275257d3c5e183b3728311ea564b56815d001a266776b157269842fb7"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_856.jpg",
+      "bytes": 907,
+      "sha256": "fe75b227cea96762317d6e5ab9cfab54d96bec3880c5ad65ba8c032dd0031366"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_879.jpg",
+      "bytes": 900,
+      "sha256": "3029399d246f009bf6f79122a34e79b6f9a9485b2b92e90303af97161090ca5f"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_917.jpg",
+      "bytes": 874,
+      "sha256": "2f188b38cf9db28307397be61337f6e6529d4da5b0723fbdfc6fcd3c8e0379b4"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_981.jpg",
+      "bytes": 784,
+      "sha256": "7b52254fc8b49b29e11e40d0563456a4065e69a4842a5a145dcb4e6240eebbd8"
+    },
+    {
+      "path": "assets/eurosat/thumbs/SeaLake_995.jpg",
+      "bytes": 771,
+      "sha256": "b568a2f52001402ed1c5bb476cfe4441b34afe88a88a17204467b8fd4cc6e002"
+    },
+    {
+      "path": "assets/ev01/BufferGeometryUtils.mjs",
+      "bytes": 31567,
+      "sha256": "5893093aa487a7366327c136e5466f3b96300d5553c467c68a7583efa580428c"
+    },
+    {
+      "path": "assets/ev01/ECHO9_EV01.glb",
+      "bytes": 3099952,
+      "sha256": "4fed66e423b5b315c75971f6a3becdb723385771b4dae1d973e83113779fbed0"
+    },
+    {
+      "path": "assets/ev01/GLTFLoader.mjs",
+      "bytes": 109788,
+      "sha256": "b669a01112bcf2df3cd78fe72e1f108af142f39794a628e9d7cc7bb70d7fb97d"
+    },
+    {
+      "path": "assets/ev01/RoomEnvironment.mjs",
+      "bytes": 3748,
+      "sha256": "d5b1cc74006c70e474f3b076df75b04cf7c1b66a0a127317825395ef1bcd7e14"
+    },
+    {
+      "path": "assets/ev01/mech.mjs",
+      "bytes": 17008,
+      "sha256": "bfdc0e0bd28b7501145621464139b267866ef9edda9363bce8c8226cd09c3f5c"
+    },
+    {
+      "path": "assets/ev01/three.module.mjs",
+      "bytes": 1274691,
+      "sha256": "a97ec6852978949b7941c070b81292b842473a37549222353fa0a70c18d7285a"
+    },
+    {
+      "path": "assets/exo-mech.webp",
+      "bytes": 46552,
+      "sha256": "c876e1e3cacdcbdddfc4f23e8b37ba53da68c12e0fc6042a2ccda7a964045991"
+    },
+    {
+      "path": "assets/exo-orbit.webp",
+      "bytes": 104804,
+      "sha256": "874e6485d3d25b09abe306e6e3675fcd860e80b6eb8a45193725ac18c1f35495"
+    },
+    {
+      "path": "assets/exo-surface.webp",
+      "bytes": 320088,
+      "sha256": "eb69a396c2e2cbe061de3f79b708d70d428f6d2d79ca487cc239a1522ae1c94e"
+    },
+    {
+      "path": "assets/expedition.webp",
+      "bytes": 252290,
+      "sha256": "630a4b0b0771468b8861bc93aadd46dbcf3dbff70d1f9324bb7f3b22f2d12980"
+    },
+    {
+      "path": "assets/fonts/exo-console/ChakraPetch-Medium-latin.woff2",
+      "bytes": 11056,
+      "sha256": "3a247d296695d4c8dcd34053fb55e46b5d4586863047115d46a422a32295a2dc"
+    },
+    {
+      "path": "assets/fonts/exo-console/ChakraPetch-SemiBold-latin.woff2",
+      "bytes": 10988,
+      "sha256": "b264833af330829402373c0614730fc37477c0258ada47762d84d5c3db0017ae"
+    },
+    {
+      "path": "assets/fonts/exo-console/OFL-ChakraPetch.txt",
+      "bytes": 4396,
+      "sha256": "13831d02389d917d22fcfa6c79f98f8acbf61d230add0e73a4d4dc5f3bfb9e56"
+    },
+    {
+      "path": "assets/fonts/exo-console/OFL-WDXL.txt",
+      "bytes": 4521,
+      "sha256": "048eba87d28b5d74c432cfa38ca44737e86a5508cf912c1b2cc211c45944e1d9"
+    },
+    {
+      "path": "assets/fonts/exo-console/README.txt",
+      "bytes": 1894,
+      "sha256": "341ceb610a3d4914dd973b3caf44aa8d229afa118185e459681ff0f2fbc8d47e"
+    },
+    {
+      "path": "assets/fonts/exo-console/WDXLLubrifontSC-game.woff2",
+      "bytes": 236564,
+      "sha256": "e61bc8abcfd617763d34af57c1e7c61faa7b80923b684188c405aedf20100461"
+    },
+    {
+      "path": "assets/fonts/exo-console/font-manifest.json",
+      "bytes": 889,
+      "sha256": "db963c1966d7da839da0ab4f737810387e135d9bee4d7430ea0ac4988efb0d7f"
+    },
+    {
+      "path": "assets/hangar-v1/helios-kit.glb",
+      "bytes": 689744,
+      "sha256": "5ca2b64ea3122fe3ff8b1bd5b9bd985badd26a528cb3490f1466f04232bd782b"
+    },
+    {
+      "path": "assets/hangar-v1/kit-manifest.json",
+      "bytes": 817,
+      "sha256": "bc35a869199fcfeeb12d48cd736b4246e0c7cf33441abc32f513adc4af78051a"
+    },
+    {
+      "path": "assets/hangar-v1/metal-color.jpg",
+      "bytes": 2670774,
+      "sha256": "864c9a653acd1f5034c9bbe7f955b18cc9687a81bbdfa805e7a2319939676910"
+    },
+    {
+      "path": "assets/hangar-v1/metal-normal-rough.png",
+      "bytes": 8635148,
+      "sha256": "897cf2b7b5893483b36bb4e0c7c7673705cce022bf584a8b7876df99d3ed1204"
+    },
+    {
+      "path": "assets/hangar-v1/metal-normal.jpg",
+      "bytes": 2516654,
+      "sha256": "146f8c00874a584bcc4a184643e72f160da2a7568d469198e02b26c9ff93cf43"
+    },
+    {
+      "path": "assets/hangar-v1/metal-rough.jpg",
+      "bytes": 3045988,
+      "sha256": "3cdc139df4ec5b304dd986278c1fb026c67c42e6623f0ee5caa7f373d51c7bef"
+    },
+    {
+      "path": "assets/hangar-v1/panel-color.jpg",
+      "bytes": 1518621,
+      "sha256": "82855f6297ad07ea7ea4d1c501e6b56ed4c9c758653ca126bda9fd0ebba63c59"
+    },
+    {
+      "path": "assets/hangar-v1/panel-normal-rough.png",
+      "bytes": 4501087,
+      "sha256": "7fca463ac3a4baa88aace4fd2d0c3e1e374c7eb1633019b31d6c6eaa0fcf81aa"
+    },
+    {
+      "path": "assets/hangar-v1/panel-normal.jpg",
+      "bytes": 948237,
+      "sha256": "4cd3069a918cf891295b369b26f47c0a0631c634d0fd1006b6b7412a8f2b3550"
+    },
+    {
+      "path": "assets/hangar-v1/panel-rough.jpg",
+      "bytes": 1588770,
+      "sha256": "dd1726d8217fe4f6c3947cb20700d51774a0773e9abaeb4120769c8f6fce1d69"
+    },
+    {
+      "path": "assets/hangar-v1/provenance.json",
+      "bytes": 862,
+      "sha256": "501e3f0169a1f08057e819b22b6e07a2213769d1274becf4358ad79767ea3416"
+    },
+    {
+      "path": "assets/k09-hero-v1/k09-hangar-field.glb",
+      "bytes": 1027688,
+      "sha256": "b85809b95e6fd5cffef8439a67e77900276f1ca9598816afaed6309c8a4eaf35"
+    },
+    {
+      "path": "assets/k09-hero-v1/manifest.json",
+      "bytes": 1084,
+      "sha256": "41643d5b62273d365530ba1a09801a5f48dd206b4581fb405956acc8eb37ad12"
+    },
+    {
+      "path": "assets/operations-sheet.webp",
+      "bytes": 412438,
+      "sha256": "c0b66499c2943d0a459c0d5212c5d277237a90219e9b21c37b25b158b09dd2ac"
+    },
+    {
+      "path": "assets/region-archive-v1/01-aerial-thumb.webp",
+      "bytes": 53964,
+      "sha256": "d8e2bc4889c280510ef98da96a0e43297fcda0f4b0296aed5a6885b16f7cd759"
+    },
+    {
+      "path": "assets/region-archive-v1/01-aerial.webp",
+      "bytes": 2612256,
+      "sha256": "4d815e483d16c3a5de20fffc7330c5137b21bed93f597ebea80bb9ba1c43dcad"
+    },
+    {
+      "path": "assets/region-archive-v1/01-approach-thumb.webp",
+      "bytes": 44176,
+      "sha256": "3faf4d69ba9c5940672b882202aa0bfe7292b3dc2316997090ae21ea71325138"
+    },
+    {
+      "path": "assets/region-archive-v1/01-approach.webp",
+      "bytes": 2154278,
+      "sha256": "c46fbe59b64fdfc5954c3c7fc22b1179281c99274d2b24d0278c4ac06491a912"
+    },
+    {
+      "path": "assets/region-archive-v1/01-interior-thumb.webp",
+      "bytes": 42440,
+      "sha256": "48fcc0194c52da13f190df0b734631f8e1e541e6557a4692df612e8b8b25c79e"
+    },
+    {
+      "path": "assets/region-archive-v1/01-interior.webp",
+      "bytes": 2138680,
+      "sha256": "c1a14aafe751f7ffe47365b6579ac3ff63085993c420389c2613a3602ade0414"
+    },
+    {
+      "path": "assets/region-archive-v1/01-reference-thumb.webp",
+      "bytes": 41494,
+      "sha256": "6ab88ec2da1bd997f90ec81c2e70e108731334d4596a24ccb9e2ccab126c9b91"
+    },
+    {
+      "path": "assets/region-archive-v1/01-reference.webp",
+      "bytes": 2220710,
+      "sha256": "9e5f87a32c19052db1e6f3bbef4f50ecc0a0cb89149af2a09302a0707420b1a3"
+    },
+    {
+      "path": "assets/region-archive-v1/02-aerial-thumb.webp",
+      "bytes": 60190,
+      "sha256": "6212c7c6314f5df5e932a5274444ee19150976862e8a53faeea992095012cb2a"
+    },
+    {
+      "path": "assets/region-archive-v1/02-aerial.webp",
+      "bytes": 2732922,
+      "sha256": "af4d6fef72776dccc4faed1c7ea14aeff77dafc7e17750e12c42c0fe7a26955e"
+    },
+    {
+      "path": "assets/region-archive-v1/02-approach-thumb.webp",
+      "bytes": 48748,
+      "sha256": "a9b12dfedacb754b278d58eecfb5ed4e08b8b749c1cfc8ed224a0ae86a8cfcc2"
+    },
+    {
+      "path": "assets/region-archive-v1/02-approach.webp",
+      "bytes": 2254416,
+      "sha256": "44cf3fd23d772de93af74d0f10cc7bce32e7e8ff4073128fcde74c1c2535f505"
+    },
+    {
+      "path": "assets/region-archive-v1/02-interior-thumb.webp",
+      "bytes": 49626,
+      "sha256": "bbba0aa9bca72c33da97452698ec413bffc8669416e11c3df19b16d5d815a649"
+    },
+    {
+      "path": "assets/region-archive-v1/02-interior.webp",
+      "bytes": 2372694,
+      "sha256": "3456e5677b1b0f54613f8ff1d1eaae1aaec3920298d066fe25a6730e7aaeccd4"
+    },
+    {
+      "path": "assets/region-archive-v1/02-reference-thumb.webp",
+      "bytes": 47734,
+      "sha256": "03cffbe6a422812ddec9612052c9312ee0caf900e6db3db215a6d43178f16ff9"
+    },
+    {
+      "path": "assets/region-archive-v1/02-reference.webp",
+      "bytes": 2388302,
+      "sha256": "1f4f564e92b79223e7efeeab798ff4d6386c7bddac88bc5164786d22eb9f673c"
+    },
+    {
+      "path": "assets/region-archive-v1/03-aerial-thumb.webp",
+      "bytes": 49558,
+      "sha256": "d34bbb181fa23b7de006fde6b2de4dc8206f7220837d7188580824a47d116cc1"
+    },
+    {
+      "path": "assets/region-archive-v1/03-aerial.webp",
+      "bytes": 2438324,
+      "sha256": "74cd35459e5b51b01546e11a6ee04f5d408fd5d7375be355be9c022cb94c719e"
+    },
+    {
+      "path": "assets/region-archive-v1/03-approach-thumb.webp",
+      "bytes": 41806,
+      "sha256": "fcc2d76537644e27be420702f80e8184268509bf7cc2f6db371257c1716a0941"
+    },
+    {
+      "path": "assets/region-archive-v1/03-approach.webp",
+      "bytes": 2160884,
+      "sha256": "e524971f02fbde147c6861204680240117772ff1a6951638a2a114294ce31ce1"
+    },
+    {
+      "path": "assets/region-archive-v1/03-interior-thumb.webp",
+      "bytes": 37590,
+      "sha256": "1ff7b5fb88a546491c20c1addf262a18d036ccf890e9ca1219bf786994b466fd"
+    },
+    {
+      "path": "assets/region-archive-v1/03-interior.webp",
+      "bytes": 2101076,
+      "sha256": "3cc2c7e5f0699c3262c856822a9ad30132810f60939ce2751818a5d570b3fbf2"
+    },
+    {
+      "path": "assets/region-archive-v1/03-reference-thumb.webp",
+      "bytes": 39266,
+      "sha256": "dfc922c98e5482602ec4192e8705a14fcef20f850d2985c5313b7df8216ac884"
+    },
+    {
+      "path": "assets/region-archive-v1/03-reference.webp",
+      "bytes": 2123556,
+      "sha256": "815b7d670ae0ae68883bb62344e8de94a8c2c7c6e4b4a756ada80b683ff59a6f"
+    },
+    {
+      "path": "assets/region-archive-v1/04-aerial-thumb.webp",
+      "bytes": 53190,
+      "sha256": "61df4e6d91accc5b90caa880394aeb76a3ec80d998a482985dff03ec40332a26"
+    },
+    {
+      "path": "assets/region-archive-v1/04-aerial.webp",
+      "bytes": 2571314,
+      "sha256": "11ecd54ec50c975b31a77d3f19db343d5896f284058d8ee8dfaf5becdd400fde"
+    },
+    {
+      "path": "assets/region-archive-v1/04-approach-thumb.webp",
+      "bytes": 49034,
+      "sha256": "9d6b6d3f5362c37cbaff57d3629d578265508a393d84afc73316a87d625d1595"
+    },
+    {
+      "path": "assets/region-archive-v1/04-approach.webp",
+      "bytes": 2351956,
+      "sha256": "a875e1781a914b6f50511381369dfc4a570212f49bac331a6e44034e64edd31e"
+    },
+    {
+      "path": "assets/region-archive-v1/04-interior-thumb.webp",
+      "bytes": 46850,
+      "sha256": "1b44c6168f59e79f09bc62b45324713f57c7eb984d83e74610e9e78d7ad7a7f8"
+    },
+    {
+      "path": "assets/region-archive-v1/04-interior.webp",
+      "bytes": 2184038,
+      "sha256": "9401dca4af03179b35106a048cb1dc48f42634ae8cb41692d9a76f389d7aec9c"
+    },
+    {
+      "path": "assets/region-archive-v1/04-reference-thumb.webp",
+      "bytes": 42514,
+      "sha256": "6397d0249b3b526a0bebbf35baa62d533d03f66649580526ea0d1ee4b2423857"
+    },
+    {
+      "path": "assets/region-archive-v1/04-reference.webp",
+      "bytes": 2231048,
+      "sha256": "2fcfbff4a4b0d2557f83a6e8af61c1f8cc80825d9e8f16798331a470c9396579"
+    },
+    {
+      "path": "assets/region-archive-v1/05-aerial-thumb.webp",
+      "bytes": 45018,
+      "sha256": "b3249762396ecd3ce1c538f1b72ca4123539adcf160a7d6eedff27771433a45b"
+    },
+    {
+      "path": "assets/region-archive-v1/05-aerial.webp",
+      "bytes": 2472390,
+      "sha256": "2c70819f02ecb0f8ab40e262cb6dcc114302aa568f30d0774673cf7b25c7ed24"
+    },
+    {
+      "path": "assets/region-archive-v1/05-approach-thumb.webp",
+      "bytes": 39480,
+      "sha256": "75a344568abac3db69a56429711b3c89bb3556e46a68074abbe56658d8f7e809"
+    },
+    {
+      "path": "assets/region-archive-v1/05-approach.webp",
+      "bytes": 2109768,
+      "sha256": "8fcb79aea29fb24822928d6aa1e5d4c2ee0f038842927d9dc1cf5732805ab631"
+    },
+    {
+      "path": "assets/region-archive-v1/05-interior-thumb.webp",
+      "bytes": 33060,
+      "sha256": "cbce3af82b2848d4efc6dd893540c1a2af5f6f6fe70e94550d6483d056a6fc5e"
+    },
+    {
+      "path": "assets/region-archive-v1/05-interior.webp",
+      "bytes": 1882214,
+      "sha256": "93c5b0bf5fa865e9a39f2aa0b465ce45d79f1d217a28ae841424d9d26d9aec69"
+    },
+    {
+      "path": "assets/region-archive-v1/05-reference-thumb.webp",
+      "bytes": 34664,
+      "sha256": "8c0a94a7edbd6ff8a2aa25516fd1565f37ae7f7848747e1ed6640a44da94971c"
+    },
+    {
+      "path": "assets/region-archive-v1/05-reference.webp",
+      "bytes": 2039258,
+      "sha256": "03d91e0bb723f269ab70060db205b3bb99bcdcce6b41dcb50232a4e0172a5202"
+    },
+    {
+      "path": "assets/region-archive-v1/06-aerial-thumb.webp",
+      "bytes": 39158,
+      "sha256": "85ebd83cf370d232239e7c3da241a8f2596d258678055f5e941b87979869bf86"
+    },
+    {
+      "path": "assets/region-archive-v1/06-aerial.webp",
+      "bytes": 2171626,
+      "sha256": "ccc487c82921673be4594793b3aab2e7a47a76bbe1cb50cba1f2098ad33d602f"
+    },
+    {
+      "path": "assets/region-archive-v1/06-approach-thumb.webp",
+      "bytes": 41546,
+      "sha256": "c9caa160e16d184e2e3159f5b3bde0f0e134dd4cd961448628c3fa4888911ef9"
+    },
+    {
+      "path": "assets/region-archive-v1/06-approach.webp",
+      "bytes": 2185238,
+      "sha256": "772bbe84b2aa45fd4d2ffa5ac24c49e074d137ec38c08e767b8c118219ad42b4"
+    },
+    {
+      "path": "assets/region-archive-v1/06-interior-thumb.webp",
+      "bytes": 41914,
+      "sha256": "7d159ac2dd723c52065bfa91b741b65e630e5903ca3b5803670564ac8a7d1f9f"
+    },
+    {
+      "path": "assets/region-archive-v1/06-interior.webp",
+      "bytes": 2131644,
+      "sha256": "777b6c64a98745f9f3929d38dbedc81d6e0556a1a7d492adf883577ca0fa4f49"
+    },
+    {
+      "path": "assets/region-archive-v1/06-reference-thumb.webp",
+      "bytes": 36852,
+      "sha256": "c311054b733b03dd3f97b551eea45cbcb538ef220dd4f57e2cce3c2a494c676d"
+    },
+    {
+      "path": "assets/region-archive-v1/06-reference.webp",
+      "bytes": 2067296,
+      "sha256": "ffde42ebfdb7373f4b36cfdfb93695dce552445d1cb9c9cfbab4b8cf43179a22"
+    },
+    {
+      "path": "assets/region-archive-v1/07-aerial-thumb.webp",
+      "bytes": 44854,
+      "sha256": "79e0ccfb5c69086462aa184b1ea81bb920507edff063cbb360f2c35b2f082006"
+    },
+    {
+      "path": "assets/region-archive-v1/07-aerial.webp",
+      "bytes": 2306556,
+      "sha256": "c24385f96b4c36d8a9beee3806dcbe45b09b9d42c10b21f5a277468c37d59cdc"
+    },
+    {
+      "path": "assets/region-archive-v1/07-approach-thumb.webp",
+      "bytes": 41504,
+      "sha256": "1c6d9628451209dc4aa9e59888b7e0ae75bfafe6bb3124c33da36d8974ff2ce3"
+    },
+    {
+      "path": "assets/region-archive-v1/07-approach.webp",
+      "bytes": 2095378,
+      "sha256": "e1e29bda8d6f6ed0b6bcc21352e15681deb5086a0c5fe70d80a9d96f9a56811e"
+    },
+    {
+      "path": "assets/region-archive-v1/07-interior-thumb.webp",
+      "bytes": 30638,
+      "sha256": "0b2ec86b47442c59c0e60a413cbd15fec03301f48fb0ed08915428f4e3e779b9"
+    },
+    {
+      "path": "assets/region-archive-v1/07-interior.webp",
+      "bytes": 1807400,
+      "sha256": "a9afd3e50a7cb70cd09a937118c2bba552717f885a4ff578d2e079c81540e29c"
+    },
+    {
+      "path": "assets/region-archive-v1/07-reference-thumb.webp",
+      "bytes": 35630,
+      "sha256": "bfc3fea0f0380c1aff1a31f891bd56fcb6f9eb2ef2c1c42a9ea6d4f0fd7716ff"
+    },
+    {
+      "path": "assets/region-archive-v1/07-reference.webp",
+      "bytes": 2022762,
+      "sha256": "aa3f3eaf461ef43f6ca3da58dacbf1f5b1fba4796e11cfb15b90cf0d7af91b46"
+    },
+    {
+      "path": "assets/region-archive-v1/08-aerial-thumb.webp",
+      "bytes": 45784,
+      "sha256": "d8d8e272ac055bd3dc4df6d8a112ee393cefbc14633267110752a2e3559c9df8"
+    },
+    {
+      "path": "assets/region-archive-v1/08-aerial.webp",
+      "bytes": 2305648,
+      "sha256": "3c6c2a0eb9cb49b78284bbf065c840e497aade71c3dff12b64163d6c880e349f"
+    },
+    {
+      "path": "assets/region-archive-v1/08-approach-thumb.webp",
+      "bytes": 38488,
+      "sha256": "aa74eb8def669142ae6408f8bbef1ae2a5fd2db80790eb1f33f7ce7c71997f9d"
+    },
+    {
+      "path": "assets/region-archive-v1/08-approach.webp",
+      "bytes": 2074864,
+      "sha256": "88e068472555c72ee6fb06233ffa8911997f014bfa9a41aa7338e66c6cca811b"
+    },
+    {
+      "path": "assets/region-archive-v1/08-interior-thumb.webp",
+      "bytes": 40074,
+      "sha256": "200b5341168f3f1f2e3da758504ee415f68b81ee6783208a728ea30688df8f71"
+    },
+    {
+      "path": "assets/region-archive-v1/08-interior.webp",
+      "bytes": 1965312,
+      "sha256": "662ad2fddf89b530943712aa6f3ef52dfbbb8383a98490e690eab36ffa2a6418"
+    },
+    {
+      "path": "assets/region-archive-v1/08-reference-thumb.webp",
+      "bytes": 37626,
+      "sha256": "b7a8ace6d91e8f01c17cb67de48ef60957ed3b385773ad55acac24fa5b46c8b7"
+    },
+    {
+      "path": "assets/region-archive-v1/08-reference.webp",
+      "bytes": 2094602,
+      "sha256": "edf091152fffcb6814e60345535fbb39f69ad048feb5b2f5b1afceabe939128c"
+    },
+    {
+      "path": "assets/region-archive-v1/09-aerial-thumb.webp",
+      "bytes": 52758,
+      "sha256": "342e90436abd4bd347154c5a062be68ce0b57baba8ee2459816254bf2f4e6ba0"
+    },
+    {
+      "path": "assets/region-archive-v1/09-aerial.webp",
+      "bytes": 2398668,
+      "sha256": "4cbdd445792afc671f0c72afbae738906c92c47a01ab73196ef485b76b0036ff"
+    },
+    {
+      "path": "assets/region-archive-v1/09-approach-thumb.webp",
+      "bytes": 45408,
+      "sha256": "aafb166ca5efb8cea09f327a80f761eeb8cc0dfddcf491904ca7adb2d0858ee7"
+    },
+    {
+      "path": "assets/region-archive-v1/09-approach.webp",
+      "bytes": 2235264,
+      "sha256": "230719c59dbef8d4f2393b489f819c37da83ce58bc030a86b217d4f2a76737e6"
+    },
+    {
+      "path": "assets/region-archive-v1/09-interior-thumb.webp",
+      "bytes": 41218,
+      "sha256": "d2c09ad563ad5c09f7765101c2bffb3656fd4cd05701942392a55a945aec7f60"
+    },
+    {
+      "path": "assets/region-archive-v1/09-interior.webp",
+      "bytes": 2114542,
+      "sha256": "8fb25479750702040927ffda6e9d54e7a5d02753eed8b51e16fdc18e0752d95f"
+    },
+    {
+      "path": "assets/region-archive-v1/09-reference-thumb.webp",
+      "bytes": 43154,
+      "sha256": "88180bcb5678f0e27943cc73afaa26b03ac187e365147ed0e42baba7aaa49b42"
+    },
+    {
+      "path": "assets/region-archive-v1/09-reference.webp",
+      "bytes": 2243190,
+      "sha256": "c8a0f802c2a8268818ff8f51bafa5a757b5dbe71a37a312e5a557ae132804d0d"
+    },
+    {
+      "path": "assets/region-archive-v1/manifest.json",
+      "bytes": 17909,
+      "sha256": "e0478953915ec81d2eb7bb7bd611869e33019327e6af49b3900940b5c1e54fb8"
+    },
+    {
+      "path": "assets/terrain-sheet.webp",
+      "bytes": 751674,
+      "sha256": "3a1e91263be74f6123d899ae2b4b87d498ab8e8e34a0fd2588876136d83c8fd1"
+    },
+    {
+      "path": "assets/ui/console-wear.svg",
+      "bytes": 653,
+      "sha256": "01440379975ed6505074590842f9c32dc787b88898054851fcd907b89d30c094"
+    },
+    {
+      "path": "assets/ui/crash-v78/README.txt",
+      "bytes": 2186,
+      "sha256": "69ee306dabd89caccae4db24df6c9c2b3efb9765358589340531ffae5b35c53a"
+    },
+    {
+      "path": "assets/ui/crash-v78/crashed-metal.webp",
+      "bytes": 161530,
+      "sha256": "762477f025c0c41ff9278f4e0cede4f547f42ba9005e79a9421df4ba2a0bd47a"
+    },
+    {
+      "path": "assets/ui/crash-v78/impact-corner.svg",
+      "bytes": 1745,
+      "sha256": "eae657fc25215e32bd78dec966015c5b6d36bc6f4fd8dac154f0669365f05ed1"
+    },
+    {
+      "path": "assets/ui/crash-v78/manifest.json",
+      "bytes": 1227,
+      "sha256": "4e534d17389da8dd0972506aa584eede8cf342e13d312209a5408426cf0f5f9a"
+    },
+    {
+      "path": "assets/ui/crash-v78/worn-rim.svg",
+      "bytes": 1172,
+      "sha256": "6f7c31635b0746731a14ef327a128f6a6a83f03465e47087c3ecf50d241a4426"
+    },
+    {
+      "path": "assets/vegetation-v88/bark-color.jpg",
+      "bytes": 659592,
+      "sha256": "920fa0bed0c9d78c1d530e99795113afd532d7db746de440f4a85d7c83ed0f1a"
+    },
+    {
+      "path": "assets/vegetation-v88/bark-normal.jpg",
+      "bytes": 1015623,
+      "sha256": "0d5e691e8ad8bcd093a3587887fda2a6b4a948b5708a4f256f7919584c6eb857"
+    },
+    {
+      "path": "assets/vegetation-v88/bark-roughness.jpg",
+      "bytes": 337946,
+      "sha256": "68125592de36e15bae7aa6db85c4d135aeb7e5653199ba226483a70f6d69837d"
+    },
+    {
+      "path": "assets/vegetation-v88/foliage-atlas.png",
+      "bytes": 2119250,
+      "sha256": "5f9d59280a2ee259f2593d7e70b643e2e56f027658f65ca78ad28c204707d2c3"
+    },
+    {
+      "path": "assets/vegetation-v88/provenance.json",
+      "bytes": 1018,
+      "sha256": "0b26ceb782d7cf0965d8c3f4c8b7414140df3861c933a497bfe2af1482245fa5"
+    },
+    {
+      "path": "assets/visual-v13/basalt-valley.webp",
+      "bytes": 471356,
+      "sha256": "42839d29e520978721b62ae029556de8caaf17d50ff6d60b7fa5feaa3ea75892"
+    },
+    {
+      "path": "assets/visual-v13/cockpit-frame.webp",
+      "bytes": 200916,
+      "sha256": "8f96403b16f305bfb5c869be34eeaf5a7141be7b4b0ef81681b3d4c7a9afc99b"
+    },
+    {
+      "path": "assets/visual-v13/cockpit-reference.webp",
+      "bytes": 313492,
+      "sha256": "1442587cc3abcffa677a3a1fd62e279a8d078c935af40908fc90b9217d038836"
+    },
+    {
+      "path": "assets/visual-v13/expedition-hero.webp",
+      "bytes": 394944,
+      "sha256": "3eaf1f7d5552cdd68153d28386c607f883f8e99a11c9abf3b759c06ea2e710c6"
+    },
+    {
+      "path": "assets/visual-v13/opening-15s.mp4",
+      "bytes": 4179640,
+      "sha256": "2744720246338dd2ff251aaf54d2d1126c01ab03bb76f0efb33ecf63720930dd"
+    },
+    {
+      "path": "assets/visual-v13/orbital-ring.webp",
+      "bytes": 380060,
+      "sha256": "02caf665390c59713cfcbc5a87a1bb77e8a873e5a66135b976bf52c1b3cdca27"
+    },
+    {
+      "path": "assets/visual-v13/stalker-reference.webp",
+      "bytes": 205534,
+      "sha256": "62e83a34fd7c48a2a3cb339ee0a7e8659414a1f01e1d7f0f196d9b5f606926df"
+    },
+    {
+      "path": "assets/visual-v13/stalker-valley.webp",
+      "bytes": 391164,
+      "sha256": "a7c4bb33c3929debe94f856ac9d2263478d58373da5160c6b6825425cd8f63cc"
+    },
+    {
+      "path": "assets/visual-v15/basin-arena.webp",
+      "bytes": 314916,
+      "sha256": "2bb309d9523c134ef8c0261d76073ffe6efdcb6d77173f24bb839509504b027e"
+    },
+    {
+      "path": "assets/visual-v15/cavern-machine.webp",
+      "bytes": 229002,
+      "sha256": "b5af63d255d2c63720ebc068443eea01ae04cd1ac080ff1d04f0e09aeeaec3e1"
+    },
+    {
+      "path": "assets/visual-v15/highland-switchback.webp",
+      "bytes": 296212,
+      "sha256": "698ade1698b957a13e79fc9557df4108ff13fab8dfd73aff91cb3a4f7d39a635"
+    },
+    {
+      "path": "assets/visual-v15/world-overview.webp",
+      "bytes": 294762,
+      "sha256": "693ebbded3ea16f70c758893657228cd3659a7e4c57aeeb92d21a58771459b8a"
+    },
+    {
+      "path": "assets/wreck-v1/echo9-orbital-wreck.glb",
+      "bytes": 3892592,
+      "sha256": "86c1ee9974a8ccd2f563c5a10bd972c735d6725c9890bbb22a689ef5bf8fc46b"
+    },
+    {
+      "path": "assets/wreck-v1/provenance.json",
+      "bytes": 1177,
+      "sha256": "dd84ecb112266e93f78822b891bcfb866fa2be08947162afd4e6875fcddf16e0"
+    },
+    {
+      "path": "cinematic.css",
+      "bytes": 36372,
+      "sha256": "93fd80f9a90028546af33c2f3f7fdc252990f1a303c10116c0c86fec41095eca"
+    },
+    {
+      "path": "cinematic.js",
+      "bytes": 17248,
+      "sha256": "bc1748ac5a5053ad6d029cc81edec6b48ca9cf81471db260906286ca93cb5598"
+    },
+    {
+      "path": "cnn-worker.js",
+      "bytes": 689,
+      "sha256": "15afdb1def528e38ff2a203b6fbe11be43f0f3c27704b38e6144bca5c3c132bf"
+    },
+    {
+      "path": "curriculum.js",
+      "bytes": 13665,
+      "sha256": "813d4ef3721342380d4cd8805fe5d67ed5e0113e0740d22d8f152733cec1d8e2"
+    },
+    {
+      "path": "diversity.js",
+      "bytes": 32581,
+      "sha256": "3c85de5822e8dea9c559ad2c11400f6824671c6a6a1dbebcecb3f717bb723ce2"
+    },
+    {
+      "path": "engines.js",
+      "bytes": 29375,
+      "sha256": "0895b67f93abb3feff69b7f33a9470ef83062562e6d02a3b5430ad75dfef3b4d"
+    },
+    {
+      "path": "exo-3d.js",
+      "bytes": 27164,
+      "sha256": "75b5a4b0316152e079e6d2e775cc6953f6f3162a751a206c9990971f862a810e"
+    },
+    {
+      "path": "exo-aegis-surface.mjs",
+      "bytes": 3290,
+      "sha256": "da2ad7a99e2654c76264b6c06a025db7c2280eed40beff02a80bfc5b66c11d8e"
+    },
+    {
+      "path": "exo-aegis.mjs",
+      "bytes": 9391,
+      "sha256": "fc266d87c3390662b848f11b3fb156e16fe44dca3d845c21087c16ff3e974d0d"
+    },
+    {
+      "path": "exo-ashland.mjs",
+      "bytes": 10218,
+      "sha256": "869bfcea1e952877458f5262764b0ba34f5dafa8d1a7801b9b4d7999c9e5f6f6"
+    },
+    {
+      "path": "exo-biome-textures.mjs",
+      "bytes": 2757,
+      "sha256": "08e34d6de70779418e67cafafedf836f89761cfa832ed0aff90e6a9226f41338"
+    },
+    {
+      "path": "exo-biomes.mjs",
+      "bytes": 10914,
+      "sha256": "e3d09bdce2b01d4b131fbf57ac4088c18e8c9d96be2d7242691f56b83707e470"
+    },
+    {
+      "path": "exo-building-camera.mjs",
+      "bytes": 1614,
+      "sha256": "d338fc38e16f399718e7835121a581a89d94ca175e043ff0c7e1ca323ffd9140"
+    },
+    {
+      "path": "exo-calibration.js",
+      "bytes": 8052,
+      "sha256": "617e6c3e09cf05033ee8bf58813b814f67b60e6affeefbb28db443af23cbc237"
+    },
+    {
+      "path": "exo-campaign.css",
+      "bytes": 6338,
+      "sha256": "fe1c8ea7ca7f987cb961876a5f46b6440ccd67383c1b99801894b73be1761e1f"
+    },
+    {
+      "path": "exo-campaign.js",
+      "bytes": 20758,
+      "sha256": "0f50711d61b8caed88957b83545815d7b3ea4130dfddb456bce417b6e97faa09"
+    },
+    {
+      "path": "exo-campus-materials.mjs",
+      "bytes": 8281,
+      "sha256": "42da80866cd5298ed645c7f69aca3876fd0851f2c1c7253463aaf17197d8620e"
+    },
+    {
+      "path": "exo-canyon-render.mjs",
+      "bytes": 6262,
+      "sha256": "f48591f0c01403b283d49d0be3bc72d764133f3a8785d9d987187606ae737012"
+    },
+    {
+      "path": "exo-canyon-v2.js",
+      "bytes": 2121,
+      "sha256": "2610b633fd21db3ac4fe5e2d0ba0790c244e30ab52c32d1f7e000bf7d8cf789e"
+    },
+    {
+      "path": "exo-caverns.mjs",
+      "bytes": 12474,
+      "sha256": "3b023fb90f439a9244ac9e634b898f6f137084c518705fdd11b6f7e0ee3eba1a"
+    },
+    {
+      "path": "exo-clue-render.mjs",
+      "bytes": 8316,
+      "sha256": "91d398c53d6b1cf75ad2ef3199d55df42fbf248f77e15251e74fb644b19eb3ed"
+    },
+    {
+      "path": "exo-combat-vfx.mjs",
+      "bytes": 7445,
+      "sha256": "b973fa5432b7521aa84af30ea596ce32cb43a72927026375c89dc6846717adf2"
+    },
+    {
+      "path": "exo-console.css",
+      "bytes": 58242,
+      "sha256": "dd0d9df774bd75e5928e715dc12fa969220ca1a5d4da5f5231679ff04f236503"
+    },
+    {
+      "path": "exo-creature-models.mjs",
+      "bytes": 36249,
+      "sha256": "85e1a381358061e0d502d8141f958eb23c5aeed7f6d0010b58bdd9a4db117fe6"
+    },
+    {
+      "path": "exo-creatures.mjs",
+      "bytes": 14032,
+      "sha256": "4617b861b0eedea638a444e194c718c4b9a251aa98fa5f7970dd720f3da5b224"
+    },
+    {
+      "path": "exo-depth-prepass.mjs",
+      "bytes": 3335,
+      "sha256": "283d99211ae43b9a9e6587f5680fdc670ae2a326f290d8f403410b798255a48d"
+    },
+    {
+      "path": "exo-diary.css",
+      "bytes": 12011,
+      "sha256": "83b38bb268a19802f2744d4271259fc63f70581ecf0cf0376e1e8db0f39f2079"
+    },
+    {
+      "path": "exo-diary.js",
+      "bytes": 11724,
+      "sha256": "a1ed0f011f0a24a326067764ee60b4e8c8ff87954b41a6f5839334b631f33c26"
+    },
+    {
+      "path": "exo-discovery.js",
+      "bytes": 39128,
+      "sha256": "049d23e294cc44049a348324efe5a7043b09352f9ce61d0b0e4a6202337e0d58"
+    },
+    {
+      "path": "exo-exterior-ground.mjs",
+      "bytes": 7135,
+      "sha256": "2229e3dc17665afff5ed765f8120f473962c3cc76897781b6c25a04118159971"
+    },
+    {
+      "path": "exo-exterior-kit.mjs",
+      "bytes": 8959,
+      "sha256": "1a54466732e2da395f87108bb285952db847c5db8249e707af836c5549de5a6e"
+    },
+    {
+      "path": "exo-facilities.js",
+      "bytes": 33818,
+      "sha256": "7cc6761f357d193e1d2a7f12a0ffad4d6d3c5ab2f9ccd2c9c135616caeda46b3"
+    },
+    {
+      "path": "exo-facility-render.mjs",
+      "bytes": 18271,
+      "sha256": "fe886765250eb02b415b24c78d209e7076b95c1351d3361f98e464b21cf57702"
+    },
+    {
+      "path": "exo-facility-ui.js",
+      "bytes": 9972,
+      "sha256": "58feeead0317a19e7303382a8dc5b42925273b313393b949002688ec541d4805"
+    },
+    {
+      "path": "exo-fauna-surface.mjs",
+      "bytes": 4137,
+      "sha256": "e90a59b4f86943659814ab0e982d609b385a55d14d0901d48836e65081dbe17c"
+    },
+    {
+      "path": "exo-field-clues.js",
+      "bytes": 19438,
+      "sha256": "fc1fa10e85af0fe45f09be14bd458f7da36ff8fbd727f2a869db8586dd028c83"
+    },
+    {
+      "path": "exo-field-lamps.mjs",
+      "bytes": 9452,
+      "sha256": "483ca1b6e9bebea5d18d7330e10e8ed8dc77e5e80630e25fc19e3cf25fae40b0"
+    },
+    {
+      "path": "exo-fire-control.js",
+      "bytes": 26209,
+      "sha256": "da17f5b5e0dc0f5062ec0f010af54f7098ab030a5d3aa9e655f65d570edbba92"
+    },
+    {
+      "path": "exo-flight-fx.mjs",
+      "bytes": 4612,
+      "sha256": "12b5c2058efcc3f27df444950b993a3c0868320c6a8e951b8e3ee83cdde26a73"
+    },
+    {
+      "path": "exo-flora-meshes.mjs",
+      "bytes": 6761,
+      "sha256": "803d28d3a8b1fd459d9505d210d6cd98c13e06c02a839bef06f837b81fc42fc1"
+    },
+    {
+      "path": "exo-green-trail.js",
+      "bytes": 5793,
+      "sha256": "a9bade2e6b646f01076d4f67446f5df0aba7ef6234f09f5160decd337a83699e"
+    },
+    {
+      "path": "exo-ground-contact.mjs",
+      "bytes": 1967,
+      "sha256": "18480a7959f4e7df30f2fb45909fb753b2534393b558bf9947e0c53e06a3d88f"
+    },
+    {
+      "path": "exo-guardian.mjs",
+      "bytes": 12526,
+      "sha256": "d11841bfee30868a6282b3e61b9cf057b9a897debf125cdef80f39cbf4c92326"
+    },
+    {
+      "path": "exo-guide-lights.mjs",
+      "bytes": 2502,
+      "sha256": "9124485b281d1c0dbc587fb4effa962c213d2702f455cd3f44fde55365ee59a4"
+    },
+    {
+      "path": "exo-hangar-art.mjs",
+      "bytes": 15468,
+      "sha256": "c3e9024790e5b20f3f4a5741e5ecacb74fdbcf4ac417e5cdffef97258ad97bdc"
+    },
+    {
+      "path": "exo-hardware-shadows.mjs",
+      "bytes": 2255,
+      "sha256": "cc3c4de7846e4d90b82ca5c56e04c26a4a67dcd22f76db91995d85089c218a52"
+    },
+    {
+      "path": "exo-hud.css",
+      "bytes": 15276,
+      "sha256": "34822b2684c6ef67e133fd53cbe1290e92eca3195df2029cae533f635517a764"
+    },
+    {
+      "path": "exo-hud.js",
+      "bytes": 27165,
+      "sha256": "a2dbdb6944f92f849fe5216afd387e241e2d28b555bcaafe464424e56044fea9"
+    },
+    {
+      "path": "exo-interior-kit.mjs",
+      "bytes": 6141,
+      "sha256": "1fcb3911dd8d464ef4ea23ee2471d1d10df0e103197cc7222b6e24a9109136e4"
+    },
+    {
+      "path": "exo-k09-hero.mjs",
+      "bytes": 3553,
+      "sha256": "44d4139b4ce75e926669b9ae96ca644d7d5cd8f5931d975c503306d371ac916d"
+    },
+    {
+      "path": "exo-lore.js",
+      "bytes": 15104,
+      "sha256": "737ae4f05dbd8b4d1a7d6fb897bdbf085f3eed99ccd7f9a5ae8c28724b289770"
+    },
+    {
+      "path": "exo-map-status.js",
+      "bytes": 1490,
+      "sha256": "c04a35a5f23d5d8263297a518ac3d931bb9b9ac23b362fed3a92ded0f18cf3da"
+    },
+    {
+      "path": "exo-motion.js",
+      "bytes": 7735,
+      "sha256": "03b00eb86b4c6da072abbe402aa7f329b59b67ec5371bc9ef26f5bf81f8ab3b5"
+    },
+    {
+      "path": "exo-packed-materials.mjs",
+      "bytes": 1247,
+      "sha256": "cc5016ed5eed66328faeaae19ff0efd11c50c8a8b2a94fb2dc0ef3dcf213a8f8"
+    },
+    {
+      "path": "exo-player-weapons.mjs",
+      "bytes": 14701,
+      "sha256": "74522628e38a518f437c1b68d3a159ad432cdedae533c393a1998859a9888bea"
+    },
+    {
+      "path": "exo-premium.mjs",
+      "bytes": 16010,
+      "sha256": "09a1a7a7d85e556031810089d320817d9d9b2f73d2ed590f87c1c7ae7cfe6638"
+    },
+    {
+      "path": "exo-profile.js",
+      "bytes": 2787,
+      "sha256": "286ae8bc6abafdc9c0039ba2f5c3844173020d856090dd819a31afad959dee10"
+    },
+    {
+      "path": "exo-program-architecture.mjs",
+      "bytes": 5484,
+      "sha256": "4c8db88957e61130ebf7dbdc0fa59b3cdfedd22124081ffaff928d3a7042d527"
+    },
+    {
+      "path": "exo-program-props.mjs",
+      "bytes": 13188,
+      "sha256": "c585b1b78b814bb3e2cc88050de2eac2123521e3e157f2bc1fb021332a53c935"
+    },
+    {
+      "path": "exo-progress.css",
+      "bytes": 13782,
+      "sha256": "58fe210047b1ed28afeb89dd8a66eb6992aa660bc426d596a664eaea57f5e9a5"
+    },
+    {
+      "path": "exo-progress.js",
+      "bytes": 36918,
+      "sha256": "8f56a1b00a9daf6f819ad0f01a96e722eea6f6e940ee0f8c5cd8f3e4e5e8c5c6"
+    },
+    {
+      "path": "exo-region-art.css",
+      "bytes": 4868,
+      "sha256": "65c7b7ce93a2ef25e5e30554432a31c35646382dfdfc8be4a8d6190a03d74b65"
+    },
+    {
+      "path": "exo-region-art.js",
+      "bytes": 9112,
+      "sha256": "60be7ac5eeab80518a0326106fa1cc0c395800019e8e5b375d9524c675b86557"
+    },
+    {
+      "path": "exo-region-data.js",
+      "bytes": 12461,
+      "sha256": "d00b79dcf656b4b2164a343ff8cfa91b0bfe65ad661101b47231deff424e8ec8"
+    },
+    {
+      "path": "exo-region-landmark-data.js",
+      "bytes": 11521,
+      "sha256": "923f16e6d0c99919bc257c816e168e45153e3140854d0da7ea7e75d2d9da89f7"
+    },
+    {
+      "path": "exo-regional-landmarks.mjs",
+      "bytes": 26889,
+      "sha256": "a6ead7c392c59821799a9a49c89ec1849558909eb1f6b9cecb1db66a62563d53"
+    },
+    {
+      "path": "exo-render-optimization.mjs",
+      "bytes": 11262,
+      "sha256": "bd213b6b5e6588ab0d99891d8c9cd2ccb2e69ad2fb365b9435715f044fefc4c8"
+    },
+    {
+      "path": "exo-room-stories.mjs",
+      "bytes": 710,
+      "sha256": "e9504232241f9954797305e911a091802ce0cea2b97023904e16e269aba1b4de"
+    },
+    {
+      "path": "exo-room-story-art.mjs",
+      "bytes": 22496,
+      "sha256": "a7f54063b05858fc0953d19203d362239d3ab28c4ee4bd65302056f824b1f1ca"
+    },
+    {
+      "path": "exo-room-story-data.js",
+      "bytes": 21056,
+      "sha256": "3e90f05064186fda91c15f4c1f123ac3dedadf6f244cf1824a974bb375a9c09d"
+    },
+    {
+      "path": "exo-sandbox.js",
+      "bytes": 23331,
+      "sha256": "e60bd46a0a52b547072b4abd169030f49a00e4c5d20c7ad7dbb6a9d0d12f8086"
+    },
+    {
+      "path": "exo-scene.js",
+      "bytes": 10947,
+      "sha256": "ae229d18e971051a08eb2374da380027fdacc2764f17eca57a948eb498bf7cdb"
+    },
+    {
+      "path": "exo-shell.css",
+      "bytes": 15270,
+      "sha256": "6c5e3109b447c09c3bb6ceab4ae6beb62d73c1d600458e1cb486eac88c6341f4"
+    },
+    {
+      "path": "exo-shell.js",
+      "bytes": 9576,
+      "sha256": "713fb6be186f92b2f521b6329e5bd64118475689422faa3a417be95e543e6034"
+    },
+    {
+      "path": "exo-space.mjs",
+      "bytes": 6770,
+      "sha256": "c33e9633a0fcbd36964a74459253d8acdb50415e60016a5d661cdea876a29246"
+    },
+    {
+      "path": "exo-story.js",
+      "bytes": 5867,
+      "sha256": "a9cddbfb2b68df0d7814efce7bdba14a5668b538902b17dfb0b7c00e6d972e3e"
+    },
+    {
+      "path": "exo-terrain-course.js",
+      "bytes": 18204,
+      "sha256": "41daadfaf2b107aa9d6ee66096df2d3b17798cad96bed89f713597deb3316d60"
+    },
+    {
+      "path": "exo-terrain-field.js",
+      "bytes": 4482,
+      "sha256": "8f6c9989b6615671e77d9b1d6dcaccea2bf358308fc6c38e51aefa4e5dc1393a"
+    },
+    {
+      "path": "exo-terrain-geometry.mjs",
+      "bytes": 1511,
+      "sha256": "018c047d041d973b5a607fe1af472b0b20aba0c4d250f3a52bf3100827c5be5c"
+    },
+    {
+      "path": "exo-terrain-stream.mjs",
+      "bytes": 2150,
+      "sha256": "381430d316a78b8458dfd671806c6d84db29a8b1582956040bed18e22db7b388"
+    },
+    {
+      "path": "exo-terrain-wilds-ui.js",
+      "bytes": 8404,
+      "sha256": "6da25cf89d6f85d1cbeccc05bcf4f86240db686bf0cb920fae9a08c637775a02"
+    },
+    {
+      "path": "exo-terrain-wilds.js",
+      "bytes": 14736,
+      "sha256": "17e36e28e54eccd61f79336ba6e6fc59a4bfd6855967805149d8f913084ed1be"
+    },
+    {
+      "path": "exo-terrain-wilds.mjs",
+      "bytes": 19546,
+      "sha256": "0d6e56d9a33a8b90ee7192030aab86ecfc02e540ebfa0c663d1d75ae5d0a1f09"
+    },
+    {
+      "path": "exo-terrain-worker.js",
+      "bytes": 1518,
+      "sha256": "d8c8698af8e39fb456360861c3284782b429484c538e5c662f9074ef9e0b0112"
+    },
+    {
+      "path": "exo-training-ground.js",
+      "bytes": 7574,
+      "sha256": "4989e42b34101fbda545919d2c55316d73206a5862696ff14d298eb579453128"
+    },
+    {
+      "path": "exo-training-ground.mjs",
+      "bytes": 13780,
+      "sha256": "439261ba02446b46e9eefc3b4262ce1084ea47dba72f43b7b7c47ee0799ca60b"
+    },
+    {
+      "path": "exo-training-ui.css",
+      "bytes": 6656,
+      "sha256": "f5db70183d042a58003839b48946aeda3adf3514be517de0ebe623f80e47de5f"
+    },
+    {
+      "path": "exo-training-ui.js",
+      "bytes": 10264,
+      "sha256": "05a5e1456e5d8401543e64bb3bca596bc07c4c8dfa40bbed1f4fe81e52f69dca"
+    },
+    {
+      "path": "exo-typography.css",
+      "bytes": 6486,
+      "sha256": "8944332449f4ad32a88818ddf833be6109c14467246bb9141dc5595ee1261aeb"
+    },
+    {
+      "path": "exo-visuals.js",
+      "bytes": 5751,
+      "sha256": "f456743e4c3eae5ad59c0b2d4313cc4ae592f46179d8966b5d6fcf75b911c7f9"
+    },
+    {
+      "path": "exo-world-details.mjs",
+      "bytes": 26821,
+      "sha256": "c5a24be8b30adfc2f5a73d260b7e55631018e8be73ffef76014ef9a85c2cc1cd"
+    },
+    {
+      "path": "exo-world-layout.js",
+      "bytes": 2176,
+      "sha256": "0b7c78d1fd571a1878f0ef03ee21c46d15bb874f12ca39b2322c8eb5384db869"
+    },
+    {
+      "path": "exo-world.js",
+      "bytes": 27902,
+      "sha256": "f239ac50bde294e25d9a9653bb3a415e765bc42a35ed7bf612e5f89ce7d814fe"
+    },
+    {
+      "path": "exo-wreck-world.js",
+      "bytes": 2583,
+      "sha256": "360f92ddc9c09698b30b727319adb3dc85c4391a08257d05c5a41aa8b92ed266"
+    },
+    {
+      "path": "expedition-models.js",
+      "bytes": 8948,
+      "sha256": "6fb7d8c4550a860d9653529b3df0c02c4d1abd6fb3fc195267ebcf7bc667a414"
+    },
+    {
+      "path": "expedition.css",
+      "bytes": 32904,
+      "sha256": "340ce83f6a95c2ba576881049a2242bab968027fd1774724bd3b0c02909bff4c"
+    },
+    {
+      "path": "expedition.js",
+      "bytes": 62771,
+      "sha256": "ca7d9b645673391ffad6cdec215016440249dcdd51f14a08cb047a1e0d7661ec"
+    },
+    {
+      "path": "field-missions.js",
+      "bytes": 13215,
+      "sha256": "79a5d57d9b701569b428fa29a68ecf5c2452d7b66273a748e8a80e6e40f1cd6a"
+    },
+    {
+      "path": "index.html",
+      "bytes": 4315,
+      "sha256": "14cafe286a038bbe26b23c0d1b326c0ab17ee0ee250193d26c5c11acfe60627c"
+    },
+    {
+      "path": "journey.js",
+      "bytes": 38711,
+      "sha256": "64af2cfd4182c92745436e32ce1af0c3a0f89e06db7d4efd5093059b71d12200"
+    },
+    {
+      "path": "lesson-copy.js",
+      "bytes": 11453,
+      "sha256": "300dfb50a7d411c5a42f1b3ac370157f5fe377db60d945062288af2c23ee163a"
+    },
+    {
+      "path": "style.css",
+      "bytes": 43177,
+      "sha256": "acaa27e0452cbfefd389b84d89470de12740382a68b78b269a35e5c53759d7fd"
+    },
+    {
+      "path": "tiny-cnn.js",
+      "bytes": 5406,
+      "sha256": "6a45bea95e56c545e54d3e199e21745c60d5a6fd295877d95ca2bc3c7e901a89"
+    },
+    {
+      "path": "vision-missions.js",
+      "bytes": 29651,
+      "sha256": "a40ac4a61ba0d5d46e6daf85dcd480fd7af4b47d44ed10058b842742c8eab90a"
+    },
+    {
+      "path": "vision-posters.js",
+      "bytes": 84,
+      "sha256": "8852dbe637ebc496b74ebf7cbdb51367462ef8fe936f9c3acc04ec03f6c66248"
+    }
+  ]
+}

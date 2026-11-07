@@ -1,0 +1,26 @@
+[
+  {
+    "file": "WDXLLubrifontSC-game.woff2",
+    "bytes": 236564,
+    "unicode_count": 1393,
+    "glyph_count": 1670,
+    "source_sha256": "0134ed261d56aab8fa1860df677858c5d0d3ca899b2aa5430581c458a752e914",
+    "sha256": "e61bc8abcfd617763d34af57c1e7c61faa7b80923b684188c405aedf20100461"
+  },
+  {
+    "file": "ChakraPetch-Medium-latin.woff2",
+    "bytes": 11056,
+    "unicode_count": 361,
+    "glyph_count": 389,
+    "source_sha256": "d480f4f97405fac3600652e2e14fd0b14339031c0af4da11582994878f04d919",
+    "sha256": "3a247d296695d4c8dcd34053fb55e46b5d4586863047115d46a422a32295a2dc"
+  },
+  {
+    "file": "ChakraPetch-SemiBold-latin.woff2",
+    "bytes": 10988,
+    "unicode_count": 361,
+    "glyph_count": 389,
+    "source_sha256": "45264de3204ddbd5fb3e14a2402acd5c630d16650ae5fc221d2c52da46a6734b",
+    "sha256": "b264833af330829402373c0614730fc37477c0258ada47762d84d5c3db0017ae"
+  }
+]

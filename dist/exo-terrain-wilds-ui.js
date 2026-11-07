@@ -1,0 +1,35 @@
+/* Field journal for the authored terrain loop. Coordinates come from the same
+   source as the landscape and safety model, not an illustrative substitute. */
+const ExoTerrainWildsUI=(()=>{
+ const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const data=()=>typeof ExoTerrainWilds!=='undefined'?ExoTerrainWilds:null;
+ function teaser(model={}){if(!data())return '';return `<section class="campaign-side"><div><span class="tg-eyebrow">沿途勘测 · 断脊河谷</span><h3>沿青灯，走到旧地图之外。</h3><p>维修间以南，河水冲断了近路，旧勘测灯仍沿山脊亮着。${model?.unlocked?'风险辅助已安装，继续探索就能使用。':'沿途派探测车记录结果，把实地观察变成判断依据。'}桥面和青灯绕行路始终可走。</p></div><button onclick="Exo.wildsMap()">查看河谷与探索路线 ↗</button></section>`;}
+ function paths(d){return Array.isArray(d.paths)?d.paths:Object.values(d.paths||{});}
+ function schematic(unit){
+  const d=data();if(!d)return '';const b=d.bounds,dx=b.maxX-b.minX,dy=b.maxY-b.minY;
+  // The long north/south axis reads left-to-right, matching the annex map.
+  const p=q=>({x:35+(q.y-b.minY)/dy*630,y:35+(b.maxX-q.x)/dx*350}),pt=q=>{const v=p(q);return v.x.toFixed(1)+','+v.y.toFixed(1);};
+  const route=paths(d).map(r=>{const points=r.points||r;if(!Array.isArray(points))return '';return `<polyline points="${points.map(pt).join(' ')}" fill="none" stroke="${r.safe===false?'#c49a69':'#9fc6bd'}" stroke-width="${r.safe===false?2:3}" ${r.safe===false?'stroke-dasharray="5 4"':''} stroke-linejoin="round"/>`;}).join('');
+  const river=d.river?.points||[];
+  const hazards=(d.hazards||[]).filter(h=>!h.context&&!h.cave).map(h=>{const q=p(h);if(!Number.isFinite(q.x))return '';return `<ellipse cx="${q.x}" cy="${q.y}" rx="${Math.max(7,(h.ry||h.r||90)/dy*630)}" ry="${Math.max(7,(h.rx||h.r||90)/dx*350)}" fill="#be866b28" stroke="#d3a07a88" stroke-dasharray="3 3"/>`;}).join('');
+  const mountain=d.peak||{},m=Number.isFinite(mountain.x)?p(mountain):null;
+  const contours=m?[.45,.72,1].map(k=>`<ellipse cx="${m.x}" cy="${m.y}" rx="${(mountain.ry||600)/dy*630*k}" ry="${(mountain.rx||600)/dx*350*k}" fill="#b3a18b0b" stroke="#ab9c8855"/>`).join(''):'';
+  const sampleMarks=(d.samples||[]).map(l=>{const q=p(l.observationPoint||l);return `<circle cx="${q.x}" cy="${q.y}" r="4" fill="${l.test?'#d4b17d':'#8dc6bf'}" stroke="#122932" stroke-width="1"/>`;}).join('');
+  const marks=(d.landmarks||[]).map((l,i)=>{const q=p(l);return `<a href="#" onclick="event.preventDefault();Exo.wildsNavigate('${esc(l.id)}')" aria-label="沿安全路线前往${esc(l.name)}"><g><circle cx="${q.x}" cy="${q.y}" r="11" fill="#132c35" stroke="#c7d6c6"/><text x="${q.x}" y="${q.y+4}" text-anchor="middle" fill="#e0e9df" font-size="11">${i+1}</text></g><title>${esc(l.name)}</title></a>`;}).join('');
+  const here=unit&&(typeof ExoWorld==='undefined'||!ExoWorld.cave)&&d.contains(unit.x,unit.y)?p(unit):null;
+  return `<svg class="tg-map" viewBox="0 0 700 420" role="img" aria-label="断脊河谷路线图：青色实线为安全绕行，橙色虚线为需检查的捷径，蓝色河流与地下洞口相连。北方在左侧。"><rect width="700" height="420" fill="#14252c"/><defs><pattern id="wilds-map-grid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="#7caaa3" stroke-opacity=".08"/></pattern></defs><rect width="700" height="420" fill="url(#wilds-map-grid)"/>${contours}${river.length?`<polyline points="${river.map(pt).join(' ')}" fill="none" stroke="#598b9970" stroke-width="18" stroke-linecap="round"/><polyline points="${river.map(pt).join(' ')}" fill="none" stroke="#87b8bd70" stroke-width="2"/>`:''}${hazards}${route}${sampleMarks}${marks}${here?`<circle cx="${here.x}" cy="${here.y}" r="5" fill="#fff" stroke="#07191e" stroke-width="2"/>`:''}<text x="24" y="404" fill="#b6cbc8" font-size="12">← 北 / 维修间</text><text x="675" y="404" text-anchor="end" fill="#8ca8ae" font-size="11">K–09 / FIELD SURVEY</text></svg>`;
+ }
+ function panel(model={},unit=null){
+  const d=data();if(!d)return '';const cave=typeof ExoWorld!=='undefined'&&ExoWorld.cave,recorded=model.rows?.length||0,checked=model.checks?.length||0,needsRules=recorded===6&&model.phase!=='validate'&&!model.unlocked;
+  return `<div class="tg-dossier"><header class="tg-header"><div><span class="tg-eyebrow">K–09 · 沿途观察，沿途学习</span><h2>断脊河谷</h2></div><span class="tg-status ${model.unlocked?'complete':''}"><i></i>${model.unlocked?'风险辅助已安装':model.phase==='validate'?'检验新路线':'记录真实地形'}</span></header><p class="tg-brief">旧地图记录的是灾前的道路，眼前的岩层与水位还需要重新查看。沿维修间外的青灯向南，先看河岸，再绕过断崖登上山肩。机甲留在稳固处，让探测车试走；这里的岩层和水痕，就是新的路况记录。</p><section class="tg-launch"><div><strong>${model.unlocked?'判断已通过四处新路线的检验。':model.phase==='validate'?'已检验 '+checked+' / 4 段新路线':'已记录 '+recorded+' / 6 处沿途地形'}</strong><span>${needsRules?'记录已经齐了，现在可以整理出判断规则。':'桥面、青灯道路与洞内硬岩脊始终可走。'}</span></div><button class="primary" onclick="${model.unlocked?'closeModal()':needsRules?'Exo.terrainPanel()':'Exo.terrainTrack()'}">${model.unlocked?'继续探索':needsRules?'整理观察记录':'标记下一处观察点'} →</button></section><figure class="tg-map-frame">${schematic(unit)}<figcaption><span>━ 青灯安全路线</span><span>┄ 需观察的近路</span><span>青点 · 收集记录</span><span>橙点 · 检验新路线</span></figcaption></figure><div class="fc-buttons"><button onclick="Exo.terrainPanel()">查看记录与判断规则</button>${model.active?'<button onclick="closeModal();Exo.terrainExit()">收起勘测工具</button>':''}</div><details class="tg-shuttle"><summary>沿途地标 · 桥、山脊与勘测洞</summary><div class="exo-shell-cards">${d.landmarks.map((l,i)=>`<article><span class="tg-eyebrow">${String(i+1).padStart(2,'0')} / 河谷地标</span><h3>${esc(l.name)}</h3><p>${esc(l.description||l.desc||'观察地形，沿青色灯标探索。')}</p>${!cave?`<button onclick="Exo.wildsNavigate('${esc(l.id)}')">沿安全路线前往</button>`:''}</article>`).join('')}</div></details><section class="exo-shell-callout"><small>让每次观察，减少下一次损伤。</small><p>河岸承重不足会下陷，陡坡抓地不足会打滑，洞内薄壳可能塌落。橙灯先提醒你；继续驶入会减速并擦伤装甲，安全绞盘随后把机甲拉回稳固地面。学会判断后，模型建议绕行的地面会触发提前制动。</p><p>六处沿途记录用来学习规则，另外四段路留到之后检验。它们都在这片河谷里；检验结果不会偷偷加入训练，模型也不保证永远正确。</p></section><details class="tg-shuttle"><summary>想直接到河谷入口？</summary><p>接驳车会带你到南谷路口，已有的勘测记录都会保留。</p><button onclick="Exo.wildsExplore()">搭乘接驳车到河谷入口 ↗</button></details>${cave?'<button onclick="Exo.travel()">返回地下地图 · 找到入口出口</button>':''}</div>`;
+ }
+ function overlay(ctx,{unit,c,w,h,project,model}){
+  const d=data();if(!d||!model?.unlocked||model.overlay===false||unit.flight)return;
+  const context=ExoWorld.cave?.id||null,hazard=d.sample(unit.x,unit.y,context,400);if(!hazard)return;
+  const decision=ExoTerrainCourse.classify(model,hazard),x=Number.isFinite(hazard.x)?hazard.x:unit.x,y=Number.isFinite(hazard.y)?hazard.y:unit.y,ground=ExoWorld.elevation(c.x,c.y),p=project(x,y,ExoWorld.elevation(x,y)+45-ground,c,w,h);
+  if(p.d<35||p.x<40||p.x>w-40||p.y<100||p.y>h-120)return;
+  ctx.save();ctx.font='500 11px -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif';ctx.textAlign='center';ctx.strokeStyle='#08131fe6';ctx.lineWidth=4;const text=hazard.name+' · '+(decision.pass?'谨慎通过':'建议绕行');ctx.strokeText(text,p.x,p.y);ctx.fillStyle=decision.pass?'#b5dbcc':'#e2b38e';ctx.fillText(text,p.x,p.y);ctx.restore();
+ }
+ return {teaser,schematic,panel,overlay};
+})();
+if(typeof module!=='undefined')module.exports=ExoTerrainWildsUI;

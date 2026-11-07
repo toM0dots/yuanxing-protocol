@@ -1,0 +1,18 @@
+{
+  "source": "canyon-authored.glb",
+  "source_sha256": "601f565583d37aede0c2c8862b798aaf080b4c3f4941c740f1e82c51fbebdd04",
+  "retired": [
+    "floor",
+    "massif",
+    "ridge",
+    "talus"
+  ],
+  "retained": [
+    "FIELD | dark coated steel",
+    "FIELD | weathered safety enamel",
+    "FIELD | guidance strips"
+  ],
+  "source_bytes": 8574888,
+  "runtime_bytes": 78188,
+  "collision": "ExoWorld continuous terrain and building proxies; obsolete massif/talus/roof fields disabled"
+}
