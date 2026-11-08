@@ -4,7 +4,7 @@ import {treeGeometry,grassGeometry,understoryGeometry,floraRandom as rand} from 
 import {indexExactGeometry,createInstanceCuller} from './exo-render-optimization.mjs?v=20261107-performance89';
 
 function plantMaterial(material,clock,{wind=0,wood=false,ground=false,focus=null}={}){
- material.userData.skipDepthPrepass=true;
+ material.userData.skipDepthPrepass=true;material.alphaToCoverage=true;
  material.onBeforeCompile=s=>{
   s.uniforms.floraTime=clock;if(focus)s.uniforms.floraFocus=focus;
   s.vertexShader='attribute float groveFade;attribute float barkPale;varying float groveOpacity;varying float paleBark;varying vec3 plantWorld;uniform float floraTime;\n'+s.vertexShader;
@@ -17,17 +17,19 @@ transformed.x+=${wind.toFixed(4)}*bend*(sin(windPhase)+.35*sin(windPhase*1.7+pos
 transformed.z+=${(wind*.45).toFixed(4)}*bend*sin(windPhase*.79+1.3);`);
   s.fragmentShader=(focus?'uniform vec3 floraFocus;':'')+'varying float groveOpacity;varying float paleBark;varying vec3 plantWorld;\n'+s.fragmentShader;
   s.fragmentShader=s.fragmentShader.replace('#include <alphatest_fragment>',`#include <alphatest_fragment>
-float groveDither=fract(52.9829189*fract(dot(gl_FragCoord.xy,vec2(.06711056,.00583715))));
+
 float plantFade=groveOpacity${ground?'*(1.-smoothstep(760.,1150.,distance(cameraPosition.xz,plantWorld.xz)))':''};
-${focus?`// Fade only vegetation projected over the pilot, including branches close
-// to the lens. Adjacent crowns retain their full, natural silhouettes.
+${focus?`// Keep branches touching the lens from filling the frame, then open a
+// narrow sightline to the pilot. Distant crowns keep their silhouettes.
+plantFade*=smoothstep(22.,115.,distance(cameraPosition,plantWorld));
 vec3 sight=floraFocus-cameraPosition;float sightLength=max(1.,length(sight));vec3 sightDirection=sight/sightLength;
 float sightT=dot(plantWorld-cameraPosition,sightDirection)/sightLength;
 vec3 sightRight=normalize(cross(sightDirection,vec3(0.,1.,0.))+vec3(.00001,0.,0.));vec3 sightUp=cross(sightRight,sightDirection);
 vec3 sightOffset=plantWorld-cameraPosition-sight*sightT;
-vec2 sightScreen=vec2(dot(sightOffset,sightRight)/(6.+abs(sightT)*39.),dot(sightOffset,sightUp)/(6.+abs(sightT)*69.));
+vec2 sightScreen=vec2(dot(sightOffset,sightRight)/(8.+abs(sightT)*52.),dot(sightOffset,sightUp)/(8.+abs(sightT)*80.));
 if(sightT>.015&&sightT<.98)plantFade*=smoothstep(.72,1.30,length(sightScreen));`:''}
-if(groveDither>plantFade)discard;`);
+if(plantFade<.01)discard;
+diffuseColor.a*=plantFade;`);
   // Ground blades use upward diffuse normals on both faces, preventing the
   // reverse side from turning into black spikes under the hemisphere light.
   if(ground)s.fragmentShader=s.fragmentShader.replace('#include <normal_fragment_begin>','#include <normal_fragment_begin>\nnormal*=faceDirection;');
@@ -43,14 +45,15 @@ diffuseColor.rgb=mix(diffuseColor.rgb,diffuseColor.rgb*vec3(.68,.82,.58),dampFoo
   else s.fragmentShader=s.fragmentShader.replace('#include <map_fragment>',`#include <map_fragment>
 diffuseColor.rgb*=vec3(.88,1.02,.87);`);
  };
- material.customProgramCacheKey=()=>`flora-v88-focus-${wind}-${wood}-${ground}`;
+ material.customProgramCacheKey=()=>`flora-v92-lens-${wind}-${wood}-${ground}`;
 }
 
 export function createBiomes(scene,W,maps={}){
  const root=new T.Group();root.name='Natural woodland / mixed canopy, clearings and meadow';scene.add(root);
  const tex=biomeTextures(),clock={value:0},focus={value:new T.Vector3()},atlas=maps['foliage-atlas']||tex.leaves;
+ atlas.minFilter=T.LinearMipmapLinearFilter;atlas.magFilter=T.LinearFilter;atlas.anisotropy=4;
  const bark=new T.MeshStandardMaterial({name:'Woodland / scanned bark and birch scars',color:0xc6c0a9,roughness:1,map:maps['bark-color']||null,normalMap:maps['bark-normal']||null,normalScale:new T.Vector2(.55,.55),roughnessMap:maps['bark-roughness']||null,vertexColors:true});
- const foliage=new T.MeshStandardMaterial({name:'Woodland / botanical leaf and needle cutouts',map:atlas,color:0xe4e8cf,alphaTest:.48,side:T.DoubleSide,roughness:.89,metalness:0,vertexColors:true,emissive:0x20291a,emissiveIntensity:.20});
+ const foliage=new T.MeshStandardMaterial({name:'Woodland / botanical leaf and needle cutouts',map:atlas,color:0xe4e8cf,alphaTest:.38,side:T.DoubleSide,roughness:.89,metalness:0,vertexColors:true,emissive:0x20291a,emissiveIntensity:.20});
  const grassMat=new T.MeshStandardMaterial({name:'Meadow / fine curved blades and seed heads',color:0x819560,roughness:.95,side:T.DoubleSide,vertexColors:true});
  const underMat=foliage.clone();underMat.name='Woodland / ferns and loose understory';
  plantMaterial(bark,clock,{wood:true,focus});plantMaterial(foliage,clock,{wind:.0045,focus});plantMaterial(grassMat,clock,{wind:.65,ground:true});plantMaterial(underMat,clock,{wind:.32,ground:true});

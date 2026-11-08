@@ -1,5 +1,5 @@
 import * as T from './assets/ev01/three.module.mjs';
-import {createCreature,poseCreature,configureFaunaSurface} from './exo-creature-models.mjs?v=20261106-model85e';
+import {createCreature,poseCreature,configureFaunaSurface} from './exo-creature-models.mjs?v=20261108-inspection92b';
 import {createCombatVFX,VFX,hash} from './exo-combat-vfx.mjs?v=69';
 export {createCreature,poseCreature,configureFaunaSurface};
 const colors=[0x55efcb,VFX.amber,VFX.green,0xff7449],violet=0xb685ff,UP=new T.Vector3(0,1,0),TAU=Math.PI*2;
@@ -21,7 +21,7 @@ export function createCreatureLayer(scene){
   if(combat!==lastCombat){clear();lastCombat=combat;}used=0;cursor=0;smokeCount=0;fx.begin();visible.clear();
   const near=p=>Math.hypot(p.x-u.x,p.y-u.y)<1800,detail=p=>!reduced&&Math.hypot(p.x-u.x,p.y-u.y)<900,at=(x,y,z=4)=>v(x,ground(x,y)+z,y);
   const mist=(p,size,alpha,color)=>{if(smokeCount++>=48)return;if(Array.isArray(size))fx.put('smoke',p,size,color,alpha,camera?.quaternion);else fx.smoke(p,size,alpha,color,camera);};
-  for(const e of combat.enemies){if(e.hp<=0||!near(e))continue;visible.add(e.id);let rig=live.get(e.id);const distance=Math.hypot(e.x-u.x,e.y-u.y),lowDetail=rig?.lowDetail?distance>780:distance>980;if(!rig||rig.level!==(e.level||1)||rig.lowDetail!==lowDetail){if(rig){scene.remove(rig.root);rig.dispose?.();}rig=createCreature(e.level||1,lowDetail);rig.lowDetail=lowDetail;rig.emitter=rig.root.getObjectByName('AttackEmitter');rig.claws=['L','R'].map(side=>rig.root.getObjectByName('Claw_'+side));scene.add(rig.root);live.set(e.id,rig);}if(distance<1100||time-(rig.lastPose??-1)>.1){poseCreature(rig,e,u,time,ground);rig.lastPose=time;}rig.root.updateMatrixWorld(true);}
+  for(const e of combat.enemies){if(!near(e)||e.hp<=0&&(!e.death||e.death.age>e.death.duration&&Math.hypot(e.x-u.x,e.y-u.y)>650))continue;visible.add(e.id);let rig=live.get(e.id);const distance=Math.hypot(e.x-u.x,e.y-u.y),lowDetail=rig?.lowDetail?distance>780:distance>980;if(!rig||rig.level!==(e.level||1)||rig.lowDetail!==lowDetail){if(rig){scene.remove(rig.root);rig.dispose?.();}rig=createCreature(e.level||1,lowDetail);rig.lowDetail=lowDetail;rig.emitter=rig.root.getObjectByName('AttackEmitter');rig.claws=['L','R'].map(side=>rig.root.getObjectByName('Claw_'+side));scene.add(rig.root);live.set(e.id,rig);}if(distance<1100||time-(rig.lastPose??-1)>.1){poseCreature(rig,e,u,time,ground);rig.lastPose=time;}rig.root.updateMatrixWorld(true);}
   for(const [id,rig] of live)if(!visible.has(id)){scene.remove(rig.root);rig.dispose?.();live.delete(id);}
   const emitter=e=>{const socket=live.get(e.id)?.emitter;return socket?socket.getWorldPosition(v()):at(e.x,e.y,[48,65,98,140][(e.level||1)-1]);};
   function ring(x,y,r,width,color,alpha=.6){

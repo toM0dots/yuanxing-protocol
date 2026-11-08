@@ -1,5 +1,5 @@
 {
-  "release": "20261107-route91",
+  "release": "20261108-inspection92b",
   "files": [
     {
       "path": ".nojekyll",
@@ -2458,18 +2458,18 @@
     },
     {
       "path": "exo-3d.js",
-      "bytes": 27276,
-      "sha256": "421411d6fa072bc0b8b3f12f4caed3a6692547c23259fdb514997df239a0cb74"
+      "bytes": 28297,
+      "sha256": "9927f737182a5dbce22297f514d67c013098873ca02b8194fc3bc0bfc4b7fe5b"
     },
     {
       "path": "exo-aegis-surface.mjs",
-      "bytes": 3290,
-      "sha256": "da2ad7a99e2654c76264b6c06a025db7c2280eed40beff02a80bfc5b66c11d8e"
+      "bytes": 3813,
+      "sha256": "ef021f980402ad4ed6f30f5eb5c67342a12c8b3e2755dfbe9c93c76fc8d192b9"
     },
     {
       "path": "exo-aegis.mjs",
-      "bytes": 9391,
-      "sha256": "fc266d87c3390662b848f11b3fb156e16fe44dca3d845c21087c16ff3e974d0d"
+      "bytes": 10906,
+      "sha256": "052d4a2b65cb70c2da03d034a5226e14bbe151d1b751a151c7a2566bf0876286"
     },
     {
       "path": "exo-ashland.mjs",
@@ -2493,8 +2493,8 @@
     },
     {
       "path": "exo-biomes.mjs",
-      "bytes": 10984,
-      "sha256": "1c4ad0ee511128837d9c25e9894e0b74991dc864efddee3531d732699b458071"
+      "bytes": 11103,
+      "sha256": "6a0653f97cb693ca99703b39d8103b1cf6253e5f13511f4ed8bd01b2778da663"
     },
     {
       "path": "exo-building-camera.mjs",
@@ -2533,8 +2533,8 @@
     },
     {
       "path": "exo-caverns.mjs",
-      "bytes": 12471,
-      "sha256": "f0df4251fd0ab7ecc8c7b2cf58ac0e58c7675a8c1aeb6d6ac5934741eb158c63"
+      "bytes": 12475,
+      "sha256": "969065560a1ccfd1c16f61eadbe37c726f1301dbad9b3637c4aeed7123e38ff7"
     },
     {
       "path": "exo-clue-render.mjs",
@@ -2553,13 +2553,13 @@
     },
     {
       "path": "exo-creature-models.mjs",
-      "bytes": 36249,
-      "sha256": "85e1a381358061e0d502d8141f958eb23c5aeed7f6d0010b58bdd9a4db117fe6"
+      "bytes": 38094,
+      "sha256": "9528c4926edfbf645a899bef176bb074af2a9b8f6426c99d7c8ff2fb5f400242"
     },
     {
       "path": "exo-creatures.mjs",
-      "bytes": 14032,
-      "sha256": "4617b861b0eedea638a444e194c718c4b9a251aa98fa5f7970dd720f3da5b224"
+      "bytes": 14112,
+      "sha256": "77d63bfd4ffc934507cefe89cae5416893a49d10f5ba0119c9072b930ee28e7d"
     },
     {
       "path": "exo-depth-prepass.mjs",
@@ -2648,8 +2648,8 @@
     },
     {
       "path": "exo-guardian.mjs",
-      "bytes": 12526,
-      "sha256": "d11841bfee30868a6282b3e61b9cf057b9a897debf125cdef80f39cbf4c92326"
+      "bytes": 12531,
+      "sha256": "6193cf85dea8f5602fc93caeec6775ab3aca5767d0af9441217dbdeb8c3aaf0b"
     },
     {
       "path": "exo-guide-lights.mjs",
@@ -2673,8 +2673,8 @@
     },
     {
       "path": "exo-hud.js",
-      "bytes": 27772,
-      "sha256": "6841528a49a3c489d60f378343d2323460936f1aa9fd1bded24ce715d7f28425"
+      "bytes": 28216,
+      "sha256": "8d72a9b0330897969dbccf5a9b746eea40cfa8a181ec13e9d704518c4a000a63"
     },
     {
       "path": "exo-interior-kit.mjs",
@@ -2713,8 +2713,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 19228,
-      "sha256": "612445cff42c2e6eab3f6d346033d92b164e38e07f476241099aab0189628a92"
+      "bytes": 19613,
+      "sha256": "66f8a295fb8218c734a98e224d93d79914e126b837241c81407cb056cea03851"
     },
     {
       "path": "exo-profile.js",
@@ -2772,6 +2772,16 @@
       "sha256": "bd213b6b5e6588ab0d99891d8c9cd2ccb2e69ad2fb365b9435715f044fefc4c8"
     },
     {
+      "path": "exo-roadside-encounter.js",
+      "bytes": 881,
+      "sha256": "f925754a18bc7d57dcffebf1c5ae4d3cc6875b033ce3354bb602d0398dd0a136"
+    },
+    {
+      "path": "exo-roadside-encounter.mjs",
+      "bytes": 5268,
+      "sha256": "8a462509b623ae4d49d5cfb2e69a0b3514e287c8b700de3d4991f7828112b765"
+    },
+    {
       "path": "exo-room-stories.mjs",
       "bytes": 710,
       "sha256": "e9504232241f9954797305e911a091802ce0cea2b97023904e16e269aba1b4de"
@@ -2788,13 +2798,13 @@
     },
     {
       "path": "exo-sandbox.js",
-      "bytes": 23424,
-      "sha256": "d08ed93f691a1c4d955a3e72cb29d10f24a58676c21dc8880af9918b8e1db11d"
+      "bytes": 26054,
+      "sha256": "0a6aa0d1f973b382e3d3d27bf2f45a4b1ffbfcfa222166f0c717d564081e14ca"
     },
     {
       "path": "exo-scene.js",
-      "bytes": 10947,
-      "sha256": "ae229d18e971051a08eb2374da380027fdacc2764f17eca57a948eb498bf7cdb"
+      "bytes": 11142,
+      "sha256": "e0c45e628d47f4f028e439b3c77d5370c992c70decd45f998e4866e15866fd1c"
     },
     {
       "path": "exo-shell.css",
@@ -2803,8 +2813,8 @@
     },
     {
       "path": "exo-shell.js",
-      "bytes": 9576,
-      "sha256": "713fb6be186f92b2f521b6329e5bd64118475689422faa3a417be95e543e6034"
+      "bytes": 10847,
+      "sha256": "2a03ea227866055c6a6c737e23e98858858c7f0492e8a2b81c5cd822232c4838"
     },
     {
       "path": "exo-space.mjs",
@@ -2843,8 +2853,8 @@
     },
     {
       "path": "exo-terrain-stream.mjs",
-      "bytes": 2145,
-      "sha256": "14eca4bc47f6d49053f395c2465e363eb7b2e42678c9a3e75a768a7510a30b35"
+      "bytes": 2151,
+      "sha256": "c11bcf5241fc1c19192d0826d785b9915bb040cadd9f18e37bdf4992a582bc97"
     },
     {
       "path": "exo-terrain-wilds-ui.js",
@@ -2858,13 +2868,13 @@
     },
     {
       "path": "exo-terrain-wilds.mjs",
-      "bytes": 19543,
-      "sha256": "01feb14deb00be81b2028191eda95049233cd1e12072d70ed1a40e7429049d3f"
+      "bytes": 19547,
+      "sha256": "0490dde0ddd80192f58fcbcc25e60fa3e3904777c0459f2aab546417b8528126"
     },
     {
       "path": "exo-terrain-worker.js",
-      "bytes": 1548,
-      "sha256": "37daabde85a936c7c09fefc0740ca4e9b5f13bc34529c9f2b32810f1bd920170"
+      "bytes": 1558,
+      "sha256": "2667b4d8528c3e91abbfbfb6e37da66f1dc99718699b4fd6111702c8bc78d776"
     },
     {
       "path": "exo-training-ground.js",
@@ -2873,8 +2883,8 @@
     },
     {
       "path": "exo-training-ground.mjs",
-      "bytes": 16887,
-      "sha256": "ce82a924b1f36b2689183087e130ea0bf4d94afe30cc6564ca6bdcaee7dbf607"
+      "bytes": 16891,
+      "sha256": "a1d4a15b9d9e736212e549c1722965f624770ec08dfaab455daeaf73dae23529"
     },
     {
       "path": "exo-training-ui.css",
@@ -2898,8 +2908,8 @@
     },
     {
       "path": "exo-world-details.mjs",
-      "bytes": 26818,
-      "sha256": "949d7acdd34eb41630a7089b1a5050380f4ee41a306bcf65b2afe8af6db21c24"
+      "bytes": 26955,
+      "sha256": "ada20eb43744bfd1cda4eb87cabbf77b9a8dd18b22ed99e98ec7908ab5a15555"
     },
     {
       "path": "exo-world-layout.js",
@@ -2908,8 +2918,8 @@
     },
     {
       "path": "exo-world.js",
-      "bytes": 28396,
-      "sha256": "12791c6b71e59e396afd6005556d025ecbae2ffd8edac57681324eb39f9d223e"
+      "bytes": 28674,
+      "sha256": "e917cf1caaa0f60db80676f95a59707a4250c22cdf077ba29d3a030890153daf"
     },
     {
       "path": "exo-wreck-world.js",
@@ -2928,8 +2938,8 @@
     },
     {
       "path": "expedition.js",
-      "bytes": 64933,
-      "sha256": "7d1d27f8252a8b26af1c6ca4abaf04697b829e094353819de52ef45f148e20a9"
+      "bytes": 66479,
+      "sha256": "9af6c707000d00ab535eecd4dc61020a3abba47d3036dbc2e78516ccec88cad5"
     },
     {
       "path": "field-missions.js",
@@ -2938,8 +2948,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4420,
-      "sha256": "1a9a9df21ad272558e33c1484634bb0433b54abaccc0ed43e4debb08ac778e31"
+      "bytes": 4537,
+      "sha256": "d8f52bd073b5297f68a054056509db5f2270d46d39921c8f7d347970edd1d345"
     },
     {
       "path": "journey.js",

@@ -1,5 +1,5 @@
 import * as T from './assets/ev01/three.module.mjs';
-import {createChitinBuilder,bakeRigidSkin,attachRigidSkin} from './exo-creature-models.mjs?v=20261106-model85e';
+import {createChitinBuilder,bakeRigidSkin,attachRigidSkin} from './exo-creature-models.mjs?v=20261108-inspection92b';
 
 // The fatal boundary rule remains in ExoSandbox. This module visualizes the
 // already authoritative detection, proximity charge, and immediate strike.

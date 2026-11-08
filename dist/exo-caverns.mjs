@@ -1,6 +1,6 @@
 import * as T from './assets/ev01/three.module.mjs';
 import {createFieldLampBatch} from './exo-field-lamps.mjs?v=20261107-performance89';
-import {builder,scannedMaterial} from './exo-world-details.mjs?v=20261107-loading90';
+import {builder,scannedMaterial} from './exo-world-details.mjs?v=20261108-inspection92b';
 import {mergeGeometries} from './assets/ev01/BufferGeometryUtils.mjs';
 
 const caveNoise=(a,b=0)=>{const n=Math.sin(a*127.1+b*311.7)*43758.5453;return n-Math.floor(n);};

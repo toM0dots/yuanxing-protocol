@@ -13,7 +13,7 @@ const clamp = (v, a = 0, b = 1) => Math.max(a, Math.min(b, v));
 const smooth = t => { t = clamp(t); return t * t * (3 - 2 * t); };
 const finite = (n, fallback = 0) => Number.isFinite(n) ? n : fallback;
 const v3 = a => new T.Vector3(...a);
-const basalt = 0x65513d, edge = 0xb2a081, sinew = 0x49342d, recess = 0x242220;
+const basalt = 0x53676b, edge = 0xbfc3ac, sinew = 0x403d36, recess = 0x232d30;
 const lights = [0x476f61, 0x6c5631, 0x67733c, 0x775335];
 const hullMaterial = faunaMaterial('Layered cuticle / sculpted chitin', {vertexColors:true});
 // Opaque, fibrous chambers avoid transparency sorting and the former balloons.
@@ -444,15 +444,32 @@ export function poseCreature(rig,e,u,time,ground) {
   else if(moving)desired=Math.atan2(-vx,-vz);
   if(rig.heading===null||teleport)rig.heading=desired;
   else rig.heading+=Math.atan2(Math.sin(desired-rig.heading),Math.cos(desired-rig.heading))*(1-Math.exp(-dt*(dash?4:8)));
-  rig.root.rotation.y=rig.heading;
+  rig.root.rotation.y=rig.heading;rig.root.rotation.z=0;rig.root.scale.setScalar(1);
+  if(e.hp<=0&&e.death){
+   // The first impact buckles the support legs; the body settles on its flank.
+   // Corpses stay while the pilot is nearby and never keep attacking.
+   const collapse=smooth(e.death.age/1.05),settle=Math.sin(clamp(e.death.age/1.35)*Math.PI)*3,side=e.death.side||1;
+   rig.body.position.set(0,-collapse*(rig.level===4?50:rig.level===3?31:rig.level===2?23:15)+settle,0);
+   rig.body.rotation.set(.12*collapse,0,side*.42*collapse);
+   if(rig.head)rig.head.rotation.x=.30*collapse;
+   if(rig.tail)rig.tail.rotation.y=side*.35*collapse;
+   for(const arm of rig.arms){arm.rotation.x=.7*collapse;arm.rotation.z=Math.sign(arm.position.x)*.4*collapse;}
+   rig.root.traverse(o=>{if(o.isMesh&&o.userData.materialRole==='glow')o.material.emissiveIntensity=.28*(1-collapse);});
+   rig.root.updateMatrixWorld(true);const inverse=rig.root.matrixWorld.clone().invert();
+   for(const leg of rig.legs){const hip=leg.hip.getWorldPosition(new T.Vector3()).applyMatrix4(inverse),foot=v3(leg.def.foot);foot.x+=leg.def.side*collapse*12;foot.z+=collapse*(leg.def.offset<.5?9:-9);const world=foot.clone().applyMatrix4(rig.root.matrixWorld);world.y=sample(world.x,world.z)+1;poseLeg(leg,hip,world.applyMatrix4(inverse),v3(leg.def.knee));leg.world=null;}
+   rig.root.updateMatrixWorld(true);rig.skin?.sync();return;
+  }
+  const hit=e.hitReaction,envelope=hit?Math.sin(clamp(1-hit.time/hit.total)*Math.PI)*Math.exp(-clamp(1-hit.time/hit.total)*2)*hit.strength:0;
+  const hitSide=hit?(hit.x*Math.cos(rig.heading)-hit.y*Math.sin(rig.heading)):0,hitForward=hit?(hit.x*Math.sin(rig.heading)+hit.y*Math.cos(rig.heading)):0;
+  rig.body.position.x=hitSide*envelope*5;rig.body.position.z=hitForward*envelope*4;
   const gait=rig.distance/rig.spec.stride,breath=Math.sin(time*1.35+finite(e.id))*.24;
-  const goalY=breath-brace*(rig.level===4?9:rig.level===2?6:4)+(release?-impulse*2:0);
+  const goalY=breath-(e.stagger>0?4:0)-brace*(rig.level===4?9:rig.level===2?6:4)+(release?-impulse*2:0);
   const follow=1-Math.exp(-dt*14);
   rig.body.position.y=T.MathUtils.lerp(rig.body.position.y,goalY,follow);
-  rig.body.rotation.x=T.MathUtils.lerp(rig.body.rotation.x,(rig.level===3?.06:.14)*brace+(dash?-.05:0),follow);
-  rig.body.rotation.z=T.MathUtils.lerp(rig.body.rotation.z,moving?Math.sin(gait*TAU)*.018:0,follow);
+  rig.body.rotation.x=T.MathUtils.lerp(rig.body.rotation.x,(rig.level===3?.06:.20)*brace+(dash?-.08:0)+hitForward*envelope*.12,follow);
+  rig.body.rotation.z=T.MathUtils.lerp(rig.body.rotation.z,(moving?Math.sin(gait*TAU)*.018:0)-hitSide*envelope*.16,follow);
   rig.body.rotation.y=T.MathUtils.lerp(rig.body.rotation.y,rig.level===4?-.24*brace+(release?.48*impulse:0):0,follow);
-  if(rig.head) {rig.head.rotation.x=T.MathUtils.lerp(rig.head.rotation.x,(rig.level===2?.3:-.12)*brace+(release?-.13*impulse:0),follow);rig.head.rotation.y=rig.level===1?Math.sin(time*.8+finite(e.id))*.025:0;}
+  if(rig.head) {rig.head.rotation.x=T.MathUtils.lerp(rig.head.rotation.x,(rig.level===2?.39:-.16)*brace+(release?-.13*impulse:0),follow);rig.head.rotation.y=rig.level===1?Math.sin(time*.8+finite(e.id))*.025:0;}
   if(rig.tail)rig.tail.rotation.y=Math.sin(gait*TAU*.5+time*.2)*.1;
   if(rig.turret) {rig.turret.rotation.x=.16*brace-.22*impulse;rig.turret.position.y=59-impulse*4;}
   if(rig.sacs) {rig.sacs.scale.setScalar(1+.015*brace-.022*impulse);rig.sacs.position.y=-64*(rig.sacs.scale.y-1);}
@@ -491,4 +508,4 @@ export function poseCreature(rig,e,u,time,ground) {
   rig.skin?.sync();
 }
 
-export const creatureModelInfo = Object.freeze({reference:'art/creature-anatomy-v75.json',axes:'Y up, -Z forward',supportLegs:[6,4,6,4],attackArms:[0,0,0,2],materials:'Original512px biological cuticle color/normal/roughness maps, warmchitin, dull connective tissue and waxy plate highlights; no environmental rock texture. Smooth authored lofts and closed sclerites retain2LODs.'});
+export const creatureModelInfo = Object.freeze({reference:'art/creature-anatomy-v75.json',axes:'Y up, -Z forward',supportLegs:[6,4,6,4],attackArms:[0,0,0,2],materials:'Original512px biological cuticle color/normal/roughness maps, cool slate cuticle with pale worn rims, dull connective tissue and waxy plate highlights; no environmental rock texture. Smooth authored lofts and closed sclerites retain2LODs.'});

@@ -4,7 +4,15 @@
 
 A science-fiction exploration game with AI learning missions. Anyone can play from the link; no account or invitation is needed.
 
-This repository contains the complete static game release **v91** (`20261107-route91`), including its models, textures, fonts and bundled asset attribution files.
+This repository contains the complete static game release **v92** (`20261108-inspection92b`), including its models, textures, fonts and bundled asset attribution files.
+
+## Combat and presentation in v92
+
+Targets now distinguish detection, obstruction and actual firing range. Use **T** / **换目标** to switch targets. Optional aim assistance, automatic combat framing and a distance slider are available in Settings; the mouse wheel also adjusts distance. Branches close to the camera fade to keep the pilot visible.
+
+Enemy hits now produce directional flinches, guarded stagger and a visible collapse. The existing detailed hero has clearer material contrast, slope-aligned feet, turning steps and more weight in movement and recoil. Enemy armor and windups are easier to read against the ground.
+
+An abandoned maintenance stop on the existing freight road provides a compact encounter with clear escape lanes, outcrops, a damaged cart and scattered equipment. To try it immediately, open **暂停 → 沿途学习 → 想换个玩法？ → 战斗练习**, then choose an enemy. It also exists in the open world. Existing story progress, the v91 route and detailed vegetation remain intact.
 
 ## Story route in v91
 

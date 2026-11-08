@@ -16,7 +16,7 @@ export function createAegisRig(root){
   l.support=l.contact.clone();l.soleQ=new T.Quaternion();l.roll=0;l.heelZ=l.foot.worldToLocal(new T.Vector3(b.min.x,b.min.y,b.max.z)).z;l.toeZ=l.foot.worldToLocal(new T.Vector3(b.min.x,b.min.y,b.min.z)).z;
   l.plant=new T.Vector3();l.target=new T.Vector3();l.start=new T.Vector3();l.wasStance=false;l.planted=false;
  });
- rig.work={inverse:new T.Matrix4(),target:new T.Vector3(),direction:new T.Vector3(),pole:new T.Vector3(),knee:new T.Vector3(),lower:new T.Vector3(),support:new T.Vector3(),q:new T.Quaternion(),flightQ:new T.Quaternion(),euler:new T.Euler(),lastRoot:new T.Vector3()};
+ rig.work={inverse:new T.Matrix4(),target:new T.Vector3(),direction:new T.Vector3(),pole:new T.Vector3(),knee:new T.Vector3(),lower:new T.Vector3(),support:new T.Vector3(),q:new T.Quaternion(),flightQ:new T.Quaternion(),slopeQ:new T.Quaternion(),normal:new T.Vector3(),up:new T.Vector3(0,1,0),euler:new T.Euler(),lastRoot:new T.Vector3()};
  rig.motion={speed:0,run:0,air:0,aimYaw:0,aimPitch:0};return rig;
 }
 
@@ -36,20 +36,28 @@ function solveLeg(rig,l,target){
 export function poseAegis(rig,phase,{speed=0,run=false,aimYaw=0,aimPitch=0,recoil=0,damage=0,footHeights=ZERO_FEET,idleTime=0,saber=null,flight=null,distance=null,dt=null,sampleHeight=null}={}){
  for(const [o,rest] of rig.rest){o.position.copy(rest.p);o.quaternion.copy(rest.q)}
  const stateful=Number.isFinite(dt),step=stateful?clamp(dt,0,.1):0,m=rig.motion,w=rig.work;
+ const previousSpeed=m.speed;
  const damp=(a,b,rate)=>stateful?lerp(a,b,1-Math.exp(-step*rate)):b;
  m.speed=damp(m.speed,clamp(speed,0,1),12);m.run=damp(m.run,Number(run),7);m.air=damp(m.air,Number(!!flight),8);
+ m.acceleration=damp(m.acceleration||0,step>0?clamp((m.speed-previousSpeed)/step,-3,3):0,7);
+ m.recoil=damp(m.recoil||0,recoil,recoil>(m.recoil||0)?35:9);
+ if(m.wasFlight&&!flight)m.landingAge=0;
+ m.wasFlight=!!flight;if(m.landingAge!=null)m.landingAge+=step;
+ const landing=m.landingAge!=null&&m.landingAge<.65?Math.sin(m.landingAge/.65*Math.PI)*.16:0;
+ const heading=rig.root.rotation.y,yawDelta=rig.lastHeading==null?0:Math.atan2(Math.sin(heading-rig.lastHeading),Math.cos(heading-rig.lastHeading));rig.lastHeading=heading;
+ m.turn=damp(m.turn||0,!flight&&m.speed<.15&&step>0?clamp(Math.abs(yawDelta)/step,0,1):0,9);
  m.aimYaw=damp(m.aimYaw,clamp(aimYaw,-.85,.85),10);m.aimPitch=damp(m.aimPitch,clamp(aimPitch,-1.1,1.1),10);
- const motion=m.speed,air=m.air,groundWeight=1-air,stride=lerp(1.65,1.95,m.run),stance=.56,worldScale=rig.root.scale.x||18;
+ const motion=m.speed,gaitMotion=Math.max(motion,m.turn*.38),air=m.air,groundWeight=1-air,stride=lerp(1.65,1.95,m.run),stance=.56,worldScale=rig.root.scale.x||18;
  if(Number.isFinite(distance)){
   const delta=rig.lastDistance==null?0:distance-rig.lastDistance;rig.lastDistance=distance;
   if(delta<0||delta>150)rig.legs.forEach(l=>l.planted=false);
   // During stance the local sole advances +Z by exactly the body's -Z travel.
-  rig.gaitPhase=(rig.gaitPhase||0)+(delta>=0&&delta<150&&!flight?delta/(2*stride*worldScale/stance)*TAU:0);phase=rig.gaitPhase;
+  rig.gaitPhase=(rig.gaitPhase||0)+(delta>=0&&delta<150&&!flight?delta/(2*stride*worldScale/stance)*TAU:0);rig.gaitPhase+=!flight&&motion<.15&&Math.abs(yawDelta)<.4?Math.abs(yawDelta)*2:0;phase=rig.gaitPhase;
  }
  // Stand tall at mid-stance; leg reach lowers the pelvis only at the long step extremes.
- const crouch=(.045+.035*m.run*motion)*groundWeight;
+ const crouch=(.045+.035*m.run*motion+landing)*groundWeight;
  rig.pelvis.position.y-=crouch;rig.pelvis.position.x+=Math.cos(phase-stance*Math.PI)*.045*motion*groundWeight;
- rig.chest.rotation.x=-lerp(.065,.13,m.run)*motion*groundWeight+damage*.07+recoil*.045;
+ rig.chest.rotation.x=-lerp(.065,.13,m.run)*motion*groundWeight+damage*.07+m.recoil*.07-m.acceleration*.035*groundWeight;
  rig.chest.rotation.y=-m.aimYaw*(1-air*.65)+Math.sin(phase)*.035*motion*groundWeight;
  rig.chest.rotation.z=Math.sin(phase)*.012*motion*groundWeight;
  rig.head.rotation.y=-m.aimYaw*.18;rig.head.rotation.x=-m.aimPitch*.15;
@@ -59,15 +67,15 @@ export function poseAegis(rig,phase,{speed=0,run=false,aimYaw=0,aimPitch=0,recoi
  for(let i=0;i<2;i++){
   const l=rig.legs[i],cycle=((phase/TAU+i*.5)%1+1)%1,inStance=cycle<stance,swing=clamp((cycle-stance)/(1-stance),0,1);
   const z=(inStance?-1+2*cycle/stance:1-2*T.MathUtils.smootherstep(swing,0,1))*stride;
-  const lift=Math.sin(swing*Math.PI)**2*lerp(.23,.42,m.run)*motion;
-  l.target.copy(l.sole);l.target.x-=Math.sign(l.sole.x)*.14*motion;l.target.z+=z*motion;l.target.y+=lift+(footHeights[i]||0);
+  const lift=Math.sin(swing*Math.PI)**2*(lerp(.23,.42,m.run)*motion+.23*m.turn);
+  l.target.copy(l.sole);l.target.x-=Math.sign(l.sole.x)*.14*motion;l.target.z+=z*gaitMotion;l.target.y+=lift+(footHeights[i]||0);
   if(reset||flight){l.planted=false;l.wasStance=false;}
   if(stateful&&sampleHeight&&!flight&&air<.1){
    l.target.applyMatrix4(rig.root.matrixWorld);l.target.y=sampleHeight(l.target.x,l.target.z)+lift*worldScale;
    if(inStance){
     if(!l.planted||!l.wasStance)l.plant.copy(l.target);
     // A stopped mech settles back into its ready stance without a pose snap.
-    if(motion<.08)l.plant.lerp(l.target,1-Math.exp(-step*7));
+    if(gaitMotion<.08)l.plant.lerp(l.target,1-Math.exp(-step*7));
     l.target.copy(l.plant);l.start.copy(l.plant);l.planted=true;
    }else if(l.planted){
     w.target.copy(l.sole);w.target.x-=Math.sign(l.sole.x)*.14*motion;w.target.z-=(stride+(1-swing)*(1-stance)*2*stride/stance)*motion;w.target.applyMatrix4(rig.root.matrixWorld);w.target.y=sampleHeight(w.target.x,w.target.z);
@@ -78,7 +86,15 @@ export function poseAegis(rig,phase,{speed=0,run=false,aimYaw=0,aimPitch=0,recoi
   // Heel contact, flat support, then toe push-off: the rigid sole pivots around
   // its actual support edge, instead of staying flat throughout the entire step.
   l.roll=(inStance?.12*(1-T.MathUtils.smoothstep(cycle,0,.10))-.26*T.MathUtils.smoothstep(cycle,.38,stance):.14*Math.sin(swing*Math.PI)**2)*motion*groundWeight;
-  l.soleQ.setFromEuler(w.euler.set(l.roll,0,0));l.support.copy(l.contact);
+  l.soleQ.setFromEuler(w.euler.set(l.roll,0,0));
+  if(sampleHeight&&!flight&&air<.1){
+   // Sample the plane underneath each foot, then express its normal in chassis
+   // space. Rolling around that plane keeps the heel/toe support on slopes.
+   w.target.copy(l.target).applyMatrix4(rig.root.matrixWorld);const r=Math.max(1,worldScale*.3),x=w.target.x,z=w.target.z;
+   const dx=clamp((sampleHeight(x+r,z)-sampleHeight(x-r,z))/(2*r),-.7,.7),dz=clamp((sampleHeight(x,z+r)-sampleHeight(x,z-r))/(2*r),-.7,.7);
+   w.normal.set(-dx,1,-dz).normalize().transformDirection(w.inverse);w.slopeQ.setFromUnitVectors(w.up,w.normal);l.soleQ.premultiply(w.slopeQ);
+  }
+  l.support.copy(l.contact);
   if(inStance&&Math.abs(l.roll)>.00001)l.support.z=l.roll>0?l.heelZ:l.toeZ;
   l.target.add(l.support).sub(l.contact);
   if(stateful&&sampleHeight&&!flight&&air<.1&&inStance){l.target.applyMatrix4(rig.root.matrixWorld);l.target.y=sampleHeight(l.target.x,l.target.z);l.target.applyMatrix4(w.inverse);}
@@ -98,7 +114,7 @@ export function poseAegis(rig,phase,{speed=0,run=false,aimYaw=0,aimPitch=0,recoi
  }
  rig.arms[0].upper.rotation.x=.06+clamp(rig.legs[0].target.z*.17,-.30,.30)*motion*groundWeight;
  rig.arms[0].forearm.rotation.x=.20+.09*m.run*motion*groundWeight;
- rig.arms[1].upper.rotation.x=m.aimPitch+clamp(rig.legs[1].target.z*.08,-.14,.14)*motion*groundWeight;rig.arms[1].forearm.rotation.x=recoil*.10;
+ rig.arms[1].upper.rotation.x=m.aimPitch+clamp(rig.legs[1].target.z*.08,-.14,.14)*motion*groundWeight;rig.arms[1].forearm.rotation.x=m.recoil*.14;
  // Recoil rotates the elbow instead of separating the forearm from its socket.
  rig.arms[0].upper.rotation.z=.06+air*.07;rig.arms[1].upper.rotation.z=-.06-air*.07;
  if(saber){const age=saber.age,coil=T.MathUtils.smootherstep(age,0,.17),cut=T.MathUtils.smootherstep(age,.17,.35),settle=1-T.MathUtils.smootherstep(age,.35,saber.duration),weight=coil*settle;
