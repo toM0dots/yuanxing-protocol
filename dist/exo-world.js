@@ -6,7 +6,7 @@ const ExoWorld=(()=>{
  const training=typeof ExoTrainingGround!=='undefined'?ExoTrainingGround:null;
  const wilds=typeof ExoTerrainWilds!=='undefined'?ExoTerrainWilds:null;
  const scale=10,surfaceWidth=2000*scale,surfaceHeight=1333*scale;
- const surfaceCamps=[{x:270,y:1090,name:'迫降营地',risk:1},{x:4200,y:2800,name:'矿区前哨',risk:2},{x:10200,y:2200,name:'遗迹营地',risk:2},{x:6500,y:7200,name:'峡谷营地',risk:2},{x:12000,y:7600,name:'盆地中继',risk:3},{x:7400,y:6600,name:'山洞前哨',risk:2},{x:16100,y:9600,name:'深井前哨',risk:4},{x:17400,y:3600,name:'群峰观测站',risk:3},{x:3708,y:6676,name:'K–09 层岩峡谷',risk:1}];
+ const surfaceCamps=[{x:270,y:1090,name:'迫降营地',risk:1},{x:4200,y:2800,name:'矿区前哨',risk:2},{x:10200,y:2200,name:'遗迹营地',risk:2},{x:6800,y:9000,name:'峡谷营地',risk:2},{x:12000,y:7600,name:'盆地中继',risk:3},{x:7400,y:6600,name:'山洞前哨',risk:2},{x:16100,y:9600,name:'深井前哨',risk:4},{x:17400,y:3600,name:'群峰观测站',risk:3},{x:3708,y:6676,name:'K–09 层岩峡谷',risk:1}];
  const features=[
   {id:'crown',kind:'peak',x:8900,y:4700,rx:1500,ry:1800,z:720,name:'断冠群峰',text:'山脊抬升，沟槽切开山体。沿低坡接近峰顶，俯瞰西侧洞口。'},
   {id:'north',kind:'peak',x:16400,y:2400,rx:1800,ry:1200,z:880,name:'北境冰蚀峰',text:'连续锯齿山脊。重装守卫在山脚巡逻。'},
@@ -37,19 +37,21 @@ const ExoWorld=(()=>{
   [7,4,[[18100,5100],[15800,6100],[14000,6300]]],
   [4,6,[[13600,8800],[15100,9000]]],
   [6,3,[[14600,11400],[12100,12000],[8500,11700],[6500,9700]]],
-  [3,5,[[7000,7000]]],
+  [3,5,[[7000,8200],[7300,7400],[7400,7000]]],
   [5,1,[[6900,6000],[6000,5000],[5900,3800]]],
-  [8,3,[[3708,7060],[3885,7160],[3885,7340],[3708,7400],[4900,7700],[5900,7600]]]
+  [8,3,[[3708,7060],[3885,7160],[3885,7340],[4500,7610],[5000,8200],[4930,9000],[4710,9430],[4400,9770],[4660,9700],[5310,9630],[6080,9600],[6500,9700],[6800,9000]]]
  ].map(([from,to,via],id)=>({id,from,to,points:[surfaceCamps[from],...via.map(([x,y])=>({x,y})),surfaceCamps[to]]}));
+ const story=typeof ExoStoryRoute!=='undefined'?ExoStoryRoute:null;
  const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
  const roadSegments=[],roadCells=new Map(),beacons=[];
  function projection(p,a,b){const dx=b.x-a.x,dy=b.y-a.y,t=clamp(((p.x-a.x)*dx+(p.y-a.y)*dy)/(dx*dx+dy*dy||1),0,1),q={x:a.x+dx*t,y:a.y+dy*t};return {...q,t,d:distance(p,q)}}
- for(const road of roads){road.length=0;for(let i=1;i<road.points.length;i++){
+ for(const road of roads){road.length=0;let nextBeacon=320;for(let i=1;i<road.points.length;i++){
   const a=road.points[i-1],b=road.points[i],length=distance(a,b),s={a,b,length,road,index:i,offset:road.length};roadSegments.push(s);road.length+=length;
   for(let x=Math.floor((Math.min(a.x,b.x)-220)/1000);x<=Math.floor((Math.max(a.x,b.x)+220)/1000);x++)for(let y=Math.floor((Math.min(a.y,b.y)-220)/1000);y<=Math.floor((Math.max(a.y,b.y)+220)/1000);y++){const key=x+','+y;if(!roadCells.has(key))roadCells.set(key,[]);roadCells.get(key).push(s)}
-  for(let d=320;d<length;d+=760){const t=d/length,side=(Math.floor((road.length+d)/760)%2?1:-1);beacons.push({x:a.x+(b.x-a.x)*t-(b.y-a.y)/length*105*side,y:a.y+(b.y-a.y)*t+(b.x-a.x)/length*105*side})}
+  for(;nextBeacon<length;nextBeacon+=1150){const t=nextBeacon/length,side=(Math.floor((road.length+nextBeacon)/1150)%2?1:-1);beacons.push({x:a.x+(b.x-a.x)*t-(b.y-a.y)/length*105*side,y:a.y+(b.y-a.y)*t+(b.x-a.x)/length*105*side})}nextBeacon-=length;
  }}
- function roadDistance(x,y){let d=Infinity;for(const s of roadCells.get(Math.floor(x/1000)+','+Math.floor(y/1000))||[])d=Math.min(d,projection({x,y},s.a,s.b).d);return d}
+ function roadDistance(x,y){let d=story?.roadDistance(x,y)??Infinity;for(const s of roadCells.get(Math.floor(x/1000)+','+Math.floor(y/1000))||[])d=Math.min(d,projection({x,y},s.a,s.b).d);return d}
+ if(story){for(let i=beacons.length-1;i>=0;i--)if(story.roadDistance(beacons[i].x,beacons[i].y)<220)beacons.splice(i,1);beacons.push(...story.beacons);}
  function routeTo(u,destination){if(!Number.isInteger(destination)||!surfaceCamps[destination]||cave||facility())return null;
   // Dijkstra from the destination, retaining each actual road polyline.
   const costs=surfaceCamps.map(()=>Infinity),next=[],remaining=new Set(surfaceCamps.map((_,i)=>i));costs[destination]=0;
@@ -127,7 +129,7 @@ const ExoWorld=(()=>{
    const b=biome(x,y);if(random(seed+4)>b.woods*.90||roadDistance(x,y)<255)continue;
    // Stable minimum spacing across tile boundaries, without planting rows.
    let crowded=false;for(let dx=-1;dx<=1&&!crowded;dx++)for(let dy=-1;dy<=1&&!crowded;dy++)for(let n=0;n<16;n++){if(!dx&&!dy&&n===i)continue;const other=candidate(gx+dx,gy+dy,n);if(other.priority<priority&&Math.hypot(x-other.x,y-other.y)<92){crowded=true;break;}}if(crowded)continue;
-   if(training?.reserved(x,y,130)||wilds?.reserved(x,y,80)||structures.some(s=>Math.abs(x-s.x)<s.w/2+190&&Math.abs(y-s.y)<s.d/2+190||Math.hypot(x-s.entrance.x,y-s.entrance.y)<310)||landmarkData.placements.some(p=>Math.hypot(x-p.x,y-p.y)<p.radius+160)||surfaceCamps.some(p=>Math.hypot(x-p.x,y-p.y)<280)||caves.some(p=>Math.hypot(x-p.x,y-p.y)<230))continue;
+   if((typeof ExoWreckWorld!=='undefined'&&ExoWreckWorld.influence(x,y)>.45)||training?.reserved(x,y,130)||wilds?.reserved(x,y,80)||structures.some(s=>Math.abs(x-s.x)<s.w/2+190&&Math.abs(y-s.y)<s.d/2+190||Math.hypot(x-s.entrance.x,y-s.entrance.y)<310)||landmarkData.placements.some(p=>Math.hypot(x-p.x,y-p.y)<p.radius+160)||surfaceCamps.some(p=>Math.hypot(x-p.x,y-p.y)<280)||caves.some(p=>Math.hypot(x-p.x,y-p.y)<230))continue;
    if(Math.abs(x-3760)<220&&y>5450&&y<6830)continue;
    if(rocks(x,y).some(p=>Math.hypot(x-p.x,y-p.y)<p.r+65))continue;
    const z=surfaceElevation(x,y),grade=Math.hypot(surfaceElevation(x+18,y)-surfaceElevation(x-18,y),surfaceElevation(x,y+18)-surfaceElevation(x,y-18))/36;if(grade>.65)continue;

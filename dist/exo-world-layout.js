@@ -3,7 +3,7 @@
    work sheds and service stations, not another pair of megastructures. */
 const ExoWorldLayout=(()=>{
  const raw=[
-  ['camp-0-0',2315.6176421450664,3173.7102634831117,1,'hangar',0,'HELIOS 01 · 旗舰机库'],
+  ['camp-0-0',3200,1450,1,'hangar',0,'HELIOS 01 · 旗舰机库'],
   ['camp-0-1',6671,3263,.30,'hangar',0,'旧舰队补给库'],
   ['camp-1-0',4100,4150,.42,'refinery',1,'蓝晶矿道泵站'],
   ['camp-1-1',5000,2150,.27,'refinery',1,'矿区冷却井'],
@@ -19,8 +19,8 @@ const ExoWorldLayout=(()=>{
   ['camp-6-1',14203,10095,.27,'mining',6,'东支井检修口'],
   ['camp-7-0',16426,3826,.38,'observatory',7,'群峰下站'],
   ['camp-7-1',14553,2951,.25,'observatory',7,'山脊气象站'],
-  ['camp-8-0',5800,8400,.27,'hangar',8,'K–09 东侧备件库'],
-  ['camp-8-1',8300,10300,.25,'hangar',8,'旧货运线检修口']
+  ['camp-8-0',6000,7000,.27,'hangar',8,'K–09 东侧备件库'],
+  ['camp-8-1',9300,11100,.25,'hangar',8,'旧货运线检修口']
  ];
  const facilities=raw.map(([id,x,y,size,type,sector,name])=>({id,x,y,w:1120*size,d:920*size,h:840*size,visualScale:4*size,type,sector,name,entrance:{x,y:y+620*size}}));
  const lifts=[

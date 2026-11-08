@@ -8,15 +8,16 @@ function* buildGuideLights(scene,maps,W,C=null){
  const batch=createFieldLampBatch(maps);
  for(const [i,p] of (W.beacons||[]).entries()){
   if(C?.inZone(p.x,p.y)){const q=C.local(p.x,p.y);if(C.clearance(q.x,q.y)<3)continue;}
-  batch.add({...p,z:W.elevation(p.x,p.y),height:46,groundAt:W.elevation,seed:i+13,color:0xa1d5b4});
+  batch.add({...p,z:W.elevation(p.x,p.y),height:46,groundAt:W.elevation,seed:i+13,color:p.side?0xe4bd87:0xa1d5b4});
   yield;
  }
  for(const [i,camp] of (W.surfaceCamps||[]).entries())for(const side of [-1,1]){
+  if(i===8&&typeof ExoStoryRoute!=='undefined')continue; // the three clue lamps now guide this area
   const x=camp.x+side*90,y=camp.y;batch.add({x,y,z:W.elevation(x,y),height:45,groundAt:W.elevation,seed:311+i*2+side,color:0x9ed9b6});
   yield;
  }
- if(C)for(const [i,p] of CANYON_LAMP_SOCKETS.entries()){
-  const q=C.world(...p);batch.add({...q,z:W.elevation(q.x,q.y),height:29,groundAt:W.elevation,seed:709+i,color:0x9fe9b7});
+ if(C)for(const [i,p] of (typeof ExoStoryRoute!=='undefined'?ExoStoryRoute.lamps:CANYON_LAMP_SOCKETS).entries()){
+  const q=Array.isArray(p)?C.world(...p):p;batch.add({...q,z:W.elevation(q.x,q.y),height:29,groundAt:W.elevation,seed:709+i,color:0x9fe9b7});
   yield;
  }
  const root=batch.finish();root.name='World maintenance lanterns';scene.add(root);

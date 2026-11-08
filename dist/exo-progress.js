@@ -11,6 +11,7 @@ const ExoProgress = (() => {
     add('arrival','signal','仍有灯亮着','AEGIS：我们已与舰队失联。先找一座灯还亮着的建筑。检查设备和留下的物件，看看人们离开前做过什么。发现会自动记进随身日记。',0,{lead:'AEGIS：先调查仍有电的建筑。空机库里，可能留着人们离开的方向。'});
     camps.forEach((c,i)=>{const r=lore.regions[i];add('region:'+i,'region',r[0],r[2],40,{lead:r[1],location:c.name,target:{...c}});});
     for(const r of ExoGreenTrail.records)add(r.id,'trail',r.title,r.body,r.reward,{source:r.source,location:r.location,region:r.region,view:r.view});
+    if(typeof ExoStoryRoute!=='undefined')for(const r of ExoStoryRoute.detours)add('detour:'+r.id,'trail',r.name+' · '+r.object,r.observation,25,{region:8,location:'青灯林道 / '+r.name,target:{x:r.x,y:r.y},thread:'evacuation'});
     add('trail:k09:complete','trail','K–09 的归路仍然畅通','三份留言拼出了这条路的故事：绿色路灯靠独立电池供电，撤离后仍有人回来维护。如今，你也为下一位经过的人留下了这条归路。',35,{region:8,view:'interior',location:'K–09 / 留灯的人'});
     add('wreck','region','坠落前的最后一分钟','ORPHEUS–7 的断面由外向内熔化，说明它先遭到轨道攻击，再坠入荒原。黑匣子残留一个来自星环盲区的前导码；目前无法确认发送者。',60,{lead:'AEGIS：ORPHEUS–7 并非自然失事。黑匣子最后接收的信号来自星环盲区。'});
     sites.forEach((s,i)=>add('beacon:'+i,'beacon',lore.beacons[i][0],lore.beacons[i][1],60,{location:s.name,target:{...s},lead:lore.beacons[i][1]}));

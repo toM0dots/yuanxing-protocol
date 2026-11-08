@@ -11,7 +11,7 @@ const ExoCampaign = (() => {
     ['没有寄出的二十七秒','母亲林遥说过三年就回来。十五年后，陆寻带着没能说出口的话来到这里。','story'],
     ['最后一次舰队呼叫','沈砚从外侧锁上逃生舱：如果下面还有人，把他们带回有光的地方。','story'],
     ['来的人不是救援队','抵达 K–09 维修间。老林需要一台能守住接驳口的机甲，陆寻则需要先修好瞄准系统。','field'],
-    ['第七发为什么偏了','到机库南侧的靶场，在不同距离和情况下试射。用自己的记录训练瞄准模型，再装进 EV–04。','field'],
+    ['第七发为什么偏了','到维修间东南侧的接驳路，在不同距离和情况下试射。用自己的记录训练瞄准模型，再装进 EV–04。','field'],
     ['第一次用训练救人','守住维修附站，击败三台封锁道路的敌人。用安装后的新射击测试瞄准效果，这些记录不参与训练。','field'],
     ['稳定架的代价','带着测试结果回到维修间，安装老林修好的稳定架。之后探索时，机甲恢复能量会更快。','field'],
     ['袖口上的名字','进入地下栖息站，认识一百二十六名幸存者与阿禾。','planned'],
@@ -125,8 +125,8 @@ const ExoCampaign = (() => {
     function award(event) {
       const id=current();
       if(event==='crash-read'&&id==='crash'){start();return advance(id);}
-      if(event==='mother-memory'&&id==='mother')return advance(id);
-      if(event==='captain-memory'&&id==='captain')return advance(id);
+      if(event==='mother-memory'&&id==='mother'&&(!places.mother||at(places.mother)))return advance(id);
+      if(event==='captain-memory'&&id==='captain'&&(!places.captain||at(places.captain)))return advance(id);
       if(event==='refuge-briefed'&&id==='refuge'&&refugeReached&&atRefuge())return advance(id);
       if(event==='stabilizer-installed'&&id==='stabilizer'&&atRefuge()){stabilizer=true;return advance(id);}
       return false;
@@ -136,11 +136,11 @@ const ExoCampaign = (() => {
       let point=null,action='navigate',label='标记下一步位置',instruction='',event=null;
       if(id==='crash'){action='acknowledge';event='crash-read';label='接管 EV–04';instruction='点击“接管 EV–04”，先检查驾驶舱。舰队失联了，AEGIS 暂时也找不到可靠信号；我们得自己寻找线索。';}
       if(id==='route'){point=places.route[routeIndex]||places.spawn;instruction=(places.route[routeIndex]?.instruction||(['先到警戒灯旁看看断路。旧地图不一定可靠，要亲眼确认哪里能走。','沿青色灯带从安全的一侧绕过去。留在地面驾驶，逐段查看路况。'][Math.min(routeIndex,1)]))+' · 路段 '+Math.min(routeIndex+1,places.route.length)+'/'+places.route.length;}
-      if(id==='lamps'){const next=lampIds.findIndex(v=>!scanned.includes(v));point=places.lamps[next];instruction='沿峡谷里的青灯前进。靠近灯标后按 E，读取维护记录。已找到 '+scanned.length+'/3。';}
-      if(id==='mother'){action='acknowledge';event='mother-memory';label='读完这段回忆';instruction='“三年。”母亲林遥临行时这样说。陆寻七岁时记住的承诺，已经过去十五年。';}
-      if(id==='captain'){action='acknowledge';event='captain-memory';label='记住舰长的嘱托';instruction='沈砚从外面锁死舱盖：“如果下面还有人，把他们带回有光的地方。”七个频道仍没有回应。';}
-      if(id==='refuge'){point=places.refuge;instruction='沿维护路前往 K–09 维修间，老林正在机库接驳口等你。';if(refugeReached&&atRefuge()){action='acknowledge';event='refuge-briefed';label='和老林交谈';instruction='老林：“南边靶场的电接好了，可那些家伙也快到了。先去试几枪，远近都试试。把记录带回来，我们一起把瞄准调准。”';}}
-      if(id==='model'){point=places.range;action='fire';label='沿维护路去试射';instruction='到机库南侧靶场，记录至少 8 次射击，包含近、中、远距离和移动目标。回来训练模型，再安装瞄准辅助。已有记录 '+evidence.samples+' 发。';}
+      if(id==='lamps'){const next=lampIds.findIndex(v=>!scanned.includes(v));point=places.lamps[next];instruction='沿青灯林道逐处查看遗物，靠近后按 E。琥珀色灯的小路会绕回主路。已找到 '+scanned.length+'/3。';}
+      if(id==='mother'){action='acknowledge';event='mother-memory';label='停下查看合影';point=places.mother||null;if(point&&!at(point)){action='navigate';label='沿步道寻找休息点';}instruction='“三年。”母亲林遥临行时这样说。陆寻七岁时记住的承诺，已经过去十五年。'+(point&&!at(point)?' 到林道前方的休息点停一停，陆寻想看看驾驶舱侧袋里的旧合影。':'');}
+      if(id==='captain'){action='acknowledge';event='captain-memory';label='听完残留录音';point=places.captain||null;if(point&&!at(point)){action='navigate';label='走到撤离通话点';}instruction='沈砚从外面锁死舱盖：“如果下面还有人，把他们带回有光的地方。”七个频道仍没有回应。'+(point&&!at(point)?' 继续沿步道，去看看倒在路边的通话器。':'');}
+      if(id==='refuge'){point=places.refuge;instruction='沿撤离步道绕到高灯下，从机库南面接驳口找到老林。';if(refugeReached&&atRefuge()){action='acknowledge';event='refuge-briefed';label='和老林交谈';instruction='老林：“东侧接驳坪的电接好了，可那些家伙也快到了。先去试几枪，远近都试试。把记录带回来，我们一起把瞄准调准。”';}}
+      if(id==='model'){point=places.range;action='fire';label='沿维护路去试射';instruction='到维修间东南侧的接驳坪，记录至少 8 次射击，包含近、中、远距离和移动目标。回来训练模型，再安装瞄准辅助。已有记录 '+evidence.samples+' 发。';}
       if(id==='defense'){point=places.range;action='fire';label='继续保卫维修站';instruction='开启瞄准辅助，击败三台主要敌人。近、中、远距离各需一发偏差小于 2° 的新射击，用来独立测试。已完成距离 '+evidence.bands+'/3。';}
       if(id==='stabilizer'){point=places.refuge;instruction='返回 K–09 维修间，安装老林修复的稳定架。安装后，能量恢复速度提高 10%。';if(atRefuge()){action='acknowledge';event='stabilizer-installed';label='安装稳定架 · 恢复动力';}}
       if(!id){action='explore';label='查看南行探路记录';instruction='归路打通了，机甲也重新站稳了。旧地图在断路处失过准，南侧河谷的路况同样需要亲眼核对。带上探测车，沿维护路继续勘察河岸、山脊与洞穴；这是自由探索，后续主线仍在制作中。';}

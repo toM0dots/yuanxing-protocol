@@ -1,6 +1,6 @@
 /* Shared world geometry for the open spacecraft wreck; game coordinates are X/Y, height Z. */
 const ExoWreckWorld=(()=>{
- const site={x:5500,y:6500,base:-20,scale:22,name:'坠舰荒原 / ORPHEUS–7'};
+ const site={x:10350,y:10750,base:-20,scale:22,name:'坠舰荒原 / ORPHEUS–7'};
  const profile=[[-23,11.5],[-22,12.4],[-20,13.8],[-16,14.8],[-10,15],[-3,15],[4,14.8],[11,14.4],[17,13.7],[22,12.4]];
  const local=(x,y,z=site.base)=>({x:(x-site.x)/site.scale,z:(y-site.y)/site.scale,y:(z-site.base)/site.scale});
  function radius(z){for(let i=1;i<profile.length;i++)if(z<=profile[i][0]){const [a,r]=profile[i-1],[b,s]=profile[i];return r+(s-r)*Math.max(0,(z-a)/(b-a));}return profile.at(-1)[1];}

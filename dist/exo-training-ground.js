@@ -48,11 +48,25 @@ const ExoTrainingGround = (() => {
     {id:'washout',x:(campaign.trench.minX+campaign.trench.maxX)/2,y:7250,z:-240,w:campaign.trench.maxX-campaign.trench.minX,d:80,h:380},
     {id:'escape-pod',...campaign.pod,z:level,w:54,d:110,h:82}
   ];
+  const story=typeof ExoStoryRoute!=='undefined'?ExoStoryRoute:null;
+  if(story){
+    Object.assign(campaign,{start:{...story.start},pod:{...story.pod},approach:story.approach});
+    campaign.shoulders=[{x:2350,y:9010,rx:720,ry:1260,height:570},{x:1420,y:8460,rx:650,ry:1150,height:430}];
+    const offset=story.fireOffset,move=p=>{p.x+=offset.x;p.y+=offset.y;};
+    fire.offset={...offset};for(const p of [fire.base,fire.spawn,fire.fieldOrigin,shelter,terminals[0]])move(p);
+    fire.layouts=fire.layouts.map(([x,y,m])=>[x+offset.x,y+offset.y,m]);
+    for(const k of ['minX','maxX'])fire.bounds[k]+=offset.x;for(const k of ['minY','maxY'])fire.bounds[k]+=offset.y;
+    fire.name='K–09 · 东侧接驳坪';terminals[0].name='老林的接驳路校准点';
+    for(const b of collisionBoxes)if(b.id.startsWith('range-')||b.id.startsWith('command-'))move(b);else if(b.id==='escape-pod')Object.assign(b,story.pod);
+    approach.splice(0,approach.length,...story.paths.find(p=>p.id==='defense').points);
+    links.splice(0,links.length,approach,story.paths.find(p=>p.id==='south').points,[{x:4400,y:9770},{x:4660,y:9700},{x:5310,y:9630},{x:6080,y:9600},{x:6500,y:9700}]);
+    Object.assign(bounds,{minX:650,maxX:6540,minY:5100,maxY:10350});
+  }
   const inside=(x,y,b,pad=0)=>x>=b.minX-pad&&x<=b.maxX+pad&&y>=b.minY-pad&&y<=b.maxY+pad;
   const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
   function segmentDistance(x,y,a,b){const dx=b.x-a.x,dy=b.y-a.y,t=clamp(((x-a.x)*dx+(y-a.y)*dy)/(dx*dx+dy*dy||1),0,1);return Math.hypot(x-a.x-dx*t,y-a.y-dy*t);}
   function openingDistance(x,y){let distance=segmentDistance(x,y,campaign.pod,campaign.start);for(let i=1;i<campaign.approach.length;i++)distance=Math.min(distance,segmentDistance(x,y,campaign.approach[i-1],campaign.approach[i]));return distance;}
-  function roadDistance(x,y){let distance=Infinity;for(const line of [[campaign.pod,campaign.start],campaign.approach,approach,...links])for(let i=1;i<line.length;i++)distance=Math.min(distance,segmentDistance(x,y,line[i-1],line[i]));return distance;}
+  function roadDistance(x,y){let distance=story?.roadDistance(x,y)??Infinity;for(const line of [[campaign.pod,campaign.start],campaign.approach,approach,...links])for(let i=1;i<line.length;i++)distance=Math.min(distance,segmentDistance(x,y,line[i-1],line[i]));return distance;}
   function contains(x,y,pad=0){return inside(x,y,fire.bounds,pad);}
   function reserved(x,y,pad=0){if(!inside(x,y,bounds,150+pad))return false;return contains(x,y,pad)||roadDistance(x,y)<62+pad||Math.hypot(x-campaign.pod.x,y-campaign.pod.y)<130+pad||inside(x,y,campaign.trench,45+pad);}
   function elevation(x,y,base){
@@ -62,6 +76,7 @@ const ExoTrainingGround = (() => {
     weight=Math.max(weight,clamp(1-(roadDistance(x,y)-38)/65,0,1),clamp(1-(openingDistance(x,y)-campaign.approachWidth/2)/campaign.approachFeather,0,1),clamp(1-(Math.hypot(x-campaign.pod.x,y-campaign.pod.y)-60)/120,0,1));
     // Blend only outside the authored canyon mesh. The annex starts in its open basin.
     if(y<7190)weight*=clamp((y-7100)/90,0,1);
+    if(story){const d=story.roadDistance(x,y);weight=Math.max(weight,clamp(1-(d-95)/230,0,1));}
     let shoulder=0;
     for(const p of campaign.shoulders){const q=((x-p.x)/p.rx)**2+((y-p.y)/p.ry)**2,broken=.9+.06*Math.sin(x*.021+y*.009)+.04*Math.sin(y*.034-x*.013);shoulder+=p.height*Math.exp(-q*2)*broken;}
     // The opening valley folds out of the existing southern basin. Northward
@@ -85,6 +100,7 @@ const ExoTrainingGround = (() => {
   function near(unit){return !unit.flight?terminals.find(p=>Math.hypot(unit.x-p.x,unit.y-p.y)<p.r)||null:null;}
   function region(x,y){
     if(inside(x,y,fire.bounds))return fire.name;
+    if(story){const nearby=story.nearest(x,y);if(nearby?.d<220)return 'K–09 / '+nearby.segment.path.name;}
     if(openingDistance(x,y)<350)return x<3300?'K–09 / 迫降支谷':'K–09 / 坍塌旧路';
     for(let i=1;i<approach.length;i++)if(segmentDistance(x,y,approach[i-1],approach[i])<160)return 'K–09 / 维修间旧路';
     return null;

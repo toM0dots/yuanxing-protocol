@@ -74,7 +74,7 @@ export function createBiomes(scene,W,maps={}){
   // entirely beyond the shader's existing fade, with room for wind movement.
   groundCuller.prepare(camera);for(const m of groundMeshes)groundCuller.cull(m);
  }
- function allowed(x,y,padding=0){return W.roadDistance(x,y)>70+padding&&!W.structures.some(s=>Math.abs(x-s.x)<s.w/2+65+padding&&Math.abs(y-s.y)<s.d/2+65+padding)&&!W.landmarks.some(p=>Math.hypot(x-p.x,y-p.y)<p.radius+35+padding)&&!(typeof ExoTrainingGround!=='undefined'&&ExoTrainingGround.reserved(x,y,25+padding))&&!(typeof ExoTerrainWilds!=='undefined'&&ExoTerrainWilds.reserved(x,y,25+padding));}
+ function allowed(x,y,padding=0){return !(typeof ExoWreckWorld!=='undefined'&&ExoWreckWorld.influence(x,y)>.65)&&W.roadDistance(x,y)>70+padding&&!W.structures.some(s=>Math.abs(x-s.x)<s.w/2+65+padding&&Math.abs(y-s.y)<s.d/2+65+padding)&&!W.landmarks.some(p=>Math.hypot(x-p.x,y-p.y)<p.radius+35+padding)&&!(typeof ExoTrainingGround!=='undefined'&&ExoTrainingGround.reserved(x,y,25+padding))&&!(typeof ExoTerrainWilds!=='undefined'&&ExoTerrainWilds.reserved(x,y,25+padding));}
  function groundTile(gx,gy){const k=gx+','+gy;if(groundCache.has(k))return groundCache.get(k);const plants=[],x=gx*75,y=gy*75,b=W.biome(x+37,y+37);if(b.grass>.055&&W.slope(x+37,y+37)<.72){
    for(let j=0;j<7;j++){const seed=gx*1723+gy*47+j*319,xx=x+rand(seed)*75,yy=y+rand(seed+7)*75,edge=T.MathUtils.smoothstep(W.roadDistance(xx,yy),70,205),density=b.grass*(.93-.56*b.woods)*(.25+.75*b.patch)*edge;
     if(rand(seed+13)>density||!allowed(xx,yy))continue;const type=rand(seed+17)<.22+b.dry*.45?1:rand(seed+21)<.22?2:0;

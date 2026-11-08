@@ -12,7 +12,7 @@ export function geometryFromTransfer(record){
 export function createTerrainStream(enabled=true){
  const ready=new Map();let worker=null,last='',wanted=new Set(),failed=false,hits=0,misses=0;
  if(enabled&&typeof Worker!=='undefined'){
-  try{worker=new Worker(new URL('./exo-terrain-worker.js?v=20261107-loading90',import.meta.url));
+  try{worker=new Worker(new URL('./exo-terrain-worker.js?v=20261107-route91',import.meta.url));
    worker.onmessage=({data})=>{if(data.error){failed=true;worker.terminate();worker=null;ready.clear();return;}if(wanted.has(data.key))ready.set(data.key,data);};
    worker.onerror=()=>{failed=true;worker?.terminate();worker=null;ready.clear();};
   }catch{failed=true;}

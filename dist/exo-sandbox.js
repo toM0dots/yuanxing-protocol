@@ -9,6 +9,7 @@ const ExoSandbox=(()=>{
  // The crash, broken road and lamp trail are a quiet authored passage.
  // Derive it from route data so moving the opening cannot expose it to ambient spawns.
  function openingCorridor(x,y,pad=0){
+  if(typeof ExoStoryRoute!=='undefined')return ExoStoryRoute.roadDistance(x,y,true)<180+pad;
   if(typeof ExoTrainingGround==='undefined')return false;
   const g=ExoTrainingGround.campaign,points=[...(g.approach||[g.start,g.caution]),...g.bypass,g.exit];
   if(typeof ExoCanyonV2!=='undefined')points.push(ExoCanyonV2.spawn);

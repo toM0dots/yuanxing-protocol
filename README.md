@@ -4,7 +4,13 @@
 
 A science-fiction exploration game with AI learning missions. Anyone can play from the link; no account or invitation is needed.
 
-This repository contains the complete static game release **v90** (`20261107-loading90`), including its models, textures, fonts and bundled asset attribution files.
+This repository contains the complete static game release **v91** (`20261107-route91`), including its models, textures, fonts and bundled asset attribution files.
+
+## Story route in v91
+
+The first act follows the crash valley, broken road, woodland clues, two memory stops, K–09 and its eastern defense approach. Three optional loops hold environmental discoveries and rejoin the main path. The local map highlights the story destination; the wider world stays available in the regional overview.
+
+Major landmarks are farther apart, with wider lamp spacing and natural vegetation transitions. Existing detailed models, textures, startup improvements and browser saves are preserved. This reorganizes the existing first nine playable episodes; it does not add the planned later chapters.
 
 ## Loading improvements in v90
 
