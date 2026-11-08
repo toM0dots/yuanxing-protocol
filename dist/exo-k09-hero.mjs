@@ -1,10 +1,10 @@
+import {loadGameModel} from './exo-asset-loader.mjs?v=20261107-loading90';
 import * as T from './assets/ev01/three.module.mjs';
-import {GLTFLoader} from './assets/ev01/GLTFLoader.mjs';
 import {applyPackedPBR} from './exo-packed-materials.mjs?v=59';
 
 export const K09_HANGAR='k09-hero-hangar';
 export async function loadK09Hero(){
- return (await new GLTFLoader().loadAsync(new URL('./assets/k09-hero-v1/k09-hangar-field.glb?v=20261106-detail81',import.meta.url).href)).scene;
+ return (await loadGameModel(new URL('./assets/k09-hero-v1/k09-hangar-field.glb?v=20261106-detail81',import.meta.url).href)).scene;
 }
 export function createK09Hero(scene,root,maps,canyon){
  if(!root)return {update(){},constrainCamera:(_target,eye)=>eye};

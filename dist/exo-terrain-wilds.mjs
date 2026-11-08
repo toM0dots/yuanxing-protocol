@@ -1,6 +1,6 @@
 import * as T from './assets/ev01/three.module.mjs';
 import {mergeGeometries} from './assets/ev01/BufferGeometryUtils.mjs';
-import {scannedMaterial} from './exo-world-details.mjs?v=20261107-vegetation88';
+import {scannedMaterial} from './exo-world-details.mjs?v=20261107-loading90';
 import {createCampusMaterials,createCampusBuilder} from './exo-campus-materials.mjs';
 import {createFieldLampBatch} from './exo-field-lamps.mjs?v=20261107-performance89';
 

@@ -1,5 +1,5 @@
+import {loadGameModel,loadGameTexture} from './exo-asset-loader.mjs?v=20261107-loading90';
 import * as T from './assets/ev01/three.module.mjs';
-import { GLTFLoader } from './assets/ev01/GLTFLoader.mjs';
 
 // Actual Blender vertices with the supplied scans projected in local metres.
 export const canyonShader={
@@ -41,9 +41,9 @@ export function conformCanyonFloor(geometry,C,W){
  }
  p.needsUpdate=true;geometry.computeVertexNormals();return geometry;
 }
-export async function loadCanyon(onLoaded=()=>{}){const loader=new T.TextureLoader(),names=['rock-diff','rock-rough','trail-diff','trail-rough'];
+export async function loadCanyon(onLoaded=()=>{}){const names=['rock-diff','rock-rough','trail-diff','trail-rough'];
  const tracked=(promise,name)=>promise.then(asset=>{onLoaded(name);return asset});
- const [asset,maps]=await Promise.all([tracked(new GLTFLoader().loadAsync(new URL('./assets/canyon-v2/canyon-equipment-v87.glb',import.meta.url).href),'canyon'),Promise.all(names.map(n=>tracked(loader.loadAsync(new URL('./assets/canyon-v2/'+n+(n.endsWith('diff')?'-height.png':'.jpg'),import.meta.url).href),n)))]);
+ const [asset,maps]=await Promise.all([tracked(loadGameModel(new URL('./assets/canyon-v2/canyon-equipment-v87.glb',import.meta.url).href),'canyon'),Promise.all(names.map(n=>tracked(loadGameTexture(new URL('./assets/canyon-v2/'+n+(n.endsWith('diff')?'-height.png':'.jpg'),import.meta.url).href),n)))]);
  const textures=Object.fromEntries(names.map((n,i)=>[n,maps[i]]));textures['rock-height']=textures['rock-diff'];textures['trail-height']=textures['trail-diff'];onLoaded('rock-height');onLoaded('trail-height');for(const [name,tex] of Object.entries(textures)){tex.wrapS=tex.wrapT=T.RepeatWrapping;tex.anisotropy=4;if(name.endsWith('diff'))tex.colorSpace=T.SRGBColorSpace}
  const root=asset.scene;root.name='K09 / retained site equipment';root.userData.scans=textures;
  // The entire old geological sheet, including its overlapping floor/skirt,

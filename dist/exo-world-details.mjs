@@ -1,4 +1,4 @@
-import {biomeTextures} from './exo-biome-textures.mjs?v=20261107-vegetation88';
+import {biomeTextures} from './exo-biome-textures.mjs?v=20261107-loading90';
 import * as T from './assets/ev01/three.module.mjs';
 import {mergeGeometries,mergeVertices} from './assets/ev01/BufferGeometryUtils.mjs';
 import {applyPackedPBR} from './exo-packed-materials.mjs?v=59';

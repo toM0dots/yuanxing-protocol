@@ -4,20 +4,28 @@ import {createFieldLampBatch} from './exo-field-lamps.mjs?v=20261107-performance
 // Fixed maintenance hardware follows the same beacon coordinates as navigation.
 // Legacy WebGL retains its low-detail markers; the premium terrain omits them.
 export const CANYON_LAMP_SOCKETS=[[1.1,8.37],[13,18.87],[5,26.87],[14,27.87],[2.8,17.37],[14,9.37],[-1,8.48]];
-export function createGuideLights(scene,maps,W,C=null){
+function* buildGuideLights(scene,maps,W,C=null){
  const batch=createFieldLampBatch(maps);
  for(const [i,p] of (W.beacons||[]).entries()){
   if(C?.inZone(p.x,p.y)){const q=C.local(p.x,p.y);if(C.clearance(q.x,q.y)<3)continue;}
   batch.add({...p,z:W.elevation(p.x,p.y),height:46,groundAt:W.elevation,seed:i+13,color:0xa1d5b4});
+  yield;
  }
  for(const [i,camp] of (W.surfaceCamps||[]).entries())for(const side of [-1,1]){
   const x=camp.x+side*90,y=camp.y;batch.add({x,y,z:W.elevation(x,y),height:45,groundAt:W.elevation,seed:311+i*2+side,color:0x9ed9b6});
+  yield;
  }
  if(C)for(const [i,p] of CANYON_LAMP_SOCKETS.entries()){
   const q=C.world(...p);batch.add({...q,z:W.elevation(q.x,q.y),height:29,groundAt:W.elevation,seed:709+i,color:0x9fe9b7});
+  yield;
  }
  const root=batch.finish();root.name='World maintenance lanterns';scene.add(root);
  return {root,update(_u,world){root.visible=!world.cave&&!world.interior;},dispose:batch.dispose};
+}
+export function createGuideLights(...args){const steps=buildGuideLights(...args);let next=steps.next();while(!next.done)next=steps.next();return next.value;}
+export async function createGuideLightsAsync(...args){
+ const steps=buildGuideLights(...args);let next=steps.next(),count=0;
+ while(!next.done){if(++count%4===0)await new Promise(resolve=>setTimeout(resolve,0));next=steps.next();}return next.value;
 }
 
 // Only two actual lights, anchored to visible lantern optics. They softly light

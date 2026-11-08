@@ -1,14 +1,14 @@
+import {loadGameModel,loadGameTexture} from './exo-asset-loader.mjs?v=20261107-loading90';
 import * as T from './assets/ev01/three.module.mjs';
 import {applyPackedPBR} from './exo-packed-materials.mjs?v=45';
-import {GLTFLoader} from './assets/ev01/GLTFLoader.mjs';
 import {createInteriorMaterials,createInteriorBuilder} from './exo-interior-kit.mjs?v=20261106-sites82';
 import {drawRoomStory} from './exo-room-story-art.mjs?v=20261106-lived85';
 
 export const FLAGSHIP='camp-0-0';
 const base=new URL('./assets/hangar-v1/',import.meta.url),Y=new T.Vector3(0,1,0);
 export async function loadHangarKit(){
- const loader=new T.TextureLoader(),maps={};
- const [gltf]=await Promise.all([new GLTFLoader().loadAsync(new URL('helios-kit.glb',base).href),...['metal-color','metal-normal','panel-color','panel-normal'].map(async name=>{const t=await loader.loadAsync(new URL(name+(name.endsWith('normal')?'-rough.png':'.jpg'),base).href);t.wrapS=t.wrapT=T.RepeatWrapping;t.anisotropy=4;t.flipY=false;if(name.endsWith('color'))t.colorSpace=T.SRGBColorSpace;maps[name]=t;if(name.endsWith('normal')){t.userData.normalRough=true;maps[name.replace('normal','rough')]=t;}})]);
+ const maps={};
+ const [gltf]=await Promise.all([loadGameModel(new URL('helios-kit.glb',base).href),...['metal-color','metal-normal','panel-color','panel-normal'].map(async name=>{const t=await loadGameTexture(new URL(name+(name.endsWith('normal')?'-rough.png':'.jpg'),base).href);t.wrapS=t.wrapT=T.RepeatWrapping;t.anisotropy=4;t.flipY=false;if(name.endsWith('color'))t.colorSpace=T.SRGBColorSpace;maps[name]=t;if(name.endsWith('normal')){t.userData.normalRough=true;maps[name.replace('normal','rough')]=t;}})]);
  return prepareHangarKit(gltf.scene,maps);
 }
 export function prepareHangarKit(root,maps={}){

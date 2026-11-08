@@ -1,3 +1,4 @@
+import {loadGameTexture} from './exo-asset-loader.mjs?v=20261107-loading90';
 import * as T from './assets/ev01/three.module.mjs';
 const hash=(x,y=0)=>{const n=Math.sin(x*127.1+y*311.7)*43758.5453;return n-Math.floor(n)};
 let maps;
@@ -18,6 +19,6 @@ export function biomeTextures(){if(maps)return maps;const size=256;
 }
 
 export async function loadBiomeScans(){
- const loader=new T.TextureLoader(),names=['grass-color','grass-height','forest-color','forest-height','bark-color','bark-normal','bark-roughness','foliage-atlas'];
- const entries=await Promise.all(names.map(async name=>{const atlas=name==='foliage-atlas',vegetation=atlas||name.startsWith('bark-'),tex=await loader.loadAsync(new URL('./assets/'+(vegetation?'vegetation-v88/':'biomes-v87/')+name+(atlas?'.png':'.jpg'),import.meta.url).href);tex.wrapS=tex.wrapT=atlas?T.ClampToEdgeWrapping:T.RepeatWrapping;tex.anisotropy=4;if(atlas||name.endsWith('color'))tex.colorSpace=T.SRGBColorSpace;return [name,tex];}));return Object.fromEntries(entries);
+ const names=['grass-color','grass-height','forest-color','forest-height','bark-color','bark-normal','bark-roughness','foliage-atlas'];
+ const entries=await Promise.all(names.map(async name=>{const atlas=name==='foliage-atlas',vegetation=atlas||name.startsWith('bark-'),tex=await loadGameTexture(new URL('./assets/'+(vegetation?'vegetation-v88/':'biomes-v87/')+name+(atlas?'.png':'.jpg'),import.meta.url).href);tex.wrapS=tex.wrapT=atlas?T.ClampToEdgeWrapping:T.RepeatWrapping;tex.anisotropy=4;if(atlas||name.endsWith('color'))tex.colorSpace=T.SRGBColorSpace;return [name,tex];}));return Object.fromEntries(entries);
 }

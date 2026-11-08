@@ -1,11 +1,11 @@
+import {loadGameModel,loadGameTexture} from './exo-asset-loader.mjs?v=20261107-loading90';
 import * as T from './assets/ev01/three.module.mjs';
 import {applyPackedPBR} from './exo-packed-materials.mjs?v=45';
 import {mergeVertices} from './assets/ev01/BufferGeometryUtils.mjs';
-import {GLTFLoader} from './assets/ev01/GLTFLoader.mjs';
 
 export async function loadAshland(){
- const loader=new T.TextureLoader(),names=['ash-color','ash-normal'];
- const [wreck,...maps]=await Promise.all([new GLTFLoader().loadAsync(new URL('./assets/wreck-v1/echo9-orbital-wreck.glb',import.meta.url).href),...names.map(n=>loader.loadAsync(new URL('./assets/ashland-v1/'+n+(n.endsWith('normal')?'-rough.png':'.jpg'),import.meta.url).href))]);
+ const names=['ash-color','ash-normal'];
+ const [wreck,...maps]=await Promise.all([loadGameModel(new URL('./assets/wreck-v1/echo9-orbital-wreck.glb',import.meta.url).href),...names.map(n=>loadGameTexture(new URL('./assets/ashland-v1/'+n+(n.endsWith('normal')?'-rough.png':'.jpg'),import.meta.url).href))]);
  maps.forEach((t,i)=>{t.wrapS=t.wrapT=T.RepeatWrapping;t.anisotropy=4;if(i===0)t.colorSpace=T.SRGBColorSpace;});
  maps[1].userData.normalRough=true;return {wreck:wreck.scene,maps:{...Object.fromEntries(names.map((n,i)=>[n,maps[i]])),'ash-rough':maps[1]}};
 }
