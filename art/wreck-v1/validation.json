@@ -1,0 +1,37 @@
+{
+  "meshes": 12,
+  "triangles": 93979,
+  "materials": [
+    "Wreck_InnerLiner",
+    "Wreck_IvoryCool",
+    "Wreck_ExposedSteel",
+    "Wreck_Ivory",
+    "Wreck_IvoryWarm",
+    "Wreck_Rust",
+    "Wreck_Burn",
+    "Wreck_RustLight",
+    "Wreck_DarkHull",
+    "Wreck_Amber",
+    "Wreck_Light",
+    "Wreck_Debris"
+  ],
+  "bounds": {
+    "min": [
+      -19.042434692382812,
+      -1.3257195949554443,
+      -29
+    ],
+    "max": [
+      18.696557998657227,
+      30.08434295654297,
+      24.629335403442383
+    ]
+  },
+  "dimensions": [
+    37.73899269104004,
+    31.410062551498413,
+    53.62933540344238
+  ],
+  "open_bore": true,
+  "deck_y": 3.885730028152466
+}
