@@ -1,5 +1,5 @@
 {
-  "release": "20261108-inspection92b",
+  "release": "20261110-props93",
   "files": [
     {
       "path": ".nojekyll",
@@ -2483,8 +2483,8 @@
     },
     {
       "path": "exo-asset-manifest.mjs",
-      "bytes": 2769,
-      "sha256": "9da025e5e9b6c09df92516c9a638e551a7b1dc5a98f77e3b361a67156a03edb0"
+      "bytes": 3022,
+      "sha256": "68458c2d6d6e5e8c82895b8a28dd498ba7998f7bdacb824609bfc553bf5a3cd3"
     },
     {
       "path": "exo-biome-textures.mjs",
@@ -2598,8 +2598,8 @@
     },
     {
       "path": "exo-facility-render.mjs",
-      "bytes": 18271,
-      "sha256": "fe886765250eb02b415b24c78d209e7076b95c1351d3361f98e464b21cf57702"
+      "bytes": 18591,
+      "sha256": "51d2053d7300cf486bb38c952f394e8bc018ecd62b7b6e7b087893e48f43a4e5"
     },
     {
       "path": "exo-facility-ui.js",
@@ -2713,8 +2713,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 19683,
-      "sha256": "81451200c6f0ccac04defed708c38b3b34b336e711aa69f0a9edb653c97ab4ed"
+      "bytes": 19975,
+      "sha256": "c1d26200fb87a609bc8923849e400b17d1ae8c3606f129f1a3b64918f0fefa47"
     },
     {
       "path": "exo-profile.js",
@@ -2938,8 +2938,8 @@
     },
     {
       "path": "expedition.js",
-      "bytes": 66479,
-      "sha256": "9af6c707000d00ab535eecd4dc61020a3abba47d3036dbc2e78516ccec88cad5"
+      "bytes": 67099,
+      "sha256": "519c5db4f2d44312e4a2c07545cf711546506c4c9901a3918a23019dc34ea610"
     },
     {
       "path": "field-missions.js",
@@ -2948,8 +2948,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4537,
-      "sha256": "d8f52bd073b5297f68a054056509db5f2270d46d39921c8f7d347970edd1d345"
+      "bytes": 4527,
+      "sha256": "be0c5a4e4cfb31d7ec317d71f31ec86d94fa6be0096156b5f31c9d1b715ab506"
     },
     {
       "path": "journey.js",
@@ -2980,6 +2980,31 @@
       "path": "vision-posters.js",
       "bytes": 84,
       "sha256": "8852dbe637ebc496b74ebf7cbdb51367462ef8fe936f9c3acc04ec03f6c66248"
+    },
+    {
+      "path": "assets/interior-props-v1/interior-props.glb",
+      "bytes": 4288828,
+      "sha256": "cd01901dcff3cea6517e4ac2bb3c91442c93a4a70b4ee2ed1fc732f857a62727"
+    },
+    {
+      "path": "assets/interior-props-v1/interior-props.glb.gz",
+      "bytes": 1002923,
+      "sha256": "2ee4f7ce92cb52d098f59ec4f43cbeb0aaf66ddfa80db89f3475d44885189436"
+    },
+    {
+      "path": "assets/interior-props-v1/props-manifest.json",
+      "bytes": 2995,
+      "sha256": "4d26f64c72d9cb141b84f2657a41498ebf68199411e09cd5145c0045d306fd3e"
+    },
+    {
+      "path": "assets/interior-props-v1/provenance.json",
+      "bytes": 180,
+      "sha256": "795555623ba3cc3d403faef6f8e24d57a8bcb79d1af812675974c8cd3a92aeeb"
+    },
+    {
+      "path": "exo-interior-dressing.mjs",
+      "bytes": 8904,
+      "sha256": "d0430260cf3225b688f737a6f4df93211bd45e8eea4f4b5d6dacd576c4f377fb"
     }
   ]
 }

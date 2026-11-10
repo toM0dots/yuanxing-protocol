@@ -1,0 +1,210 @@
+{
+  "sign": {
+    "materials": [
+      "Graphite",
+      "OchrePaint",
+      "SignFace",
+      "Steel"
+    ],
+    "triangles": 1426,
+    "size_game_units": [
+      112.0,
+      65.2,
+      4.3
+    ]
+  },
+  "key_rack": {
+    "materials": [
+      "OchrePaint",
+      "Paper",
+      "Steel",
+      "Wood"
+    ],
+    "triangles": 5084,
+    "size_game_units": [
+      64.0,
+      30.0,
+      8.2
+    ]
+  },
+  "cot": {
+    "materials": [
+      "Paper",
+      "Rubber",
+      "Steel",
+      "WornFabric"
+    ],
+    "triangles": 9260,
+    "size_game_units": [
+      190.0,
+      51.0,
+      75.2
+    ]
+  },
+  "blanket": {
+    "materials": [
+      "Blanket"
+    ],
+    "triangles": 4896,
+    "size_game_units": [
+      152.3,
+      50.0,
+      99.0
+    ]
+  },
+  "bottle": {
+    "materials": [
+      "Graphite",
+      "IvoryCeramic",
+      "Paper",
+      "Rubber"
+    ],
+    "triangles": 1048,
+    "size_game_units": [
+      9.4,
+      28.2,
+      9.4
+    ]
+  },
+  "boots": {
+    "materials": [
+      "Graphite",
+      "Leather",
+      "Rubber"
+    ],
+    "triangles": 3872,
+    "size_game_units": [
+      55.9,
+      28.3,
+      37.0
+    ]
+  },
+  "kettle": {
+    "materials": [
+      "Graphite",
+      "OchrePaint",
+      "Steel",
+      "Wood"
+    ],
+    "triangles": 2132,
+    "size_game_units": [
+      26.1,
+      28.1,
+      21.2
+    ]
+  },
+  "bowl": {
+    "materials": [
+      "IvoryCeramic",
+      "OchrePaint",
+      "Steel"
+    ],
+    "triangles": 1100,
+    "size_game_units": [
+      27.4,
+      6.0,
+      19.5
+    ]
+  },
+  "curtain": {
+    "materials": [
+      "Graphite",
+      "Steel",
+      "WornFabric"
+    ],
+    "triangles": 7728,
+    "size_game_units": [
+      212.0,
+      236.3,
+      15.3
+    ]
+  },
+  "lamp": {
+    "materials": [
+      "AmberGlow",
+      "Graphite",
+      "IvoryCeramic",
+      "OchrePaint",
+      "Rubber",
+      "Steel"
+    ],
+    "triangles": 2428,
+    "size_game_units": [
+      38.3,
+      39.7,
+      26.6
+    ]
+  },
+  "battery_case": {
+    "materials": [
+      "AmberGlow",
+      "Graphite",
+      "OchrePaint",
+      "Paper",
+      "Rubber",
+      "Steel"
+    ],
+    "triangles": 2168,
+    "size_game_units": [
+      64.0,
+      37.0,
+      39.7
+    ]
+  },
+  "toolbox": {
+    "materials": [
+      "Graphite",
+      "OchrePaint",
+      "Steel"
+    ],
+    "triangles": 1552,
+    "size_game_units": [
+      50.4,
+      33.9,
+      31.9
+    ]
+  },
+  "plant_tray": {
+    "materials": [
+      "Graphite",
+      "Leaf",
+      "Soil"
+    ],
+    "triangles": 8136,
+    "size_game_units": [
+      60.0,
+      15.0,
+      40.0
+    ]
+  },
+  "stool": {
+    "materials": [
+      "Graphite",
+      "Paper",
+      "Rubber",
+      "Steel",
+      "Wood"
+    ],
+    "triangles": 2620,
+    "size_game_units": [
+      34.9,
+      47.7,
+      35.2
+    ]
+  },
+  "workbench": {
+    "materials": [
+      "Graphite",
+      "OchrePaint",
+      "Paper",
+      "Steel",
+      "Wood"
+    ],
+    "triangles": 9000,
+    "size_game_units": [
+      180.0,
+      150.0,
+      73.6
+    ]
+  }
+}

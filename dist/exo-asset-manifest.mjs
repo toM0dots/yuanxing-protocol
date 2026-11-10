@@ -65,5 +65,11 @@ export const packedAssets={
     "bytes": 1531778,
     "originalBytes": 2119250,
     "sha256": "5f9d59280a2ee259f2593d7e70b643e2e56f027658f65ca78ad28c204707d2c3"
+  },
+  "assets/interior-props-v1/interior-props.glb": {
+    "packed": "assets/interior-props-v1/interior-props.glb.gz",
+    "bytes": 1002923,
+    "originalBytes": 4288828,
+    "sha256": "cd01901dcff3cea6517e4ac2bb3c91442c93a4a70b4ee2ed1fc732f857a62727"
   }
 };
