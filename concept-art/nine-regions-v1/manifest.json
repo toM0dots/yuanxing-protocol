@@ -1,0 +1,143 @@
+{
+  "project": "远星协议：回声之下",
+  "generator": "built-in image_gen",
+  "region_source": "game_source/dist/exo-world.js: surfaceCamps",
+  "status": "Nine environment concept artworks; not live game screenshots or implemented 3D environments.",
+  "assets": [
+    {
+      "region": 1,
+      "name": "迫降营地",
+      "subtitle": "在陌生世界醒来",
+      "file": "01-crash-camp.png",
+      "source": "original-local-file:exec-071ec7a5-3f20-4095-bcac-09a0f1fe33c5.png",
+      "map_position": {
+        "x": 270,
+        "y": 1090
+      },
+      "threat_level": 1,
+      "width": 1672,
+      "height": 941,
+      "bytes": 3074056
+    },
+    {
+      "region": 2,
+      "name": "矿区前哨",
+      "subtitle": "停在半途的矿车",
+      "file": "02-mining-outpost.png",
+      "source": "original-local-file:exec-0f74afde-895e-4899-a85f-d1f9017375ac.png",
+      "map_position": {
+        "x": 4200,
+        "y": 2800
+      },
+      "threat_level": 2,
+      "width": 1672,
+      "height": 941,
+      "bytes": 3413210
+    },
+    {
+      "region": 3,
+      "name": "遗迹营地",
+      "subtitle": "比人类更古老的家",
+      "file": "03-ruins-camp.png",
+      "source": "original-local-file:exec-b6e80a91-b321-4862-99d4-9a86dc25e1bb.png",
+      "map_position": {
+        "x": 10200,
+        "y": 2200
+      },
+      "threat_level": 2,
+      "width": 1672,
+      "height": 941,
+      "bytes": 3060192
+    },
+    {
+      "region": 4,
+      "name": "峡谷营地",
+      "subtitle": "空床与暖水",
+      "file": "04-canyon-habitat-camp.png",
+      "source": "original-local-file:exec-2a84d484-c5f4-4cc8-bbb9-ccd15a14cd3a.png",
+      "map_position": {
+        "x": 6500,
+        "y": 7200
+      },
+      "threat_level": 2,
+      "width": 1672,
+      "height": 941,
+      "bytes": 3117952
+    },
+    {
+      "region": 5,
+      "name": "盆地中继",
+      "subtitle": "九境静默的中心",
+      "file": "05-basin-relay.png",
+      "source": "original-local-file:exec-ffa114c6-4f1e-4335-b593-650bc884764c.png",
+      "map_position": {
+        "x": 12000,
+        "y": 7600
+      },
+      "threat_level": 3,
+      "width": 1672,
+      "height": 941,
+      "bytes": 2866476
+    },
+    {
+      "region": 6,
+      "name": "山洞前哨",
+      "subtitle": "岩壁后的敲击",
+      "file": "06-basalt-cave-outpost.png",
+      "source": "original-local-file:exec-83e0004d-1ce1-4f6a-bcd5-51966d6d5615.png",
+      "map_position": {
+        "x": 7400,
+        "y": 6600
+      },
+      "threat_level": 2,
+      "width": 1672,
+      "height": 941,
+      "bytes": 2975293
+    },
+    {
+      "region": 7,
+      "name": "深井前哨",
+      "subtitle": "不该打开的第二道门",
+      "file": "07-deep-shaft-outpost.png",
+      "source": "original-local-file:exec-bcd8491d-7d0d-4635-8e38-64c7fe2dd090.png",
+      "map_position": {
+        "x": 16100,
+        "y": 9600
+      },
+      "threat_level": 4,
+      "width": 1672,
+      "height": 940,
+      "bytes": 2885065
+    },
+    {
+      "region": 8,
+      "name": "群峰观测站",
+      "subtitle": "星环另一面的回应",
+      "file": "08-mountain-observatory.png",
+      "source": "original-local-file:exec-f7c64454-41b0-4a38-8853-e70c7555d238.png",
+      "map_position": {
+        "x": 17400,
+        "y": 3600
+      },
+      "threat_level": 3,
+      "width": 1672,
+      "height": 941,
+      "bytes": 2958925
+    },
+    {
+      "region": 9,
+      "name": "K–09 层岩峡谷",
+      "subtitle": "跟着第一盏灯走",
+      "file": "09-k09-layered-canyon.png",
+      "source": "original-local-file:exec-53635254-77bf-4581-bd4c-2a0f592515cd.png",
+      "map_position": {
+        "x": 3708,
+        "y": 6676
+      },
+      "threat_level": 1,
+      "width": 1672,
+      "height": 941,
+      "bytes": 3170336
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "project": "远星协议：回声之下",
+  "generator": "built-in image_gen",
+  "status": "Generated story illustrations; not integrated into the live game.",
+  "assets": [
+    {
+      "file": "01-before-the-silence.png",
+      "title": "星环下，尚未消失的世界",
+      "intended_use": "Ancient civilization / historical archive",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2820236
+    },
+    {
+      "file": "02-the-last-evacuation.png",
+      "title": "静默第六日：最后一班车",
+      "intended_use": "Colony evacuation / recovered personal record",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2783305
+    },
+    {
+      "file": "03-captains-last-order.png",
+      "title": "把他们带回有光的地方",
+      "intended_use": "Fleet prologue / captain farewell",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2540089
+    },
+    {
+      "file": "04-follow-the-lights.png",
+      "title": "回声之下：第一盏灯",
+      "intended_use": "Exploration key art / loading screen",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2846071
+    }
+  ]
+}
