@@ -116,7 +116,7 @@ const Exo=(()=>{
   const previousPosition={x:unit.x,y:unit.y};
   const boosting=boost||keys.has(' ')||keys.has('shift'),motion=unit.flight?M.stepFlight(unit,drive,dt,boosting,activeBattle.down?0:verticalInput+Number(keys.has('r'))-Number(keys.has('c'))):M.step(unit,drive,dt,boosting),rocks=[...(ExoWorld.cave?[]:M.rocks),...ExoWorld.rocks(unit.x,unit.y)];
   if(terrainField&&typeof ExoTerrainWilds!=='undefined'){const result=ExoTerrainField.step(terrainField,{unit,previous:previousPosition,model:terrain,battle:combat,dt,data:ExoTerrainWilds,course:ExoTerrainCourse,context:ExoWorld.cave?.id||null,enabled:expeditionActive()&&!ExoWorld.interior});if(result.braked||result.recovered){target=null;ExoWorld.cancelRoute();}if(result.message){combat.message=result.message;ExoHUD.setText(document.getElementById('exo-radio'),result.message);}}
-  calCooldown=Math.max(0,calCooldown-dt);try{if(typeof ExoAmbience!=='undefined')ExoAmbience.update({unit,motion,dt,boosting})}catch(e){}
+  calCooldown=Math.max(0,calCooldown-dt);try{if(typeof ExoAmbience!=='undefined')ExoAmbience.update({unit,motion,dt,boosting,battle:activeBattle,yaw:camera.yaw})}catch(e){}
   unit.recoil=Math.max(0,(unit.recoil||0)-dt*6);
   if(fireCourse.active){
     if(dt>0&&(firing||keys.has('f'))&&ExoFireControl.fire(fireCourse,unit,rocks)){unit.recoil=1;sound(520,.08)}
