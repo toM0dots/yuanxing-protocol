@@ -2714,7 +2714,7 @@
     {
       "path": "exo-premium.mjs",
       "bytes": 19683,
-      "sha256": "b5b0432a6f911477665dcbe19e0e37015b41e8a04279a6a41b813e121858f740"
+      "sha256": "81451200c6f0ccac04defed708c38b3b34b336e711aa69f0a9edb653c97ab4ed"
     },
     {
       "path": "exo-profile.js",
@@ -2908,8 +2908,8 @@
     },
     {
       "path": "exo-world-details.mjs",
-      "bytes": 26955,
-      "sha256": "ada20eb43744bfd1cda4eb87cabbf77b9a8dd18b22ed99e98ec7908ab5a15555"
+      "bytes": 27990,
+      "sha256": "9b6822274145fab5d4cab301221e112c430bef2d4f48ccce50cd854932c36ebf"
     },
     {
       "path": "exo-world-layout.js",

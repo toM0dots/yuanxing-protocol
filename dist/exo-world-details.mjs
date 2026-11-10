@@ -20,9 +20,9 @@ surfaceP=(modelMatrix*terrainVertex).xyz;surfaceN=normalize(mat3(modelMatrix)*te
   // Scan RGB already contains the material albedo. The old biome color was a
   // second full albedo multiplier, crushing the visible mineral detail.
   s.fragmentShader=s.fragmentShader.replace('#include <color_fragment>',`#ifdef USE_COLOR_ALPHA
-diffuseColor*=vec4(mix(vec3(.72),vColor.rgb*2.4,.25),vColor.a);
+diffuseColor*=vec4(mix(vec3(.72),mix(vec3(dot(vColor.rgb,vec3(.2126,.7152,.0722))),vColor.rgb,.45)*2.4,.25),vColor.a);
 #elif defined(USE_COLOR)
-diffuseColor.rgb*=mix(vec3(.72),vColor*2.4,.25);
+diffuseColor.rgb*=mix(vec3(.72),mix(vec3(dot(vColor,vec3(.2126,.7152,.0722))),vColor,.45)*2.4,.25);
 #endif`);
   s.fragmentShader=s.fragmentShader.replace('#include <map_fragment>',`vec3 tw=pow(abs(normalize(surfaceN)),vec3(4.0));tw/=max(.0001,tw.x+tw.y+tw.z);vec3 tp=surfaceP/57.0;
 // Offset, compress and resample the scan on vertical faces. A single repeated
@@ -81,21 +81,33 @@ vec4 meadow=mix(texture2D(worldGrass,plantUV),texture2D(worldGrass,mat2(.8,-.6,.
 vec3 litter=mix(texture2D(worldForest,plantUV*.82).rgb,texture2D(worldForest,mat2(.6,-.8,.8,.6)*plantUV*.47+vec2(.19,.63)).rgb,.28);
 float plantRelief=mix(texture2D(worldGrassRelief,plantUV).r,texture2D(worldForestRelief,plantUV*.82).r,forest*.62);
 vec3 livingSoil=mix(meadow.rgb*1.65*mix(vec3(1.02,1.00,.70),vec3(.62,1.16,.57),smoothstep(.35,.85,living))*(.92+.12*plantPatch),litter*vec3(.64,.77,.57),forest*.82);
+// Wet basalt palette. The CC0 scans are warm desert stone; keep a fifth of
+// their hue for mineral variety and grade toward graphite basalt and damp grit.
+float rockL=dot(rock,vec3(.2126,.7152,.0722)),gritL=dot(soil,vec3(.2126,.7152,.0722));
+rock=mix(vec3(rockL)*vec3(.76,.85,.95),rock,.14)*.72;
+soil=mix(vec3(gritL)*vec3(.84,.86,.86),soil,.25)*.56;
+// Rain collects in shallow hollows on level ground, most often along the route.
+// The scan height, magnified tenfold, gives puddle-sized hollows rather than grain.
+float hollow=texture2D(worldDirt,mat2(.8,-.6,.6,.8)*surfaceP.xz/610.+vec2(.17,.41)).a;
+float puddle=(1.-smoothstep(.548,.566,hollow))*smoothstep(.70,.86,sediment)*(.30+.70*smoothstep(0.,.6,surfaceRoad))*(1.-snow);
+float damp=clamp(.42+lowWet*.45+(1.-macro)*.25,0.,1.)*(1.-snow);
+soil*=mix(1.,.80,damp);
 // Low vegetation continues beyond mature trees. Patchy soil opens gradually
 // through grass and scrub; no hard biome boundary or rectangular planting edge.
 float grassCover=smoothstep(.065,.72,living*(.78+.22*plantPatch))*smoothstep(.56,.93,surfaceN.y);
 grassCover*=1.-smoothstep(0.,1.,surfaceRoad);
 soil=mix(soil,livingSoil,grassCover);scanHeight=mix(scanHeight,plantRelief,grassCover*.85);
-diffuseColor.rgb*=mix(rock,soil,sediment)*mix(1.18,1.72,smoothstep(.08,.85,scanHeight));`);
-  s.fragmentShader=s.fragmentShader.replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor=clamp(.78+sediment*.12+(1.-scanHeight)*.13,.78,1.);');
+puddle*=1.-grassCover;damp*=1.-grassCover*.6;
+diffuseColor.rgb*=mix(rock,soil,sediment)*mix(1.18,1.72,smoothstep(.08,.85,scanHeight))*mix(1.,.50,puddle);`);
+  s.fragmentShader=s.fragmentShader.replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor=mix(clamp(.78+sediment*.12+(1.-scanHeight)*.13,.78,1.)-damp*.14,.14,puddle);');
   s.fragmentShader=s.fragmentShader.replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
-float terrainH=scanHeight*mix(.78,.65,sediment)+cliff*beds*.24;vec3 tx=dFdx(-vViewPosition),ty=dFdy(-vViewPosition);vec3 r1=cross(ty,normal),r2=cross(normal,tx);float det=dot(tx,r1)*faceDirection;normal=normalize(abs(det)*normal-sign(det)*(dFdx(terrainH)*r1+dFdy(terrainH)*r2));`);
+float terrainH=(scanHeight*mix(.78,.65,sediment)+cliff*beds*.24)*(1.-puddle*.92);vec3 tx=dFdx(-vViewPosition),ty=dFdy(-vViewPosition);vec3 r1=cross(ty,normal),r2=cross(normal,tx);float det=dot(tx,r1)*faceDirection;normal=normalize(abs(det)*normal-sign(det)*(dFdx(terrainH)*r1+dFdy(terrainH)*r2));`);
   s.fragmentShader=s.fragmentShader.replace('#include <fog_fragment>',`#include <fog_fragment>
 #ifdef USE_FOG
 float valleyHaze=smoothstep(900.,4300.,length(vViewPosition))*(1.-smoothstep(150.,780.,surfaceP.y))*.16;
 gl_FragColor.rgb=mix(gl_FragColor.rgb,fogColor,valleyHaze);
 #endif`);
- };material.customProgramCacheKey=()=>ground?'world-scans-ground-v88-'+vegetation:'world-scans-rock-v88';return material;
+ };material.customProgramCacheKey=()=>ground?'world-scans-ground-v93-'+vegetation:'world-scans-rock-v93';return material;
 }
 
 const hull=new T.MeshStandardMaterial({vertexColors:true,metalness:.32,roughness:.84}),glass=new T.MeshStandardMaterial({name:'Exterior / weathered glazing',vertexColors:true,metalness:.36,roughness:.29,envMapIntensity:1.25}),lights=new T.MeshBasicMaterial({vertexColors:true,toneMapped:false}),mineral=new T.MeshStandardMaterial({vertexColors:true,metalness:.32,roughness:.2,emissive:0x123b36,emissiveIntensity:.4});
