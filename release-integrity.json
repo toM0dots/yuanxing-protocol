@@ -17,6 +17,16 @@
       "sha256": "7065dd6b23a8a18a8de0686460422ba5050287e98dfd87eb97f849580a1cd5b0"
     },
     {
+      "path": "assets/aegis/EV04_Aegis_game.glb",
+      "bytes": 3068300,
+      "sha256": "6d9c3fb67931eda02bf9ffc6a201075c50324f2bc5ba711969846be5fd4ef914"
+    },
+    {
+      "path": "assets/aegis/provenance.json",
+      "bytes": 346,
+      "sha256": "60a0b3dad0f61f9cf3527f7f44c338ab69c14ce9076172bc4e342dcb89b127e1"
+    },
+    {
       "path": "assets/aegis-v2/EV04_Aegis_Strike.glb",
       "bytes": 2686536,
       "sha256": "a90e7d5c2930f13650b122fd04f5459e9aa2fb516d84d66d7e6d9fca02bea1e3"
@@ -55,16 +65,6 @@
       "path": "assets/aegis-v5/provenance.json",
       "bytes": 887,
       "sha256": "dc0181906962c66fdfece807bb87affe407e77eda19d4f9dda76b9cdd966ce1f"
-    },
-    {
-      "path": "assets/aegis/EV04_Aegis_game.glb",
-      "bytes": 3068300,
-      "sha256": "6d9c3fb67931eda02bf9ffc6a201075c50324f2bc5ba711969846be5fd4ef914"
-    },
-    {
-      "path": "assets/aegis/provenance.json",
-      "bytes": 346,
-      "sha256": "60a0b3dad0f61f9cf3527f7f44c338ab69c14ce9076172bc4e342dcb89b127e1"
     },
     {
       "path": "assets/ashland-v1/ash-color.jpg",
