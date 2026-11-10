@@ -1,4 +1,5 @@
 import {createRoadsideEncounter} from './exo-roadside-encounter.mjs?v=20261108-inspection92b';
+import {installShaderGate,steadyLights} from './exo-shader-gate.mjs?v=20261110-perf94';
 import {loadGameModel,yieldToInput} from './exo-asset-loader.mjs?v=20261107-loading90';
 import {loadBiomeScans} from './exo-biome-textures.mjs?v=20261107-loading90';
 import {createBiomes} from './exo-biomes.mjs?v=20261108-inspection92b';
@@ -73,10 +74,10 @@ function render(o,api,preparing=false){if(!renderer)return false;const current=d
  const armed=!o.fireCourse?.active;weaponRig.update(o.combat,armed,o.now/1000,!!o.reduced);model.updateMatrixWorld(true);armorBatch?.sync();weaponLayer.update(o.combat,u,o.now/1000,ExoWorld.elevation,rig,armed,weaponRig,camera,!!o.reduced);muzzleFlash.visible=!armed&&(u.recoil||0)>.5;flightEffects.update(u,o.motion,o.now/1000,ground,!!o.reduced);
  perf?.mark('robot/weapon animation');trainingGround.update(o);terrainWilds.update(u,ExoWorld,o.now/1000,!!o.reduced);biomes.update(u,camera,o.now/1000,!!o.reduced);const weather=climate(u.x,u.y),flagship=ExoWorld.interior?.structure.id===FLAGSHIP;groundContact.update(u,ExoWorld,trainingGround.surfaceHeight);regionalLandmarks.update(u,ExoWorld);exteriorGround.update(u,ExoWorld);k09Hero.update(u,ExoWorld);ashland.update(u,camera,o.now/1000,!!o.reduced);hangarArt.update(u,ExoWorld,o.now/1000);facilityLayer.update(u,ExoWorld);clueLayer.update(u,ExoWorld,o.reduced?0:dt);worldDetails.update(u,ExoWorld);roadside.update(u);caverns.update(u,ExoWorld);guideLights.update(u,ExoWorld);guideLightPool.update(u,[guideLights.root,trainingGround.root,terrainWilds.root,caverns.lanterns],!ExoWorld.interior);guardian.update(u,ExoWorld,o.combat,o.now/1000,!!o.reduced);hemi.intensity=flagship?.62:ExoWorld.interior?.50:ExoWorld.cave?.55:1.03;sun.castShadow=!flagship&&renderProbe!=='unshadowed';sun.intensity=flagship?.18:ExoWorld.interior?.08:ExoWorld.cave?.6:2.65-weather*.82;lantern.visible=!!ExoWorld.cave&&!ExoWorld.interior;lantern.position.set(u.x,ground+160,u.y);if(ExoWorld.cave)scene.fog.color.setHex(0x06151e);else scene.fog.color.setHex(0xa4aaab).lerp(new T.Color(0x8496a0),weather);scene.fog.near=flagship?1000:ExoWorld.cave?700:320;scene.fog.far=flagship?1750:ExoWorld.cave?2400:4300;sun.color.setHex(ExoWorld.cave?0xe4ecff:0xffd9b8).lerp(new T.Color(0xc3d6cf),ExoWorld.cave?0:weather);hemi.color.setHex(ExoWorld.cave?0xb7d8ff:0x8aa3b6);if(!ExoWorld.cave&&!ExoWorld.interior)hemi.groundColor.setHex(0x2a2622);
  perf?.mark('world effects');creatureLayer.update(o.combat,u,o.combat.time||o.now/1000,ExoWorld.elevation,camera,!!o.reduced);
- perf?.mark('creature animation');mechFill.position.copy(camera.position);mechFill.position.y+=200;mechFill.target.position.set(u.x,ground+70+(u.altitude||0),u.y);mechFill.intensity=ExoWorld.cave?.26:.42;sun.position.set(u.x-900,ground+(u.altitude||0)+680,u.y-620);sun.target.position.set(u.x,ground+(u.altitude||0),u.y);camera.updateMatrixWorld();sun.updateMatrixWorld();sun.target.updateMatrixWorld();sun.shadow.updateMatrices(sun);biomes.cull(camera,sun.castShadow?sun.shadow.getFrustum():null);instanceCuller.prepare(camera);for(const batch of [...worldDetails.stones,ashland.rocks])instanceCuller.cull(batch,sun.castShadow?sun.shadow.getFrustum():null);hardwareShadows?.prepare(scene);perf?.mark('instance culling');if(preparing)return true;perf?.gpuBegin(renderer);if(renderProbe==='single')renderer.render(scene,camera);else depthPrepass.render(renderer,scene,camera);perf?.gpuEnd();perf?.mark('GPU submission');if(sampleTime&&o.now>sampleTime){frameTimes.push(o.now-sampleTime);if(frameTimes.length>120)frameTimes.shift();}sampleTime=o.now;engine.stats={fps:frameTimes.length?Math.round(1000*frameTimes.length/frameTimes.reduce((a,b)=>a+b,0)):0,draws:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,streaming:terrainStream.status};ExoMapStatus.rendered();return true;
+ perf?.mark('creature animation');mechFill.position.copy(camera.position);mechFill.position.y+=200;mechFill.target.position.set(u.x,ground+70+(u.altitude||0),u.y);mechFill.intensity=ExoWorld.cave?.26:.42;sun.position.set(u.x-900,ground+(u.altitude||0)+680,u.y-620);sun.target.position.set(u.x,ground+(u.altitude||0),u.y);{const far=Math.min(9000,scene.fog.far+400);if(camera.far!==far){camera.far=far;camera.updateProjectionMatrix();}spaceSky.mesh.scale.setScalar(Math.min(1,far*.9/7800));}camera.updateMatrixWorld();sun.updateMatrixWorld();sun.target.updateMatrixWorld();sun.shadow.updateMatrices(sun);biomes.cull(camera,sun.castShadow?sun.shadow.getFrustum():null);instanceCuller.prepare(camera);for(const batch of [...worldDetails.stones,ashland.rocks])instanceCuller.cull(batch,sun.castShadow?sun.shadow.getFrustum():null);hardwareShadows?.prepare(scene);perf?.mark('instance culling');if(preparing)return true;shaderGate?.poll();perf?.gpuBegin(renderer);if(renderProbe==='single')renderer.render(scene,camera);else depthPrepass.render(renderer,scene,camera);perf?.gpuEnd();perf?.mark('GPU submission');if(sampleTime&&o.now>sampleTime){adaptResolution(o.now-sampleTime,o.now);frameTimes.push(o.now-sampleTime);if(frameTimes.length>120)frameTimes.shift();}sampleTime=o.now;engine.stats={resolution:+renderer.getPixelRatio().toFixed(2),fps:frameTimes.length?Math.round(1000*frameTimes.length/frameTimes.reduce((a,b)=>a+b,0)):0,draws:renderer.info.render.calls,triangles:renderer.info.render.triangles,geometries:renderer.info.memory.geometries,textures:renderer.info.memory.textures,streaming:terrainStream.status};ExoMapStatus.rendered();return true;
 }
 
-let preparation=null,initialFrame=null,bootStep=0;
+let shaderGate=null,resScale=1,resEMA=0,resHold=0,resGood=0,preparation=null,initialFrame=null,bootStep=0;
 async function checkpoint(label){ExoMapStatus.phase(label,bootStep++,24);await yieldToInput();}
 function prepare(o,api){
  initialFrame={o,api};
@@ -107,11 +108,22 @@ function prepare(o,api){
   scene.traverse(object=>{for(const material of Array.isArray(object.material)?object.material:[object.material])if(material)for(const value of Object.values(material))if(value?.isTexture)textures.add(value);});
   for(const texture of textures){renderer.initTexture(texture);await yieldToInput();}
   await checkpoint('完成最后的光影检查');
-  await renderer.compileAsync(scene,camera);
+  steadyLights(scene);await renderer.compileAsync(scene,camera);
   await yieldToInput();
-  ExoMapStatus.phase('准备好了，即将进入原野。',1,1);engine.ready=true;
+  ExoMapStatus.phase('准备好了，即将进入原野。',1,1);shaderGate=installShaderGate(renderer,scene,camera);engine.ready=true;
  })().catch(error=>fail(error,ExoMapStatus.snapshot().state==='error'?'asset':'graphics'));
  return preparation;
+}
+// Lower the render resolution when frames run slow (below ~42 fps) and restore
+// it after sustained headroom. Stalls and pauses (>250 ms) are ignored.
+function adaptResolution(interval,now){
+ if(!renderer||interval>250)return;
+ resEMA=resEMA?resEMA*.94+interval*.06:interval;resGood=resEMA<18.5?resGood+interval:0;
+ if(now<resHold)return;
+ const top=Math.min(window.devicePixelRatio||1,1.25),floor=Math.min(1,.7/top);let next=resScale;
+ if(resEMA>24&&resScale>floor)next=Math.max(floor,resScale-.1);
+ else if(resGood>6000&&resScale<1)next=Math.min(1,resScale+.1);
+ if(next!==resScale){resScale=next;renderer.setPixelRatio(top*resScale);resHold=now+2500;resGood=0;}
 }
 function fail(error,kind='graphics'){engine.ready=false;ExoMapStatus.fail(kind);canvas?.remove();const legacy=document.getElementById('exo-gl');if(legacy)legacy.style.display='';console.warn('EV–04 Aegis / Blender map unavailable.',error);}
 const assetsReady=(async()=>{try{const [gltf,canyon,kit,ashAssets,hero,flora]=await Promise.all([loadGameModel(new URL('./assets/echo9-hero-v7/Echo9_Hero_V7.glb',import.meta.url).href).then(asset=>{ExoMapStatus.loaded('mech');return asset}),loadCanyon(ExoMapStatus.loaded),loadHangarKit(),loadAshland(),loadK09Hero().catch(e=>{console.warn('K09 detail kit unavailable; retaining the base building and lamps.',e);return null}),loadBiomeScans()]);k09Root=hero;hangarKit=kit;ashlandAssets=ashAssets;canyonGroup=canyon;Object.assign(canyonGroup.userData.scans,ashAssets.maps,flora);model=gltf.scene;applyAegisSurface(model,kit.maps);rig=createAegisRig(model);poseAegis(rig,0,{speed:0});model.updateMatrixWorld(true);floorOffset=-new T.Box3().setFromObject(model).min.y;model.traverse(obj=>{if(obj.isMesh){obj.castShadow=obj.receiveShadow=true;}});}catch(error){fail(error,'asset');throw error;}})();
