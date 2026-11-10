@@ -158,6 +158,7 @@ export function dressRooms(kit,active,chunks,fixtures){
   for(const f of fixtures)if(f.room===r.id&&!f.practical){f.color=plan.ceiling.color;f.gain=plan.ceiling.gain;}
  }
  (typeof ExoFacilities!=='undefined'?ExoFacilities:null)?.setDressing?.(active.id,result.solids);
+ if(typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).has('profile'))globalThis.__exoDressing=result;
  let clock=0;
  const sound=(kind,strength,x,z)=>{try{(typeof ExoAmbience!=='undefined'?ExoAmbience:null)?.contact?.(kind,strength,x,z);}catch{}};
  const yawQ=new T.Quaternion(),tiltQ=new T.Quaternion();

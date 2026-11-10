@@ -5,7 +5,7 @@ import {createInteriorMaterials,createInstrumentAtlas,createInteriorBuilder,PALE
 import {drawProgramProp} from './exo-program-props.mjs?v=20261106-sites82';
 import {dressProgramRoom,evidenceHardware} from './exo-program-architecture.mjs?v=20261106-sites82';
 import {drawRoomStory} from './exo-room-story-art.mjs?v=20261106-lived85';
-import {dressRooms} from './exo-interior-dressing.mjs?v=20261110-contact94b';
+import {dressRooms} from './exo-interior-dressing.mjs?v=20261110-contact94c';
 
 // Detailed maintenance architecture shares the original physical deck. The
 // central circulation lane and every interaction point remain unchanged.

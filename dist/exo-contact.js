@@ -6,15 +6,18 @@
    body and sound can answer it. */
 const ExoContact=(()=>{
  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
- const state={shake:0,leanX:0,leanY:0,last:0,count:0};
+ const state={shake:0,leanX:0,leanY:0,last:0,count:0,touch:0,lastStrength:0};
  const listeners=new Set();
  // n points out of the obstacle toward the mech. Returns the impact speed.
  function slide(u,nx,ny,{bounce=.14,keep=.9,material='metal',x=u.x,y=u.y}={}){
   const vx=u.vx||0,vy=u.vy||0,vn=vx*nx+vy*ny;
   if(vn>=0)return 0;
-  const tx=vx-vn*nx,ty=vy-vn*ny;
-  u.vx=tx*keep-vn*bounce*nx;u.vy=ty*keep-vn*bounce*ny;
-  report(-vn,material,x,y,nx,ny);
+  // Pressing into a surface keeps it touched; only a fresh or harder hit
+  // reports, and friction applies on impact rather than every sliding frame.
+  const t=typeof performance!=='undefined'?performance.now():Date.now(),pressing=t-state.touch<320;state.touch=t;
+  const k=pressing?.99:keep,rebound=pressing?0:bounce,tx=vx-vn*nx,ty=vy-vn*ny;
+  u.vx=tx*k-vn*rebound*nx;u.vy=ty*k-vn*rebound*ny;
+  report(-vn,material,x,y,nx,ny,pressing);
   return -vn;
  }
  // Axis-aligned box {x,y,w,d}; margin is the mech's body radius.
@@ -42,11 +45,11 @@ const ExoContact=(()=>{
   }
   return -1;
  }
- function report(speed,material,x,y,nx=0,ny=0){
+ function report(speed,material,x,y,nx=0,ny=0,pressing=false){
   if(!(speed>32))return 0;
   const strength=clamp((speed-32)/190,0,1),now=typeof performance!=='undefined'?performance.now():Date.now();
   // Sliding along a wall reports every frame; only fresh or harder hits count.
-  if(now-state.last<220&&strength<state.lastStrength+.25)return 0;
+  if((pressing||now-state.last<220)&&strength<(state.lastStrength||0)+.25)return 0;
   state.last=now;state.lastStrength=strength;state.count++;
   state.shake=Math.max(state.shake,.25+strength*.75);
   state.leanX+=nx*(.35+strength);state.leanY+=ny*(.35+strength);
