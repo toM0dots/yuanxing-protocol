@@ -1,0 +1,14 @@
+{
+  "bones": 16,
+  "rigged_objects": 199,
+  "finger_rig": "Fingers modeled, not independently rigged",
+  "animations": 0,
+  "export_dimensions_m": [
+    0.6859995722770691,
+    0.2621668204665184,
+    1.9325003623962402
+  ],
+  "export_mesh_count": 199,
+  "export_armatures": 1,
+  "finite_geometry": true
+}

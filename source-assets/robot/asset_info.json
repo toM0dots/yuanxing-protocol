@@ -1,0 +1,10 @@
+{
+  "name": "EV02 Vanguard",
+  "bone_count": 15,
+  "parts": 176,
+  "height_m": 7.1,
+  "forward": "-Y",
+  "up": "Z",
+  "animation": "90-frame mechanical idle",
+  "notes": "New design; original EV01 and map preserved. Text stencils may require conversion for engine use."
+}
