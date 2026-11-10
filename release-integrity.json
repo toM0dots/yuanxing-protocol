@@ -2513,8 +2513,8 @@
     },
     {
       "path": "exo-campaign.js",
-      "bytes": 21264,
-      "sha256": "3581bbd7d57870ac3039cc0f85953ca913cc738dacddac2e8435f0dca2fe8b0b"
+      "bytes": 20910,
+      "sha256": "99b7fdf657e1995cc26475f484c1a4f31f89ea6258258e0253678e287923b0e5"
     },
     {
       "path": "exo-campus-materials.mjs",
@@ -2713,8 +2713,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 19613,
-      "sha256": "66f8a295fb8218c734a98e224d93d79914e126b837241c81407cb056cea03851"
+      "bytes": 19683,
+      "sha256": "b5b0432a6f911477665dcbe19e0e37015b41e8a04279a6a41b813e121858f740"
     },
     {
       "path": "exo-profile.js",
@@ -2818,8 +2818,8 @@
     },
     {
       "path": "exo-space.mjs",
-      "bytes": 6770,
-      "sha256": "c33e9633a0fcbd36964a74459253d8acdb50415e60016a5d661cdea876a29246"
+      "bytes": 6842,
+      "sha256": "9124ae91be5a9ad4cc6856d3b5ab92b6cee5992d7d565e43e58a007ae2a1ad77"
     },
     {
       "path": "exo-story-map.js",

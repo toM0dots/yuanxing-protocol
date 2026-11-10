@@ -34,12 +34,12 @@ void main(){vec3 d=normalize(skyDirection),sun=normalize(vec3(-.65,.23,-.45));
  // rotation but has no local travel parallax, and terrain can occlude it.
  // The pale giant hangs above the southbound recovery route. Its scale and
  // atmospheric veil match the K–09 approach paintings without local parallax.
- vec3 center=normalize(vec3(-.36,.29,.81))*40.;float radius=6.6;
+ vec3 center=normalize(vec3(-.251,.242,-.937))*40.;float radius=10.6;
  float planetT=sphere(d,center,radius);
- if(planetT<1e4){vec3 n=normalize(d*planetT-center);float light=max(0.,dot(n,sun));vec3 c=gasGiant(n)*(.84+.16*light);float rim=pow(1.-max(0.,dot(n,-d)),4.);color=mix(color,c+vec3(.17,.10,.045)*rim,.62);}
+ if(planetT<1e4){vec3 n=normalize(d*planetT-center);float light=max(0.,dot(n,sun));vec3 c=gasGiant(n)*(.84+.16*light);float rim=pow(1.-max(0.,dot(n,-d)),4.);color=mix(color,c+vec3(.17,.10,.045)*rim,.84);}
  vec3 ringN=normalize(vec3(.25,.91,.33));float denominator=dot(d,ringN);
  float ringT=dot(center,ringN)/(abs(denominator)>.001?denominator:.001);vec3 q=d*ringT-center;float ringR=length(q);
- if(ringT>0.&&ringT<planetT&&ringR>7.9&&ringR<12.2){float rings=.52+.07*sin(ringR*4.3)+.035*sin(ringR*11.7);float edge=smoothstep(7.9,8.5,ringR)*(1.-smoothstep(11.5,12.2,ringR));float gap=1.-smoothstep(.08,.19,abs(ringR-10.3));float opacity=edge*(.17+.12*rings)*(1.-gap*.65);color=mix(color,vec3(.78,.65,.49)*(.91+rings*.12),opacity);}
+ if(ringT>0.&&ringT<planetT&&ringR>12.6&&ringR<19.5){float rings=.52+.07*sin(ringR*2.7)+.035*sin(ringR*7.3);float edge=smoothstep(12.6,13.6,ringR)*(1.-smoothstep(18.4,19.5,ringR));float gap=1.-smoothstep(.08,.19,abs(ringR-16.5));float opacity=edge*(.30+.16*rings)*(1.-gap*.65);color=mix(color,vec3(.78,.65,.49)*(.91+rings*.12),opacity);}
  vec3 moon=normalize(vec3(.62,.38,-.77))*46.;float moonT=sphere(d,moon,1.9);
  if(moonT<1e4){vec3 n=normalize(d*moonT-moon);float craters=fbm(n*26.);color=mix(vec3(.18,.20,.26),vec3(.6,.64,.67),craters)*(.12+.88*max(0.,dot(n,sun)));}
  // Layered atmospheric cloud banks over the visible ringed planet.
@@ -52,6 +52,7 @@ void main(){vec3 d=normalize(skyDirection),sun=normalize(vec3(-.65,.23,-.45));
  color=mix(color,cloudColor,cover*(.36+stormMix*.22)*(planetT<1e4?.24:1.));
  float glow=pow(max(0.,dot(d,sun)),600.);color+=mix(vec3(1.,.55,.18),vec3(.80,.87,.79),stormMix)*glow*(1.-cover*.94);
  color=mix(horizonColor*.55,color,smoothstep(-.12,.02,d.y));
+ color=mix(color,vec3(.34,.35,.355),smoothstep(.24,0.,d.y)*.78);
  gl_FragColor=vec4(color,1.);
  #include <colorspace_fragment>
 }
