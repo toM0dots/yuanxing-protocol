@@ -1,5 +1,5 @@
 {
-  "release": "20261110-props93",
+  "release": "20261110-contact94",
   "files": [
     {
       "path": ".nojekyll",
@@ -2473,8 +2473,8 @@
     },
     {
       "path": "exo-ambience.js",
-      "bytes": 28740,
-      "sha256": "fc0b35dd5a6c7a43c8a3e6d38bd1458bac367599f53a6b3753ae7823be7eabba"
+      "bytes": 30616,
+      "sha256": "f87933cb81638c941846afeb5496df824cfd8927b9451e8ec337ad58761877e4"
     },
     {
       "path": "exo-ashland.mjs",
@@ -2598,13 +2598,13 @@
     },
     {
       "path": "exo-facilities.js",
-      "bytes": 33818,
-      "sha256": "7cc6761f357d193e1d2a7f12a0ffad4d6d3c5ab2f9ccd2c9c135616caeda46b3"
+      "bytes": 34342,
+      "sha256": "3707cb85ba3f01690c6af849b1d2832227e27d1b8604c06ba2c9ec05de7d1052"
     },
     {
       "path": "exo-facility-render.mjs",
-      "bytes": 18591,
-      "sha256": "51d2053d7300cf486bb38c952f394e8bc018ecd62b7b6e7b087893e48f43a4e5"
+      "bytes": 18649,
+      "sha256": "c9a6188c1869f8f934a7326533af7c8f48e763bf835ca101b06013e0fba71b23"
     },
     {
       "path": "exo-facility-ui.js",
@@ -2703,8 +2703,8 @@
     },
     {
       "path": "exo-motion.js",
-      "bytes": 7735,
-      "sha256": "03b00eb86b4c6da072abbe402aa7f329b59b67ec5371bc9ef26f5bf81f8ab3b5"
+      "bytes": 7834,
+      "sha256": "34eacff4cf51f5531a7d4ca0e9bdf00f68e4deb34c628a7b9572a2d72b9f35a3"
     },
     {
       "path": "exo-packed-materials.mjs",
@@ -2718,8 +2718,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 19975,
-      "sha256": "c1d26200fb87a609bc8923849e400b17d1ae8c3606f129f1a3b64918f0fefa47"
+      "bytes": 20630,
+      "sha256": "b660eb235b6f2defe1c1b2d1295b8d685e594eaecb0df137b5b2af3619347336"
     },
     {
       "path": "exo-profile.js",
@@ -2923,8 +2923,8 @@
     },
     {
       "path": "exo-world.js",
-      "bytes": 28674,
-      "sha256": "e917cf1caaa0f60db80676f95a59707a4250c22cdf077ba29d3a030890153daf"
+      "bytes": 29030,
+      "sha256": "77bb57c3bf94670eca926d58adbc2c32198ad77c2b5fe551d8f690ece91c5e58"
     },
     {
       "path": "exo-wreck-world.js",
@@ -2953,8 +2953,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4589,
-      "sha256": "42d857c8112774e6f8e831296ee8b893867a7a82ae4912f580fb1c57b05a27ba"
+      "bytes": 4656,
+      "sha256": "6fa47b46622a92b9693eec1ad8071fadfdc6082e2c472c055158254339e2028e"
     },
     {
       "path": "journey.js",
@@ -3008,8 +3008,13 @@
     },
     {
       "path": "exo-interior-dressing.mjs",
-      "bytes": 8904,
-      "sha256": "d0430260cf3225b688f737a6f4df93211bd45e8eea4f4b5d6dacd576c4f377fb"
+      "bytes": 14022,
+      "sha256": "36355dfa348b3653f2881c1516aceefd412d982f9c41c3b44a58f9bf4f8e1f9d"
+    },
+    {
+      "path": "exo-contact.js",
+      "bytes": 3355,
+      "sha256": "04773e9d34f25031101f761d76aa4f0000c8b927e13cdc09038268547386b0d7"
     }
   ]
 }

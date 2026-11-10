@@ -230,6 +230,21 @@ const ExoAmbience = (() => {
   function missileLaunch() { const t = T(), v = voice({ level: .8, wet: .3, life: 1 }); burst(v, t, 'bandpass', 900, .6, .14, .5, .02); tone(v, t, 300, 1200, .02, .05, .5, 'sawtooth'); }
   function blast(x, y) { const p = at(x, y, 420), t = T(), v = voice({ ...p, wet: .7, life: 2 }); tone(v, t, 110, 30, .5, .003, .8); burst(v, t, 'lowpass', 1200, .7, .4, .9); burst(v, t + .03, 'highpass', 2500, .6, .1, .3); }
   function armourHit() { const t = T(), v = voice({ level: 1, wet: .3 }); tone(v, t, 320, 300, .1, .002, .4, 'triangle'); tone(v, t, 517, 490, .06, .002, .3, 'triangle'); burst(v, t, 'bandpass', 1800, 1, .12, .1); }
+  // Contact one-shots for EV-04 bumping walls, rocks and the things in rooms.
+  // Strength 0..1 comes from the impact speed into the surface (ExoContact).
+  function contact(material, strength, x, y) {
+    if (!enabled || !ensure() || ctx.state !== 'running') return;
+    const k = clamp(strength, 0, 1), p = Number.isFinite(x) ? at(x, y, 320) : { pan: 0, level: 1, cutoff: 16000 }, t = T();
+    const v = voice({ ...p, level: p.level * (.35 + k * .75), wet: material === 'rock' ? .25 : .45, life: 1.2 }); if (!v) return;
+    switch (material) {
+      case 'rock': tone(v, t, 74, 34, .2 + k * .2, .004, .28); burst(v, t, 'bandpass', 520, .8, .06 + k * .08, .16); burst(v, t + .03, 'highpass', 2600, .7, .02 * k, .22); break;
+      case 'wood': tone(v, t, 150, 92, .14 + k * .1, .003, .2, 'triangle'); burst(v, t, 'bandpass', 780, 2.2, .05 + k * .05, .09); if (k > .5) burst(v, t + .05, 'bandpass', 3200, 1, .02, .4, .05); break;
+      case 'fabric': burst(v, t, 'lowpass', 520, .7, .05 + k * .05, .14, .012); tone(v, t, 90, 60, .05, .01, .12); break;
+      case 'ceramic': for (let i = 0; i < 2 + Math.round(k * 3); i++) tone(v, t + i * rand(.045, .09), rand(1900, 2800), rand(1700, 2500), (.035 + k * .04) / (i + 1), .001, rand(.12, .3), 'triangle'); burst(v, t, 'highpass', 3500, 1, .015 + k * .02, .05); break;
+      case 'clatter': for (let i = 0; i < 2 + Math.round(k * 4); i++) { const f = rand(600, 1500); tone(v, t + i * rand(.04, .1), f, f * .92, (.04 + k * .04) / (1 + i * .5), .001, rand(.15, .35), 'triangle'); } burst(v, t, 'bandpass', 1800, 1.5, .03 + k * .03, .08); break;
+      default: tone(v, t, 96, 44, .22 + k * .2, .003, .34); tone(v, t, rand(280, 340), 250, .03 + k * .05, .002, .5 + k * .4, 'triangle'); tone(v, t, rand(610, 720), 560, .015 + k * .025, .002, .35, 'triangle'); burst(v, t, 'bandpass', 1400, 1.2, .04 + k * .07, .1);
+    }
+  }
   function warning() { const t = T(), v = voice({ level: .7, wet: .05 }); for (let i = 0; i < 2; i++) tone(v, t + i * .16, 880, 880, .03, .005, .09, 'square'); }
 
   function combat(b, dt) {
@@ -325,5 +340,5 @@ const ExoAmbience = (() => {
   // (the title screen), so slow frames on weak GPUs don't cause dropouts.
   setInterval(() => { if (ctx && master && (document.hidden || document.getElementById('modal')?.open || performance.now() - lastUpdate > 4000)) ease(master.gain, 0, .3); }, 250);
   function setEnabled(on) { enabled = !!on; writePreference(enabled); if (enabled) ensure(); else if (master) ease(master.gain, 0, .1); }
-  return { update, setEnabled, get enabled() { return enabled; }, get output() { return out; }, get context() { return ctx; } };
+  return { update, setEnabled, contact, get enabled() { return enabled; }, get output() { return out; }, get context() { return ctx; } };
 })();
