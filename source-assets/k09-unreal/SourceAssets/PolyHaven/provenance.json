@@ -1,0 +1,120 @@
+{
+  "assets": [
+    {
+      "id": "rock_face_01",
+      "source": "https://polyhaven.com/a/rock_face_01",
+      "license": "CC0-1.0",
+      "variant": "2k glTF",
+      "files": [
+        {
+          "file": "rock_face_01/rock_face_01.gltf",
+          "size": 2793,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/rock_face_01/rock_face_01_2k.gltf",
+          "md5": "fdf18bc1f9c06a8d6448b3e50934d15f"
+        },
+        {
+          "file": "rock_face_01/textures/rock_face_01_arm_2k.jpg",
+          "size": 2592972,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_face_01/rock_face_01_arm_2k.jpg",
+          "md5": "d0d379e42040bebf05dff3490143c67c"
+        },
+        {
+          "file": "rock_face_01/rock_face_01.bin",
+          "size": 476436,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/rock_face_01/rock_face_01.bin",
+          "md5": "06caed23e725af568b64f8cbee210c1c"
+        },
+        {
+          "file": "rock_face_01/textures/rock_face_01_nor_gl_2k.jpg",
+          "size": 3970196,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_face_01/rock_face_01_nor_gl_2k.jpg",
+          "md5": "94fcd3c45f5dbc5b62d9782f7f6f09ff"
+        },
+        {
+          "file": "rock_face_01/textures/rock_face_01_diff_2k.jpg",
+          "size": 3167302,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/rock_face_01/rock_face_01_diff_2k.jpg",
+          "md5": "40424b085d788e1a6c0abf274e3501d3"
+        }
+      ]
+    },
+    {
+      "id": "namaqualand_cliff_02",
+      "source": "https://polyhaven.com/a/namaqualand_cliff_02",
+      "license": "CC0-1.0",
+      "variant": "2k glTF",
+      "files": [
+        {
+          "file": "namaqualand_cliff_02/namaqualand_cliff_02.gltf",
+          "size": 2857,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/namaqualand_cliff_02/namaqualand_cliff_02_2k.gltf",
+          "md5": "599ea12c5a126d7955bcd67a82407a76"
+        },
+        {
+          "file": "namaqualand_cliff_02/textures/namaqualand_cliff_02_diff_2k.jpg",
+          "size": 2845716,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/namaqualand_cliff_02/namaqualand_cliff_02_diff_2k.jpg",
+          "md5": "45a8861aebda11935b29f1cedf6f800d"
+        },
+        {
+          "file": "namaqualand_cliff_02/textures/namaqualand_cliff_02_nor_gl_2k.jpg",
+          "size": 4125317,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/namaqualand_cliff_02/namaqualand_cliff_02_nor_gl_2k.jpg",
+          "md5": "7412c300ddaff0613dade74d1b8760e7"
+        },
+        {
+          "file": "namaqualand_cliff_02/textures/namaqualand_cliff_02_arm_2k.jpg",
+          "size": 2846951,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/namaqualand_cliff_02/namaqualand_cliff_02_arm_2k.jpg",
+          "md5": "b145f4a74a776f8e766411304ecbd2de"
+        },
+        {
+          "file": "namaqualand_cliff_02/namaqualand_cliff_02.bin",
+          "size": 5697152,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/namaqualand_cliff_02/namaqualand_cliff_02.bin",
+          "md5": "2920477744cce1a827a61c0d36a1061a"
+        }
+      ]
+    },
+    {
+      "id": "sand_rocks_small_01",
+      "source": "https://polyhaven.com/a/sand_rocks_small_01",
+      "license": "CC0-1.0",
+      "variant": "2k glTF",
+      "files": [
+        {
+          "file": "sand_rocks_small_01/sand_rocks_small_01.gltf",
+          "size": 2887,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/2k/sand_rocks_small_01/sand_rocks_small_01_2k.gltf",
+          "md5": "0274616a70df07024eafdea5c5ccbb15"
+        },
+        {
+          "file": "sand_rocks_small_01/sand_rocks_small_01.bin",
+          "size": 21253052,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/sand_rocks_small_01/sand_rocks_small_01.bin",
+          "md5": "327c5e2efdde87ecf9d89bbe90ed923e"
+        },
+        {
+          "file": "sand_rocks_small_01/textures/sand_rocks_small_01_diff_2k.jpg",
+          "size": 2785116,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/sand_rocks_small_01/sand_rocks_small_01_diff_2k.jpg",
+          "md5": "e66b8a2f4d6c0837be5a7c570fbc92ef"
+        },
+        {
+          "file": "sand_rocks_small_01/textures/sand_rocks_small_01_nor_gl_2k.jpg",
+          "size": 4231854,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/sand_rocks_small_01/sand_rocks_small_01_nor_gl_2k.jpg",
+          "md5": "f91fef4b39ecb45884bcf9f3e25f26a5"
+        },
+        {
+          "file": "sand_rocks_small_01/textures/sand_rocks_small_01_arm_2k.jpg",
+          "size": 2683303,
+          "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/2k/sand_rocks_small_01/sand_rocks_small_01_arm_2k.jpg",
+          "md5": "ed5e5ff4d4e45754491400b2093eb50b"
+        }
+      ]
+    }
+  ],
+  "bytes": 56683904,
+  "validated": "All downloaded MD5 hashes match Poly Haven manifests"
+}
