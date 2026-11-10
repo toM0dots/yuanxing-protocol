@@ -1,0 +1,91 @@
+{
+  "revision": "field-fauna-v74",
+  "direction": "Grounded alien fauna with connected load-bearing anatomy, overlapping weathered carapaces, recessed sensory organs and dry fibrous tissue",
+  "approval": "Direction selected within the user's requested modeling redesign; browser review required before publication",
+  "engine": "three.js r164",
+  "world_scale": "18 world units per meter; Y up, -Z forward",
+  "source": "dist/exo-creature-models.mjs",
+  "surface_source": "dist/exo-fauna-surface.mjs",
+  "provenance": "Original code-authored anatomy. Main game reuses existing Poly Haven CC0 rock color-height and roughness scans from assets/canyon-v2; fallback maps are original deterministic texture data. No new downloads.",
+  "textures": {
+    "dimensions": [
+      512,
+      512
+    ],
+    "count": 3,
+    "channels": [
+      "sRGB albedo",
+      "linear tangent normal",
+      "linear roughness"
+    ],
+    "filtering": "repeat wrapping, linear magnification, trilinear mipmaps",
+    "memory_without_mips_bytes": 3145728,
+    "scope": "Shared by all four species, both LODs and the boundary guardian",
+    "runtime": "configureFaunaSurface uses shared existing 2048px rock-diff-height.png (sRGB RGB, alpha height), rock-rough.jpg (linear); physically scaled UVs at 40worldunits/tile, desaturated scan variation with retained vertex tint, alpha bumpScale1.3, roughnessfloor0.74.",
+    "fallback": "Three original 512px maps support isolated offline geometry review without the world asset loader.",
+    "scan_dynamic_range": {
+      "actual_linear_luminance_p10_p50_p90": [
+        0.049789,
+        0.070724,
+        0.096558
+      ],
+      "mapped_modulation_p10_p50_p90": [
+        0.67789,
+        0.88724,
+        1.14558
+      ],
+      "clipped_fraction": 0.0095,
+      "formula": "clamp(.18+linearLuminance*10,.42,1.45)"
+    }
+  },
+  "species": [
+    {
+      "name": "Hunter",
+      "changes": "Connected elongated thorax and abdomen with integrated segmented carapace, thicker proximal leg links, low recessed head and serrated hooked mandibles; tall back spikes removed",
+      "support_legs": 6,
+      "draws": 2,
+      "near_triangles": 31188,
+      "far_triangles": 8204
+    },
+    {
+      "name": "Charger",
+      "changes": "Broad closed low carapace and shoulder mass, compact snout, small tapered forward tusks, armored three-toed feet and lateral respiratory slots; tall paired horns and bright body beads removed",
+      "support_legs": 4,
+      "draws": 2,
+      "near_triangles": 24064,
+      "far_triangles": 6940
+    },
+    {
+      "name": "Spore carrier",
+      "changes": "Three elongated opaque folded dorsal chambers under a protective carapace, small slit vents, recessed mortar membrane; five translucent glowing balloon sacs removed",
+      "support_legs": 6,
+      "draws": 4,
+      "near_triangles": 29584,
+      "far_triangles": 8066
+    },
+    {
+      "name": "Brood lord",
+      "changes": "Connected broad rib cage and pelvic mass, robust arm attachments, long low head and tapered articulated scythes; floating breastplates, tall crown spikes and glowing rib stripes removed",
+      "support_legs": 4,
+      "attack_arms": 2,
+      "draws": 3,
+      "near_triangles": 26018,
+      "far_triangles": 7622
+    }
+  ],
+  "preserved": [
+    "Existing collision and damage authority",
+    "All attack emitters and claw sockets",
+    "World-planted two-bone support legs",
+    "Distance-driven gait",
+    "Shared immutable geometry and private skeletons",
+    "Reduced-motion and attack-phase signals"
+  ],
+  "validation": [
+    "tests/creature-reference-models.mjs",
+    "tests/creature-models.mjs",
+    "tests/monster-vfx-budget.mjs",
+    "tests/creature-field-surfaces.mjs"
+  ],
+  "geometry_revision": "Final visual-review tune: continuous closed carapace forms final exposed body/head surface with embedded growth seams at 7% profile relief; no overlapping broad dorsal/forehead cards. UV size increased to40worldunits per tile and actual scanned relief/albedo calibrated from decoded pixel quantiles."
+}

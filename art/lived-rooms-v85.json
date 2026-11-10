@@ -1,0 +1,48 @@
+{
+  "version": "lived85",
+  "runtime": "Existing custom game / vendored Three.js r164",
+  "source": "Original code-authored object models and room arrangements, based on existing exo-discovery.js / exo-field-clues.js facts",
+  "scope": {
+    "sites": 21,
+    "decks": 63,
+    "rooms": 819,
+    "authored_moments": 64,
+    "distinct_moments_per_deck": 13,
+    "existing_discoveries": 126
+  },
+  "direction": {
+    "placement": "Independent grounded objects; furniture can turn away from its original use, tools and belongings follow specific actions, and some rooms are deliberately cleared. No shared plinths or miniature display-room prefabs.",
+    "examples": [
+      "A meal left on a desk, chair turned out, fallen coat and cup spill nearby",
+      "An emptied growing tray, a portable carrier on the floor, a tipped pot and localized soil",
+      "A partially emptied rack, trailing straps and cases set aside for transfer",
+      "An opened service cabinet, removed cover, grease and tools where someone was working",
+      "A lamp and separate battery connected by a slack floor cable after the repair was cleared",
+      "A sample trolley with an empty position, a case set aside and wheel scuffs ending at the cart"
+    ],
+    "damage": "Unequal interrupted drag marks; loose fasteners and covers below work; mineral streaks near wet systems; bent panels at the known storm site. No invented attack, deaths, survivor arrival or signal identity.",
+    "palette": "Existing faded sage, ochre canvas, worn linen, painted steel and restrained pale green lights"
+  },
+  "implementation": {
+    "planner": "dist/exo-room-story-data.js shares object envelopes and spatial arrangements between the main game, worker and renderers. Authored preferred positions use deterministic nearby alternatives when paths or existing equipment occupy the preferred spot.",
+    "collision": "Each tall object has a conservative rotated AABB. Floor belongings no higher than 30 world units are render-only. Room-centre routes, node approaches, door centre lines, walls and guard spawns stay clear.",
+    "rendering": "Existing room batches and distance culling; actual folded surfaces, rounded luggage, tubular straps and cables, bent covers; original clue animations retained.",
+    "textures": "No new downloads; existing Poly Haven CC0 scans from dist/assets/hangar-v1/provenance.json and dist/assets/canyon-v2/canyon-manifest.json.",
+    "new_lights": 0,
+    "new_textures": 0
+  },
+  "preserved": [
+    "126 clue IDs and source observations",
+    "version-1 save keys",
+    "one-time XP and rewards",
+    "optional damaged diary",
+    "original door connectivity, power gates and endings"
+  ],
+  "validation": {
+    "geometry": "134 object/state/yaw checks: finite geometry, UVs, floor contact and physical envelopes; all 819 rooms have placed moments; distinct moment per room on each deck.",
+    "generic_render": "All 20 generic sites × 3 decks; budgets retained below 150 total / 65 visible batches and 400000 triangles per deck.",
+    "gameplay": "Full physical navigation and camera/weapon clearance, 378 evidence routes, 126 actual clue interactions, restored save/XP, HELIOS kit, owned-resource cleanup and controls suites.",
+    "browser": "Actual production renderers and full-game third-person views using a temporary memory-only review fixture. Fixture is removed before source packaging.",
+    "limits": "Runtime authored meshes with existing scanned surfaces. No claim of photorealism or device-wide frame-rate guarantees."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "version": "visual84",
+  "runtime": "existing custom game / vendored Three.js r164",
+  "source": "Original code-authored 3D compositions, paired with the existing exo-discovery.js and exo-field-clues.js story facts",
+  "technical_frame": {
+    "camera": "existing third-person orbit, unchanged gameplay projection",
+    "geometry": "solid folded cloth, padded cushions and luggage, tubular straps and hoses, turned vessels, bent sheet metal, existing room batches",
+    "materials": "existing painted metal, worn tread plate, rough markings and embedded lamp materials",
+    "texture_provenance": "Existing Poly Haven CC0 scans: dist/assets/hangar-v1/provenance.json and dist/assets/canyon-v2/canyon-manifest.json",
+    "new_textures": 0,
+    "new_point_lights": 0,
+    "collision": "Existing equipment envelopes; wall details stay in wall pockets; floor traces are flush",
+    "placement": "Two evidence rooms plus one rest/supply room per deck; 189 rooms, 63 decks, 21 sites",
+    "visibility": "Always present, independent of collection state; existing distance culling"
+  },
+  "art_direction": {
+    "palette": "faded sage cushions, ochre canvas, old linen, oxidized steel and restrained pale green lamps",
+    "readability": "large changed-purpose silhouettes, empty slots, intact versus damaged equipment, objects deliberately grouped by their use",
+    "motifs": "double stitching on evacuation belongings, ochre repair marks, muted blue-green research marks",
+    "damage": "handling scrapes and emptied brackets, localized mineral deposits, damaged weather panels, rejected rails; no invented massacre or new explanation of the orbital attack"
+  },
+  "manifest": [
+    {"family":"evacuation","forms":["passenger","conversion","care","waiting","emptied","oxygen","belongings","handoff"],"states":"fixed observable arrangements; original interactive objects retain animated states"},
+    {"family":"cultivation","forms":["seedlings","irrigation"],"states":"mature plants remain, portable slots empty, low bypass hardware intact"},
+    {"family":"investigation","forms":["samples","comparison","calibration","strata","drill","film","missing","sealed"],"states":"separate comparisons, intact stopped tools, partial or absent source material"},
+    {"family":"communications","forms":["silent","receivers","window"],"states":"disconnected broadcast wiring contrasted with local power and independent receivers"},
+    {"family":"maintenance","forms":["bypass","locked","lamps","filters","brakes","workbench","storm","rail","reroute"],"states":"sealed controls, replacement and worn parts, damaged panels, rejected versus tested route"}
+  ],
+  "preserved": ["126 discovery IDs", "version-1 save keys", "once-only XP", "diary provenance", "uncertainty about final arrival and signal identity", "doors and navigation", "ending gates"],
+  "validation": {
+    "geometry": "180 finite position/normal/UV and exact existing collider-envelope checks over 30 scene types, including the narrow HELIOS pockets",
+    "coverage": "189 story rooms and all 126 clue positions without layout mutation",
+    "budget": "Existing generic deck limits retained: under 150 total batches, 65 visible at spawn and 400000 triangles; all 20 generic sites, all decks tested",
+    "browser": "Actual WebGL rooms and full-game third-person scenes with memory-only test progress; interaction still stays in the world",
+    "limitations": "Runtime authored meshes, not cinematic scans; no physical-phone FPS claim; room vignettes do not resolve unknown survivor outcomes"
+  }
+}

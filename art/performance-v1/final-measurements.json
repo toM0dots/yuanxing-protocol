@@ -1,0 +1,122 @@
+[
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6000,\"y\":6100,\"paused\":false,\"fps\":7.1,\"draws\":88,\"triangles\":429871,\"geometries\":90,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":81,\"misses\":0},\"p95\":217.4,\"ms\":{\"simulation\":0.44,\"camera collision\":0.21,\"render start\":0.1,\"resize/view/sky\":0.03,\"terrain cache\":0.06,\"world geometry\":0.02,\"robot/weapon animation\":0.24,\"world effects\":0.07,\"creature animation\":0.49,\"instance culling\":0.06,\"GPU submission\":6.98,\"overlay/HUD\":0.65,\"cpu\":9.35},\"scope\":\"total\",\"gpu\":69.87}",
+    "timestamp": "2026-11-01T01:59:19.613Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6000,\"y\":6100,\"paused\":false,\"fps\":9.4,\"draws\":91,\"triangles\":432055,\"geometries\":90,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":81,\"misses\":0},\"p95\":166.1,\"ms\":{\"simulation\":0.39,\"camera collision\":0.19,\"render start\":0.1,\"resize/view/sky\":0.02,\"terrain cache\":0.06,\"world geometry\":0.02,\"robot/weapon animation\":0.22,\"world effects\":0.07,\"creature animation\":0.46,\"instance culling\":0.06,\"GPU submission\":2.32,\"overlay/HUD\":0.59,\"cpu\":4.5},\"scope\":\"total\",\"gpu\":64.18}",
+    "timestamp": "2026-11-01T01:59:32.428Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6500,\"y\":7200,\"paused\":false,\"fps\":8.9,\"draws\":90,\"triangles\":498758,\"geometries\":100,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":78,\"hits\":90,\"misses\":0},\"p95\":150,\"ms\":{\"simulation\":0.36,\"camera collision\":0.19,\"render start\":0.08,\"resize/view/sky\":0.02,\"terrain cache\":0.04,\"world geometry\":0.02,\"robot/weapon animation\":0.23,\"world effects\":0.15,\"creature animation\":1.02,\"instance culling\":0.06,\"GPU submission\":2.46,\"overlay/HUD\":0.66,\"cpu\":5.29},\"scope\":\"total\",\"gpu\":63.33}",
+    "timestamp": "2026-11-01T01:59:45.979Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6500,\"y\":7200,\"paused\":false,\"fps\":6.7,\"draws\":90,\"triangles\":496928,\"geometries\":100,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":90,\"misses\":0},\"p95\":333.2,\"ms\":{\"simulation\":0.34,\"camera collision\":0.16,\"render start\":0.1,\"resize/view/sky\":0.02,\"terrain cache\":0.05,\"world geometry\":0.02,\"robot/weapon animation\":0.21,\"world effects\":0.08,\"creature animation\":0.09,\"instance culling\":0.05,\"GPU submission\":2.33,\"overlay/HUD\":0.59,\"cpu\":4.04},\"scope\":\"total\",\"gpu\":88}",
+    "timestamp": "2026-11-01T02:00:03.948Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6500,\"y\":7200,\"paused\":false,\"fps\":6.4,\"draws\":90,\"triangles\":496928,\"geometries\":100,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":90,\"misses\":0},\"p95\":349.3,\"ms\":{\"simulation\":0.33,\"camera collision\":0.16,\"render start\":0.09,\"resize/view/sky\":0.02,\"terrain cache\":0.04,\"world geometry\":0.01,\"robot/weapon animation\":0.22,\"world effects\":0.07,\"creature animation\":0.09,\"instance culling\":0.05,\"GPU submission\":2.32,\"overlay/HUD\":0.62,\"cpu\":4.03},\"scope\":\"total\",\"gpu\":77.71}",
+    "timestamp": "2026-11-01T02:00:22.630Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6500,\"y\":7200,\"paused\":false,\"fps\":7.9,\"draws\":90,\"triangles\":496928,\"geometries\":100,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":90,\"misses\":0},\"p95\":216.1,\"ms\":{\"simulation\":0.3,\"camera collision\":0.15,\"render start\":0.08,\"resize/view/sky\":0.01,\"terrain cache\":0.05,\"world geometry\":0.01,\"robot/weapon animation\":0.21,\"world effects\":0.06,\"creature animation\":0.08,\"instance culling\":0.05,\"GPU submission\":2.25,\"overlay/HUD\":0.58,\"cpu\":3.84},\"scope\":\"total\",\"gpu\":82.33}",
+    "timestamp": "2026-11-01T02:00:37.728Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6500,\"y\":7200,\"paused\":false,\"fps\":8.2,\"draws\":90,\"triangles\":496928,\"geometries\":100,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":90,\"misses\":0},\"p95\":232.6,\"ms\":{\"simulation\":0.31,\"camera collision\":0.14,\"render start\":0.09,\"resize/view/sky\":0.02,\"terrain cache\":0.04,\"world geometry\":0.02,\"robot/weapon animation\":0.2,\"world effects\":0.06,\"creature animation\":0.05,\"instance culling\":0.05,\"GPU submission\":2.29,\"overlay/HUD\":0.55,\"cpu\":3.84},\"scope\":\"total\",\"gpu\":81.1}",
+    "timestamp": "2026-11-01T02:00:52.382Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6500,\"y\":7200,\"paused\":false,\"fps\":8.2,\"draws\":90,\"triangles\":496928,\"geometries\":100,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":90,\"misses\":0},\"p95\":200,\"ms\":{\"simulation\":0.29,\"camera collision\":0.16,\"render start\":0.08,\"resize/view/sky\":0.02,\"terrain cache\":0.04,\"world geometry\":0.01,\"robot/weapon animation\":0.2,\"world effects\":0.06,\"creature animation\":0.07,\"instance culling\":0.05,\"GPU submission\":2.27,\"overlay/HUD\":0.57,\"cpu\":3.82},\"scope\":\"total\",\"gpu\":74.25}",
+    "timestamp": "2026-11-01T02:01:07.055Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6500,\"y\":7200,\"paused\":false,\"fps\":8.3,\"draws\":90,\"triangles\":496928,\"geometries\":100,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":90,\"misses\":0},\"p95\":199.5,\"ms\":{\"simulation\":0.27,\"camera collision\":0.16,\"render start\":0.07,\"resize/view/sky\":0.02,\"terrain cache\":0.05,\"world geometry\":0.02,\"robot/weapon animation\":0.19,\"world effects\":0.08,\"creature animation\":0.06,\"instance culling\":0.06,\"GPU submission\":2.28,\"overlay/HUD\":0.53,\"cpu\":3.77},\"scope\":\"total\",\"gpu\":78.1}",
+    "timestamp": "2026-11-01T02:01:21.436Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6500,\"y\":7200,\"paused\":false,\"fps\":8.6,\"draws\":90,\"triangles\":496928,\"geometries\":100,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":90,\"misses\":0},\"p95\":166.1,\"ms\":{\"simulation\":0.28,\"camera collision\":0.15,\"render start\":0.07,\"resize/view/sky\":0.02,\"terrain cache\":0.04,\"world geometry\":0.02,\"robot/weapon animation\":0.19,\"world effects\":0.06,\"creature animation\":0.06,\"instance culling\":0.06,\"GPU submission\":2.25,\"overlay/HUD\":0.55,\"cpu\":3.74},\"scope\":\"total\",\"gpu\":77.43}",
+    "timestamp": "2026-11-01T02:01:35.401Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6500,\"y\":7200,\"paused\":false,\"fps\":8.1,\"draws\":90,\"triangles\":496928,\"geometries\":100,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":90,\"misses\":0},\"p95\":183.4,\"ms\":{\"simulation\":0.47,\"camera collision\":0.38,\"render start\":0.16,\"resize/view/sky\":0.02,\"terrain cache\":0.05,\"world geometry\":0.01,\"robot/weapon animation\":0.25,\"world effects\":0.06,\"creature animation\":0.15,\"instance culling\":0.07,\"GPU submission\":3.42,\"overlay/HUD\":1.02,\"cpu\":6.07},\"scope\":\"total\",\"gpu\":82.01}",
+    "timestamp": "2026-11-01T02:01:50.273Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6500,\"y\":7200,\"paused\":false,\"fps\":7.6,\"draws\":90,\"triangles\":496928,\"geometries\":100,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":90,\"misses\":0},\"p95\":266.1,\"ms\":{\"simulation\":2.01,\"camera collision\":0.38,\"render start\":0.3,\"resize/view/sky\":0.09,\"terrain cache\":0.26,\"world geometry\":0.02,\"robot/weapon animation\":0.52,\"world effects\":0.08,\"creature animation\":0.11,\"instance culling\":0.06,\"GPU submission\":4.23,\"overlay/HUD\":0.56,\"cpu\":8.62},\"scope\":\"total\",\"gpu\":82.31}",
+    "timestamp": "2026-11-01T02:02:06.141Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6500,\"y\":7200,\"paused\":false,\"fps\":8.1,\"draws\":90,\"triangles\":496928,\"geometries\":100,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":90,\"misses\":0},\"p95\":215.7,\"ms\":{\"simulation\":0.27,\"camera collision\":0.14,\"render start\":0.08,\"resize/view/sky\":0.02,\"terrain cache\":0.05,\"world geometry\":0.01,\"robot/weapon animation\":0.19,\"world effects\":0.07,\"creature animation\":0.05,\"instance culling\":0.05,\"GPU submission\":2.23,\"overlay/HUD\":0.53,\"cpu\":3.69},\"scope\":\"total\",\"gpu\":79.53}",
+    "timestamp": "2026-11-01T02:02:20.923Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=3"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":6000,\"y\":6100,\"paused\":false,\"fps\":9.9,\"draws\":88,\"triangles\":429871,\"geometries\":96,\"textures\":33,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":81,\"misses\":0},\"p95\":134,\"ms\":{\"simulation\":0.44,\"camera collision\":0.19,\"render start\":0.11,\"resize/view/sky\":0.02,\"terrain cache\":0.05,\"world geometry\":0.01,\"robot/weapon animation\":0.25,\"world effects\":0.08,\"creature animation\":0.47,\"instance culling\":0.07,\"GPU submission\":4.72,\"overlay/HUD\":0.61,\"cpu\":7.05},\"scope\":\"total\",\"gpu\":63.32}",
+    "timestamp": "2026-11-01T02:03:34.084Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=36"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":3708,\"y\":6676,\"paused\":false,\"fps\":8.5,\"draws\":103,\"triangles\":502219,\"geometries\":161,\"textures\":37,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":99,\"misses\":9},\"p95\":149.8,\"ms\":{\"simulation\":0.46,\"camera collision\":0.25,\"render start\":0.09,\"resize/view/sky\":0.03,\"terrain cache\":2.92,\"world geometry\":0.01,\"robot/weapon animation\":0.22,\"world effects\":0.12,\"creature animation\":2.92,\"instance culling\":0.05,\"GPU submission\":12.56,\"overlay/HUD\":0.67,\"cpu\":20.3},\"scope\":\"total\",\"gpu\":64.26}",
+    "timestamp": "2026-11-01T02:04:01.859Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=36"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":3708,\"y\":6676,\"paused\":false,\"fps\":8.1,\"draws\":103,\"triangles\":502219,\"geometries\":161,\"textures\":38,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":99,\"misses\":9},\"p95\":217.3,\"ms\":{\"simulation\":1.01,\"camera collision\":0.24,\"render start\":0.08,\"resize/view/sky\":0.03,\"terrain cache\":0.04,\"world geometry\":0.01,\"robot/weapon animation\":0.2,\"world effects\":0.07,\"creature animation\":0.5,\"instance culling\":0.05,\"GPU submission\":2.53,\"overlay/HUD\":0.79,\"cpu\":5.55},\"scope\":\"total\",\"gpu\":73.84}",
+    "timestamp": "2026-11-01T02:04:16.719Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=36"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":3708,\"y\":6676,\"paused\":false,\"fps\":8.7,\"draws\":103,\"triangles\":502219,\"geometries\":161,\"textures\":38,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":99,\"misses\":9},\"p95\":133.9,\"ms\":{\"simulation\":0.96,\"camera collision\":0.24,\"render start\":0.06,\"resize/view/sky\":0.02,\"terrain cache\":0.05,\"world geometry\":0.01,\"robot/weapon animation\":0.19,\"world effects\":0.06,\"creature animation\":0.47,\"instance culling\":0.04,\"GPU submission\":2.49,\"overlay/HUD\":0.78,\"cpu\":5.37},\"scope\":\"total\",\"gpu\":72.82}",
+    "timestamp": "2026-11-01T02:04:30.571Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=36"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":3708,\"y\":6676,\"paused\":false,\"fps\":7.1,\"draws\":104,\"triangles\":543579,\"geometries\":161,\"textures\":38,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":99,\"misses\":9},\"p95\":200,\"ms\":{\"simulation\":0.95,\"camera collision\":0.23,\"render start\":0.06,\"resize/view/sky\":0.02,\"terrain cache\":0.05,\"world geometry\":0.01,\"robot/weapon animation\":0.17,\"world effects\":0.06,\"creature animation\":0.44,\"instance culling\":0.05,\"GPU submission\":2.43,\"overlay/HUD\":0.7,\"cpu\":5.17},\"scope\":\"total\",\"gpu\":74.41}",
+    "timestamp": "2026-11-01T02:04:47.544Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=36"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":3708,\"y\":6676,\"paused\":false,\"fps\":6.5,\"draws\":103,\"triangles\":502219,\"geometries\":161,\"textures\":38,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":99,\"misses\":9},\"p95\":199.5,\"ms\":{\"simulation\":2.67,\"camera collision\":0.31,\"render start\":0.07,\"resize/view/sky\":0.02,\"terrain cache\":0.06,\"world geometry\":0.01,\"robot/weapon animation\":0.18,\"world effects\":0.07,\"creature animation\":0.59,\"instance culling\":0.05,\"GPU submission\":3.46,\"overlay/HUD\":1,\"cpu\":8.49},\"scope\":\"total\",\"gpu\":73.05}",
+    "timestamp": "2026-11-01T02:05:06.120Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=36"
+  },
+  {
+    "level": "info",
+    "message": "EXO PROFILE {\"x\":3708,\"y\":6676,\"paused\":false,\"fps\":6.2,\"draws\":103,\"triangles\":502219,\"geometries\":161,\"textures\":38,\"streaming\":{\"enabled\":true,\"failed\":false,\"ready\":88,\"hits\":99,\"misses\":9},\"p95\":183.9,\"ms\":{\"simulation\":0.94,\"camera collision\":0.24,\"render start\":0.06,\"resize/view/sky\":0.02,\"terrain cache\":0.04,\"world geometry\":0.01,\"robot/weapon animation\":0.17,\"world effects\":0.06,\"creature animation\":0.48,\"instance culling\":0.05,\"GPU submission\":2.46,\"overlay/HUD\":0.75,\"cpu\":5.27},\"scope\":\"total\",\"gpu\":73.18}",
+    "timestamp": "2026-11-01T02:05:25.306Z",
+    "url": "http://127.0.0.1:8051/exo-profile.js?v=36"
+  }
+]

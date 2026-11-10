@@ -1,0 +1,50 @@
+{
+  "version": 83,
+  "direction": "Objects and environmental traces tell the story in the world; a damaged personal field diary is optional.",
+  "new_assets": [
+    {
+      "paths": [
+        "dist/exo-clue-render.mjs"
+      ],
+      "type": "original code-authored animated 3D props",
+      "forms": 14,
+      "instances": "two discoveries per deck; 126 authored interactions across 21 facilities",
+      "materials": "Existing scanned paint/metal maps and shared PBR materials; no new external assets"
+    },
+    {
+      "paths": [
+        "dist/exo-diary.js",
+        "dist/exo-diary.css",
+        "dist/assets/diary-v1/fibers.svg"
+      ],
+      "type": "original HTML/CSS/SVG notebook and pencil sketches",
+      "accessibility": "Live HTML Chinese text; readable system KaiTi/serif fallbacks; keyboard buttons; responsive stacked pages; wear kept out of reading contrast"
+    }
+  ],
+  "narrative": {
+    "source": "Existing ExoDiscovery site evidence; each new observation audited against its original record",
+    "ids": "Existing log:<site>:<index> IDs preserved",
+    "new_fact_policy": "Observations distinguish measured evidence and unconfirmed interpretations; no new survivor identity or outcome claims"
+  },
+  "compatibility": {
+    "save_keys": [
+      "exo-expedition-v1",
+      "exo-facilities-v1"
+    ],
+    "rewards": "unchanged; duplicate interactions do not award XP",
+    "ended_games": "existing endings retained",
+    "visibility": "nearby same-room cues are unearned; actual E interaction records discovery"
+  },
+  "validation": [
+    "tests/environment-diary.cjs",
+    "tests/clue-render.mjs",
+    "tests/coherent-discovery.cjs",
+    "tests/evidence-navigation.cjs",
+    "tests/facility-ui.cjs",
+    "tests/facility-render.mjs",
+    "tests/exo-facilities.cjs",
+    "tests/exo-controls.cjs",
+    "tests/hangar-art.mjs"
+  ],
+  "review": "Browser screenshots use a memory-only local example for an object-to-diary flow. Production UI also inspected with existing local progress."
+}

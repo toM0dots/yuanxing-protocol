@@ -1,0 +1,65 @@
+{
+  "release": "browser-visual-v53",
+  "changes": [
+    "Mineral and sediment variation using existing scan color/height samples",
+    "Soil and rock use matching surface relief; variable roughness without extra texture fetches",
+    "K09 metal runoff and ground-level weathering",
+    "Warm/cool outdoor light balance; existing environment reflections retained",
+    "Terrain-conforming foot contact shade fades during flight",
+    "Removed overlapping legacy camp slabs from premium terrain",
+    "Depth prepass tolerance fixes visible black terrain holes on Intel WebGL; exact color depth preserved",
+    "Shared facility/cavern material imports and cache versions updated"
+  ],
+  "budget": {
+    "resolution_unchanged": true,
+    "mesh_lod_unchanged": true,
+    "added_draws": 1,
+    "added_triangles": 72,
+    "added_texture": "64x64 RGBA contact shade",
+    "postprocess_passes_added": 0
+  },
+  "baseline": {
+    "samples": 5,
+    "fps_range": [
+      30,
+      30
+    ],
+    "gpu_ms_median": 10.92,
+    "p95_ms_range": [
+      33.9,
+      34.2
+    ],
+    "draws": 279,
+    "triangles": 892089
+  },
+  "final": {
+    "samples": 5,
+    "fps_range": [
+      42.4,
+      45.6
+    ],
+    "gpu_ms_median": 8.93,
+    "p95_ms_range": [
+      33.6,
+      34.1
+    ],
+    "draws": 280,
+    "triangles": 891945
+  },
+  "measurement_limit": "Short sequential K09 samples at 977x734. Other applications were left running. Background load changed, so these are observations, not an isolated speedup or sustained-FPS guarantee.",
+  "checks_passed": [
+    "render-quality.mjs",
+    "render-performance.mjs",
+    "visual-grounding.mjs",
+    "canyon-authored.mjs",
+    "exo-canyon-v2.cjs",
+    "exo-regional-world.cjs",
+    "syntax checks",
+    "git diff --check"
+  ],
+  "browser_verified": [
+    "K09 final depth-pass rendering and clean console",
+    "HELIOS exterior black holes fixed compared with original source"
+  ],
+  "source_assets": "Existing Blender assets and already-licensed scan textures; no new external art downloads."
+}

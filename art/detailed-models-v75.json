@@ -1,0 +1,26 @@
+{
+  "revision": "detailed-character-v75",
+  "engine": "Three.js r164, existing GLB rigid animation pipeline",
+  "request": "More realistic/detailed than blocky v74; Gundam-inspired robot; title artwork is quality reference",
+  "reference": "dist/assets/visual-v13/expedition-hero.webp",
+  "visual_direction": {
+    "robot": "Compound curved, overlapping ivory armor; navy/red/gold accents; recognizable face/V-fin; dense functional frame; segmented limbs; technical seams, recessed mechanisms, restrained weathering",
+    "creatures": "Curved anatomical segments, closed volumetric exoskeletons, flexible ribbed tissue, tendons, hooked jaws, connected limbs; biological chitin response rather than rock"
+  },
+  "budgets": {
+    "robot_triangles": 120000,
+    "robot_materials": 12,
+    "creature_near_triangles": 60000,
+    "creature_far_triangles": 15000,
+    "creature_materials": 5
+  },
+  "acceptance": [
+    "Actual mesh closeup under neutral gameplay lighting",
+    "Distinct improvement in silhouette and secondaryforms before microdetail",
+    "Existing feet sockets IK gait combat collisions retained",
+    "No stretched UV caps, holes or flat paddlelike limbs",
+    "Actual game movement/combat check and targeted contracts before publication"
+  ],
+  "provenance": "Original editable source geometry and procedural biological material maps; existing CC0 metal scans retained for subtle robotwear",
+  "decision": "User-authorized visual rework; select direction through actual asset review"
+}

@@ -1,0 +1,426 @@
+{
+  "version": 91,
+  "release": "20261107-route91",
+  "intent": "A continuous first-act story trail with optional exploration that rejoins it",
+  "scope": "Existing playable episodes 01–09 and the onward valley connection; no new episodes claimed",
+  "metrics": {
+    "unitsPerMetre": 18,
+    "walkingUnitsPerSecond": 125,
+    "mainTrailHalfWidth": 95,
+    "feather": 230,
+    "minimumClueSeparation": 838
+  },
+  "route": [
+    {
+      "id": "crash",
+      "name": "迫降支谷",
+      "kind": "main",
+      "points": [
+        {
+          "x": 1950,
+          "y": 9880
+        },
+        {
+          "x": 1740,
+          "y": 9440
+        },
+        {
+          "x": 1830,
+          "y": 8930
+        },
+        {
+          "x": 2100,
+          "y": 8450
+        },
+        {
+          "x": 2450,
+          "y": 8010
+        },
+        {
+          "x": 2890,
+          "y": 7770
+        },
+        {
+          "x": 3310,
+          "y": 7520
+        },
+        {
+          "x": 3708,
+          "y": 7360
+        }
+      ],
+      "length": 3537
+    },
+    {
+      "id": "washout",
+      "name": "断路侧道",
+      "kind": "main",
+      "points": [
+        {
+          "x": 3708,
+          "y": 7360
+        },
+        {
+          "x": 3885,
+          "y": 7340
+        },
+        {
+          "x": 3885,
+          "y": 7160
+        },
+        {
+          "x": 3708,
+          "y": 7060
+        }
+      ],
+      "length": 561
+    },
+    {
+      "id": "lights",
+      "name": "青灯林道",
+      "kind": "main",
+      "points": [
+        {
+          "x": 3708,
+          "y": 7060
+        },
+        {
+          "x": 3370,
+          "y": 6840
+        },
+        {
+          "x": 2770,
+          "y": 6210
+        },
+        {
+          "x": 3260,
+          "y": 5530
+        }
+      ],
+      "length": 2111
+    },
+    {
+      "id": "memories",
+      "name": "旧撤离步道",
+      "kind": "main",
+      "points": [
+        {
+          "x": 3260,
+          "y": 5530
+        },
+        {
+          "x": 3770,
+          "y": 5370,
+          "radius": 130
+        },
+        {
+          "x": 4410,
+          "y": 5580,
+          "radius": 130
+        },
+        {
+          "x": 4780,
+          "y": 5830
+        },
+        {
+          "x": 4760,
+          "y": 6520
+        },
+        {
+          "x": 4284,
+          "y": 6406,
+          "radius": 140
+        }
+      ],
+      "length": 2834
+    },
+    {
+      "id": "defense",
+      "name": "维修站东侧接驳路",
+      "kind": "main",
+      "points": [
+        {
+          "x": 4284,
+          "y": 6406,
+          "radius": 140
+        },
+        {
+          "x": 4510,
+          "y": 6850
+        },
+        {
+          "x": 5000,
+          "y": 7100
+        },
+        {
+          "x": 5350,
+          "y": 7580
+        },
+        {
+          "x": 5830,
+          "y": 7980
+        },
+        {
+          "x": 5830,
+          "y": 8110,
+          "radius": 180
+        }
+      ],
+      "length": 2397
+    },
+    {
+      "id": "south",
+      "name": "南行河谷路",
+      "kind": "main",
+      "points": [
+        {
+          "x": 5830,
+          "y": 8110,
+          "radius": 180
+        },
+        {
+          "x": 5830,
+          "y": 7960
+        },
+        {
+          "x": 5260,
+          "y": 7890
+        },
+        {
+          "x": 5000,
+          "y": 8200
+        },
+        {
+          "x": 4930,
+          "y": 9000
+        },
+        {
+          "x": 4710,
+          "y": 9430
+        },
+        {
+          "x": 4400,
+          "y": 9770
+        }
+      ],
+      "length": 2875
+    },
+    {
+      "id": "belongings",
+      "name": "撤离车辙",
+      "kind": "side",
+      "points": [
+        {
+          "x": 3370,
+          "y": 6840
+        },
+        {
+          "x": 3050,
+          "y": 7180
+        },
+        {
+          "x": 2650,
+          "y": 7000
+        },
+        {
+          "x": 2770,
+          "y": 6210
+        }
+      ],
+      "length": 1705
+    },
+    {
+      "id": "lookout",
+      "name": "林间眺望坡",
+      "kind": "side",
+      "points": [
+        {
+          "x": 2770,
+          "y": 6210
+        },
+        {
+          "x": 2380,
+          "y": 6000
+        },
+        {
+          "x": 2530,
+          "y": 5540
+        },
+        {
+          "x": 3260,
+          "y": 5530
+        }
+      ],
+      "length": 1657
+    },
+    {
+      "id": "cargo",
+      "name": "遗落的货运道",
+      "kind": "side",
+      "points": [
+        {
+          "x": 4410,
+          "y": 5580,
+          "radius": 130
+        },
+        {
+          "x": 5010,
+          "y": 5500
+        },
+        {
+          "x": 5150,
+          "y": 6000
+        },
+        {
+          "x": 4760,
+          "y": 6520
+        }
+      ],
+      "length": 1775
+    }
+  ],
+  "stops": [
+    {
+      "id": "crash",
+      "name": "迫降谷",
+      "x": 1950,
+      "y": 9880,
+      "angle": -0.48,
+      "episodes": "01",
+      "note": "醒来，沿车辙走出谷地。"
+    },
+    {
+      "id": "route",
+      "name": "断裂旧路",
+      "x": 3708,
+      "y": 7360,
+      "episodes": "02",
+      "note": "先看清路况，再绕过塌口。"
+    },
+    {
+      "id": "lamps",
+      "name": "青灯林道",
+      "x": 2770,
+      "y": 6210,
+      "episodes": "03",
+      "note": "查看沿途三处遗物，拼出撤离经过。"
+    },
+    {
+      "id": "memory",
+      "name": "撤离休息点",
+      "x": 3770,
+      "y": 5370,
+      "radius": 130,
+      "episodes": "04–05",
+      "note": "停下来检查遗物，再接近仍亮灯的维修间。"
+    },
+    {
+      "id": "refuge",
+      "name": "K–09 维修间",
+      "x": 4284,
+      "y": 6406,
+      "radius": 140,
+      "episodes": "06 / 09",
+      "note": "找老林修理；守住道路后回来安装稳定架。"
+    },
+    {
+      "id": "defense",
+      "name": "东侧接驳坪",
+      "x": 5830,
+      "y": 8110,
+      "radius": 180,
+      "episodes": "07–08",
+      "note": "在同一条接驳路上试射、校准，再保护维修站。"
+    },
+    {
+      "id": "valley",
+      "name": "河谷与远方",
+      "x": 4400,
+      "y": 9770,
+      "episodes": "自由探索",
+      "note": "沿河岸勘测，支路通往洞穴与山脊。"
+    }
+  ],
+  "detours": [
+    {
+      "id": "belongings",
+      "name": "撤离车辙",
+      "x": 2650,
+      "y": 7000,
+      "object": "散落的行李",
+      "observation": "车辙绕开了掉落的行李。有人来不及装回去，只带走了氧气瓶；折叠床在车厢边缘留下了擦痕。",
+      "returnTo": "第二处青灯",
+      "seconds": 14
+    },
+    {
+      "id": "lookout",
+      "name": "林间眺望坡",
+      "x": 2530,
+      "y": 5540,
+      "object": "临时望哨",
+      "observation": "一张椅子朝着来路，水壶已经倒空。这里能看见维修间的高灯，也能回望刚刚走过的林道。",
+      "returnTo": "第三处青灯",
+      "seconds": 13
+    },
+    {
+      "id": "cargo",
+      "name": "遗落的货运道",
+      "x": 5010,
+      "y": 5500,
+      "object": "停在路边的货架",
+      "observation": "固定带被割开了，重货还在原地。空出的宽度足够一副担架通过，路灯指向维修间的接驳口。",
+      "returnTo": "维修间门前",
+      "seconds": 14
+    }
+  ],
+  "relocations": {
+    "crash": {
+      "x": 1950,
+      "y": 9880,
+      "angle": -0.48
+    },
+    "defenseOffset": {
+      "x": 2050,
+      "y": 540
+    },
+    "helios": {
+      "x": 3200,
+      "y": 1450
+    },
+    "wreck": {
+      "x": 10350,
+      "y": 10750
+    },
+    "canyonCamp": {
+      "x": 6800,
+      "y": 9000
+    }
+  },
+  "assets": "Existing PBR surfaces, props, room belongings, natural vegetation, lanterns and detailed robot are reused without model or texture quality reductions",
+  "validation": {
+    "routeSamples": 609,
+    "campRoutes": 81,
+    "campMovementFrames": 6476,
+    "mainCampaign": "tests/exo-campaign-shell.cjs",
+    "lamps": {
+      "count": 104,
+      "triangles": 351520,
+      "pointLights": 2
+    },
+    "annex": {
+      "draws": 13,
+      "vertices": 234231
+    },
+    "startup": {
+      "fixture": "same local K–09 startup fixture, 1280x720 Chromium",
+      "release": "20261107-route91",
+      "launchToFirstDetailedFrameMs": 8569.7,
+      "firstRenderMs": 259.2,
+      "largestObservedMainThreadTaskMs": 491,
+      "resourceBytes": 57226788,
+      "framesBeforeReport": 90,
+      "note": "Local measurement with warm browser and driver caches; not a cold-network or physical-device guarantee."
+    }
+  },
+  "saveCompatibility": "Stable facilities, trail record IDs and browser save keys retained; new optional clues have independent once-only rewards"
+}

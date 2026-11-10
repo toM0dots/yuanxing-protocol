@@ -1,0 +1,28 @@
+{
+  "version": "landscape87",
+  "engine": "Vendored Three.js r164, browser WebGL",
+  "landscape": {
+    "removed": "K09 terraced geological sheet, overlapping floor/skirt and obsolete nav/flight/camera fields; serrated crash-basin rim replaced by broad eroded shoulders",
+    "range": "Eight overlapping anisotropic ridges; broad foothills, rounded foundation blends and feathered biome transitions",
+    "lesson": "River, cliffs, surveyed switchback and underground cave retained; hazardous shortcuts remain hazardous"
+  },
+  "biomes": {
+    "ground_scans": "dist/assets/biomes-v87/provenance.json",
+    "vegetation": "Original branching mesh trees, alpha-cutout leaf sprays and instanced grass; seven material draws; deterministic shared physical trunks; foreground camera fade"
+  },
+  "hero": {
+    "source": "art/echo9-hero-v7/Echo9_Hero_V7.blend",
+    "runtime": "dist/assets/echo9-hero-v7/Echo9_Hero_V7.glb",
+    "concept": "output/echo9-hero-views-v7/01-turnaround.png from the other chat",
+    "adaptation": "Cobalt/ivory/crimson, swept central helmet crest, narrow arms and curved plates, tactical harness/pack, rifle furniture and four-tube shoulder launcher",
+    "limits": "Reference-based game mesh, not a photogrammetric reconstruction of concept artwork",
+    "budget_triangles": 120000
+  },
+  "compatibility": "Facility IDs, entrances, mission samples, diary IDs and save destinations preserved; existing leg lengths and support soles retained.",
+  "validation": {
+    "routes": "81 routes / 690 segments; 21 facility entrances; safe mountain paths, bridge and cave; existing controls and mission flow",
+    "robot": "109628 triangles; 20-joint rig, grounded walking/running/slopes and weapon/flight contracts passed",
+    "vegetation": "Deterministic trunk collision; seven material draws; view and shadow culling plus camera fade verified",
+    "preview": "Browser WebGL: woodland 38.3 FPS in final sample, GPU 14.94 ms; hardware/scene dependent. No browser console errors during final woodland and robot review."
+  }
+}

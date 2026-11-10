@@ -1,0 +1,12 @@
+{
+  "revision": "typography-walk-v55",
+  "scope": "Readable native Chinese-capable UI typography and upright articulated walking posture",
+  "validation": {
+    "automated_passes": ["aegis-locomotion.mjs", "aegis-space.mjs", "render-performance.mjs", "exo-motion.cjs", "exo-flight.cjs", "exo-player-weapons.cjs", "exo-scenes-camera.cjs", "exo-green-trail.cjs"],
+    "visual_review": ["Desktop gameplay HUD", "390px phone HUD and story/upgrade panels without horizontal overflow", "Actual model side/front walking preview"],
+    "normal_walk_steps_per_second": 2.38,
+    "straightest_support_knee_degrees": 14.2,
+    "render_budget": "Existing geometry, textures and material batch counts retained. No downloaded fonts or new font atlases.",
+    "limitation": "No isolated FPS improvement claim; other heavy applications remain running."
+  }
+}

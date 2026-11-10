@@ -1,0 +1,24 @@
+{
+  "target": "Playable K09 environment closer to approved landscape imagery",
+  "references": [
+    "output/nine-regions-multiview-v1/09-k09-layered-canyon/00-reference.png",
+    "output/nine-regions-multiview-v1/09-k09-layered-canyon/03-interior.png"
+  ],
+  "style": "weathered industrial cliff hangar, eroded rust sandstone, broad rock arch, readable green evacuation lamps, warm amber service lights, restrained sunset haze",
+  "scope": "K09 Blender hangar integrated alongside eight distinct regional landmark complexes; connected world and story progression preserved",
+  "runtime": "Three.js r164 / existing Mac browser",
+  "budgets": {
+    "hero_environment_triangles_max": 30000,
+    "new_material_draw_groups_max": 8,
+    "new_shadowed_lights": 0,
+    "new_4k_textures": 0,
+    "reuse": "existing Poly Haven CC0 PBR maps and original canyon terrain/navigation"
+  },
+  "asset_plan": {
+    "hero_structure": "new authored Blender cliffside hangar with existing three-floor facility gameplay",
+    "terrain": "audit cave mesh triangulation and improve rock/material variation without raising texture resolution",
+    "set_dressing": "replace simple field lamps with industrial fixtures, supply crates, cables and a cave maintenance nook",
+    "validation": "grounded reachability, structure camera/flight collision, source-export metrics, real-browser before/after view and frame measurements"
+  },
+  "status": "implemented and locally validated; see art/nine-region-integration-v52.json for performance limits"
+}

@@ -6,6 +6,10 @@ A science-fiction exploration game with AI learning missions. Anyone can play fr
 
 This repository contains the complete static game release **v92** (`20261108-inspection92b`), including its models, textures, fonts and bundled asset attribution files.
 
+## Visual assets and editing sources
+
+Browse the [visual asset library](VISUAL_ASSETS.md) for concept art, editable Blender models, terrain tiles, textures, fonts and their provenance. The [file manifest](visual-assets-manifest.json) lists every included asset and its checksum. Runtime game files remain in `dist/`.
+
 ## Combat and presentation in v92
 
 Targets now distinguish detection, obstruction and actual firing range. Use **T** / **换目标** to switch targets. Optional aim assistance, automatic combat framing and a distance slider are available in Settings; the mouse wheel also adjusts distance. Branches close to the camera fade to keep the pilot visible.
