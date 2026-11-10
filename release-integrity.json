@@ -2472,6 +2472,11 @@
       "sha256": "052d4a2b65cb70c2da03d034a5226e14bbe151d1b751a151c7a2566bf0876286"
     },
     {
+      "path": "exo-ambience.js",
+      "bytes": 28740,
+      "sha256": "fc0b35dd5a6c7a43c8a3e6d38bd1458bac367599f53a6b3753ae7823be7eabba"
+    },
+    {
       "path": "exo-ashland.mjs",
       "bytes": 10209,
       "sha256": "2f347a38a8dae656d38b729e7d21d1e1ca5ce4c2f44113b4221e9e368af073f4"
@@ -2813,8 +2818,8 @@
     },
     {
       "path": "exo-shell.js",
-      "bytes": 10847,
-      "sha256": "2a03ea227866055c6a6c737e23e98858858c7f0492e8a2b81c5cd822232c4838"
+      "bytes": 10871,
+      "sha256": "7939a83f00b4f146832af260c268b72bca2c5ae6b43dfeed75e09fe6ef5f7edc"
     },
     {
       "path": "exo-space.mjs",
@@ -2938,8 +2943,8 @@
     },
     {
       "path": "expedition.js",
-      "bytes": 67099,
-      "sha256": "519c5db4f2d44312e4a2c07545cf711546506c4c9901a3918a23019dc34ea610"
+      "bytes": 67351,
+      "sha256": "3cb88ec12c8a84a2a772745a94f5a5f8f69ef5b88e93f3df6b924e58708956a6"
     },
     {
       "path": "field-missions.js",
@@ -2948,8 +2953,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4527,
-      "sha256": "be0c5a4e4cfb31d7ec317d71f31ec86d94fa6be0096156b5f31c9d1b715ab506"
+      "bytes": 4589,
+      "sha256": "42d857c8112774e6f8e831296ee8b893867a7a82ae4912f580fb1c57b05a27ba"
     },
     {
       "path": "journey.js",
