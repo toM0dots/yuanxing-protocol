@@ -1,0 +1,22 @@
+[
+  {
+    "asset": "rock_face",
+    "source": "https://polyhaven.com/a/rock_face",
+    "license": "CC0-1.0",
+    "file": "rock-normal.jpg",
+    "map": "OpenGL tangent-space normal, 2K",
+    "verified_md5": "75d644e0c6a9d2534cafe783602d6c41",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rock_face/rock_face_nor_gl_2k.jpg",
+    "existing_diffuse_roughness_attribution": "game_source/EXO-ASSETS.md, Texture attribution"
+  },
+  {
+    "asset": "rocky_trail",
+    "source": "https://polyhaven.com/a/rocky_trail",
+    "license": "CC0-1.0",
+    "file": "trail-normal.jpg",
+    "map": "OpenGL tangent-space normal, 2K",
+    "verified_md5": "4642b3c833d526b23c96baa84f5bf429",
+    "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/rocky_trail/rocky_trail_nor_gl_2k.jpg",
+    "existing_diffuse_roughness_attribution": "game_source/EXO-ASSETS.md, Texture attribution"
+  }
+]

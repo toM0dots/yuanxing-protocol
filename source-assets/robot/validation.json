@@ -1,0 +1,67 @@
+{
+  "bones": 15,
+  "actions": [
+    "VANGUARD \u2022 reactor idle"
+  ],
+  "rigged_objects": 176,
+  "idle_chest_rotation_rad": [
+    0.012000000104308128,
+    -0.0,
+    0.0
+  ],
+  "export_extent_m": [
+    4.3816938400268555,
+    3.3800002336502075,
+    7.030000079423189
+  ],
+  "lowest_meshes": [
+    [
+      0.019999634474515915,
+      "Traction sole.001"
+    ],
+    [
+      0.019999638199806213,
+      "Traction sole"
+    ],
+    [
+      0.11500011384487152,
+      "Toe grip segment.004"
+    ],
+    [
+      0.11500012129545212,
+      "Toe grip segment.001"
+    ],
+    [
+      0.11500014364719391,
+      "Toe grip segment.003"
+    ]
+  ],
+  "highest_meshes": [
+    [
+      7.049999713897705,
+      "Antenna tip"
+    ],
+    [
+      7.006340026855469,
+      "Telemetry antenna"
+    ],
+    [
+      6.691717147827148,
+      "Helmet housing"
+    ],
+    [
+      6.58862829208374,
+      "Helmet brow"
+    ],
+    [
+      6.459999084472656,
+      "Temple rotary sensor.001"
+    ]
+  ],
+  "export_meshes": 176,
+  "export_armatures": 1,
+  "excluded_rig_display_helpers": [
+    "Icosphere"
+  ],
+  "finite_geometry": true
+}

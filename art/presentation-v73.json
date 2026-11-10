@@ -1,0 +1,27 @@
+{
+  "name": "K09 worn industrial presentation",
+  "engine": "Three.js r164, existing renderer retained",
+  "direction": {
+    "materials": "Scratched painted steel, worn tread plate, warm cast concrete, mineral aggregate and distinct survey soil",
+    "palette": "Desaturated blue-grey armor and structures, warm mineral ground, restrained cyan training lights and amber validation markings",
+    "lighting": "Warm directional key, soft sky fill and explicitly limited environment intensity",
+    "interface": "One mission stack, contextual labels, separate keyboard and touch layouts, paused data editors"
+  },
+  "assets": [
+    {"source": "dist/assets/hangar-v1/provenance.json", "provider": "Poly Haven", "license": "CC0-1.0", "use": "Existing 2K painted metal and tread plate color, normal and roughness scans"},
+    {"source": "dist/assets/canyon-v2/canyon-manifest.json", "provider": "Poly Haven", "license": "CC0-1.0", "use": "Existing 2K mineral color, height and roughness scans"},
+    {"source": "dist/assets/aegis-v3/EV04_Aegis_Strike.glb", "use": "Existing authored mech geometry, UVs and animation retained; surface response revised"}
+  ],
+  "implementation": {
+    "campus_material_module": "dist/exo-campus-materials.mjs",
+    "campus_material_draws_including_signs": 10,
+    "physical_tile_sizes_world_units": {"painted_steel":144,"concrete":72,"aggregate":54,"tread_plate":42,"soil":48,"bedrock":56},
+    "armor_minimum_roughness": {"ceramic":0.62,"graphite":0.55,"titanium":0.4},
+    "scene_environment_intensity": 0.5,
+    "new_external_assets": false,
+    "shared_textures_owned_by_campus": false,
+    "collision_and_training_coordinates_preserved": true,
+    "legacy_render_fallback_preserved": true
+  },
+  "publication": "Local revision; previous remote publication approval remains pending."
+}

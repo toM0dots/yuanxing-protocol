@@ -1,0 +1,12 @@
+{
+  "file": "EV04_Aegis.glb",
+  "glb_version": 2,
+  "length_matches": true,
+  "meshes": 226,
+  "nodes": 242,
+  "materials": 10,
+  "animations": [
+    "AEGIS \u2022 reactor idle"
+  ],
+  "valid_accessor_bounds": true
+}

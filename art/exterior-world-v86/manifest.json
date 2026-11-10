@@ -1,0 +1,91 @@
+{
+  "revision": "exterior86",
+  "reference_thread": "Generate Echo-9 model views",
+  "engine": "Three.js r164, retained custom runtime",
+  "references": [
+    {
+      "file": "01-colony-buildings.png",
+      "sha256": "d87bfc368e90cb50e9b1075c7c34671823656d4de659b013b5fba1318281b223",
+      "role": "rounded ivory shells, recessed pressure glazing, service runs and restrained planting",
+      "usage": "visual reference only; not displayed as a game screenshot or shipped texture"
+    },
+    {
+      "file": "02-silent-relay-basin.png",
+      "sha256": "9ff3fce0994718b09abb82bf70ae5466b0b7810702ed1d90138ad128916936de",
+      "role": "weathered relay foundation, broken boom, practical access hardware and slate ground",
+      "usage": "visual reference only; not displayed as a game screenshot or shipped texture"
+    },
+    {
+      "file": "03-mountain-observatory.png",
+      "sha256": "fa3b0a2dd6e37283565d948b4f8342272352b308b95471fc8441f289000b4931",
+      "role": "dish trusses, curved panel seams, instrument tower and cold mineral deposits",
+      "usage": "visual reference only; not displayed as a game screenshot or shipped texture"
+    }
+  ],
+  "art_direction": {
+    "palette": [
+      "worn ivory ceramic",
+      "graphite frames",
+      "desaturated steel",
+      "muted ochre fittings",
+      "small amber fixtures",
+      "pale green airlock indicators"
+    ],
+    "materials": "Reuse the shipped Poly Haven CC0 panel, metal, rock and dirt scans; physical UV scale, packed normal/roughness, vertical runoff and settled dust. No new external image download.",
+    "silhouette": "Rounded pressure modules and service doors; layered greenhouse balconies; parabolic antenna back frames and feed hardware.",
+    "terrain_contact": "Shallow irregular flagstones, conforming drainage grates, feathered sediment and buried mineral layers. Damp habitat tint and cold summit deposits blend into the continuous existing surface.",
+    "foliage": "Bent stems and small ovate blades at roof planters and foundation margins, rather than rock-shaped green clumps."
+  },
+  "changes": [
+    "All generic facility entrances use rounded, braced docking frames and shielded fixtures.",
+    "Habitat support buildings use stepped two-storey shells, service terraces and pipework.",
+    "All regional service rooms use rounded shells, recessed glazing, seals, vents and bolted hardware.",
+    "Habitat landmark receives two windowed elevations, curved balcony rails, planted edges and external service details.",
+    "Relay receives panelled foundation, capped utility runs, drains and mechanical dish details.",
+    "Observatory receives curved panel seams, bearing and dish back frames, windows, grilles, roof access rails and pipework.",
+    "Loose rock silhouettes use buried mineral facets; habitat and summit ground palettes are localized to their actual landmark positions."
+  ],
+  "contracts": {
+    "facility_ids": 21,
+    "landmark_placements": "unchanged",
+    "physics_proxies": "exactly unchanged",
+    "terrain_heights": "unchanged; render-only surface dressing is <=5 world units above ground",
+    "generic_building_material_batches_max": 3,
+    "landmark_material_batches_max": 6,
+    "ground_material_batches_max": 5,
+    "largest_landmark_triangles": 62204,
+    "landmark_triangle_budget": {
+      "habitat": 68000,
+      "other": 44000
+    },
+    "new_runtime_bitmap_assets": 0,
+    "new_network_dependencies": 0
+  },
+  "validation": {
+    "automated": [
+      "exterior-world.mjs: finite geometry/UV/coverage, unchanged shared proxies, placement envelope and batch budgets; ground follows height sampler, underground cleanup",
+      "world-details.mjs: bounded streamed geometry and surface/cave cleanup",
+      "terrain-building-camera.mjs: eight rendered-facade camera regressions",
+      "exo-regional-world.cjs: shared pads, flight roofs, safe approaches and navigation",
+      "coherent-world.cjs: 81 road routes, hazard and combat checks",
+      "authored-world-layout.cjs: 21 stable facilities and 698 real entrance movement frames",
+      "terrain-lod.mjs: retained worker-compatible terrain detail",
+      "exo-controls.cjs: controls, navigation, facility entry/exit and gameplay regression harness",
+      "story-world-readability.cjs: local labels and obstruction"
+    ],
+    "browser": [
+      "Production renderer in localhost memory-save fixture at habitat, relay and summit",
+      "Facility entrance interaction successfully enters B1 of 峡谷温室供水站",
+      "No WebGL / shader error observed"
+    ],
+    "scope_note": "Reference art is a visual target. This is an iterative real-time procedural art pass, not a photorealistic recreation of the concept images."
+  },
+  "runtime_files": [
+    "dist/exo-exterior-kit.mjs",
+    "dist/exo-exterior-ground.mjs",
+    "dist/exo-world-details.mjs",
+    "dist/exo-regional-landmarks.mjs",
+    "dist/exo-premium.mjs",
+    "dist/index.html"
+  ]
+}

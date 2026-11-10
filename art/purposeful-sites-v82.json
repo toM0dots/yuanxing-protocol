@@ -1,0 +1,98 @@
+{
+  "revision": "v82",
+  "scope": "Purpose-built interiors and coherent exploration-story discovery",
+  "engine": "Retained vendored Three.js r164",
+  "facilities": 21,
+  "decks": 63,
+  "rooms": 819,
+  "programs": [
+    "hangar",
+    "logistics",
+    "pump",
+    "cooling",
+    "survey",
+    "archive",
+    "greenhouse",
+    "relay",
+    "weather",
+    "mining",
+    "ventilation",
+    "lift"
+  ],
+  "equipment": [
+    "pump",
+    "cooling",
+    "archive",
+    "greenhouse",
+    "cargo",
+    "survey",
+    "weather",
+    "relay",
+    "drill",
+    "conveyor",
+    "ventilation",
+    "winch",
+    "bench",
+    "battery"
+  ],
+  "sources": [
+    {
+      "type": "original procedural geometry",
+      "files": [
+        "dist/exo-program-props.mjs",
+        "dist/exo-program-architecture.mjs"
+      ],
+      "notes": "Authored true 3D equipment, program-specific services and evidence readers; no generated raster or downloaded models added."
+    },
+    {
+      "type": "existing scanned PBR materials",
+      "reference": "art/detail-world-v81.json",
+      "notes": "Reuse existing licensed scans and runtime instrument atlas; provenance unchanged."
+    },
+    {
+      "type": "original narrative",
+      "files": [
+        "dist/exo-discovery.js"
+      ],
+      "notes": "126 site-specific evidence records, 21 questions and core records; explicit inference confidence and earned-only presentation."
+    }
+  ],
+  "compatibility": {
+    "save_keys": [
+      "exo-facilities-v1",
+      "exo-expedition-v1"
+    ],
+    "identities": "Room and interaction indices, record IDs and XP amounts retained. K09 hyphenated facility ID now reloads correctly.",
+    "HELIOS": "Retains its existing authored geometry and plan."
+  },
+  "budgets": {
+    "total_deck_batches_limit": 150,
+    "nearby_batches_limit": 65,
+    "total_deck_triangles_limit": 400000,
+    "lights": "Retained bounded pool of four local lights; one local shadow map.",
+    "measured": {
+      "max_total_batches": 145,
+      "max_visible_batches": 58,
+      "max_deck_triangles": 386308
+    }
+  },
+  "review": {
+    "fixtures": [
+      "tests/fixtures/world-detail-review.html",
+      "tests/fixtures/discovery-review.html"
+    ],
+    "limits": "Realtime game detail, not photorealism. Program representatives are browser reviewed; every room is validated logically, not individually screenshot-reviewed."
+  },
+  "validation": [
+    "exo-facilities.cjs: 21 complexes, 63 decks, 819 rooms; movement and clearance",
+    "facility-programs.cjs: 12 programs, 21 footprints, identities and save compatibility",
+    "program-props.mjs: 14 geometry families and physical envelopes",
+    "facility-render.mjs: all 12 generic programs and 3 decks, batching, lighting, disposal",
+    "facility-ui.cjs: 378 record routes and 63 core routes, full map bounds and earned-only text",
+    "coherent-discovery.cjs: 126 records, reversed discovery order, source-gated leads, no unearned conclusions, v1 saves and XP deduplication",
+    "evidence-navigation.cjs: actual handlers, interior HUD, maps, cross-site guards and no implicit teleport",
+    "exo-controls.cjs and exo-campaign-shell.cjs: existing input, campaign, lesson and save flows",
+    "facility-scene.cjs and hangar-art.mjs: facility HUD and retained HELIOS geometry",
+    "Browser: pump, greenhouse, archive and ventilation representative rooms; actual game entry, local investigation HUD, dossier and evidence route; separate memory-only out-of-order journal fixture"
+  ]
+}

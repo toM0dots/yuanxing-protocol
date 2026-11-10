@@ -1,0 +1,53 @@
+{
+  "revision": "v81",
+  "scope": "Detailed field lanterns and generic mechanical facility interiors",
+  "assets": {
+    "lamp": "Original authored runtime geometry in exo-field-lamps.mjs; no external model or image downloads",
+    "interiors": "Original authored runtime geometry and code-native instrument/label atlases",
+    "scans": "Reuses existing Poly Haven CC0 panel/metal and terrain scans; see dist/assets/hangar-v1/provenance.json",
+    "k09": "Regenerated original Blender hero kit without duplicate coarse lamps; shared runtime fixtures at original sockets",
+    "reference": "output/nine-regions-multiview-v1/09-k09-layered-canyon/03-interior.png; realistic industrial proportions and subdued green optics"
+  },
+  "budgets": {
+    "lamp_triangles": 3380,
+    "lamp_material_batches": 5,
+    "physical_outdoor_lights": 2,
+    "physical_interior_lights": 4,
+    "interior_shadow_maps": 1,
+    "interior_shadow_resolution": 512,
+    "max_full_deck_triangles": 299126,
+    "max_total_deck_draws": 121,
+    "max_visible_deck_batches_in_tests": 48,
+    "maintenance_annex_draws": 13,
+    "maintenance_annex_vertices": 256939,
+    "surface_lamps": 104,
+    "surface_lamp_triangles": 351520,
+    "natural_cave_fixtures_across_three_caves": 257
+  },
+  "validation": {
+    "automated": [
+      "field-lamps",
+      "guide-light-integration",
+      "facility-render",
+      "facility-scene",
+      "training-ground-render",
+      "world-details",
+      "terrain-lod",
+      "terrain-building-camera",
+      "exo-facilities",
+      "exo-campaign-shell"
+    ],
+    "browser": [
+      "actual production lamp and mechanical interior closeups",
+      "actual world initialization and K09 facility entry",
+      "HUD render-loop regression discovered and corrected",
+      "actual keyboard movement inside K09 after HUD fix"
+    ],
+    "limits": [
+      "No physical mobile-device performance measurement",
+      "Existing HELIOS kit retained; generic interiors receive the new detail system",
+      "Realtime geometric models with reused scans, not photogrammetric assets"
+    ]
+  },
+  "saves": "No storage keys or gameplay progression changed"
+}

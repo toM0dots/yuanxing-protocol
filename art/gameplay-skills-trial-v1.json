@@ -1,0 +1,104 @@
+{
+  "trial": "K–09 / 留灯的人",
+  "date": "2026-11-01",
+  "skill_repository": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills",
+  "skill_revision": "19d93f97c9c1ea0f8b306e77aa81e0d3e352d3e9",
+  "skill_license": "Apache-2.0",
+  "installed_skills": [
+    "router",
+    "threejs-materials-lighting",
+    "create-game-assets",
+    "level-design",
+    "performance-optimization"
+  ],
+  "runtime": {
+    "engine": "Three.js r164, pinned existing vendored build",
+    "camera": "third person, opening view toward cave",
+    "scale": "18 world units per canyon local metre",
+    "target": "existing browser game on Mac with other apps running"
+  },
+  "art_direction": {
+    "palette": "existing sandstone, charcoal field equipment, cyan-green emergency lamps",
+    "approved_reference": "existing K–09 artwork, nine-regions-multiview-v1/09-k09-layered-canyon",
+    "provenance": "AI-generated survey imagery already approved in this chat; existing Blender canyon and Poly Haven scans reused without alteration",
+    "in_world_assets": "existing guidance strips and supply-crate geometry; no new meshes or textures",
+    "model_sha256": "601f565583d37aede0c2c8862b798aaf080b4c3f4941c740f1e82c51fbebdd04",
+    "asset_source": "ECHO9_K09_Environment_v03.blend / game_source/tools/export-canyon.py",
+    "pivot_and_collision": "existing canyon local origin (3600,6100), scale 18; existing sampled floor/clearance/ceiling and rock proxies remain authoritative"
+  },
+  "records": [
+    {
+      "id": "trail:k09:1",
+      "local_lamp_x_y": [
+        1.1,
+        8.37
+      ],
+      "walkable_stand_x_y": [
+        6,
+        8
+      ],
+      "image_view": "approach",
+      "runtime_image_source": "dist/assets/region-archive-v1/",
+      "status": "implemented"
+    },
+    {
+      "id": "trail:k09:2",
+      "local_lamp_x_y": [
+        13,
+        18.87
+      ],
+      "walkable_stand_x_y": [
+        9,
+        18
+      ],
+      "image_view": "interior",
+      "runtime_image_source": "dist/assets/region-archive-v1/",
+      "status": "implemented"
+    },
+    {
+      "id": "trail:k09:3",
+      "local_lamp_x_y": [
+        5,
+        26.87
+      ],
+      "walkable_stand_x_y": [
+        9,
+        26
+      ],
+      "image_view": "reference",
+      "runtime_image_source": "dist/assets/region-archive-v1/",
+      "status": "implemented"
+    }
+  ],
+  "budgets": {
+    "new_gpu_meshes": 0,
+    "new_gpu_textures": 0,
+    "new_gpu_lights": 0,
+    "new_shadow_passes": 0,
+    "new_full_images_loaded_while_driving": 0,
+    "full_images_per_open_record": 1,
+    "surface_enemy_count": 58,
+    "runtime_label_count_max": 1,
+    "fps_claim": "No before/after FPS improvement claimed. Simulation rate tests are not GPU benchmarks."
+  },
+  "validation": {
+    "grounded_movement": "20/30/60 Hz, production movement + collision; all three scan approaches reached",
+    "patrol_pacing": "three-minute simulation, no attacks on opening route; existing six K09 patrols moved south",
+    "progress": "first discovery only, out-of-order scans, wall/flight/trial guards, save restore, one upgrade with region discovery",
+    "checks": [
+      "tests/exo-green-trail.cjs",
+      "tests/exo-controls.cjs",
+      "tests/exo-region-archive.cjs",
+      "tests/exo-map-status.cjs"
+    ],
+    "browser": "First lamp reached using game controls, record opened with 1672x941 image, 75 XP and 1/3 progress confirmed after reload, no browser warnings/errors. Remaining two discoveries validated in production-physics simulation, not manually played in browser."
+  },
+  "publication": {
+    "status": "succeeded",
+    "url": "https://ai-academy-tom.tom0dota.chatgpt.site",
+    "commit": "1f6fe9776d9b715c10b7ded76e7712e709f33b26",
+    "deployment_id": "appgdep_6ae7f159145481918af25ab994c5286d",
+    "audience": "owner only",
+    "transfer": "two batches under the host 64 MiB per-push limit; no image recompression"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "asset": "assets/aegis-v3/EV04_Aegis_Strike.glb",
+  "triangles": 47192,
+  "armorMaterialBatches": 8,
+  "texturesAdded": 0,
+  "changes": [
+    "independent shoulder and hip armor hinges",
+    "correct stance direction and distance-matched cadence",
+    "world-space support foot planting",
+    "two-bone IK with authored bone offsets and downhill support",
+    "blended takeoff landing aim and body attitude",
+    "anatomically consistent flight knee bend",
+    "elbow socket preserved during recoil",
+    "smooth saber recovery"
+  ],
+  "validation": {
+    "automatic": [
+      "flat support at 20, 30 and 60 FPS, walk/run",
+      "turning uphill/downhill slopes from -0.3 to 0.3",
+      "takeoff and landing transition continuity",
+      "articulation, materials and batching parity",
+      "flight, player weapons, perspective and movement regression tests"
+    ],
+    "browser": [
+      "close-up walk and flight review",
+      "K09 walking, turning, takeoff and flight",
+      "no console warnings or errors"
+    ],
+    "sampleAnimationCpuMs": [
+      0.21,
+      0.25,
+      0.21
+    ],
+    "performanceCaveat": "Short samples under varying background app load; not a sustained FPS guarantee."
+  }
+}

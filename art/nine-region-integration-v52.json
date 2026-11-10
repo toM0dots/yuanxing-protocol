@@ -1,0 +1,73 @@
+{
+  "version": "v52 nine-region 3D landmark pass",
+  "date": "2026-11-01 America/Los_Angeles",
+  "status": "validated locally; publication pending",
+  "implementation": [
+    "Eight region-specific complexes: rescue capsule, bucket-wheel excavator, archive ring, habitat conservatory, broken relay, minehead, deep-shaft cage and mountain observatory",
+    "Blender K09 hangar: 17628 triangles, six material groups, industrial lamps and maintenance dressing",
+    "Shared existing CC0 scanned PBR maps; no new 4K image downloads",
+    "Terrain pads, 94 regional collision proxies, flight/camera checks and map-to-landmark navigation",
+    "Original building placement generated before new pads to prevent overlap"
+  ],
+  "optimization": [
+    "79000 regional landmark triangles total, five to six merged material groups per site, distance culling",
+    "Full-detail near terrain; coarser far meshes only within two world units of height error; exact tile seams",
+    "Two cached HDR sky endpoints and weather blend replace per-pixel fractal sky generation",
+    "Opaque canyon floor participates in depth prepass",
+    "Four hardware bilinear depth samples reproduce original sixteen-comparison directional soft-shadow kernel weights"
+  ],
+  "validation": [
+    "Nine region screenshots inspected in browser",
+    "Map-to-observatory landmark navigation showed named route without teleport",
+    "Six K09 Blender meshes confirmed active by local-only diagnostic",
+    "No browser console errors or warnings",
+    "exo-regional-world, exo-green-trail, exo-controls, exo-region-archive, exo-map-status, render-performance, terrain-lod, hardware-shadow-kernel passed",
+    "Shadow kernel: 5000 random samples, max arithmetic error2.22e-16; browser views visually compared, no pixel-exact rendering claim"
+  ],
+  "performance": {
+    "conditions": "977x734 viewport; existing pixel-ratio cap retained; other heavy apps running; fixed visual time, actual FPS from rAF intervals (not 0 FPS QA display)",
+    "baseline_k09": {
+      "fps_range": [
+        16.7,
+        16.9
+      ],
+      "gpu_ms_range": [
+        37.5,
+        38
+      ],
+      "p95_ms_range": [
+        69,
+        72
+      ],
+      "triangles": 1135389
+    },
+    "new_k09_sample": {
+      "fps_range": [
+        18.7,
+        18.8
+      ],
+      "gpu_ms_range": [
+        22.71,
+        23.81
+      ],
+      "p95_ms_range": [
+        67.4,
+        67.7
+      ],
+      "draws": 277,
+      "triangles": 889497
+    },
+    "other_samples": "Minehead reached22.6 FPS and observatory26.2 FPS. Later load windows fell to6.8-9.8 FPS, including steady views. First-load windows also stall. No stable30 FPS claim. Not an isolated controlled A/B benchmark.",
+    "sampled_terrain_triangle_reduction_percent": 35.047,
+    "sampled_max_height_difference_world_units": 1.3271
+  },
+  "limits": [
+    "Real-time prototype interpretation, not photorealistic concept-image quality",
+    "Stable smooth30/60 FPS with competing apps has not been achieved",
+    "New landmarks are surface complexes; not every new room is a traversable interior. Existing21 facilities retain interior gameplay",
+    "Sky cloud pattern is baked; weather still blends but prior fine cloud drift is not retained",
+    "No mobile or multi-browser GPU compatibility QA this pass"
+  ],
+  "screenshots": "../output/nine-regions-ingame-v52",
+  "editable_blender_source": "art/k09-hero-v1/K09_Cliffside_Hangar.blend"
+}

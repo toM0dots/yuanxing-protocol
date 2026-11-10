@@ -1,0 +1,28 @@
+{
+  "revision": "monster-effects-v57",
+  "attack_signatures": {
+    "hunter": "Swelling teal throat, wet spit droplets, claw streaks and low acid splashes",
+    "charger": "Horn sparks, scraping streaks, trailing dust and ballistic fragments",
+    "spore_artillery": "Orbiting spores, lobed mortar seed, pollen burst and rising toxic vapor",
+    "lord": "Converging violet charge rings, white-hot volleys, slam flash and debris along the damaging wave",
+    "leviathan": "Contracting mouth rings and inward particles before its existing focused fatal beam"
+  },
+  "budgets": {
+    "regular_enemy_instances": 848,
+    "regular_enemy_effect_draw_ceiling_including_warnings": 7,
+    "smoke_instances_per_update_ceiling": 48,
+    "leviathan_effect_draw_ceiling": 3,
+    "added_textures_or_dynamic_lights": 0,
+    "distant_and_reduced_effects": "Fewer cosmetic particles; all authoritative danger outlines retained"
+  },
+  "measurements": {
+    "scenario": "Four attacking species, eight projectiles and overlapping hazards/impacts; 120 warm-up and 600 timed CPU updates",
+    "before_median_ms": 1.908,
+    "after_median_ms": 0.471,
+    "before_p95_ms": 3.958,
+    "after_p95_ms": 1.166,
+    "scope": "CPU update timing, not GPU frame timing or a full-world FPS comparison",
+    "full_world_observation": "Local full-world counter reached approximately 14 FPS with other applications running; overall smooth performance remains unresolved."
+  },
+  "validation": ["monster-vfx-budget.mjs", "combat-vfx-integration.mjs", "creature-models.mjs", "creature-reference-models.mjs", "exo-aerial-combat.cjs", "Browser visual review of all species and guardian; no WebGL warnings/errors"]
+}

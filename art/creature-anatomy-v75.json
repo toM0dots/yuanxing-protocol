@@ -1,0 +1,58 @@
+{
+  "revision": "sculpted-fauna-v75",
+  "request": "More realistic and detailed robot and monsters, closer to title-screen visual quality",
+  "source": {
+    "mesh": "Original editable code-authored anatomy in dist/exo-creature-models.mjs",
+    "materials": "Original deterministic biological cuticle maps in dist/exo-fauna-surface.mjs",
+    "rights": "Authored for this project; no external model downloads or unlicensed artwork",
+    "replaced": "v74 rock-textured broad domes and thin polygon limb cards"
+  },
+  "anatomy": [
+    "Smooth cubic section lofts with28-sided near cross sections, rounded caps and independent cap UV islands",
+    "Closed convex segmented thoracic armor over a continuous flexible ventral mantle",
+    "Load-bearing curved femur/tibia scutes, recessed ball joints, annular folds, embedded tendons and growth ridges",
+    "Layered brow/cheek armor, inset eyes, jaw hinges, mouth cavities and individual curved teeth",
+    "Spore creature has connected folded chambers, hard ribs and organically uneven nozzle lips",
+    "Brood Lord has a tapered upright thorax, narrow waist, segmented sternum and connected abdominal armor"
+  ],
+  "surface": {
+    "maps": "512x512 RGBA color(sRGB),normal(linear),roughness(linear),shared by allspecies/LODs",
+    "finish": "Warm umber cuticle with medium-scale growth striae and pores; tighter waxy plate highlights separated from dull connective tissue",
+    "world_binding": "configureFaunaSurface signature retained; world rock scan is deliberately unused",
+    "color_p10_p50_p90": [
+      179,
+      214,
+      242
+    ]
+  },
+  "budget": {
+    "near_triangles": [
+      59336,
+      48444,
+      55062,
+      46364
+    ],
+    "distant_triangles": [
+      13192,
+      11248,
+      12068,
+      9992
+    ],
+    "maximum_material_draws": 4,
+    "geometry": "Immutable geometry shared across instances; private animation skeletons",
+    "targets": "Near<=60000triangles, distant<=15000, maximum5draws"
+  },
+  "compatibility": [
+    "Original collision authority",
+    "Existing world-planted two-bone IK",
+    "Distance-based gait",
+    "Attack anticipation and emission sockets",
+    "Four original species and two LODs",
+    "Guardian builder compatibility"
+  ],
+  "validation": {
+    "surface_contract": "tests/creature-field-surfaces.mjs",
+    "anatomy_contract": "tests/creature-reference-models.mjs",
+    "browser_review": "Root-owned tests/fixtures/character-models.html and actual runtime screenshots in output/detailed-models-v75"
+  }
+}

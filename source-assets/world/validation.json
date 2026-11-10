@@ -1,0 +1,18 @@
+{
+  "tiles": 256,
+  "world_width_m": 1024000,
+  "edge_samples_checked": 15840,
+  "maximum_adjacent_height_gap_m": 0,
+  "actor_dimensions_m": [
+    5.196270942687988,
+    3.3800010681152344,
+    7.116797521710396
+  ],
+  "actor_lowest_z": -0.16000087559223175,
+  "ground_at_spawn_z": -0.19681549072265625,
+  "crossing_hours_at_5mps": 56.888888888888886,
+  "expedition_distance_km": 2674.7129413778193,
+  "expedition_days_at_5mps": 6.191465142078286,
+  "finite_terrain": true,
+  "engine_traversal_tested": false
+}

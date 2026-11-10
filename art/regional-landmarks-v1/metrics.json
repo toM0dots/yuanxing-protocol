@@ -1,0 +1,231 @@
+{
+  "buildMs": 420.439565,
+  "regions": [
+    {
+      "region": 0,
+      "name": "最后的救援舱",
+      "x": 1710,
+      "y": 1090,
+      "z": -12.343826840929461,
+      "radius": 460,
+      "fade": 80,
+      "triangles": 7756,
+      "drawGroups": 5,
+      "collisionBoxes": 7,
+      "bounds": {
+        "min": [
+          1436,
+          -38.882134030870866,
+          897.5
+        ],
+        "max": [
+          1999,
+          222.65617315907053,
+          1313.5800018310547
+        ]
+      },
+      "nearestRoad": 759.5562441803731,
+      "campDistance": 1440
+    },
+    {
+      "region": 1,
+      "name": "蓝晶斗轮采掘机",
+      "x": 4352.264114160296,
+      "y": 1912.9737097813954,
+      "z": -24.860029716531955,
+      "radius": 460,
+      "fade": 80,
+      "triangles": 5976,
+      "drawGroups": 6,
+      "collisionBoxes": 5,
+      "bounds": {
+        "min": [
+          4202.264114160296,
+          -40.86212970737668,
+          1492.9737097813954
+        ],
+        "max": [
+          4610.666488427874,
+          336.1399702834681,
+          2197.438217838036
+        ]
+      },
+      "nearestRoad": 859.1214157399045,
+      "campDistance": 900
+    },
+    {
+      "region": 2,
+      "name": "断裂的记忆环",
+      "x": 12985.038535112144,
+      "y": 3855.6449975584737,
+      "z": -27.696123307527596,
+      "radius": 460,
+      "fade": 80,
+      "triangles": 5932,
+      "drawGroups": 5,
+      "collisionBoxes": 34,
+      "bounds": {
+        "min": [
+          12675.538535112144,
+          -37.642687028230725,
+          3664.9078912352315
+        ],
+        "max": [
+          13295.50182246566,
+          531.6889474932536,
+          4157.644997558474
+        ]
+      },
+      "nearestRoad": 2239.488299959167,
+      "campDistance": 3239.9999999999995
+    },
+    {
+      "region": 3,
+      "name": "峡谷温室与悬挂住宅",
+      "x": 7726.998234635616,
+      "y": 9605.093622335953,
+      "z": 0.7305871153731375,
+      "radius": 460,
+      "fade": 80,
+      "triangles": 16940,
+      "drawGroups": 6,
+      "collisionBoxes": 10,
+      "bounds": {
+        "min": [
+          7434.998234635616,
+          0.03058712729406643,
+          9332.816125998062
+        ],
+        "max": [
+          8018.998234635616,
+          348.1971398497481,
+          9878.673608908219
+        ]
+      },
+      "nearestRoad": 934.7277154388659,
+      "campDistance": 2699.999999999999
+    },
+    {
+      "region": 4,
+      "name": "折断的天线阵列",
+      "x": 11886.380618467958,
+      "y": 6525.993186176049,
+      "z": 41.69164171320374,
+      "radius": 460,
+      "fade": 80,
+      "triangles": 16036,
+      "drawGroups": 5,
+      "collisionBoxes": 6,
+      "bounds": {
+        "min": [
+          11536.529086485536,
+          40.89164170128281,
+          6278.563330829369
+        ],
+        "max": [
+          12236.23215045038,
+          523.3986119280474,
+          6829.493186176049
+        ]
+      },
+      "nearestRoad": 962.4153962508975,
+      "campDistance": 1079.9999999999998
+    },
+    {
+      "region": 5,
+      "name": "玄武岩矿务站",
+      "x": 10433.481481062934,
+      "y": 6198.01728389366,
+      "z": 8.816882611746829,
+      "radius": 460,
+      "fade": 80,
+      "triangles": 6224,
+      "drawGroups": 6,
+      "collisionBoxes": 17,
+      "bounds": {
+        "min": [
+          10181.981481062934,
+          8.066882611746829,
+          6063.01728389366
+        ],
+        "max": [
+          10684.981481062934,
+          357.81688261174685,
+          6436.317286945417
+        ]
+      },
+      "nearestRoad": 2102.269204082505,
+      "campDistance": 3060.0000000000005
+    },
+    {
+      "region": 6,
+      "name": "深井吊笼与钻机",
+      "x": 17288.482824712766,
+      "y": 8499.132807572703,
+      "z": 2.5380518459909616,
+      "radius": 460,
+      "fade": 80,
+      "triangles": 7956,
+      "drawGroups": 5,
+      "collisionBoxes": 7,
+      "bounds": {
+        "min": [
+          16974.482824712766,
+          1.3546615862482247,
+          8327.132807572703
+        ],
+        "max": [
+          17602.482824712766,
+          527.5380518459909,
+          8714.872813065867
+        ]
+      },
+      "nearestRoad": 1619.9999999999982,
+      "campDistance": 1619.9999999999982
+    },
+    {
+      "region": 7,
+      "name": "群峰射电观测阵列",
+      "x": 17600,
+      "y": 2550,
+      "z": 300.59984774121074,
+      "radius": 350,
+      "fade": 240,
+      "triangles": 12180,
+      "drawGroups": 5,
+      "collisionBoxes": 8,
+      "bounds": {
+        "min": [
+          17279.872192382812,
+          299.89984775313167,
+          2408.6202545166016
+        ],
+        "max": [
+          17921,
+          796.9543399287107,
+          2822
+        ]
+      },
+      "nearestRoad": 762.71276980969,
+      "campDistance": 1068.8779163215977
+    }
+  ],
+  "triangles": 79000,
+  "collisionBoxes": 94,
+  "mountainApproach": {
+    "height": 300.59984774121074,
+    "frames": 71,
+    "maxSlope": 0.7235451547134573,
+    "distance": 5.829101222871941,
+    "warning": null
+  },
+  "validation": [
+    "finite positions, normals and UVs",
+    "all eight material/triangle budgets",
+    "all terrain pads clear road navigation band, camps and cave entrances",
+    "open front approach clear for capsule, archive, minehead and deep shaft",
+    "all model bounds at least 1700 world units from active lethal boundaries",
+    "front approaches produce no guardian warning",
+    "mountain observatory elevation >=180 and grounded approach below slope1.1"
+  ]
+}

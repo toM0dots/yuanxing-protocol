@@ -1,0 +1,15 @@
+{
+  "archives_read": 256,
+  "invalid_archives": [],
+  "archived_quads": 16768768,
+  "edge_samples_checked": 123360,
+  "max_adjacent_height_gap_m": 0,
+  "main_scene_opened": true,
+  "preview_tiles": 256,
+  "regional_meshes": 8,
+  "origin_vertices": 641601,
+  "aegis_rig_present": true,
+  "river_water_faces": 209631,
+  "runtime_gameplay_verified": false,
+  "shoreline_clipping_finite": true
+}

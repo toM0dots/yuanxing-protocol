@@ -1,0 +1,145 @@
+{
+  "name": "Nine-region environment rebuild — regional landmark family",
+  "scope": "Eight new surface landmark complexes. K09 has a separate Blender-authored hangar kit.",
+  "runtime": "Pinned Three.js r164, opaque merged geometry, six shared materials, world-scale UVs",
+  "source": "dist/exo-regional-landmarks.mjs; authored code geometry based on user-approved concept images",
+  "reference_root": "output/nine-regions-multiview-v1",
+  "references": [
+    "01-crash-camp/00-reference.png",
+    "02-mining-outpost/00-reference.png",
+    "03-ruins-camp/00-reference.png",
+    "04-canyon-habitat-camp/00-reference.png",
+    "05-basin-relay/00-reference.png",
+    "06-basalt-cave-outpost/00-reference.png",
+    "07-deep-shaft-outpost/00-reference.png",
+    "08-mountain-observatory/00-reference.png"
+  ],
+  "surface_sources": [
+    {
+      "url": "https://polyhaven.com/a/metal_plate",
+      "license": "CC0-1.0",
+      "usage": "Existing metal-color.jpg and packed metal normal/roughness; no new texture downloads"
+    },
+    {
+      "url": "https://polyhaven.com/a/blue_metal_plate",
+      "license": "CC0-1.0",
+      "usage": "Existing panel-color.jpg and packed panel normal/roughness; scan modulation retains region palette"
+    }
+  ],
+  "budgets": {
+    "triangles_per_region_max": 22000,
+    "material_groups_per_region_max": 6,
+    "new_texture_allocations": 0,
+    "new_lights": 0,
+    "draw_distance": 4500,
+    "triangles_total": 79000,
+    "collision_boxes": 94
+  },
+  "coordinates": "Renderer uses fixed ExoRegionLandmarkData placements; same data supplies terrain pad and collision to physics and worker.",
+  "grounding": "Seven sites use460-unit pads with80-unit blends. Mountain observatory uses350-unit pad and240-unit blend; its342-unit maximum radial geometry fits, and production grounded movement validates the mountain approach.",
+  "collision": "94 conservative boxes for major volumes, ring segments and domes. Small lamps, railings and field cases are visual dressing. Suspended volumes need height-aware collision.",
+  "validation": [
+    "finite positions, normals and UVs",
+    "all eight material/triangle budgets",
+    "all terrain pads clear road navigation band, camps and cave entrances",
+    "open front approach clear for capsule, archive, minehead and deep shaft",
+    "all model bounds at least 1700 world units from active lethal boundaries",
+    "front approaches produce no guardian warning",
+    "mountain observatory elevation >=180 and grounded approach below slope1.1"
+  ],
+  "limits": "These are playable real-time interpretations of reference landmarks, not photorealistic replicas. Full game screenshots, flight/navigation regression and GPU frame-rate measurements belong to integration QA.",
+  "regions": [
+    {
+      "region": 0,
+      "name": "最后的救援舱",
+      "x": 1710,
+      "y": 1090,
+      "z": -12.343826840929461,
+      "triangles": 7756,
+      "drawGroups": 5,
+      "collisionBoxes": 7
+    },
+    {
+      "region": 1,
+      "name": "蓝晶斗轮采掘机",
+      "x": 4352.264114160296,
+      "y": 1912.9737097813954,
+      "z": -24.860029716531955,
+      "triangles": 5976,
+      "drawGroups": 6,
+      "collisionBoxes": 5
+    },
+    {
+      "region": 2,
+      "name": "断裂的记忆环",
+      "x": 12985.038535112144,
+      "y": 3855.6449975584737,
+      "z": -27.696123307527596,
+      "triangles": 5932,
+      "drawGroups": 5,
+      "collisionBoxes": 34
+    },
+    {
+      "region": 3,
+      "name": "峡谷温室与悬挂住宅",
+      "x": 7726.998234635616,
+      "y": 9605.093622335953,
+      "z": 0.7305871153731375,
+      "triangles": 16940,
+      "drawGroups": 6,
+      "collisionBoxes": 10
+    },
+    {
+      "region": 4,
+      "name": "折断的天线阵列",
+      "x": 11886.380618467958,
+      "y": 6525.993186176049,
+      "z": 41.69164171320374,
+      "triangles": 16036,
+      "drawGroups": 5,
+      "collisionBoxes": 6
+    },
+    {
+      "region": 5,
+      "name": "玄武岩矿务站",
+      "x": 10433.481481062934,
+      "y": 6198.01728389366,
+      "z": 8.816882611746829,
+      "triangles": 6224,
+      "drawGroups": 6,
+      "collisionBoxes": 17
+    },
+    {
+      "region": 6,
+      "name": "深井吊笼与钻机",
+      "x": 17288.482824712766,
+      "y": 8499.132807572703,
+      "z": 2.5380518459909616,
+      "triangles": 7956,
+      "drawGroups": 5,
+      "collisionBoxes": 7
+    },
+    {
+      "region": 7,
+      "name": "群峰射电观测阵列",
+      "x": 17600,
+      "y": 2550,
+      "z": 300.59984774121074,
+      "triangles": 12180,
+      "drawGroups": 5,
+      "collisionBoxes": 8
+    }
+  ],
+  "revision_notes": [
+    "Reflector dishes have separately wound rear shell geometry for visibility from either approach; other painted surfaces remain single-sided.",
+    "Archive and observatory repositioned safely away from boundary guardian zones. All landmark geometry bounds and front approaches maintain >=1700 world-unit active-boundary clearance.",
+    "Observatory moved onto northern mountain eastern shoulder at(17600,2550), elevation300.6. Native slope0.378; broader blend avoids an abrupt summit cut."
+  ],
+  "mountainApproach": {
+    "height": 300.59984774121074,
+    "frames": 71,
+    "maxSlope": 0.7235451547134573,
+    "distance": 5.829101222871941,
+    "warning": null
+  }
+}

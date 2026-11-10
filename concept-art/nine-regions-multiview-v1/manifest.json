@@ -1,0 +1,505 @@
+{
+  "project": "远星协议：回声之下",
+  "generator": "built-in image_gen",
+  "new_views": 27,
+  "original_references": 9,
+  "total_images": 36,
+  "use": "Environment concept art and visual development; plausible alternate perspectives, not dimensionally exact 3D renders.",
+  "regions": [
+    {
+      "number": 1,
+      "name": "迫降营地",
+      "folder": "01-crash-camp",
+      "images": [
+        {
+          "file": "01-crash-camp/00-reference.png",
+          "view": "reference",
+          "label": "Original establishing view / 原始全景",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3074056,
+          "sha256": "ee23cff6e4b8f40d08a1b68e789a82d8fb1f16e9684a94474a53fb1d18e5b0eb",
+          "generation_source": "original-local-file:exec-071ec7a5-3f20-4095-bcac-09a0f1fe33c5.png",
+          "reference": "concept-art/nine-regions-v1/01-crash-camp.png",
+          "prompt_job_id": null
+        },
+        {
+          "file": "01-crash-camp/01-aerial.png",
+          "view": "aerial",
+          "label": "Elevated overview / 高位俯瞰",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3653940,
+          "sha256": "7ca784bb2c6a25fd763b974674d187f34bad5415cd65740347424eadf07d07c4",
+          "generation_source": "original-local-file:exec-1af520b8-303f-4320-8e61-81a7eb34136f.png",
+          "reference": "concept-art/nine-regions-v1/01-crash-camp.png",
+          "prompt_job_id": 0
+        },
+        {
+          "file": "01-crash-camp/02-approach.png",
+          "view": "approach",
+          "label": "Ground approach / 地面视角",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2892533,
+          "sha256": "0997494a0b28f304b6f2896a8500a29f178bddfa7c18d6438c82a33fcfb394bc",
+          "generation_source": "original-local-file:exec-74494487-a05d-4724-abde-d7c45810c148.png",
+          "reference": "concept-art/nine-regions-v1/01-crash-camp.png",
+          "prompt_job_id": 1
+        },
+        {
+          "file": "01-crash-camp/03-interior.png",
+          "view": "interior",
+          "label": "Interior or shelter / 内部空间",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2816545,
+          "sha256": "2fa121cf76cb769b42419e22a14c0413594a2b98ff32c39cb342ba2bb1d533a9",
+          "generation_source": "original-local-file:exec-942bad71-81dc-4f1e-b292-84937c1e23b9.png",
+          "reference": "concept-art/nine-regions-v1/01-crash-camp.png",
+          "prompt_job_id": 2
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "name": "矿区前哨",
+      "folder": "02-mining-outpost",
+      "images": [
+        {
+          "file": "02-mining-outpost/00-reference.png",
+          "view": "reference",
+          "label": "Original establishing view / 原始全景",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3413210,
+          "sha256": "1cf63556444856559f9d524ac39e895b781dc10255bf0b11d9e34cb02b6f12d2",
+          "generation_source": "original-local-file:exec-0f74afde-895e-4899-a85f-d1f9017375ac.png",
+          "reference": "concept-art/nine-regions-v1/02-mining-outpost.png",
+          "prompt_job_id": null
+        },
+        {
+          "file": "02-mining-outpost/01-aerial.png",
+          "view": "aerial",
+          "label": "Elevated overview / 高位俯瞰",
+          "width": 1672,
+          "height": 941,
+          "bytes": 4055904,
+          "sha256": "32c215ba772d20be98503cfce3a30a4d3b1a1e3467cefd5c52183b3f690cbd74",
+          "generation_source": "original-local-file:exec-073d7f28-bcdf-4d10-91e8-301a2bcf92fd.png",
+          "reference": "concept-art/nine-regions-v1/02-mining-outpost.png",
+          "prompt_job_id": 3
+        },
+        {
+          "file": "02-mining-outpost/02-approach.png",
+          "view": "approach",
+          "label": "Ground approach / 地面视角",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3185482,
+          "sha256": "6848963079defedf91ab54c536dd6ba8fee72685b13c7a0d24c07671262897a7",
+          "generation_source": "original-local-file:exec-2d3cb5b4-63ba-4768-ac98-340cc2368abe.png",
+          "reference": "concept-art/nine-regions-v1/02-mining-outpost.png",
+          "prompt_job_id": 4
+        },
+        {
+          "file": "02-mining-outpost/03-interior.png",
+          "view": "interior",
+          "label": "Interior or shelter / 内部空间",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3229687,
+          "sha256": "92f20af5b91956ceeb1aca18ca24b6f160d4d5e51475f882a7658e65b0f0c55a",
+          "generation_source": "original-local-file:exec-0978f228-5dd1-4c76-b932-5adbcc1a8208.png",
+          "reference": "concept-art/nine-regions-v1/02-mining-outpost.png",
+          "prompt_job_id": 5
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "name": "遗迹营地",
+      "folder": "03-ruins-camp",
+      "images": [
+        {
+          "file": "03-ruins-camp/00-reference.png",
+          "view": "reference",
+          "label": "Original establishing view / 原始全景",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3060192,
+          "sha256": "4f926c921d8a630f252a6c91a99646b813646de62ed18ea79f75a9c062fbd1c3",
+          "generation_source": "original-local-file:exec-b6e80a91-b321-4862-99d4-9a86dc25e1bb.png",
+          "reference": "concept-art/nine-regions-v1/03-ruins-camp.png",
+          "prompt_job_id": null
+        },
+        {
+          "file": "03-ruins-camp/01-aerial.png",
+          "view": "aerial",
+          "label": "Elevated overview / 高位俯瞰",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3620694,
+          "sha256": "be224bc81a1b5f78cbe170a1ace802af69e467a2ac6d725616a911b11aa4b258",
+          "generation_source": "original-local-file:exec-680a70ee-ca2c-41cf-8ba7-7c8d387c4e7b.png",
+          "reference": "concept-art/nine-regions-v1/03-ruins-camp.png",
+          "prompt_job_id": 6
+        },
+        {
+          "file": "03-ruins-camp/02-approach.png",
+          "view": "approach",
+          "label": "Ground approach / 地面视角",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3098659,
+          "sha256": "1b2b48539a7dc046496c037410b6e1e31d6aef4453c8a1c0267b7fa8665fbeae",
+          "generation_source": "original-local-file:exec-3bde22f6-9330-42a6-8c81-2ab47e998715.png",
+          "reference": "concept-art/nine-regions-v1/03-ruins-camp.png",
+          "prompt_job_id": 7
+        },
+        {
+          "file": "03-ruins-camp/03-interior.png",
+          "view": "interior",
+          "label": "Interior or shelter / 内部空间",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3022857,
+          "sha256": "113b27719b7e5f9d235d32b3f52b8eeb768c9afe1399e3b745e9bfe6c0270ac2",
+          "generation_source": "original-local-file:exec-3d1b12f6-dea0-4902-a744-a02e1b11341f.png",
+          "reference": "concept-art/nine-regions-v1/03-ruins-camp.png",
+          "prompt_job_id": 8
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "name": "峡谷营地",
+      "folder": "04-canyon-habitat-camp",
+      "images": [
+        {
+          "file": "04-canyon-habitat-camp/00-reference.png",
+          "view": "reference",
+          "label": "Original establishing view / 原始全景",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3117952,
+          "sha256": "de68b510944dba8a0cab1baec9fe5e8c9ed77048adb6bc9e02d0df65d65e437e",
+          "generation_source": "original-local-file:exec-2a84d484-c5f4-4cc8-bbb9-ccd15a14cd3a.png",
+          "reference": "concept-art/nine-regions-v1/04-canyon-habitat-camp.png",
+          "prompt_job_id": null
+        },
+        {
+          "file": "04-canyon-habitat-camp/01-aerial.png",
+          "view": "aerial",
+          "label": "Elevated overview / 高位俯瞰",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3641881,
+          "sha256": "d6ce123cdd2d1bd661cbe92e94186d0578878302414c0407769df0ff048b34b3",
+          "generation_source": "original-local-file:exec-745a22f5-f98a-4353-879a-ea5e50ac9b54.png",
+          "reference": "concept-art/nine-regions-v1/04-canyon-habitat-camp.png",
+          "prompt_job_id": 9
+        },
+        {
+          "file": "04-canyon-habitat-camp/02-approach.png",
+          "view": "approach",
+          "label": "Ground approach / 地面视角",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3259351,
+          "sha256": "0de82ff0dc38d43354558edf0cc17c48e57970e7ef5b5fb7c7d7b385bf20925d",
+          "generation_source": "original-local-file:exec-52d67087-2dd4-4ab4-b79c-3ce1385908f7.png",
+          "reference": "concept-art/nine-regions-v1/04-canyon-habitat-camp.png",
+          "prompt_job_id": 10
+        },
+        {
+          "file": "04-canyon-habitat-camp/03-interior.png",
+          "view": "interior",
+          "label": "Interior or shelter / 内部空间",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2904197,
+          "sha256": "d07ad4199d7cf25ab226dc708b99fe91ea5a7551ca5c3ec4a28b1f2508b7252d",
+          "generation_source": "original-local-file:exec-55c556f3-e1fc-442d-bd2a-c5225b2e2ff6.png",
+          "reference": "concept-art/nine-regions-v1/04-canyon-habitat-camp.png",
+          "prompt_job_id": 11
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "name": "盆地中继",
+      "folder": "05-basin-relay",
+      "images": [
+        {
+          "file": "05-basin-relay/00-reference.png",
+          "view": "reference",
+          "label": "Original establishing view / 原始全景",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2866476,
+          "sha256": "f21ed3aec84bb60e8e7f0b68c3afba1c55fa6f04bca70e1df15dcaaf55ac6c15",
+          "generation_source": "original-local-file:exec-ffa114c6-4f1e-4335-b593-650bc884764c.png",
+          "reference": "concept-art/nine-regions-v1/05-basin-relay.png",
+          "prompt_job_id": null
+        },
+        {
+          "file": "05-basin-relay/01-aerial.png",
+          "view": "aerial",
+          "label": "Elevated overview / 高位俯瞰",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3517575,
+          "sha256": "f0e899d741cc9a1ed8886453bc124f58d11af80227670975fce1fd2793eb89a5",
+          "generation_source": "original-local-file:exec-9aa4bd58-d0e2-445c-bb12-9040422e35b9.png",
+          "reference": "concept-art/nine-regions-v1/05-basin-relay.png",
+          "prompt_job_id": 12
+        },
+        {
+          "file": "05-basin-relay/02-approach.png",
+          "view": "approach",
+          "label": "Ground approach / 地面视角",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2904424,
+          "sha256": "21cd423fe30ecf415311856ea407cc98736927d440bcf1b4d6be9d9d88fcde7c",
+          "generation_source": "original-local-file:exec-3a8f40d2-872a-4743-8549-0246952c61c5.png",
+          "reference": "concept-art/nine-regions-v1/05-basin-relay.png",
+          "prompt_job_id": 13
+        },
+        {
+          "file": "05-basin-relay/03-interior.png",
+          "view": "interior",
+          "label": "Interior or shelter / 内部空间",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2509139,
+          "sha256": "3591a86a5f4286e93e1b5a9926a04d32c062ff29693bd53af72da0424936ede3",
+          "generation_source": "original-local-file:exec-c512b4ba-5a7e-4adc-9352-dd9f80e91b7c.png",
+          "reference": "concept-art/nine-regions-v1/05-basin-relay.png",
+          "prompt_job_id": 14
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "name": "山洞前哨",
+      "folder": "06-basalt-cave-outpost",
+      "images": [
+        {
+          "file": "06-basalt-cave-outpost/00-reference.png",
+          "view": "reference",
+          "label": "Original establishing view / 原始全景",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2975293,
+          "sha256": "59ce47a5b1f76c7431744de10a9495ec94098065658000c790c5d48dd8782aaf",
+          "generation_source": "original-local-file:exec-83e0004d-1ce1-4f6a-bcd5-51966d6d5615.png",
+          "reference": "concept-art/nine-regions-v1/06-basalt-cave-outpost.png",
+          "prompt_job_id": null
+        },
+        {
+          "file": "06-basalt-cave-outpost/01-aerial.png",
+          "view": "aerial",
+          "label": "Elevated overview / 高位俯瞰",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3059223,
+          "sha256": "f3279375dd330b5fbcf509e6224e6ace60285c3801db7035479644b13923b779",
+          "generation_source": "original-local-file:exec-42fc54aa-37af-478e-a0db-7ee33e4a68e9.png",
+          "reference": "concept-art/nine-regions-v1/06-basalt-cave-outpost.png",
+          "prompt_job_id": 15
+        },
+        {
+          "file": "06-basalt-cave-outpost/02-approach.png",
+          "view": "approach",
+          "label": "Ground approach / 地面视角",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3050496,
+          "sha256": "db8776d73dff0da0b65cb62bd044dcf9cf0efbd46dab07427eb3f6ceae699ac6",
+          "generation_source": "original-local-file:exec-e724c3fe-84ba-421e-862a-39cb8cf9467f.png",
+          "reference": "concept-art/nine-regions-v1/06-basalt-cave-outpost.png",
+          "prompt_job_id": 16
+        },
+        {
+          "file": "06-basalt-cave-outpost/03-interior.png",
+          "view": "interior",
+          "label": "Interior or shelter / 内部空间",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2965059,
+          "sha256": "31acdf37dca9fd6875fdb15575149f8a61e4abc6ae97a06158eec11f266f236c",
+          "generation_source": "original-local-file:exec-cf350bea-2d9b-4f7b-ba36-64b8d65c91f7.png",
+          "reference": "concept-art/nine-regions-v1/06-basalt-cave-outpost.png",
+          "prompt_job_id": 17
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "name": "深井前哨",
+      "folder": "07-deep-shaft-outpost",
+      "images": [
+        {
+          "file": "07-deep-shaft-outpost/00-reference.png",
+          "view": "reference",
+          "label": "Original establishing view / 原始全景",
+          "width": 1672,
+          "height": 940,
+          "bytes": 2885065,
+          "sha256": "c680f3766e4115eb061e5dfd670b5ab30cf307208d68b271b4f0b23dc12aa5d2",
+          "generation_source": "original-local-file:exec-bcd8491d-7d0d-4635-8e38-64c7fe2dd090.png",
+          "reference": "concept-art/nine-regions-v1/07-deep-shaft-outpost.png",
+          "prompt_job_id": null
+        },
+        {
+          "file": "07-deep-shaft-outpost/01-aerial.png",
+          "view": "aerial",
+          "label": "Elevated overview / 高位俯瞰",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3281783,
+          "sha256": "c746ec39ef1e780a517a0ad8d4ede7ddac6d849b73161df301c5034cff7df1b4",
+          "generation_source": "original-local-file:exec-05c5954c-3090-4fac-8384-16c7ad7a07f5.png",
+          "reference": "concept-art/nine-regions-v1/07-deep-shaft-outpost.png",
+          "prompt_job_id": 18
+        },
+        {
+          "file": "07-deep-shaft-outpost/02-approach.png",
+          "view": "approach",
+          "label": "Ground approach / 地面视角",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2929602,
+          "sha256": "4a17e960fef04ed2883ff52c921ba0c1abc8a7fbee4ba27390bd5666a68f4ce5",
+          "generation_source": "original-local-file:exec-9876e3d7-fdfd-4e2c-b760-5222e1ce95ed.png",
+          "reference": "concept-art/nine-regions-v1/07-deep-shaft-outpost.png",
+          "prompt_job_id": 19
+        },
+        {
+          "file": "07-deep-shaft-outpost/03-interior.png",
+          "view": "interior",
+          "label": "Interior or shelter / 内部空间",
+          "width": 1672,
+          "height": 940,
+          "bytes": 2480443,
+          "sha256": "75e383f48609b7b8c6c6d4a347b88ac24feb56e7decb80e5d2cd64425fcd64b6",
+          "generation_source": "original-local-file:exec-197b6693-1b48-4ca4-b29b-08c99cae1e38.png",
+          "reference": "concept-art/nine-regions-v1/07-deep-shaft-outpost.png",
+          "prompt_job_id": 20
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "name": "群峰观测站",
+      "folder": "08-mountain-observatory",
+      "images": [
+        {
+          "file": "08-mountain-observatory/00-reference.png",
+          "view": "reference",
+          "label": "Original establishing view / 原始全景",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2958925,
+          "sha256": "4d89910ab66735d1bfe2dd20f3bb33e1163111d24f7e0f60ef866d505f53882d",
+          "generation_source": "original-local-file:exec-f7c64454-41b0-4a38-8853-e70c7555d238.png",
+          "reference": "concept-art/nine-regions-v1/08-mountain-observatory.png",
+          "prompt_job_id": null
+        },
+        {
+          "file": "08-mountain-observatory/01-aerial.png",
+          "view": "aerial",
+          "label": "Elevated overview / 高位俯瞰",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3241263,
+          "sha256": "6ef9ddc6636645f7520225a4fb48a259b02d920e2aa5473dd317ac6388d368d5",
+          "generation_source": "original-local-file:exec-f754dad5-9abc-4586-9a4b-c07fd0b27494.png",
+          "reference": "concept-art/nine-regions-v1/08-mountain-observatory.png",
+          "prompt_job_id": 21
+        },
+        {
+          "file": "08-mountain-observatory/02-approach.png",
+          "view": "approach",
+          "label": "Ground approach / 地面视角",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2907197,
+          "sha256": "f703eb7ab01d530be1dd9c95fd707d6eab330c161dd254a12dd5572d4a05a3ca",
+          "generation_source": "original-local-file:exec-a7b240b5-14d8-4dba-9573-d464ef40b89c.png",
+          "reference": "concept-art/nine-regions-v1/08-mountain-observatory.png",
+          "prompt_job_id": 22
+        },
+        {
+          "file": "08-mountain-observatory/03-interior-v2.png",
+          "view": "interior",
+          "label": "Interior or shelter / 内部空间",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2630342,
+          "sha256": "c8627d058c45632161315262c33c7f8b120829c3907353701028536cb9b0b7e1",
+          "generation_source": "original-local-file:exec-e8882330-ab37-4961-9e8c-420ea7c70b8d.png",
+          "reference": "concept-art/nine-regions-v1/08-mountain-observatory.png",
+          "prompt_job_id": 23
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "name": "K–09 层岩峡谷",
+      "folder": "09-k09-layered-canyon",
+      "images": [
+        {
+          "file": "09-k09-layered-canyon/00-reference.png",
+          "view": "reference",
+          "label": "Original establishing view / 原始全景",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3170336,
+          "sha256": "bf3f6c3cf6731e5181958472eb57043b622f111ad261e7b5ffe9c9e18fe67352",
+          "generation_source": "original-local-file:exec-53635254-77bf-4581-bd4c-2a0f592515cd.png",
+          "reference": "concept-art/nine-regions-v1/09-k09-layered-canyon.png",
+          "prompt_job_id": null
+        },
+        {
+          "file": "09-k09-layered-canyon/01-aerial.png",
+          "view": "aerial",
+          "label": "Elevated overview / 高位俯瞰",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3380554,
+          "sha256": "8e7bc3224e785933a788f5ee8c7d6f5040378a2a100d49d65518c20f999d8ee6",
+          "generation_source": "original-local-file:exec-33783aba-315a-49e5-9e4a-a80b64883452.png",
+          "reference": "concept-art/nine-regions-v1/09-k09-layered-canyon.png",
+          "prompt_job_id": 24
+        },
+        {
+          "file": "09-k09-layered-canyon/02-approach.png",
+          "view": "approach",
+          "label": "Ground approach / 地面视角",
+          "width": 1672,
+          "height": 941,
+          "bytes": 3086712,
+          "sha256": "917fb0bf90fc9a852a13242fb3af2b90261663e25a43d4057a930274d300a5fe",
+          "generation_source": "original-local-file:exec-0b2e7abc-ad48-4614-9431-a0a38c7e5f75.png",
+          "reference": "concept-art/nine-regions-v1/09-k09-layered-canyon.png",
+          "prompt_job_id": 25
+        },
+        {
+          "file": "09-k09-layered-canyon/03-interior.png",
+          "view": "interior",
+          "label": "Interior or shelter / 内部空间",
+          "width": 1672,
+          "height": 941,
+          "bytes": 2907844,
+          "sha256": "dcdaceaa30f5fab5fb1a0e01ef784374fb695d126c7372fed0cdf37e68416e96",
+          "generation_source": "original-local-file:exec-d69f83e6-f3ff-4532-8222-7959df299fb4.png",
+          "reference": "concept-art/nine-regions-v1/09-k09-layered-canyon.png",
+          "prompt_job_id": 26
+        }
+      ]
+    }
+  ]
+}

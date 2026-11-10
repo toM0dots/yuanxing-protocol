@@ -1,0 +1,43 @@
+{
+  "version": "vegetation88",
+  "engine": "Vendored Three.js r164 / WebGL",
+  "direction": "Mixed, irregular woodland with exposed curved branches, airy birch crowns, broad oak foliage, asymmetrical conifers and young growth; muted olive, straw and dark leaf litter retain the crash-world palette.",
+  "assets": {
+    "mesh_source": "dist/exo-flora-meshes.mjs",
+    "variants": 8,
+    "families": [
+      "mature broadleaf",
+      "birch",
+      "pine",
+      "young broadleaf"
+    ],
+    "ground": [
+      "fine curved grass",
+      "dry grass with seed heads",
+      "low broadleaf cover",
+      "ferns",
+      "regenerating shrubs"
+    ],
+    "textures": "dist/assets/vegetation-v88/provenance.json"
+  },
+  "budgets": {
+    "tree_triangles_max": 3000,
+    "vegetation_material_draws_max": 21,
+    "tree_batch_capacity": 240,
+    "grass_batch_capacity": 2200,
+    "fern_capacity": 700,
+    "shrub_capacity": 500
+  },
+  "placement": "World-seeded candidates with 92-unit spacing across tile boundaries; shared continuous woodland, moisture and patch fields. Mature trees thin through scrub and grass. Roads, entrances, lesson sites and portals remain clear.",
+  "rendering": "Instanced geometry, shared scanned bark maps and botanical RGBA atlas, geometry-derived frustum bounds, horizon fade, projected pilot-area foliage fading, subtle wind with reduced-motion support.",
+  "physics": "Trunk radii derive from visual species/height/width; same immutable tree positions drive visuals, movement, projectiles and flight.",
+  "validation": {
+    "geometry": "Eight distinct crown bounds; all tree meshes below 3000 triangles; finite attributes and outward bark faces; no degenerate grass tips.",
+    "ecology": "All four tree families present; cross-tile minimum spacing and deterministic distribution verified; habitat weights continuous; matching physical trunks and flight clearance.",
+    "gameplay": "81 routes / 690 segments, 2311 real navigation frames, 21 building entrances, 4929 mountain/bridge/cave movement frames passed.",
+    "rendering": "Terrain worker/main-thread exact geometry parity, conservative instance culling and cave cleanup passed. Browser WebGL material compile and foliage alpha verified.",
+    "ground": "Road coverage is a dedicated per-vertex channel preserved through worker transfer/indexing; regional albedo no longer suppresses meadow cover. Authored tracks explicitly retain bare soil. Regression tests confirm bare road centers and zero road influence outside paths.",
+    "profile": "Representative warm pre-final capture: 22.5 FPS, 21.73 ms GPU, 15.76 ms CPU at the original woodland viewpoint. Concurrent machine activity and scene/viewport affect performance; no 60 FPS claim."
+  },
+  "generation_prompt": "art/vegetation-v88/foliage-prompt.txt"
+}

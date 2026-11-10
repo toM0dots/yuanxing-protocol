@@ -1,0 +1,20 @@
+{
+  "revision": "weapon-effects-v56",
+  "direction": {
+    "cannon": "Tapered white-hot plasma, cyan muzzle petals, expanding muzzle ring and compact contact flare",
+    "saber": "Feathered magenta ribbon following the outer half of the animated blade, bright tip contour and directional hit sparks",
+    "missiles": "Tapered exhaust with shock diamonds, drifting smoke, flash-to-fireball impact, ground pressure ring and ballistic fragments"
+  },
+  "runtime": {
+    "fixed_instance_capacity": 848,
+    "maximum_effect_draw_calls_including_saber_ribbon": 8,
+    "added_textures": 0,
+    "added_dynamic_lights": 0,
+    "reduced_effects_supported": true
+  },
+  "validation": {
+    "passed": ["player-weapon-models.mjs", "combat-vfx-integration.mjs", "weapon-vfx-budget.mjs", "exo-player-weapons.cjs", "exo-aerial-combat.cjs"],
+    "visual": ["Actual game rig review, cannon/saber/missile effects", "Full browser game weapon trial: cannon and missile launch", "WebGL console without warnings or errors"],
+    "performance_limit": "Draw and instance budgets verified; no isolated full-world FPS comparison claimed while other applications remain active."
+  }
+}

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "name": "Story-integrated open world / v80",
+  "technical": {
+    "engine": "Three.js r164",
+    "view": "third-person perspective",
+    "desktop_review": "1280x720",
+    "mobile_console_review": "390x844",
+    "world_units_per_canyon_metre": 18,
+    "platform": "browser WebGL; existing fallback retained"
+  },
+  "direction": {
+    "composition": "Quiet crash basin, concealed approach, broken road, green lamps, K09 refuge, then a broad river valley and mountain shoulder. Smaller supporting facilities preserve the major silhouettes.",
+    "materials": "Existing CC0 rock and gravel scans, fractured bedding, worn metal, faded labels, eroded tracks and wheel ruts.",
+    "lighting": "Warm directional sun, cool fill, atmospheric distance layers and pale planetary sky.",
+    "scope": "Preserve the playable first nine story beats and forty-episode outline; terrain learning occurs along real routes. Concept paintings remain references rather than screenshots."
+  },
+  "references": [
+    {
+      "path": "../output/nine-regions-multiview-v1/09-k09-layered-canyon/02-approach.png",
+      "kind": "existing project artwork",
+      "use": "Canyon negative space, layered cliffs, distant single hangar, small lamps, atmospheric planet"
+    },
+    {
+      "path": "../output/story-assets-v1/04-follow-the-lights.png",
+      "kind": "existing project artwork",
+      "use": "Quiet route, worn industrial surfaces, settlement revealed through terrain"
+    },
+    {
+      "path": "dist/assets/region-archive-v1/09-approach.webp",
+      "kind": "existing project artwork",
+      "use": "In-game archive reference retained"
+    }
+  ],
+  "assets": [
+    {
+      "id": "authored-world-layout",
+      "path": "dist/exo-world-layout.js",
+      "source": {
+        "kind": "code-authored",
+        "license": "project source"
+      },
+      "technical": {
+        "stable_facility_ids": 21,
+        "collision_role": "Shared terrain pads, entrances and collision dimensions"
+      },
+      "status": "implemented"
+    },
+    {
+      "id": "crash-and-maintenance-route",
+      "path": "dist/exo-training-ground.js",
+      "renderer": "dist/exo-training-ground.mjs",
+      "source": {
+        "kind": "code-authored",
+        "license": "project source"
+      },
+      "technical": {
+        "collision_role": "Shared physical approach, shoulders, broken road and service structures",
+        "anchor": "world coordinates"
+      },
+      "status": "implemented"
+    },
+    {
+      "id": "river-and-mountain-country",
+      "path": "dist/exo-terrain-wilds.js",
+      "renderer": "dist/exo-terrain-wilds.mjs",
+      "source": {
+        "kind": "code-authored",
+        "license": "project source"
+      },
+      "technical": {
+        "collision_role": "Continuous river risk, actual cliff heights, traversable paths, bridge and cave portal",
+        "training_samples": 6,
+        "held_out_routes": 4
+      },
+      "status": "implemented"
+    },
+    {
+      "id": "scanned-mineral-surfaces",
+      "path": "dist/exo-world-details.mjs",
+      "source": {
+        "kind": "existing CC0 textures with authored shader",
+        "license": "CC0-1.0 for scans",
+        "provenance": "dist/assets/canyon-v2/canyon-manifest.json"
+      },
+      "technical": {
+        "filtering": "Existing linear/mipmap settings retained",
+        "mapping": "world-space triplanar",
+        "transparency": "opaque terrain; feathered trail overlays"
+      },
+      "status": "implemented"
+    },
+    {
+      "id": "existing-industrial-materials",
+      "path": "dist/exo-campus-materials.mjs",
+      "source": {
+        "kind": "reused CC0 scans",
+        "license": "CC0-1.0",
+        "provenance": "dist/assets/hangar-v1/provenance.json"
+      },
+      "technical": {
+        "collision_role": "visual material only",
+        "filtering": "existing mipmaps and anisotropy retained"
+      },
+      "status": "reused"
+    },
+    {
+      "id": "planetary-atmosphere",
+      "path": "dist/exo-space.mjs",
+      "source": {
+        "kind": "procedural shader",
+        "license": "project source"
+      },
+      "technical": {
+        "collision_role": "none; infinitely distant angular sky",
+        "cube_resolution": 1024,
+        "variants": [
+          "clear",
+          "storm"
+        ],
+        "transparency": false
+      },
+      "status": "implemented"
+    }
+  ],
+  "validation": {
+    "actual_browser_screenshots": "../output/story-world-v80/",
+    "checks": [
+      "authored-world-layout.cjs",
+      "coherent-world.cjs",
+      "terrain-wilds-world.cjs",
+      "exo-campaign-shell.cjs",
+      "terrain-wilds-integration.cjs",
+      "story-world-readability.cjs",
+      "training-ground-render.mjs"
+    ],
+    "limits": [
+      "Concept art contains detail beyond the current realtime meshes; this is an improvement to playable topology, composition and materials, not a pixel-identical reconstruction.",
+      "Native mobile GPU performance is not measured."
+    ],
+    "browser_console_errors_or_warnings": 0,
+    "browser_reviewed": [
+      "quiet crash opening",
+      "walking approach",
+      "valley composition",
+      "390x844 map readability"
+    ],
+    "checks_passed": [
+      "authored-world-layout.cjs",
+      "coherent-world.cjs",
+      "exo-training-ground.cjs",
+      "terrain-building-camera.mjs",
+      "exo-facilities.cjs",
+      "terrain-wilds-world.cjs",
+      "terrain-wilds-integration.cjs",
+      "exo-campaign-shell.cjs",
+      "opening-idle-safety.cjs",
+      "story-world-readability.cjs",
+      "training-ground-render.mjs",
+      "material-presentation.mjs",
+      "world-details.mjs",
+      "aegis-space.mjs"
+    ],
+    "coverage": {
+      "stable_facility_ids": 21,
+      "overland_routes": 81,
+      "collision_segments": 690,
+      "route_movement_frames": 2311,
+      "campaign_opening_movement_frames": 462,
+      "opening_idle_seconds": 300,
+      "annex_draws": 8,
+      "annex_vertices": 50056
+    }
+  },
+  "new_downloaded_or_generated_bitmaps": false
+}
