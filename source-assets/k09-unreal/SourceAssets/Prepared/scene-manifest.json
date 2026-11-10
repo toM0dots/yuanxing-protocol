@@ -1,0 +1,5788 @@
+{
+  "units": "metres; FBX carries unit conversion to centimetres",
+  "status": "Blender source preparation; Unreal import and rendering unverified",
+  "assets": {
+    "rock_face_01": {
+      "mesh": "rock_face_01.fbx",
+      "collision": "convex",
+      "materials": [
+        "rock_face_01.001"
+      ],
+      "lods": [
+        {
+          "file": "rock_face_01.fbx",
+          "triangles": 12000
+        },
+        {
+          "file": "rock_face_01_LOD1.fbx",
+          "triangles": 5040
+        },
+        {
+          "file": "rock_face_01_LOD2.fbx",
+          "triangles": 1680
+        }
+      ],
+      "bounds": [
+        [
+          4.9535112380981445,
+          3.827263355255127,
+          3.5650851726531982
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "namaqualand_cliff_02": {
+      "mesh": "namaqualand_cliff_02.fbx",
+      "collision": "convex",
+      "materials": [
+        "drone_rock_02.001"
+      ],
+      "lods": [
+        {
+          "file": "namaqualand_cliff_02.fbx",
+          "triangles": 31999
+        },
+        {
+          "file": "namaqualand_cliff_02_LOD1.fbx",
+          "triangles": 13438
+        },
+        {
+          "file": "namaqualand_cliff_02_LOD2.fbx",
+          "triangles": 4479
+        }
+      ],
+      "bounds": [
+        [
+          20.222530364990234,
+          6.59233283996582,
+          7.189552307128906
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "sand_rocks_small_01": {
+      "mesh": "sand_rocks_small_01.fbx",
+      "collision": "none",
+      "materials": [
+        "sand_rocks_small_01.001"
+      ],
+      "lods": [
+        {
+          "file": "sand_rocks_small_01.fbx",
+          "triangles": 9999
+        },
+        {
+          "file": "sand_rocks_small_01_LOD1.fbx",
+          "triangles": 4199
+        },
+        {
+          "file": "sand_rocks_small_01_LOD2.fbx",
+          "triangles": 1398
+        }
+      ],
+      "bounds": [
+        [
+          4.631415843963623,
+          3.881441831588745,
+          0.5410521030426025
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "Hangar": {
+      "mesh": "Hangar.fbx",
+      "collision": "custom",
+      "materials": [
+        "K09_Dark.002",
+        "K09_Steel.002",
+        "K09_Paint.001",
+        "K09_Amber.002",
+        "K09_Green.002",
+        "K09_Cloth.002"
+      ],
+      "lods": [
+        {
+          "file": "Hangar.fbx",
+          "triangles": 12044
+        },
+        {
+          "file": "Hangar_LOD1.fbx",
+          "triangles": 7226
+        }
+      ],
+      "bounds": [
+        [
+          38.099998474121094,
+          27.045000076293945,
+          55.130001068115234
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "GreenLamp": {
+      "mesh": "GreenLamp.fbx",
+      "collision": "none",
+      "materials": [
+        "K09_Dark.002",
+        "K09_Green.002",
+        "K09_Steel.002"
+      ],
+      "lods": [
+        {
+          "file": "GreenLamp.fbx",
+          "triangles": 1176
+        }
+      ],
+      "bounds": [
+        [
+          1.2200000286102295,
+          1.2200000286102295,
+          1.7903108596801758
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "FieldCase": {
+      "mesh": "FieldCase.fbx",
+      "collision": "convex",
+      "materials": [
+        "K09_Dark.002",
+        "K09_Paint.001",
+        "K09_Steel.002"
+      ],
+      "lods": [
+        {
+          "file": "FieldCase.fbx",
+          "triangles": 1080
+        },
+        {
+          "file": "FieldCase_LOD1.fbx",
+          "triangles": 540
+        }
+      ],
+      "bounds": [
+        [
+          1.5,
+          1.159999966621399,
+          1.0899999141693115
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "Rail": {
+      "mesh": "Rail.fbx",
+      "collision": "none",
+      "materials": [
+        "K09_Steel.002"
+      ],
+      "lods": [
+        {
+          "file": "Rail.fbx",
+          "triangles": 144
+        }
+      ],
+      "bounds": [
+        [
+          3.08559513092041,
+          0.09000000357627869,
+          1.1949999332427979
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "ServiceBridge": {
+      "mesh": "ServiceBridge.fbx",
+      "collision": "custom",
+      "materials": [
+        "K09_Paint.001",
+        "K09_Steel.002",
+        "K09_Dark.002"
+      ],
+      "lods": [
+        {
+          "file": "ServiceBridge.fbx",
+          "triangles": 1836
+        },
+        {
+          "file": "ServiceBridge_LOD1.fbx",
+          "triangles": 918
+        }
+      ],
+      "bounds": [
+        [
+          72.18313598632812,
+          8.0,
+          3.430000066757202
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "CliffCore": {
+      "mesh": "CliffCore.fbx",
+      "collision": "convex",
+      "materials": [
+        "K09_Strata"
+      ],
+      "lods": [
+        {
+          "file": "CliffCore.fbx",
+          "triangles": 11614
+        },
+        {
+          "file": "CliffCore_LOD1.fbx",
+          "triangles": 5225
+        },
+        {
+          "file": "CliffCore_LOD2.fbx",
+          "triangles": 1857
+        }
+      ],
+      "bounds": [
+        [
+          52.33634948730469,
+          64.2615737915039,
+          84.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "ArchCore": {
+      "mesh": "ArchCore.fbx",
+      "collision": "terrain",
+      "materials": [
+        "K09_Strata"
+      ],
+      "lods": [
+        {
+          "file": "ArchCore.fbx",
+          "triangles": 5120
+        },
+        {
+          "file": "ArchCore_LOD1.fbx",
+          "triangles": 2560
+        },
+        {
+          "file": "ArchCore_LOD2.fbx",
+          "triangles": 1024
+        }
+      ],
+      "bounds": [
+        [
+          78.43214416503906,
+          23.783531188964844,
+          45.0792236328125
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "RingedPlanet": {
+      "mesh": "RingedPlanet.fbx",
+      "collision": "none",
+      "materials": [
+        "K09_Planet"
+      ],
+      "lods": [
+        {
+          "file": "RingedPlanet.fbx",
+          "triangles": 16128
+        }
+      ],
+      "bounds": [
+        [
+          1.9999983310699463,
+          1.999997615814209,
+          2.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "PlanetRings": {
+      "mesh": "PlanetRings.fbx",
+      "collision": "none",
+      "materials": [
+        "K09_Planet"
+      ],
+      "lods": [
+        {
+          "file": "PlanetRings.fbx",
+          "triangles": 7680
+        }
+      ],
+      "bounds": [
+        [
+          4.297999858856201,
+          4.297999858856201,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "TerraceSurface": {
+      "mesh": "TerraceSurface.fbx",
+      "collision": "terrain",
+      "materials": [
+        "K09_Sand.001"
+      ],
+      "lods": [
+        {
+          "file": "TerraceSurface.fbx",
+          "triangles": 20800
+        },
+        {
+          "file": "TerraceSurface_LOD1.fbx",
+          "triangles": 8319
+        }
+      ],
+      "bounds": [
+        [
+          240.0,
+          390.0,
+          37.25233459472656
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    }
+  },
+  "instances": [
+    {
+      "asset": "Hangar",
+      "name": "Hangar.001",
+      "location_m": [
+        -53,
+        45,
+        16
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "ServiceBridge",
+      "name": "ServiceBridge.001",
+      "location_m": [
+        3,
+        -1,
+        15.3
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass",
+      "location_m": [
+        -103,
+        -45,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        0.9
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.001",
+      "location_m": [
+        -103,
+        -1,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        1.02
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        37
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.002",
+      "location_m": [
+        -103,
+        43,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        1.1400000000000001
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        74
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.003",
+      "location_m": [
+        -103,
+        87,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        0.9
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        111
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.004",
+      "location_m": [
+        -103,
+        131,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        1.02
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        148
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.005",
+      "location_m": [
+        -103,
+        175,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        1.1400000000000001
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        185
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.006",
+      "location_m": [
+        -103,
+        219,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        0.9
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        222
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.007",
+      "location_m": [
+        103,
+        -45,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        0.9
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.008",
+      "location_m": [
+        103,
+        -1,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        1.02
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        37
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.009",
+      "location_m": [
+        103,
+        43,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        1.1400000000000001
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        74
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.010",
+      "location_m": [
+        103,
+        87,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        0.9
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        111
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.011",
+      "location_m": [
+        103,
+        131,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        1.02
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        148
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.012",
+      "location_m": [
+        103,
+        175,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        1.1400000000000001
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        185
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "CanyonMass.013",
+      "location_m": [
+        103,
+        219,
+        -7
+      ],
+      "scale": [
+        1.35,
+        1.2,
+        0.9
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        222
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "HangarBedrock",
+      "location_m": [
+        -80,
+        65,
+        5
+      ],
+      "scale": [
+        1,
+        1.1,
+        1.1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        15
+      ]
+    },
+    {
+      "asset": "ArchCore",
+      "name": "ArchCore.001",
+      "location_m": [
+        49,
+        55,
+        24
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "RingedPlanet",
+      "name": "RingedPlanet.001",
+      "location_m": [
+        150,
+        1800,
+        900
+      ],
+      "scale": [
+        650,
+        650,
+        650
+      ],
+      "rotation_xyz_degrees": [
+        16,
+        12,
+        20
+      ]
+    },
+    {
+      "asset": "PlanetRings",
+      "name": "PlanetRings.001",
+      "location_m": [
+        150,
+        1800,
+        900
+      ],
+      "scale": [
+        650,
+        650,
+        650
+      ],
+      "rotation_xyz_degrees": [
+        16,
+        12,
+        20
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_0_0",
+      "location_m": [
+        -83.0,
+        -40,
+        3
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_0_1",
+      "location_m": [
+        -83.0,
+        -40,
+        24
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_0_2",
+      "location_m": [
+        -83.0,
+        -40,
+        45
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_1_0",
+      "location_m": [
+        -90.93331848361974,
+        -2,
+        5
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_1_1",
+      "location_m": [
+        -90.93331848361974,
+        -2,
+        26
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_1_2",
+      "location_m": [
+        -90.93331848361974,
+        -2,
+        47
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_2_0",
+      "location_m": [
+        -80.95567118378536,
+        36,
+        7
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_2_1",
+      "location_m": [
+        -80.95567118378536,
+        36,
+        28
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_2_2",
+      "location_m": [
+        -80.95567118378536,
+        36,
+        49
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_3_0",
+      "location_m": [
+        -75.59348254137814,
+        74,
+        9
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_3_1",
+      "location_m": [
+        -75.59348254137814,
+        74,
+        30
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_3_2",
+      "location_m": [
+        -75.59348254137814,
+        74,
+        51
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_4_0",
+      "location_m": [
+        -86.95290680910887,
+        112,
+        11
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_4_1",
+      "location_m": [
+        -86.95290680910887,
+        112,
+        32
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_4_2",
+      "location_m": [
+        -86.95290680910887,
+        112,
+        53
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_5_0",
+      "location_m": [
+        -89.38789690098793,
+        150,
+        13
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_5_1",
+      "location_m": [
+        -89.38789690098793,
+        150,
+        34
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_5_2",
+      "location_m": [
+        -89.38789690098793,
+        150,
+        55
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_6_0",
+      "location_m": [
+        -77.40100249925166,
+        188,
+        15
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_6_1",
+      "location_m": [
+        -77.40100249925166,
+        188,
+        36
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_-1_6_2",
+      "location_m": [
+        -77.40100249925166,
+        188,
+        57
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_0_0",
+      "location_m": [
+        83.0,
+        -40,
+        3
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_0_1",
+      "location_m": [
+        83.0,
+        -40,
+        24
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_0_2",
+      "location_m": [
+        83.0,
+        -40,
+        45
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_1_0",
+      "location_m": [
+        90.93331848361974,
+        -2,
+        5
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_1_1",
+      "location_m": [
+        90.93331848361974,
+        -2,
+        26
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_1_2",
+      "location_m": [
+        90.93331848361974,
+        -2,
+        47
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_2_0",
+      "location_m": [
+        80.95567118378536,
+        36,
+        7
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_2_1",
+      "location_m": [
+        80.95567118378536,
+        36,
+        28
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_2_2",
+      "location_m": [
+        80.95567118378536,
+        36,
+        49
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_3_0",
+      "location_m": [
+        75.59348254137814,
+        74,
+        9
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_3_1",
+      "location_m": [
+        75.59348254137814,
+        74,
+        30
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_3_2",
+      "location_m": [
+        75.59348254137814,
+        74,
+        51
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_4_0",
+      "location_m": [
+        86.95290680910887,
+        112,
+        11
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_4_1",
+      "location_m": [
+        86.95290680910887,
+        112,
+        32
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_4_2",
+      "location_m": [
+        86.95290680910887,
+        112,
+        53
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_5_0",
+      "location_m": [
+        89.38789690098793,
+        150,
+        13
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_5_1",
+      "location_m": [
+        89.38789690098793,
+        150,
+        34
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_5_2",
+      "location_m": [
+        89.38789690098793,
+        150,
+        55
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_6_0",
+      "location_m": [
+        77.40100249925166,
+        188,
+        15
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_6_1",
+      "location_m": [
+        77.40100249925166,
+        188,
+        36
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "Cliff_1_6_2",
+      "location_m": [
+        77.40100249925166,
+        188,
+        57
+      ],
+      "scale": [
+        2.1,
+        3.0,
+        3.2
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        -90
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "HeroArch_0",
+      "location_m": [
+        79.0,
+        55,
+        24.0
+      ],
+      "scale": [
+        3.8,
+        3.4,
+        3.4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        -90.0,
+        12
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "HeroArch_1",
+      "location_m": [
+        74.98076211353316,
+        55,
+        41.5
+      ],
+      "scale": [
+        3.8,
+        3.4,
+        3.4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        -60.0,
+        12
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "HeroArch_2",
+      "location_m": [
+        64.0,
+        55,
+        54.31088913245535
+      ],
+      "scale": [
+        3.8,
+        3.4,
+        3.4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        -30.000000000000007,
+        12
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "HeroArch_3",
+      "location_m": [
+        49.0,
+        55,
+        59.0
+      ],
+      "scale": [
+        3.8,
+        3.4,
+        3.4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0.0,
+        12
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "HeroArch_4",
+      "location_m": [
+        34.00000000000001,
+        55,
+        54.31088913245536
+      ],
+      "scale": [
+        3.8,
+        3.4,
+        3.4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        29.999999999999986,
+        12
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "HeroArch_5",
+      "location_m": [
+        23.01923788646684,
+        55,
+        41.5
+      ],
+      "scale": [
+        3.8,
+        3.4,
+        3.4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        60.0,
+        12
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "HeroArch_6",
+      "location_m": [
+        19.0,
+        55,
+        24.000000000000004
+      ],
+      "scale": [
+        3.8,
+        3.4,
+        3.4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        90.0,
+        12
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "DistantMesa_0",
+      "location_m": [
+        -190,
+        380.0,
+        -5
+      ],
+      "scale": [
+        4.0,
+        4.5,
+        6
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "DistantMass",
+      "location_m": [
+        -190,
+        380.0,
+        -20
+      ],
+      "scale": [
+        2,
+        1.8,
+        1.3
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "DistantMesa_1",
+      "location_m": [
+        -122,
+        409.45148446827636,
+        -5
+      ],
+      "scale": [
+        4.0,
+        4.5,
+        7
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        43
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "DistantMass.001",
+      "location_m": [
+        -122,
+        409.45148446827636,
+        -20
+      ],
+      "scale": [
+        2,
+        1.8,
+        1.55
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        43
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "DistantMesa_2",
+      "location_m": [
+        -54,
+        411.8254099388989,
+        -5
+      ],
+      "scale": [
+        4.0,
+        4.5,
+        8
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        86
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "DistantMass.002",
+      "location_m": [
+        -54,
+        411.8254099388989,
+        -20
+      ],
+      "scale": [
+        2,
+        1.8,
+        1.8
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        86
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "DistantMesa_3",
+      "location_m": [
+        14,
+        384.9392002820953,
+        -5
+      ],
+      "scale": [
+        4.0,
+        4.5,
+        6
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        129
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "DistantMass.003",
+      "location_m": [
+        14,
+        384.9392002820953,
+        -20
+      ],
+      "scale": [
+        2,
+        1.8,
+        1.3
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        129
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "DistantMesa_4",
+      "location_m": [
+        82,
+        353.5119126642225,
+        -5
+      ],
+      "scale": [
+        4.0,
+        4.5,
+        7
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        172
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "DistantMass.004",
+      "location_m": [
+        82,
+        353.5119126642225,
+        -20
+      ],
+      "scale": [
+        2,
+        1.8,
+        1.55
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        172
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "DistantMesa_5",
+      "location_m": [
+        150,
+        346.43765038679015,
+        -5
+      ],
+      "scale": [
+        4.0,
+        4.5,
+        8
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        215
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "DistantMass.005",
+      "location_m": [
+        150,
+        346.43765038679015,
+        -20
+      ],
+      "scale": [
+        2,
+        1.8,
+        1.8
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        215
+      ]
+    },
+    {
+      "asset": "namaqualand_cliff_02",
+      "name": "DistantMesa_6",
+      "location_m": [
+        218,
+        370.2204575630376,
+        -5
+      ],
+      "scale": [
+        4.0,
+        4.5,
+        6
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        258
+      ]
+    },
+    {
+      "asset": "CliffCore",
+      "name": "DistantMass.006",
+      "location_m": [
+        218,
+        370.2204575630376,
+        -20
+      ],
+      "scale": [
+        2,
+        1.8,
+        1.3
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        258
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveWall",
+      "location_m": [
+        78,
+        75,
+        18
+      ],
+      "scale": [
+        3,
+        3,
+        4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveWall.001",
+      "location_m": [
+        78,
+        91,
+        18
+      ],
+      "scale": [
+        3,
+        3,
+        4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        180
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveRoof",
+      "location_m": [
+        78,
+        83,
+        34
+      ],
+      "scale": [
+        3.4,
+        4,
+        2.8
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        90,
+        90
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveWall.002",
+      "location_m": [
+        88,
+        75,
+        18
+      ],
+      "scale": [
+        3,
+        3,
+        4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveWall.003",
+      "location_m": [
+        88,
+        91,
+        18
+      ],
+      "scale": [
+        3,
+        3,
+        4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        180
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveRoof.001",
+      "location_m": [
+        88,
+        83,
+        34
+      ],
+      "scale": [
+        3.4,
+        4,
+        2.8
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        90,
+        90
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveWall.004",
+      "location_m": [
+        98,
+        75,
+        18
+      ],
+      "scale": [
+        3,
+        3,
+        4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveWall.005",
+      "location_m": [
+        98,
+        91,
+        18
+      ],
+      "scale": [
+        3,
+        3,
+        4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        180
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveRoof.002",
+      "location_m": [
+        98,
+        83,
+        34
+      ],
+      "scale": [
+        3.4,
+        4,
+        2.8
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        90,
+        90
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveWall.006",
+      "location_m": [
+        108,
+        75,
+        18
+      ],
+      "scale": [
+        3,
+        3,
+        4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveWall.007",
+      "location_m": [
+        108,
+        91,
+        18
+      ],
+      "scale": [
+        3,
+        3,
+        4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        180
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveRoof.003",
+      "location_m": [
+        108,
+        83,
+        34
+      ],
+      "scale": [
+        3.4,
+        4,
+        2.8
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        90,
+        90
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveWall.008",
+      "location_m": [
+        118,
+        75,
+        18
+      ],
+      "scale": [
+        3,
+        3,
+        4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveWall.009",
+      "location_m": [
+        118,
+        91,
+        18
+      ],
+      "scale": [
+        3,
+        3,
+        4
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        180
+      ]
+    },
+    {
+      "asset": "rock_face_01",
+      "name": "CaveRoof.004",
+      "location_m": [
+        118,
+        83,
+        34
+      ],
+      "scale": [
+        3.4,
+        4,
+        2.8
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        90,
+        90
+      ]
+    },
+    {
+      "asset": "TerraceSurface",
+      "name": "TerraceSurface.001",
+      "location_m": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.001",
+      "location_m": [
+        35.923743673266614,
+        -90.09145940864789,
+        11.532290225823346
+      ],
+      "scale": [
+        0.7864395495104873,
+        0.7864395495104873,
+        0.7864395495104873
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        136.01476226304416
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.002",
+      "location_m": [
+        -32.658329200675695,
+        117.7203038785276,
+        18.53757609860462
+      ],
+      "scale": [
+        1.4133774837163258,
+        1.4133774837163258,
+        1.4133774837163258
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        349.2586711945199
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.003",
+      "location_m": [
+        -78.27149441276822,
+        -39.38673478694497,
+        13.178130952419467
+      ],
+      "scale": [
+        1.5350458801024052,
+        1.5350458801024052,
+        1.5350458801024052
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        313.6191047475082
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.004",
+      "location_m": [
+        38.34731549455821,
+        156.27838523591333,
+        19.055678777376748
+      ],
+      "scale": [
+        1.2753443201990802,
+        1.2753443201990802,
+        1.2753443201990802
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        182.260394310604
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.005",
+      "location_m": [
+        86.02717312557273,
+        81.06157093977595,
+        17.65693176969203
+      ],
+      "scale": [
+        1.1441353634610971,
+        1.1441353634610971,
+        1.1441353634610971
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        61.50462327015825
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.006",
+      "location_m": [
+        -85.97104555116397,
+        -106.78372207267952,
+        11.126158139004817
+      ],
+      "scale": [
+        1.0551852324974924,
+        1.0551852324974924,
+        1.0551852324974924
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        95.51611987978059
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.007",
+      "location_m": [
+        -83.65136329037085,
+        -34.46219643125066,
+        13.36328894712211
+      ],
+      "scale": [
+        1.666701436369244,
+        1.666701436369244,
+        1.666701436369244
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        220.16864927661928
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.008",
+      "location_m": [
+        -64.79502331258254,
+        165.537921170343,
+        19.12055322170666
+      ],
+      "scale": [
+        1.1591735041960582,
+        1.1591735041960582,
+        1.1591735041960582
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        21.04582547956856
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.009",
+      "location_m": [
+        -55.82231102596748,
+        -116.83730376956028,
+        10.919218590282085
+      ],
+      "scale": [
+        0.8265008218827878,
+        0.8265008218827878,
+        0.8265008218827878
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        96.9986031656165
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.010",
+      "location_m": [
+        51.79217578254356,
+        110.46566634485094,
+        18.392973080791656
+      ],
+      "scale": [
+        0.7991042230038385,
+        0.7991042230038385,
+        0.7991042230038385
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        178.81443370205545
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.011",
+      "location_m": [
+        104.37006122356735,
+        92.18602350444831,
+        17.962838550937004
+      ],
+      "scale": [
+        0.8876083107687627,
+        0.8876083107687627,
+        0.8876083107687627
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        307.9724392803833
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.012",
+      "location_m": [
+        -100.40696552105528,
+        154.0989953652695,
+        19.037253851669092
+      ],
+      "scale": [
+        1.0646406224906335,
+        1.0646406224906335,
+        1.0646406224906335
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        160.16168641476668
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.013",
+      "location_m": [
+        -86.32493596913052,
+        -74.43768069250025,
+        11.980039851163037
+      ],
+      "scale": [
+        1.4968339125321761,
+        1.4968339125321761,
+        1.4968339125321761
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        271.2932339833088
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.014",
+      "location_m": [
+        90.84518099837624,
+        -56.36000028486215,
+        12.568450671436585
+      ],
+      "scale": [
+        0.845844607108843,
+        0.845844607108843,
+        0.845844607108843
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        249.69024810308844
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.015",
+      "location_m": [
+        -41.87262476052871,
+        -23.57489664787549,
+        13.782764425093644
+      ],
+      "scale": [
+        1.394063635709085,
+        1.394063635709085,
+        1.394063635709085
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        230.35919272598434
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.016",
+      "location_m": [
+        -95.55989466652741,
+        -49.2952475457371,
+        12.816310687648098
+      ],
+      "scale": [
+        1.1358912983807175,
+        1.1358912983807175,
+        1.1358912983807175
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        72.60260878247476
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.017",
+      "location_m": [
+        51.69931973916708,
+        91.46624259713397,
+        17.944025732105548
+      ],
+      "scale": [
+        1.259507574322289,
+        1.259507574322289,
+        1.259507574322289
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        143.14554104968767
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.018",
+      "location_m": [
+        -54.359892089612984,
+        68.61608142245345,
+        17.278258462404157
+      ],
+      "scale": [
+        1.6775912960943993,
+        1.6775912960943993,
+        1.6775912960943993
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        174.98045037659261
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.019",
+      "location_m": [
+        45.29404672570578,
+        195.99376370404548,
+        19.198884592931545
+      ],
+      "scale": [
+        0.9317314084346029,
+        0.9317314084346029,
+        0.9317314084346029
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        68.27819565315026
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.020",
+      "location_m": [
+        -82.15951074219345,
+        -4.721699182199515,
+        14.530725377810533
+      ],
+      "scale": [
+        1.453887725493432,
+        1.453887725493432,
+        1.453887725493432
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        355.1635330620158
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.021",
+      "location_m": [
+        49.0679471389831,
+        157.12678119530284,
+        19.062519818119448
+      ],
+      "scale": [
+        2.0869269212675645,
+        2.0869269212675645,
+        2.0869269212675645
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        132.66412426328634
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.022",
+      "location_m": [
+        -48.788015814114964,
+        72.93095011025022,
+        17.413684460324387
+      ],
+      "scale": [
+        0.6595761598315963,
+        0.6595761598315963,
+        0.6595761598315963
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        119.04227874385026
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.023",
+      "location_m": [
+        82.88275879231368,
+        91.61714676651317,
+        17.947981355860406
+      ],
+      "scale": [
+        0.6337965197728737,
+        0.6337965197728737,
+        0.6337965197728737
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        157.11271735527976
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.024",
+      "location_m": [
+        -72.45090900061821,
+        12.16461851750924,
+        15.206682073561739
+      ],
+      "scale": [
+        0.7086303123347051,
+        0.7086303123347051,
+        0.7086303123347051
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        338.4040834239575
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.025",
+      "location_m": [
+        -71.36975741375826,
+        -51.90374700689232,
+        12.723740660074657
+      ],
+      "scale": [
+        1.553096575576514,
+        1.553096575576514,
+        1.553096575576514
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        164.2504745849789
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.026",
+      "location_m": [
+        -32.12091477920815,
+        -80.8751571826261,
+        11.788464284938337
+      ],
+      "scale": [
+        1.0158710402850357,
+        1.0158710402850357,
+        1.0158710402850357
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        142.27673641091098
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.027",
+      "location_m": [
+        41.04721539500776,
+        -44.162158436634186,
+        13.001834837635391
+      ],
+      "scale": [
+        0.9832117104357648,
+        0.9832117104357648,
+        0.9832117104357648
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        177.61218366062485
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.028",
+      "location_m": [
+        -44.857791767867454,
+        46.9377436738836,
+        16.539019727365215
+      ],
+      "scale": [
+        1.9441899444676567,
+        1.9441899444676567,
+        1.9441899444676567
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        278.5663110298256
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.029",
+      "location_m": [
+        73.02166479720762,
+        49.0238548235487,
+        16.613990138493083
+      ],
+      "scale": [
+        1.3487965752887572,
+        1.3487965752887572,
+        1.3487965752887572
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        27.381556977188694
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.030",
+      "location_m": [
+        -102.24352533015717,
+        -103.81175137232515,
+        11.19282544249126
+      ],
+      "scale": [
+        1.5511981774101562,
+        1.5511981774101562,
+        1.5511981774101562
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        192.1964706912081
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.031",
+      "location_m": [
+        -73.38097234572413,
+        177.7386209339582,
+        19.174914375023842
+      ],
+      "scale": [
+        1.7460498859699944,
+        1.7460498859699944,
+        1.7460498859699944
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        341.8619397562851
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.032",
+      "location_m": [
+        55.336245241616155,
+        67.4103093634842,
+        17.239662037220388
+      ],
+      "scale": [
+        1.8805224000724547,
+        1.8805224000724547,
+        1.8805224000724547
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        37.027973861602284
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.033",
+      "location_m": [
+        -65.36342275486399,
+        46.1487317241517,
+        16.510476086911126
+      ],
+      "scale": [
+        0.7424906796830434,
+        0.7424906796830434,
+        0.7424906796830434
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        58.4693678548881
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.034",
+      "location_m": [
+        -95.60401265715845,
+        -100.00216346167697,
+        11.281899353339886
+      ],
+      "scale": [
+        1.8994793114047375,
+        1.8994793114047375,
+        1.8994793114047375
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        231.79819802261463
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.035",
+      "location_m": [
+        -96.48927137297237,
+        183.38288909698798,
+        19.18911640241902
+      ],
+      "scale": [
+        0.6782776922107845,
+        0.6782776922107845,
+        0.6782776922107845
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        23.194704425425662
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.036",
+      "location_m": [
+        83.72404043831921,
+        5.95680418235645,
+        14.958736313877859
+      ],
+      "scale": [
+        1.9946002875384372,
+        1.9946002875384372,
+        1.9946002875384372
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        281.783667115672
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.037",
+      "location_m": [
+        103.61988644330094,
+        -88.77013675762723,
+        11.567665440701942
+      ],
+      "scale": [
+        0.8041934392772518,
+        0.8041934392772518,
+        0.8041934392772518
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        79.77987024345045
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.038",
+      "location_m": [
+        94.50891083579002,
+        -74.16869064509797,
+        11.988262069420822
+      ],
+      "scale": [
+        1.4059733757580424,
+        1.4059733757580424,
+        1.4059733757580424
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        331.1003280680067
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.039",
+      "location_m": [
+        78.65045496935454,
+        194.5423001084916,
+        19.199176007003135
+      ],
+      "scale": [
+        0.9672542184268129,
+        0.9672542184268129,
+        0.9672542184268129
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        208.72094479373962
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.040",
+      "location_m": [
+        -36.52053108154492,
+        -12.895925967909378,
+        14.204206506348514
+      ],
+      "scale": [
+        0.7134022864615139,
+        0.7134022864615139,
+        0.7134022864615139
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        155.68549976252885
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.041",
+      "location_m": [
+        -81.72864015654025,
+        199.2020454021581,
+        19.19705278653489
+      ],
+      "scale": [
+        1.5095607682145398,
+        1.5095607682145398,
+        1.5095607682145398
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        296.86018199447864
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.042",
+      "location_m": [
+        -32.8348616799379,
+        193.4167500839672,
+        19.199162912378576
+      ],
+      "scale": [
+        1.7303190499141743,
+        1.7303190499141743,
+        1.7303190499141743
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        266.53769646350577
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.043",
+      "location_m": [
+        67.29181515179161,
+        17.523782098883657,
+        15.419362602266515
+      ],
+      "scale": [
+        0.81427945991587,
+        0.81427945991587,
+        0.81427945991587
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        281.3611105110645
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.044",
+      "location_m": [
+        -102.42222779594566,
+        72.5961463050188,
+        17.403329543406596
+      ],
+      "scale": [
+        1.3640942619411687,
+        1.3640942619411687,
+        1.3640942619411687
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        150.89062119301366
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.045",
+      "location_m": [
+        90.76547826402742,
+        185.7821417601483,
+        19.19322065829383
+      ],
+      "scale": [
+        1.0064115237553843,
+        1.0064115237553843,
+        1.0064115237553843
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        313.90926627958885
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.046",
+      "location_m": [
+        86.84819919450003,
+        -7.126723542992295,
+        14.43444360806212
+      ],
+      "scale": [
+        0.7449304373321374,
+        0.7449304373321374,
+        0.7449304373321374
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        142.18376490526634
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.047",
+      "location_m": [
+        102.35807345299364,
+        11.955130291660282,
+        15.19833837830033
+      ],
+      "scale": [
+        1.2096196757166058,
+        1.2096196757166058,
+        1.2096196757166058
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        86.75180643952082
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.048",
+      "location_m": [
+        -40.60258767303645,
+        -8.378115384402236,
+        14.384403428210495
+      ],
+      "scale": [
+        1.6754051237712178,
+        1.6754051237712178,
+        1.6754051237712178
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        255.95884375843605
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.049",
+      "location_m": [
+        92.52107352513323,
+        188.15829158606374,
+        19.19620270592259
+      ],
+      "scale": [
+        0.6570798351246141,
+        0.6570798351246141,
+        0.6570798351246141
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        312.4191246263638
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.050",
+      "location_m": [
+        54.67684493436176,
+        151.99185035271347,
+        19.018261912878597
+      ],
+      "scale": [
+        0.9092938323536983,
+        0.9092938323536983,
+        0.9092938323536983
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        76.9225886981594
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.051",
+      "location_m": [
+        -52.20308588105728,
+        -10.284292861096333,
+        14.308276348611576
+      ],
+      "scale": [
+        1.2754221453906478,
+        1.2754221453906478,
+        1.2754221453906478
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        157.57360956596582
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.052",
+      "location_m": [
+        -33.409754689336154,
+        101.41380881545746,
+        18.191578386949427
+      ],
+      "scale": [
+        1.3026190208152517,
+        1.3026190208152517,
+        1.3026190208152517
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        93.94085073249501
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.053",
+      "location_m": [
+        76.07701141024022,
+        -53.875812186558804,
+        12.654564078457884
+      ],
+      "scale": [
+        1.7510332929315964,
+        1.7510332929315964,
+        1.7510332929315964
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        257.27743917777434
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.054",
+      "location_m": [
+        90.36123490739888,
+        122.82816074525036,
+        18.630333661335577
+      ],
+      "scale": [
+        1.0328008285236656,
+        1.0328008285236656,
+        1.0328008285236656
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        162.10628470766116
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.055",
+      "location_m": [
+        -98.37586502587247,
+        186.02082179515816,
+        19.193568251380835
+      ],
+      "scale": [
+        2.041218207492809,
+        2.041218207492809,
+        2.041218207492809
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        235.32184450996212
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.056",
+      "location_m": [
+        -74.0373452590348,
+        194.39099029849598,
+        19.19918651727278
+      ],
+      "scale": [
+        1.6344195630092901,
+        1.6344195630092901,
+        1.6344195630092901
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        217.21954716282872
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.057",
+      "location_m": [
+        54.59707953556352,
+        -58.694017044662615,
+        12.488622545229001
+      ],
+      "scale": [
+        1.9607744201243733,
+        1.9607744201243733,
+        1.9607744201243733
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        50.494620056292014
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.058",
+      "location_m": [
+        -37.78444661349866,
+        175.16663479156352,
+        19.166228661089157
+      ],
+      "scale": [
+        1.2468660218669592,
+        1.2468660218669592,
+        1.2468660218669592
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        82.1728179004514
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.059",
+      "location_m": [
+        88.05051236664737,
+        108.6078326298418,
+        18.353525757442927
+      ],
+      "scale": [
+        1.1308109616809667,
+        1.1308109616809667,
+        1.1308109616809667
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        141.33769386469913
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.060",
+      "location_m": [
+        -47.95899899899968,
+        156.07017380486985,
+        19.05397159763623
+      ],
+      "scale": [
+        1.9158313158340259,
+        1.9158313158340259,
+        1.9158313158340259
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        97.3939997123343
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.061",
+      "location_m": [
+        52.91328978012871,
+        -17.91845707786449,
+        14.005041375836992
+      ],
+      "scale": [
+        0.6753137309326273,
+        0.6753137309326273,
+        0.6753137309326273
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        112.3179260165084
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.062",
+      "location_m": [
+        77.35060887174069,
+        183.89801322159764,
+        19.19009211391961
+      ],
+      "scale": [
+        1.2023129789556326,
+        1.2023129789556326,
+        1.2023129789556326
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        146.36171842816452
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.063",
+      "location_m": [
+        -53.02179054913063,
+        -95.17805447318214,
+        11.400450709292935
+      ],
+      "scale": [
+        2.0719038666159864,
+        2.0719038666159864,
+        2.0719038666159864
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        335.02376447325315
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.064",
+      "location_m": [
+        -77.71624678440779,
+        179.41277622036193,
+        19.179811217763287
+      ],
+      "scale": [
+        1.2364354696265103,
+        1.2364354696265103,
+        1.2364354696265103
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        47.46906101408457
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.065",
+      "location_m": [
+        -69.67355970740036,
+        174.83147455135804,
+        19.164991223111866
+      ],
+      "scale": [
+        0.8998380607364116,
+        0.8998380607364116,
+        0.8998380607364116
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        339.2225229229809
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.066",
+      "location_m": [
+        69.25413985692136,
+        86.0627644885515,
+        17.79842245275912
+      ],
+      "scale": [
+        1.7750756367725185,
+        1.7750756367725185,
+        1.7750756367725185
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        307.41128953510747
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.067",
+      "location_m": [
+        -93.04983185531549,
+        45.81840545363147,
+        16.498495985147176
+      ],
+      "scale": [
+        1.2632829786836401,
+        1.2632829786836401,
+        1.2632829786836401
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        167.4825385519036
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.068",
+      "location_m": [
+        80.1841761129931,
+        -81.8352040305544,
+        11.760767022503176
+      ],
+      "scale": [
+        0.682929287525013,
+        0.682929287525013,
+        0.682929287525013
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        100.13101898937641
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.069",
+      "location_m": [
+        73.73186381226247,
+        -82.99912374173317,
+        11.72749865328486
+      ],
+      "scale": [
+        1.8379925818367955,
+        1.8379925818367955,
+        1.8379925818367955
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        25.496567661539377
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.070",
+      "location_m": [
+        46.6146394017239,
+        37.72373186040929,
+        16.19970387393358
+      ],
+      "scale": [
+        1.3391507849344866,
+        1.3391507849344866,
+        1.3391507849344866
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        81.50533024296504
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.071",
+      "location_m": [
+        -83.60189491478984,
+        93.37908046115442,
+        17.993715724141794
+      ],
+      "scale": [
+        0.9737723736242184,
+        0.9737723736242184,
+        0.9737723736242184
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        261.95936494139823
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.072",
+      "location_m": [
+        62.19959543618292,
+        33.23112992929072,
+        16.02993700608028
+      ],
+      "scale": [
+        1.460419040677016,
+        1.460419040677016,
+        1.460419040677016
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        102.08979426765855
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.073",
+      "location_m": [
+        -43.106413810679236,
+        166.20290056537164,
+        19.124401371326158
+      ],
+      "scale": [
+        1.1440281653045035,
+        1.1440281653045035,
+        1.1440281653045035
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        188.53993529227952
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.074",
+      "location_m": [
+        -71.98307048392184,
+        107.72477440271615,
+        18.33443228486478
+      ],
+      "scale": [
+        0.7878382897042675,
+        0.7878382897042675,
+        0.7878382897042675
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        11.872159587352172
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.075",
+      "location_m": [
+        73.47080045471068,
+        151.77630567625238,
+        19.01625332344383
+      ],
+      "scale": [
+        2.066573305213083,
+        2.066573305213083,
+        2.066573305213083
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        64.81425824208631
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.076",
+      "location_m": [
+        53.76685213806171,
+        19.814030844179456,
+        15.509716436189832
+      ],
+      "scale": [
+        2.028162558018405,
+        2.028162558018405,
+        2.028162558018405
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        37.44892009322346
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.077",
+      "location_m": [
+        -73.36000728648818,
+        198.5567788829286,
+        19.197549138380275
+      ],
+      "scale": [
+        0.7037108519574412,
+        0.7037108519574412,
+        0.7037108519574412
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        27.22486983036263
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.078",
+      "location_m": [
+        -71.11980446983537,
+        127.48582105595574,
+        18.708385989319307
+      ],
+      "scale": [
+        1.8214754136238356,
+        1.8214754136238356,
+        1.8214754136238356
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        87.4536495094763
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.079",
+      "location_m": [
+        -73.60212398486178,
+        156.22153182324013,
+        19.05521372926666
+      ],
+      "scale": [
+        1.975734264769796,
+        1.975734264769796,
+        1.975734264769796
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        54.33860385104827
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.080",
+      "location_m": [
+        -48.04966734751572,
+        -104.72094384880258,
+        11.172166627642476
+      ],
+      "scale": [
+        0.7385982873844174,
+        0.7385982873844174,
+        0.7385982873844174
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        233.90770696530836
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.081",
+      "location_m": [
+        43.3393825489961,
+        -7.498140550192446,
+        14.419586854178759
+      ],
+      "scale": [
+        2.048009979462286,
+        2.048009979462286,
+        2.048009979462286
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        195.58716731937315
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.082",
+      "location_m": [
+        -58.5241689448697,
+        -94.10942089018337,
+        11.427571471841196
+      ],
+      "scale": [
+        0.9364069122163209,
+        0.9364069122163209,
+        0.9364069122163209
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        129.448146455667
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.083",
+      "location_m": [
+        57.90260732162511,
+        121.17084431045265,
+        18.601058556722528
+      ],
+      "scale": [
+        1.027263493329577,
+        1.027263493329577,
+        1.027263493329577
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        277.1349186821494
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.084",
+      "location_m": [
+        -41.27957465688748,
+        39.294630611405154,
+        16.25843612075822
+      ],
+      "scale": [
+        1.8952321656840114,
+        1.8952321656840114,
+        1.8952321656840114
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        23.18264994976628
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.085",
+      "location_m": [
+        -90.3115270575667,
+        -15.551314234743032,
+        14.098728668328974
+      ],
+      "scale": [
+        1.8705573071302668,
+        1.8705573071302668,
+        1.8705573071302668
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        318.8562550109368
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.086",
+      "location_m": [
+        75.64414469722925,
+        -90.14297686559883,
+        11.53092030791065
+      ],
+      "scale": [
+        1.9673883745465188,
+        1.9673883745465188,
+        1.9673883745465188
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        130.094478123558
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.087",
+      "location_m": [
+        37.49265863210936,
+        -103.78567016122705,
+        11.19342148544136
+      ],
+      "scale": [
+        1.7225842861204899,
+        1.7225842861204899,
+        1.7225842861204899
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        281.8041035833627
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.088",
+      "location_m": [
+        66.93349258375528,
+        16.30726501424641,
+        15.371227962347561
+      ],
+      "scale": [
+        2.001795418934055,
+        2.001795418934055,
+        2.001795418934055
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        184.81493673308685
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.089",
+      "location_m": [
+        -41.32680233827075,
+        -32.61533411356834,
+        13.433528790313654
+      ],
+      "scale": [
+        0.9298880783442933,
+        0.9298880783442933,
+        0.9298880783442933
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        218.3235815525581
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.090",
+      "location_m": [
+        60.072180050865974,
+        104.25665986402328,
+        18.257312825688093
+      ],
+      "scale": [
+        1.4519938518201299,
+        1.4519938518201299,
+        1.4519938518201299
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        288.4376880857455
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.091",
+      "location_m": [
+        -48.38719011886842,
+        190.52141706399073,
+        19.19813750163926
+      ],
+      "scale": [
+        0.9307501592679694,
+        0.9307501592679694,
+        0.9307501592679694
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        197.19958503566005
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.092",
+      "location_m": [
+        70.21937390496325,
+        -110.8697469006668,
+        11.038577078839067
+      ],
+      "scale": [
+        1.6255892075182392,
+        1.6255892075182392,
+        1.6255892075182392
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        151.0494519926473
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.093",
+      "location_m": [
+        -72.81205243814429,
+        -105.73476927503616,
+        11.14940429078746
+      ],
+      "scale": [
+        0.9658474376309281,
+        0.9658474376309281,
+        0.9658474376309281
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        270.09811173232157
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.094",
+      "location_m": [
+        39.50727131433244,
+        147.12860726185193,
+        18.969931731913963
+      ],
+      "scale": [
+        0.8441352699526188,
+        0.8441352699526188,
+        0.8441352699526188
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        64.01046208754994
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.095",
+      "location_m": [
+        59.40506245974402,
+        -54.445589029395066,
+        12.634710423627219
+      ],
+      "scale": [
+        0.7677717582045167,
+        0.7677717582045167,
+        0.7677717582045167
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        228.61159948818573
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.096",
+      "location_m": [
+        -86.633310009947,
+        -122.42588544116985,
+        10.816699680897987
+      ],
+      "scale": [
+        0.9784274376788653,
+        0.9784274376788653,
+        0.9784274376788653
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        10.48088050350298
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.097",
+      "location_m": [
+        92.20580578771606,
+        -43.71675728724675,
+        13.018132736638453
+      ],
+      "scale": [
+        1.9292463548420105,
+        1.9292463548420105,
+        1.9292463548420105
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        318.7500173795876
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.098",
+      "location_m": [
+        76.66310866726586,
+        -29.468082294675426,
+        13.554142237241484
+      ],
+      "scale": [
+        1.8352641514126389,
+        1.8352641514126389,
+        1.8352641514126389
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        271.9772607823021
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.099",
+      "location_m": [
+        38.66265101832237,
+        36.92566115822365,
+        16.16973715652188
+      ],
+      "scale": [
+        0.6508224923010071,
+        0.6508224923010071,
+        0.6508224923010071
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        255.74159516616717
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.100",
+      "location_m": [
+        66.12653072699578,
+        153.39977097095476,
+        19.031080767114496
+      ],
+      "scale": [
+        0.7200230759681365,
+        0.7200230759681365,
+        0.7200230759681365
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        231.74981373850056
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.101",
+      "location_m": [
+        -99.23267649182544,
+        11.584020387662491,
+        15.18355269228898
+      ],
+      "scale": [
+        0.8009725892543851,
+        0.8009725892543851,
+        0.8009725892543851
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        11.04339689531006
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.102",
+      "location_m": [
+        -70.6269926512477,
+        -93.32398684106576,
+        11.447701716970315
+      ],
+      "scale": [
+        0.6914549358951778,
+        0.6914549358951778,
+        0.6914549358951778
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        173.42870415617912
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.103",
+      "location_m": [
+        89.2387032200636,
+        -57.16886167678405,
+        12.540665652971676
+      ],
+      "scale": [
+        1.1828065272838177,
+        1.1828065272838177,
+        1.1828065272838177
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        228.05648413721
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.104",
+      "location_m": [
+        45.35750158181672,
+        98.49736361455427,
+        18.121806333638816
+      ],
+      "scale": [
+        1.2111163325297896,
+        1.2111163325297896,
+        1.2111163325297896
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        211.98293194889422
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.105",
+      "location_m": [
+        -87.72731957103431,
+        55.82330494159879,
+        16.85304394902019
+      ],
+      "scale": [
+        1.250425692358414,
+        1.250425692358414,
+        1.250425692358414
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        245.36799270754454
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.106",
+      "location_m": [
+        88.11218610172708,
+        23.077801164476,
+        15.63780331125878
+      ],
+      "scale": [
+        1.120230630247319,
+        1.120230630247319,
+        1.120230630247319
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        101.87938925165899
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.107",
+      "location_m": [
+        -89.98520639805896,
+        -102.84833964059749,
+        11.21496905980399
+      ],
+      "scale": [
+        1.5766612694937252,
+        1.5766612694937252,
+        1.5766612694937252
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        275.73630881399356
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.108",
+      "location_m": [
+        -88.73721317016444,
+        43.41149826433454,
+        16.41067964275174
+      ],
+      "scale": [
+        1.4509591223618914,
+        1.4509591223618914,
+        1.4509591223618914
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        46.81458536248945
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.109",
+      "location_m": [
+        -45.23912543365211,
+        57.577084847544086,
+        16.913308929278905
+      ],
+      "scale": [
+        0.9867179643474223,
+        0.9867179643474223,
+        0.9867179643474223
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        221.81184704057333
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.110",
+      "location_m": [
+        71.98621633468343,
+        47.89439963292807,
+        16.57349052320702
+      ],
+      "scale": [
+        1.8656488149372592,
+        1.8656488149372592,
+        1.8656488149372592
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        323.3348565677237
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.111",
+      "location_m": [
+        -32.30533165199732,
+        37.56173132526246,
+        16.193627841079497
+      ],
+      "scale": [
+        1.286210271619154,
+        1.286210271619154,
+        1.286210271619154
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        92.25209103336414
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.112",
+      "location_m": [
+        75.33717500216484,
+        -26.33444176227998,
+        13.67529087003132
+      ],
+      "scale": [
+        1.3953804826662748,
+        1.3953804826662748,
+        1.3953804826662748
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        298.823894633551
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.113",
+      "location_m": [
+        -52.02540721610518,
+        189.41683617161118,
+        19.197358673210644
+      ],
+      "scale": [
+        0.7515940990599064,
+        0.7515940990599064,
+        0.7515940990599064
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        106.36448118824134
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.114",
+      "location_m": [
+        96.87741469610906,
+        178.68670017536692,
+        19.17775974582625
+      ],
+      "scale": [
+        1.5109215500981332,
+        1.5109215500981332,
+        1.5109215500981332
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        148.09303464232994
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.115",
+      "location_m": [
+        63.79666079247522,
+        116.95964893075814,
+        18.52312177166411
+      ],
+      "scale": [
+        1.4937430708240018,
+        1.4937430708240018,
+        1.4937430708240018
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        18.427941855127106
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.116",
+      "location_m": [
+        56.93484501680652,
+        54.23655343009003,
+        16.798012826255302
+      ],
+      "scale": [
+        0.9287265071519148,
+        0.9287265071519148,
+        0.9287265071519148
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        355.4754832443416
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.117",
+      "location_m": [
+        -52.96621324426085,
+        -87.74961140147371,
+        11.595301633353447
+      ],
+      "scale": [
+        1.9934542794014454,
+        1.9934542794014454,
+        1.9934542794014454
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        314.45024613323295
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.118",
+      "location_m": [
+        89.3242603904564,
+        190.4422699135131,
+        19.198088935121117
+      ],
+      "scale": [
+        1.9722276483541221,
+        1.9722276483541221,
+        1.9722276483541221
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        107.23989555497609
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.119",
+      "location_m": [
+        -49.42151588531634,
+        42.94406483701067,
+        16.393520675303296
+      ],
+      "scale": [
+        1.51912637593,
+        1.51912637593,
+        1.51912637593
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        270.30990511689026
+      ]
+    },
+    {
+      "asset": "sand_rocks_small_01",
+      "name": "sand_rocks_small_01.120",
+      "location_m": [
+        90.29429527583198,
+        -25.35548778547654,
+        13.713337097389902
+      ],
+      "scale": [
+        1.8497843068939552,
+        1.8497843068939552,
+        1.8497843068939552
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        26.98767408592118
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.001",
+      "location_m": [
+        41.0,
+        -125,
+        10.852496721082288
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.001",
+      "location_m": [
+        37.0,
+        -122,
+        10.852496721082288
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.002",
+      "location_m": [
+        42.8761390986149,
+        -112,
+        11.095189171289704
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.002",
+      "location_m": [
+        38.8761390986149,
+        -109,
+        11.095189171289704
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.003",
+      "location_m": [
+        44.66984407753613,
+        -99,
+        11.386001055575221
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.003",
+      "location_m": [
+        40.66984407753613,
+        -96,
+        11.386001055575221
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.004",
+      "location_m": [
+        46.302302821480424,
+        -86,
+        11.723313627970219
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.004",
+      "location_m": [
+        42.302302821480424,
+        -83,
+        11.723313627970219
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.005",
+      "location_m": [
+        47.70178807973773,
+        -73,
+        12.104183194348465
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.005",
+      "location_m": [
+        43.70178807973773,
+        -70,
+        12.104183194348465
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.006",
+      "location_m": [
+        48.80680903034615,
+        -60,
+        12.524424987359303
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.006",
+      "location_m": [
+        44.80680903034615,
+        -57,
+        12.524424987359303
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.007",
+      "location_m": [
+        49.56881307431464,
+        -47,
+        12.97873240336838
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.007",
+      "location_m": [
+        45.56881307431464,
+        -44,
+        12.97873240336838
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.008",
+      "location_m": [
+        49.95431914799823,
+        -34,
+        13.460828203977321
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.008",
+      "location_m": [
+        45.95431914799823,
+        -31,
+        13.460828203977321
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.009",
+      "location_m": [
+        49.94638881978268,
+        -21,
+        13.963643373924326
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.009",
+      "location_m": [
+        45.94638881978268,
+        -18,
+        13.963643373924326
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.010",
+      "location_m": [
+        49.54537053378168,
+        -8,
+        14.479518539151886
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.010",
+      "location_m": [
+        45.54537053378168,
+        -5,
+        14.479518539151886
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.011",
+      "location_m": [
+        48.76888429983987,
+        5,
+        15.000422206019131
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.011",
+      "location_m": [
+        44.76888429983987,
+        8,
+        15.000422206019131
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.012",
+      "location_m": [
+        47.651047502535235,
+        18,
+        15.518179603349868
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.012",
+      "location_m": [
+        43.651047502535235,
+        21,
+        15.518179603349868
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.013",
+      "location_m": [
+        46.24097584571673,
+        31,
+        16.02470560689992
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.013",
+      "location_m": [
+        42.24097584571673,
+        34,
+        16.02470560689992
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.014",
+      "location_m": [
+        44.60062529833178,
+        44,
+        16.512235109506637
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.014",
+      "location_m": [
+        40.60062529833178,
+        47,
+        16.512235109506637
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.015",
+      "location_m": [
+        42.802069862495934,
+        57,
+        16.973544272963778
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.015",
+      "location_m": [
+        38.802069862495934,
+        60,
+        16.973544272963778
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.016",
+      "location_m": [
+        40.92433477369566,
+        70,
+        17.402156357472915
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.016",
+      "location_m": [
+        36.92433477369566,
+        73,
+        17.402156357472915
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.017",
+      "location_m": [
+        39.049924276513586,
+        83,
+        17.792526263954784
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.017",
+      "location_m": [
+        35.049924276513586,
+        86,
+        17.792526263954784
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.018",
+      "location_m": [
+        37.26119653905879,
+        96,
+        18.140198531040454
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "Rail",
+      "name": "Rail.018",
+      "location_m": [
+        33.26119653905879,
+        99,
+        18.140198531040454
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        90
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.001",
+      "location_m": [
+        -73.0,
+        18.0,
+        16
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.002",
+      "location_m": [
+        -71.0,
+        18.0,
+        16
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.003",
+      "location_m": [
+        -69.0,
+        18.0,
+        16
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.004",
+      "location_m": [
+        -73.0,
+        19.5,
+        16
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.005",
+      "location_m": [
+        -71.0,
+        19.5,
+        16
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.006",
+      "location_m": [
+        -69.0,
+        19.5,
+        16
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.007",
+      "location_m": [
+        -73.0,
+        21.0,
+        16
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.008",
+      "location_m": [
+        68.0,
+        -58,
+        12.592247907194714
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.009",
+      "location_m": [
+        69.6,
+        -57,
+        12.626455727036221
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.010",
+      "location_m": [
+        68.0,
+        -56,
+        12.660857479128628
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.011",
+      "location_m": [
+        69.6,
+        -55,
+        12.695450391614862
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.012",
+      "location_m": [
+        68.0,
+        -54,
+        12.730231660332207
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.019",
+      "location_m": [
+        80,
+        77,
+        18
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.013",
+      "location_m": [
+        117.0,
+        86.0,
+        18
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.020",
+      "location_m": [
+        90,
+        77,
+        18
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.014",
+      "location_m": [
+        118.7,
+        86.0,
+        18
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.021",
+      "location_m": [
+        100,
+        77,
+        18
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.015",
+      "location_m": [
+        117.0,
+        87.3,
+        18
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.022",
+      "location_m": [
+        110,
+        77,
+        18
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.016",
+      "location_m": [
+        118.7,
+        87.3,
+        18
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "GreenLamp",
+      "name": "GreenLamp.023",
+      "location_m": [
+        120,
+        77,
+        18
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "asset": "FieldCase",
+      "name": "FieldCase.017",
+      "location_m": [
+        117.0,
+        88.6,
+        18
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "rotation_xyz_degrees": [
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "cameras": [
+    {
+      "name": "ReferenceApproach",
+      "location_m": [
+        76,
+        -118,
+        23
+      ],
+      "target_m": [
+        -11,
+        75,
+        36
+      ],
+      "lens_mm": 27
+    },
+    {
+      "name": "CaveReverse",
+      "location_m": [
+        70,
+        85,
+        25
+      ],
+      "target_m": [
+        -50,
+        38,
+        37
+      ],
+      "lens_mm": 28
+    },
+    {
+      "name": "HangarInterior",
+      "location_m": [
+        -53,
+        55,
+        23
+      ],
+      "target_m": [
+        -53,
+        8,
+        26
+      ],
+      "lens_mm": 25
+    }
+  ],
+  "spawn_m": [
+    45,
+    -110,
+    20
+  ],
+  "hangar_collision_boxes": [
+    {
+      "center_m": [
+        -53,
+        55.5,
+        35
+      ],
+      "size_m": [
+        36,
+        1,
+        38
+      ]
+    },
+    {
+      "center_m": [
+        -70.5,
+        45,
+        35
+      ],
+      "size_m": [
+        1,
+        22,
+        38
+      ]
+    },
+    {
+      "center_m": [
+        -35.5,
+        45,
+        35
+      ],
+      "size_m": [
+        1,
+        22,
+        38
+      ]
+    },
+    {
+      "center_m": [
+        -53,
+        45,
+        54
+      ],
+      "size_m": [
+        36,
+        22,
+        1.2
+      ]
+    }
+  ],
+  "route_collision_boxes": [
+    {
+      "center_m": [
+        3,
+        -1,
+        15
+      ],
+      "size_m": [
+        72,
+        8,
+        0.6
+      ]
+    },
+    {
+      "center_m": [
+        99,
+        83,
+        17.7
+      ],
+      "size_m": [
+        52,
+        16,
+        0.6
+      ]
+    }
+  ]
+}

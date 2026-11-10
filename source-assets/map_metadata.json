@@ -1,0 +1,48 @@
+{
+  "markers": {
+    "spawn": [
+      0,
+      -38,
+      -0.19110296112385236
+    ],
+    "boss_encounter": [
+      0,
+      -13,
+      -0.7078068926030304
+    ],
+    "cave_entry": [
+      0,
+      16,
+      0
+    ],
+    "cave_chamber": [
+      2,
+      43,
+      0
+    ],
+    "cave_exit_north": [
+      0,
+      73,
+      0
+    ],
+    "cave_exit_east": [
+      77,
+      44,
+      0
+    ],
+    "west_overlook": [
+      -48,
+      3,
+      8.040344161008553
+    ]
+  },
+  "mech_height_m": 6.597149923443794,
+  "map_extent_m": 160,
+  "cave_clearance_m": {
+    "main_width": 15,
+    "main_roof": 12,
+    "branch_width": 14,
+    "branch_roof": 12
+  },
+  "stage": "art prototype; engine validation pending"
+}
