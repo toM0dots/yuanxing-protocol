@@ -1,5 +1,5 @@
 {
-  "release": "20261110-contact94",
+  "release": "20261110-quiet95",
   "files": [
     {
       "path": ".nojekyll",
@@ -2953,8 +2953,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4656,
-      "sha256": "6fa47b46622a92b9693eec1ad8071fadfdc6082e2c472c055158254339e2028e"
+      "bytes": 4786,
+      "sha256": "1532fbe12df536cfdce7ce6865951c488f1d135deb17f6e2b5fd20867ebee456"
     },
     {
       "path": "journey.js",
@@ -3015,6 +3015,16 @@
       "path": "exo-contact.js",
       "bytes": 3355,
       "sha256": "04773e9d34f25031101f761d76aa4f0000c8b927e13cdc09038268547386b0d7"
+    },
+    {
+      "path": "exo-hud-quiet.css",
+      "bytes": 4196,
+      "sha256": "721ce4791e5b6d2189fdc9a63ed1006ac22e24b574b605cc776f2700008180e2"
+    },
+    {
+      "path": "exo-hud-quiet.js",
+      "bytes": 2839,
+      "sha256": "e41d6b8de75f041907a423720240a19ec2b5f4209a9eba2d7abad1ae524e516f"
     }
   ]
 }

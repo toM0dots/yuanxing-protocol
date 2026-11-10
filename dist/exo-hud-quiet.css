@@ -1,0 +1,42 @@
+/* Quiet HUD (v95). Text sits directly on the scene instead of inside boxes.
+   Each block shows in full when its content changes, then settles: the
+   objective and floor status shrink to one dim line, messages fade out, and
+   the key hints leave once the player is moving. Hover, focus or H brings
+   everything back. Classes are set by exo-hud-quiet.js. */
+body.q-on{--q-shadow:0 1px 2px rgba(0,0,0,.92),0 0 3px rgba(0,0,0,.75),0 0 16px rgba(0,0,0,.6);}
+
+/* Objective and site investigation ------------------------------------ */
+body.q-on .hud-stack .campaign-hud{background:none!important;border:0!important;box-shadow:none!important;padding:3px 0 3px 13px!important;position:relative;transition:opacity .9s ease,transform .9s ease;}
+body.q-on .hud-stack .campaign-hud::before{content:'';position:absolute;left:0;top:5px;bottom:5px;width:2px;border-radius:1px;background:linear-gradient(rgba(214,184,124,.9),rgba(214,184,124,0));}
+body.q-on .hud-stack .campaign-hud::after{display:none!important;}
+body.q-on .hud-stack .campaign-hud>*{text-shadow:var(--q-shadow);}
+body.q-on .hud-stack .campaign-hud small{display:block;overflow:hidden;max-height:5em;transition:max-height .8s ease,opacity .8s ease,margin .8s ease;}
+body.q-on .hud-stack .campaign-hud.q-settled{opacity:.6;}
+body.q-on .hud-stack .campaign-hud.q-settled small{max-height:0;opacity:0;margin:0!important;}
+body.q-on.q-moving .hud-stack .campaign-hud.q-settled{opacity:.38;}
+
+/* Floor status inside buildings ---------------------------------------- */
+body.q-on .hud-facility{background:none!important;border:0!important;box-shadow:none!important;padding:1px 0 1px 13px!important;border-left:1px solid rgba(160,196,186,.38)!important;text-shadow:var(--q-shadow);overflow:hidden;max-height:6em;transition:max-height .8s ease,opacity .8s ease;}
+body.q-on .hud-facility.q-settled{max-height:1.6em;opacity:.5;}
+body.q-on.q-moving .hud-facility.q-settled{opacity:.32;}
+
+/* Bottom notice: a subtitle that fades in and out ----------------------- */
+body.q-on .hud-notice{background:radial-gradient(ellipse at center,rgba(0,0,0,.34),rgba(0,0,0,0) 72%)!important;border:0!important;box-shadow:none!important;padding:8px 22px!important;color:#e9efe7!important;font-size:15px!important;letter-spacing:.02em;line-height:1.55;text-shadow:var(--q-shadow);transition:opacity .9s ease!important;}
+
+/* AEGIS messages and field discoveries: lighter, then gone -------------- */
+body.q-on .exp-transmission,body.q-on .field-observation{background:linear-gradient(90deg,rgba(5,11,13,.6),rgba(5,11,13,.2) 68%,rgba(5,11,13,0))!important;border:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;text-shadow:var(--q-shadow);transition:opacity 1.1s ease,transform 1.1s ease;}
+body.q-on .exp-transmission::before,body.q-on .exp-transmission::after,body.q-on .field-observation::before,body.q-on .field-observation::after{display:none!important;}
+body.q-on .exp-transmission.q-settled,body.q-on .field-observation.q-settled{opacity:0;transform:translateY(8px);pointer-events:none;}
+
+/* Key hints: frameless, and gone once the player knows them -------------- */
+body.q-on .hud-keyboard{background:none!important;border:0!important;box-shadow:none!important;text-shadow:var(--q-shadow);transition:opacity 1.4s ease;}
+body.q-on .hud-keyboard kbd{box-shadow:none;background:rgba(0,0,0,.35);}
+body.q-on.q-learned .hud-keyboard{opacity:0;pointer-events:none;}
+body.q-on.q-learned.q-idle .hud-keyboard{opacity:.55;}
+
+/* Anything the player reaches for comes back in full. */
+body.q-on .q-settled:hover,body.q-on .q-settled:focus-within{opacity:1!important;transform:none!important;pointer-events:auto!important;}
+body.q-on .campaign-hud.q-settled:hover small,body.q-on .campaign-hud.q-settled:focus-visible small{max-height:5em!important;opacity:1!important;}
+body.q-on .hud-facility.q-settled:hover{max-height:6em!important;}
+
+@media (prefers-reduced-motion:reduce){body.q-on .hud-stack .campaign-hud,body.q-on .hud-stack .campaign-hud small,body.q-on .hud-facility,body.q-on .hud-notice,body.q-on .exp-transmission,body.q-on .field-observation,body.q-on .hud-keyboard{transition:none!important;}}
