@@ -10,7 +10,7 @@ const ExoFacilities=(()=>{
   lift:{name:'地下升降枢纽',color:0x69e1bd,rooms:['升降中庭','设备仓库','检修闸厅','牵引配电室','巨型绞盘厅','维修工坊','运行档案室','备用电池库','安全配电室','救援站','运输控制室','枢纽核心','封存维修舱'],logs:['运输网络不仅通向天然洞网，还连接三层大型维修与控制设施。','紧急撤离程序保留在核心控制器中。完成维护后，可从任意一层撤回地表。']}
  };
  const roomStories=globalThis.ExoRoomStoryData||(typeof require==='function'?require('./exo-room-story-data.js'):null);
- const layouts=new Map(),records={};let active=null,dirty=false,savedAt=0;
+ const layouts=new Map(),records={},dressing=new Map();let active=null,dirty=false,savedAt=0;
  try{const raw=JSON.parse(localStorage.getItem('exo-facilities-v1')||'{}');for(const [id,s] of Object.entries(raw)){if(!/^(camp-\d-\d|lift-\d|k09-hero-hangar)$/.test(id)||!s||typeof s!=='object')continue;records[id]={visited:Array.isArray(s.visited)?s.visited.filter(Number.isInteger).filter(v=>v>=0&&v<39):[],relays:Array.isArray(s.relays)?s.relays.filter(Number.isInteger).filter(v=>v>=0&&v<6):[],caches:Array.isArray(s.caches)?s.caches.filter(Number.isInteger).filter(v=>v>=0&&v<12):[],logs:Array.isArray(s.logs)?s.logs.filter(Number.isInteger).filter(v=>v>=0&&v<6):[],cleared:Array.isArray(s.cleared)?s.cleared.filter(Number.isInteger).filter(v=>v>=0&&v<60):[],vault:!!s.vault,seconds:Math.max(0,Math.min(360000,+s.seconds||0))};}}catch{}
  const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y),rectDistance=(r,x,y)=>Math.min(r.w/2-Math.abs(x-r.x),r.d/2-Math.abs(y-r.y));
  function progress(s){return records[s.id]||(records[s.id]={visited:[],relays:[],caches:[],logs:[],cleared:[],vault:false,seconds:0});}
@@ -151,8 +151,11 @@ const ExoFacilities=(()=>{
  function roomAt(u){return active?.deck.rooms.find(r=>rectDistance(r,u.x,u.y)>0)||null;}
  function inside(x,y,margin=0){return !!active&&active.deck.rects.some(r=>rectDistance(r,x,y)>margin);}
  function distance(x,y){return active?Math.max(...active.deck.rects.map(r=>rectDistance(r,x,y))):-Infinity;}
- function solid(x,y,z=65,margin=0){if(!active)return false;if(!inside(x,y,margin)||z>active.deck.ceiling-margin)return true;return active.deck.props.some(r=>z<r.h+margin&&Math.abs(x-r.x)<r.w/2+margin&&Math.abs(y-r.y)<r.d/2+margin);}
- function collide(u,previous){if(!active)return;if(!inside(u.x,u.y,35)){if(previous&&inside(previous.x,previous.y,35)){u.x=previous.x;u.y=previous.y;}else{const p=active.deck.rects.map(r=>({x:Math.max(r.x-r.w/2+36,Math.min(r.x+r.w/2-36,u.x)),y:Math.max(r.y-r.d/2+36,Math.min(r.y+r.d/2-36,u.y))})).sort((a,b)=>dist(a,u)-dist(b,u))[0];u.x=p.x;u.y=p.y;}u.vx=u.vy=0;}for(const p of active.deck.props){const dx=u.x-p.x,dy=u.y-p.y,hx=p.w/2+28,hy=p.d/2+28;if(Math.abs(dx)<hx&&Math.abs(dy)<hy){if(hx-Math.abs(dx)<hy-Math.abs(dy))u.x=p.x+Math.sign(dx||1)*hx;else u.y=p.y+Math.sign(dy||1)*hy;u.vx=u.vy=0;}}}
+ function solid(x,y,z=65,margin=0){if(!active)return false;if(!inside(x,y,margin)||z>active.deck.ceiling-margin)return true;return solids().some(r=>z<r.h+margin&&Math.abs(x-r.x)<r.w/2+margin&&Math.abs(y-r.y)<r.d/2+margin);}
+ function collide(u,previous){if(!active)return;const contact=typeof ExoContact!=='undefined';if(!inside(u.x,u.y,35)&&!(contact&&ExoContact.wall(u,previous,(x,y)=>inside(x,y,35),{material:'metal'})>=0)){if(previous&&inside(previous.x,previous.y,35)){u.x=previous.x;u.y=previous.y;}else{const p=active.deck.rects.map(r=>({x:Math.max(r.x-r.w/2+36,Math.min(r.x+r.w/2-36,u.x)),y:Math.max(r.y-r.d/2+36,Math.min(r.y+r.d/2-36,u.y))})).sort((a,b)=>dist(a,u)-dist(b,u))[0];u.x=p.x;u.y=p.y;}u.vx=u.vy=0;}for(const p of solids()){if(contact){ExoContact.box(u,p,28,{material:p.material||'metal'});continue;}const dx=u.x-p.x,dy=u.y-p.y,hx=p.w/2+28,hy=p.d/2+28;if(Math.abs(dx)<hx&&Math.abs(dy)<hy){if(hx-Math.abs(dx)<hy-Math.abs(dy))u.x=p.x+Math.sign(dx||1)*hx;else u.y=p.y+Math.sign(dy||1)*hy;u.vx=u.vy=0;}}}
+ // Hand-dressed furniture registers its footprints here so it is solid too.
+ function solids(){const extra=active&&dressing.get(active.id);return extra?active.deck.props.concat(extra):active.deck.props;}
+ function setDressing(id,boxes){if(boxes?.length)dressing.set(id,boxes);else dressing.delete(id);}
  function near(u){if(!active)return null;return active.deck.nodes.filter(n=>dist(n,u)<155).sort((a,b)=>dist(a,u)-dist(b,u))[0]||null;}
  function done(n){const p=progress(active.structure);return n.kind==='relay'?p.relays.includes(n.index):n.kind==='cache'?p.caches.includes(n.index):n.kind==='log'?p.logs.includes(n.index):n.kind==='vault'?p.vault:false;}
  function powered(level=active?.level){const p=progress(active.structure);return p.relays.includes(level*2)&&p.relays.includes(level*2+1);}
@@ -169,6 +172,6 @@ const ExoFacilities=(()=>{
   if(n.kind==='vault'){if(p.relays.length<6)return {message:'核心还没有解锁。需要接通三层的全部 6 处电源。'};p.vault=true;b.scrap+=18;dirty=true;save();return {message:'核心已带回，获得 18 份合金。可以继续找物资，或打开地图返回地表。',complete:true,event:'vault'};}
   return {message:objective()};
  }
- return {themes,label,layout,enter,leave,progress,save,inside,distance,solid,collide,near,done,powered,objective,tick,battle,interact,roomAt,get active(){return active}};
+ return {themes,label,layout,enter,leave,progress,save,inside,distance,solid,collide,setDressing,near,done,powered,objective,tick,battle,interact,roomAt,get active(){return active}};
 })();
 if(typeof module!=='undefined')module.exports=ExoFacilities;

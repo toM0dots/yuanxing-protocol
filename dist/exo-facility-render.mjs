@@ -5,7 +5,7 @@ import {createInteriorMaterials,createInstrumentAtlas,createInteriorBuilder,PALE
 import {drawProgramProp} from './exo-program-props.mjs?v=20261106-sites82';
 import {dressProgramRoom,evidenceHardware} from './exo-program-architecture.mjs?v=20261106-sites82';
 import {drawRoomStory} from './exo-room-story-art.mjs?v=20261106-lived85';
-import {dressRooms} from './exo-interior-dressing.mjs?v=20261110-props93d';
+import {dressRooms} from './exo-interior-dressing.mjs?v=20261110-contact94c';
 
 // Detailed maintenance architecture shares the original physical deck. The
 // central circulation lane and every interaction point remain unchanged.
@@ -136,10 +136,10 @@ function terminal(b,n,theme,program){if(n.kind==='log'){evidenceHardware(b,n,pro
 }
 
 export function createFacilityLayer(scene,{labels=true,exclude=()=>false,maps={},props=null}={}){
- let key=null,group=null,plates=null,lightingAnchor=null;const nodes=new Map(),rooms=[],fixtures=[],materials=createInteriorMaterials(maps),atlas=createInstrumentAtlas(),floorMat=materials[5].clone(),roofMat=new T.MeshStandardMaterial({name:'Dark service ceiling',color:0x343b38,roughness:.94,metalness:.12,side:T.DoubleSide});
+ let key=null,group=null,plates=null,lightingAnchor=null,dressed=null;const nodes=new Map(),rooms=[],fixtures=[],materials=createInteriorMaterials(maps),atlas=createInstrumentAtlas(),floorMat=materials[5].clone(),roofMat=new T.MeshStandardMaterial({name:'Dark service ceiling',color:0x343b38,roughness:.94,metalness:.12,side:T.DoubleSide});
  floorMat.onBeforeCompile=materials[5].onBeforeCompile;detailedFloor(floorMat);floorMat.color.setHex(0x7d8983);floorMat.vertexColors=false;
  const lightPool=Array.from({length:4},(_,i)=>{const l=new T.SpotLight(i===0?0xffe6be:0xd9e2d5,150000,1250,1.15,.72,2);l.visible=false;l.castShadow=i===0;l.shadow.mapSize.set(512,512);l.shadow.camera.near=20;l.shadow.normalBias=1.2;l.shadow.bias=-.0002;scene.add(l,l.target);return l;});
- function clear(){if(group){scene.remove(group);group.traverse(o=>{o.geometry?.dispose();if(o.userData.ownsMaterial){o.material.map?.dispose();o.material.dispose();}});group=null;}plates?.dispose();plates=null;lightingAnchor=null;nodes.clear();rooms.length=0;fixtures.length=0;for(const l of lightPool)l.visible=false;}
+ function clear(){dressed=null;if(group){scene.remove(group);group.traverse(o=>{o.geometry?.dispose();if(o.userData.ownsMaterial){o.material.map?.dispose();o.material.dispose();}});group=null;}plates?.dispose();plates=null;lightingAnchor=null;nodes.clear();rooms.length=0;fixtures.length=0;for(const l of lightPool)l.visible=false;}
  function build(active){
   const {deck,plan}=active,program=plan.program;
   floorMat.color.setHex(program?.floor||0x7d8983);roofMat.color.setHex(['archive','survey','weather','greenhouse'].includes(program?.id)?0x56635d:0x343b38);
@@ -152,13 +152,14 @@ export function createFacilityLayer(scene,{labels=true,exclude=()=>false,maps={}
   for(const r of deck.rooms){const b=builders.get(r.id);roomDetails(b,r,fixtures,program);dressProgramRoom(b,r,program,deck);const replaced=drawRoomStory(b,r,deck,active.structure.id);for(const p of deck.props.filter(p=>p.room===r.id&&!replaced.has(p)))machinery(b,p,plan.theme);const chunk=b.finish();chunk.name='Detailed room / '+r.name;chunk.userData.room=r;rooms.push(chunk);group.add(chunk);
    if(plates){const m=labelMesh(plates,r.id,[r.x,338,r.y-r.d/2+23],Math.min(r.w*.45,370));if(m)chunk.add(m);}
   }
-  dressRooms(props,active,rooms,fixtures);
+  dressed=dressRooms(props,active,rooms,fixtures);
   for(const [i,n] of deck.nodes.entries()){if(n.kind==='log')continue;const b=createInteriorBuilder(materials,atlas);terminal(b,n,plan.theme,program);const root=b.finish();root.name='Interactive equipment / '+n.name;root.userData.node=n;nodes.set(n.id,root);group.add(root);if(plates){const isPortal=['back','exit','next'].includes(n.kind),p=[n.x,isPortal?157:n.kind==='cache'?34:n.kind==='vault'?173:n.kind==='log'?102:48,n.y+(isPortal?16:n.kind==='cache'?38:n.kind==='vault'?46:n.kind==='log'?9:16)],width=isPortal?141:n.kind==='cache'?55:n.kind==='vault'?75:n.kind==='log'?62:35;const m=labelMesh(plates,deck.rooms.length+i,p,width);if(m)root.add(m);}}
   scene.add(group);
  }
  function update(u,W){
   const active=W.interior&&!exclude(W.interior)?W.interior:null,newKey=active?.id||null;if(newKey!==key){clear();key=newKey;if(active)build(active);}if(!active)return;
   for(const r of rooms){const room=r.userData.room;r.visible=Math.hypot(u.x-room.x,u.y-room.y)<2300;}
+  dressed?.update(u);
   // Select real ceiling housings. Their positions stay fixed as the player moves.
   if(!lightingAnchor||Math.hypot(u.x-lightingAnchor.x,u.y-lightingAnchor.y)>70){
    // Practical lamps in hand-dressed rooms win over ceiling housings nearby.

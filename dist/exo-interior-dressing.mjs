@@ -100,16 +100,39 @@ const DRESSING={
 };
 export function dressingFor(structureId,level,roomId){return DRESSING[structureId+':'+level+':'+roomId]||null;}
 
+// Furniture the mech cannot walk through, and small things it can knock about.
+const SOLID={cot:{w:190,d:72,h:46,material:'metal'},workbench:{w:180,d:72,h:120,material:'wood'},battery_case:{w:58,d:38,h:36,material:'metal'}};
+const LOOSE={
+ bottle:{r:5,mass:.45,sound:'ceramic',tip:1.5,lift:4.2,friction:2.2},
+ bowl:{r:9,mass:.55,sound:'ceramic',friction:3.2},
+ kettle:{r:12,mass:.9,sound:'clatter',tip:1.35,lift:9,friction:3.4},
+ boots:{r:17,mass:1,sound:'fabric',friction:4.5},
+ stool:{r:18,mass:1.3,sound:'clatter',tip:1.42,lift:16,friction:3.8},
+ toolbox:{r:24,mass:2.4,sound:'clatter',friction:5.5}
+};
+const UP=new T.Vector3(0,1,0);
+function footprint(def,yaw){const c=Math.abs(Math.cos(yaw)),s=Math.abs(Math.sin(yaw));return {w:def.w*c+def.d*s,d:def.w*s+def.d*c};}
+
 export function dressRooms(kit,active,chunks,fixtures){
- if(!kit)return [];
- const made=[];
+ const result={meshes:[],loose:[],solids:[],update(){}};
+ if(!kit)return result;
  for(const chunk of chunks){
   const r=chunk.userData.room,plan=dressingFor(active.structure.id,active.level,r.id);
   if(!plan||Math.abs(r.w-plan.size[0])>2||Math.abs(r.d-plan.size[1])>2)continue;
   const buckets=new Map(),signs=[];let signIndex=0;
   for(const [name,dx,dy,yaw,h=0] of plan.place){
    const prop=kit.props.get(name);if(!prop)continue;
-   const placement=new T.Matrix4().compose(new T.Vector3(r.x+dx,h,r.y+dy),new T.Quaternion().setFromAxisAngle(new T.Vector3(0,1,0),yaw),new T.Vector3(1,1,1));
+   const x=r.x+dx,z=r.y+dy;
+   if(SOLID[name]){const f=footprint(SOLID[name],yaw);result.solids.push({x,y:z,w:f.w,d:f.d,h:h+SOLID[name].h,material:SOLID[name].material,room:r.id,dressing:name});}
+   if(LOOSE[name]&&h===0){
+    // A loose object keeps its own transform so it can be pushed and tipped.
+    const group=new T.Group();group.name='Loose prop / '+name;
+    for(const part of prop.parts){const m=new T.Mesh(part.geometry.clone().applyMatrix4(part.matrix),part.material);m.castShadow=true;m.receiveShadow=true;m.userData.cameraIgnore=true;group.add(m);}
+    group.position.set(x,0,z);group.rotation.y=yaw;chunk.add(group);result.meshes.push(group);
+    result.loose.push({name,def:LOOSE[name],group,room:r,x,z,vx:0,vz:0,yaw,spin:0,tilt:0,target:0,axis:new T.Vector3(1,0,0),heard:0,rest:true});
+    continue;
+   }
+   const placement=new T.Matrix4().compose(new T.Vector3(x,h,z),new T.Quaternion().setFromAxisAngle(UP,yaw),new T.Vector3(1,1,1));
    for(const part of prop.parts){
     const g=part.geometry.clone().applyMatrix4(placement.clone().multiply(part.matrix));
     if(part.material.name==='SignFace'){signs.push({g,spec:plan.signs[signIndex++]||plan.signs[0]});continue;}
@@ -125,14 +148,55 @@ export function dressRooms(kit,active,chunks,fixtures){
   }
   for(const {material,list} of buckets.values()){
    const geometry=mergeGeometries(list);list.forEach(g=>g.dispose());if(!geometry)continue;
-   const mesh=new T.Mesh(geometry,material);mesh.name='Hand-dressed props / '+r.name+' / '+material.name;mesh.castShadow=material.name!=='AmberGlow';mesh.receiveShadow=true;mesh.userData.cameraIgnore=true;chunk.add(mesh);made.push(mesh);
+   const mesh=new T.Mesh(geometry,material);mesh.name='Hand-dressed props / '+r.name+' / '+material.name;mesh.castShadow=material.name!=='AmberGlow';mesh.receiveShadow=true;mesh.userData.cameraIgnore=true;chunk.add(mesh);result.meshes.push(mesh);
   }
   for(const {g,spec} of signs){
    const map=paintSign(spec.title,spec.note,spec.seed);const m=new T.MeshStandardMaterial({name:'Painted sign / '+spec.title,map,roughness:.78,metalness:.12,color:map?0xffffff:0xb49058});
-   const mesh=new T.Mesh(g,m);mesh.name='Painted sign / '+spec.title;mesh.receiveShadow=true;mesh.userData.cameraIgnore=true;mesh.userData.ownsMaterial=true;chunk.add(mesh);made.push(mesh);
+   const mesh=new T.Mesh(g,m);mesh.name='Painted sign / '+spec.title;mesh.receiveShadow=true;mesh.userData.cameraIgnore=true;mesh.userData.ownsMaterial=true;chunk.add(mesh);result.meshes.push(mesh);
   }
   // Cool, dimmer ceiling fixtures so the practical lamps carry the room.
   for(const f of fixtures)if(f.room===r.id&&!f.practical){f.color=plan.ceiling.color;f.gain=plan.ceiling.gain;}
  }
- return made;
+ (typeof ExoFacilities!=='undefined'?ExoFacilities:null)?.setDressing?.(active.id,result.solids);
+ if(typeof location!=='undefined'&&['localhost','127.0.0.1'].includes(location.hostname)&&new URLSearchParams(location.search).has('profile'))globalThis.__exoDressing=result;
+ let clock=0;
+ const sound=(kind,strength,x,z)=>{try{(typeof ExoAmbience!=='undefined'?ExoAmbience:null)?.contact?.(kind,strength,x,z);}catch{}};
+ const yawQ=new T.Quaternion(),tiltQ=new T.Quaternion();
+ result.update=(u)=>{
+  const now=performance.now(),dt=clock?Math.min(.05,(now-clock)/1000):0;clock=now;if(!dt||!result.loose.length)return;
+  const mvx=u.vx||0,mvy=u.vy||0;
+  for(const L of result.loose){
+   const d0=L.def;
+   if(L.rest&&Math.hypot(L.x-u.x,L.z-u.y)>d0.r+260)continue;
+   // EV-04 shoves whatever is at its feet; heavier things slow it a little.
+   const dx=L.x-u.x,dz=L.z-u.y,dist=Math.hypot(dx,dz),reach=d0.r+30;
+   if(dist<reach){
+    const nx=dist?dx/dist:Math.sin(L.yaw),nz=dist?dz/dist:Math.cos(L.yaw),toward=mvx*nx+mvy*nz;
+    L.x=u.x+nx*reach;L.z=u.y+nz*reach;
+    if(toward>4){
+     const kick=toward*1.35/d0.mass;L.vx+=nx*kick+mvx*.2/d0.mass;L.vz+=nz*kick+mvy*.2/d0.mass;
+     L.spin+=(Math.random()-.5)*toward*.09/d0.mass+(mvx*nz-mvy*nx)*.004;
+     const slow=Math.min(.35,.05*d0.mass);u.vx=mvx*(1-slow);u.vy=mvy*(1-slow);
+     if(now-L.heard>200&&toward>14){L.heard=now;sound(d0.sound,Math.min(1,(toward-10)/150),L.x,L.z);}
+     if(d0.tip&&!L.target&&toward>55/d0.mass){L.target=d0.tip;L.axis.set(nz,0,-nx).normalize();setTimeout(()=>sound(d0.sound==='ceramic'?'ceramic':'clatter',.55,L.x,L.z),140);}
+    }
+    L.rest=false;
+   }
+   // Slide, spin and settle.
+   L.x+=L.vx*dt;L.z+=L.vz*dt;L.yaw+=L.spin*dt;
+   const f=Math.exp(-dt*d0.friction*(L.target?.7:1));L.vx*=f;L.vz*=f;L.spin*=Math.exp(-dt*3.2);
+   // Room walls: a dull knock and a weak rebound.
+   const rm=L.room,bx=rm.w/2-26-d0.r,bz=rm.d/2-26-d0.r;
+   for(const [key,vel,c,b] of [['x','vx',rm.x,bx],['z','vz',rm.y,bz]]){const o=L[key]-c;if(Math.abs(o)>b){L[key]=c+Math.sign(o)*b;const sp=Math.abs(L[vel]);L[vel]*=-.35;if(sp>40&&now-L.heard>150){L.heard=now;sound('metal',Math.min(.6,sp/400),L.x,L.z);}}}
+   // Furniture and other loose things.
+   for(const b of result.solids){if(b.room!==rm.id)continue;const ox=L.x-b.x,oz=L.z-b.y,hx=b.w/2+d0.r,hz=b.d/2+d0.r;if(Math.abs(ox)<hx&&Math.abs(oz)<hz){if(hx-Math.abs(ox)<hz-Math.abs(oz)){L.x=b.x+Math.sign(ox||1)*hx;L.vx*=-.3;}else{L.z=b.y+Math.sign(oz||1)*hz;L.vz*=-.3;}const sp=Math.hypot(L.vx,L.vz);if(sp>25&&now-L.heard>150){L.heard=now;sound(b.material,Math.min(.5,sp/300),L.x,L.z);}}}
+   for(const M of result.loose){if(M===L||M.room!==rm)continue;const ox=L.x-M.x,oz=L.z-M.z,dd=Math.hypot(ox,oz),min=d0.r+M.def.r;if(dd<min&&dd>.01){const push=(min-dd)/2,nx=ox/dd,nz=oz/dd;L.x+=nx*push;L.z+=nz*push;M.x-=nx*push;M.z-=nz*push;const rel=(L.vx-M.vx)*nx+(L.vz-M.vz)*nz;if(rel<0){const share=rel*.8;L.vx-=share*nx*M.def.mass/(d0.mass+M.def.mass);L.vz-=share*nz*M.def.mass/(d0.mass+M.def.mass);M.vx+=share*nx*d0.mass/(d0.mass+M.def.mass);M.vz+=share*nz*d0.mass/(d0.mass+M.def.mass);M.rest=false;if(-rel>20&&now-L.heard>150){L.heard=now;sound(d0.sound,Math.min(.6,-rel/200),L.x,L.z);}}}}
+   // Tipping over pivots near the base, then lies on its side.
+   L.tilt+=(L.target-L.tilt)*Math.min(1,dt*(L.target>L.tilt?7:3));
+   yawQ.setFromAxisAngle(UP,L.yaw);tiltQ.setFromAxisAngle(L.axis,L.tilt);L.group.quaternion.copy(tiltQ).multiply(yawQ);
+   L.group.position.set(L.x,(d0.lift||0)*Math.sin(Math.min(L.tilt,Math.PI/2))*.9,L.z);
+   if(Math.hypot(L.vx,L.vz)<.5&&Math.abs(L.spin)<.02&&Math.abs(L.target-L.tilt)<.01){L.vx=L.vz=L.spin=0;L.rest=true;}
+  }
+ };
+ return result;
 }
