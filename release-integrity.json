@@ -2718,8 +2718,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 19975,
-      "sha256": "c1d26200fb87a609bc8923849e400b17d1ae8c3606f129f1a3b64918f0fefa47"
+      "bytes": 21136,
+      "sha256": "e723b2b94794c7a5f5d98709a2396a95d63fe7457090bcbba4e0b0c6a4ba371c"
     },
     {
       "path": "exo-profile.js",
@@ -2810,6 +2810,11 @@
       "path": "exo-scene.js",
       "bytes": 11142,
       "sha256": "e0c45e628d47f4f028e439b3c77d5370c992c70decd45f998e4866e15866fd1c"
+    },
+    {
+      "path": "exo-shader-gate.mjs",
+      "bytes": 3492,
+      "sha256": "6d7adedfa727dd7b4db02a9cbc320ae840f6fb9465348e9c442672f8f4bced5f"
     },
     {
       "path": "exo-shell.css",
