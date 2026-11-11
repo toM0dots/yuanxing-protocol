@@ -1,11 +1,14 @@
 import * as T from './assets/ev01/three.module.mjs';
 import {PALETTE as C} from './exo-interior-kit.mjs?v=20261106-sites82';
-import {roomStorySlots,storyFamily} from './exo-room-stories.mjs?v=20261106-lived85';
+import {roomStorySlots,storyFamily} from './exo-room-stories.mjs?v=20261110-props1';
 
 // Native, solid scene compositions. Every mesh is packed into the room's
 // existing material batches. No point lights, text plaques or new textures.
 // Clothes, padded luggage and bent sheet metal have actual folded surfaces.
-const P={cloth:0x967559,linen:0xb5ad91,green:0x728a70,ink:0x364842,rust:0x78604d,dust:0x736f5d,clean:0x959d8b};
+const P={cloth:0x967559,linen:0xb5ad91,green:0x728a70,ink:0x364842,rust:0x78604d,dust:0x736f5d,clean:0x959d8b,
+ // Accents from the story concept renders: cobalt carriers, crimson/amber
+ // warning paint, and the mineral-teal light of beacons and receivers.
+ cobalt:0x3f5a78,crimson:0x8c3c34,hazard:0xb8954c,teal:0x5fd2bd,warm:0xe2b06a};
 export function drawStoryComposition(b,p,kind,{index=0,family='research',yaw=0,fragment=p.asset,state=p.state||''}={}){
  const height=Math.min(p.h,Math.max(p.w,p.d)*.88),scale=[p.w/100,height/100,p.d/100],origin=[p.x,0,p.y];
  const matrix=new T.Matrix4().makeRotationY(yaw),parts=[];
@@ -87,6 +90,13 @@ export function drawStoryComposition(b,p,kind,{index=0,family='research',yaw=0,f
  }
  function tray(x,y,z,empty=false){if(y<10&&!pallet&&!shelf)y=1.8;box(x,y,z,31,3,24,C.case);for(const dx of [-10,0,10])for(const dz of [-6,6]){box(x+dx,y+1.7,z+dz,7,.6,8,P.ink,8);if(!empty&&dx<0)plant(x+dx,y+2,z+dz,.6);}}
  function seal(x,y,z){box(x,y,z,4,12,.5,P.linen,8);box(x,y+1,z+.4,2,3,.2,C.amber,8);}
+ function carrier(x,y,z,s=1){
+  // A child's thermal carrier: padded ivory shell, cobalt band, lit charge lamp.
+  cushion(x,y+11*s,z,34*s,22*s,26*s,C.ivory);box(x,y+11*s,z,35*s,5*s,27*s,P.cobalt,0);
+  hose([[x-9*s,y+21*s,z],[x-6*s,y+27*s,z],[x+6*s,y+27*s,z],[x+9*s,y+21*s,z]],1.1*s,P.ink);
+  box(x+10*s,y+17*s,z+13.1*s,4*s,2.4*s,.6*s,C.amber,2);for(let i=0;i<3;i++)box(x-11*s+i*4*s,y+5*s,z+13.1*s,2*s,3*s,.4*s,P.ink,8);
+  box(x-7*s,y+17*s,z+13.2*s,8*s,5*s,.4*s,P.linen,8);
+ }
  function drum(x,y,z,r=12,len=14){cyl(x,y,z,r,len,C.case,[Math.PI/2,0,0],0);ring(x,y,z+len/2+.5,r,.9,C.steel);cyl(x,y,z+len/2+1,r*.75,.5,P.ink,[Math.PI/2,0,0],8);}
 
  // Freight conversions and heavy machines keep their load frame. Ordinary
@@ -110,6 +120,7 @@ export function drawStoryComposition(b,p,kind,{index=0,family='research',yaw=0,f
     if(state==='strata')for(let i=0;i<3;i++)box(21,49+i*4,-15,23,4,18,i===1?C.steel:P.rust,i===1?5:0);
     else drum(21,56,-14,9,9);
    }else if(state==='packing'){hardcase(-20,46,0,.9,true);cloth(17,47,7,31,37,P.cloth,21,.31);bottle(31,47,-16,.54);}
+   else if(state==='tickets'){for(let i=0;i<7;i++)box(-20+i*5.2,46+i*.12,-5+(i%2)*3,5,.5,9,P.linen,8,[0,i*.21-.5,0]);for(let i=0;i<4;i++)box(6,46+i*.6,8,10,.6,6,P.linen,8,[0,.1*i,0]);cyl(19,48,-9,3,6,P.ink);cyl(19,51.5,-9,4,1,C.case);cup(28,46,12);cloth(-24,46,16,18,20,P.cloth,9,.3);}
    else if(state==='meal'){cup(-23,46,14);box(13,47,-5,18,3,17,P.linen,8,[0,.26,0]);cyl(18,49,-10,3,4,C.case);cloth(-19,46,-6,23,27,P.green,0,.25);}
    else{for(let i=0;i<(state==='missing'?3:5);i++)box(-15+i*3,46+i*.3,-4+i*2,34, .6,29,P.linen,8,[0,i*.07-.19,0]);cup(29,46,-16);cloth(24,46,17,22,25,P.cloth,15,-.24);}
   }else if(fragment==='rack'){
@@ -139,22 +150,34 @@ export function drawStoryComposition(b,p,kind,{index=0,family='research',yaw=0,f
    desk();box(0,45,0,76,4,48,P.ink,8);plant(-25,48,-10,1.4);plant(-12,48,11,1.2);plant(-25,48,12,.85);
    pad(18,48,-2,27,32);box(18,48.6,-2,23,.5,28,P.clean,8);hose([[-40,44,-25],[-16,45,-25],[31,44,-24]],1.3,0x769c8a,0);cloth(-33,48,19,12,24,P.linen,17,.3);
   }else if(fragment==='cot'){
-   for(const x of [-18,18])for(const z of [-32,32]){line([x,5,z],[x,29,z],1.4);ring(x,5,z,3.8,1.2,C.dark,[0,Math.PI/2,0],0);}box(0,29,0,41,4,76,C.steel,5);cushion(0,34,0,38,7,72,P.linen);cloth(-7,39,7,34,54,P.green,29,-.11);cushion(0,39,-25,29,6,16,P.linen);
-  }else if(fragment==='lamp'){lamp(0,0,0,true);}
+   for(const x of [-18,18])for(const z of [-32,32]){line([x,5,z],[x,29,z],1.4);ring(x,5,z,3.8,1.2,C.dark,[0,Math.PI/2,0],0);}box(0,29,0,41,4,76,C.steel,5);cushion(0,34,0,38,7,72,P.linen);
+   if(state==='thrown'){cloth(-3,39,22,37,30,P.green,23,.28);orb(-1,40,9,18,3.4,5,P.green,8,[0,.2,0]);cushion(-4,39,-24,29,6,16,P.linen,[0,.27,0]);box(0,24,38.6,9,7,.5,P.linen,8);box(0,24,38.9,5,1,.3,P.ink,8);}
+   else{cloth(-7,39,7,34,54,P.green,29,-.11);cushion(0,39,-25,29,6,16,P.linen);}
+  }else if(fragment==='work_lamp'){
+   {for(let i=0;i<3;i++){const a=i*Math.PI*2/3;line([Math.cos(a)*15,1,Math.sin(a)*15],[0,44,0],1.2,C.dark);}line([0,40,0],[0,92,0],1.5);box(0,96,3,22,15,11,C.case,0,[.32,0,0]);box(0,95,8.6,17,10,.8,P.warm,2,[.32,0,0]);for(const dx of [-12,12])line([dx,96,0],[dx,100,3],.6);hose([[0,86,-2],[-6,46,-8],[-14,4,-16],[-28,1,-12]],.9,P.ink);}
+  }else if(fragment==='lamp'){lamp(0,0,0,true);
+  }
   else if(fragment==='battery'){hardcase(0,0,0,.7);box(1,15,0,5,1,5,C.amber,8);}
   else if(fragment==='radio'||fragment==='receiver'){
    box(0,14,0,34,28,25,C.dark);box(0,14,13,29,22,2,C.case);drum(8,14,15,4,3);for(let i=0;i<5;i++)box(-8,7+i*3,15,12,1.2,1,C.steel,5);
-   if(fragment==='receiver'){line([-12,28,-9],[-9,58,-9],.7);cyl(3,37,-6,13,3,C.ivory,[-.6,0,0],0);ring(3,38,-5,13,.8,C.steel,[-.6,0,0]);line([3,38,-3],[3,47,7],.7);}
+   if(fragment==='receiver'&&state==='listening'){
+    line([-12,28,-9],[-9,62,-9],.7);box(0,34,3,32,12,11,C.dark);box(0,34,8.7,29,9,.4,P.ink,8);
+    [3,5,7,4,6,8,5,3].forEach((h,i)=>box(-12+i*3,30+h/2,9.1,1.8,h,.5,P.teal,2));
+    for(const [dx,dy,w,hh]of [[12,30.2,2.4,.4],[12,37.8,2.4,.4],[10.9,34,.4,7.8],[13.1,34,.4,7.8]])box(dx,dy,9.1,w,hh,.4,C.steel,5);
+    orb(-6,41,-3,7,2.4,4,P.ink,8);ring(-6,41,-3,6,.7,P.ink,[0,0,0],8);
+   }else if(fragment==='receiver'){line([-12,28,-9],[-9,58,-9],.7);cyl(3,37,-6,13,3,C.ivory,[-.6,0,0],0);ring(3,38,-5,13,.8,C.steel,[-.6,0,0]);line([3,38,-3],[3,47,7],.7);}
    hose([[11,0,-8],[19,1,-10],[23,1,9]],.8,P.ink);
   }else if(fragment==='relay'){
    box(0,37,0,40,74,33,C.case);box(0,37,17,34,63,2,C.dark);for(let i=0;i<5;i++)box(0,15+i*10,18.5,28,7,2,P.ink);
    for(const [x,h,z]of [[-10,28,28],[1,20,30],[12,34,26]]){hose([[x,59,18],[x-4,43,24],[x,h,z]],1.2,P.ink);cyl(x,h,z,2.3,4,C.ivory);}
    box(0,72,0,44,3,36,C.case,0,[-.13,0,0]);seal(-14,62,20);
+   if(state==='standby')for(let i=0;i<5;i++)box(11,15+i*10,19.6,2.2,2.2,.5,i===1?C.amber:i===3?P.teal:P.ink,i===1||i===3?2:8);
   }else if(fragment==='pump'){
    cyl(0,29,0,16,48,C.case,[0,0,0],0);for(const h of [10,47])ring(0,h,0,17,1.2,C.steel,[Math.PI/2,0,0]);hose([[-28,12,0],[-27,49,-3],[0,56,-3],[26,47,0]],3,C.case,0);hose([[-27,9,8],[-14,5,23],[21,5,19],[26,13,6]],1.5,P.green,0);ring(11,29,18,7,1.2,C.case);box(17,28,19,3,6,2,C.amber);seal(17,29,21);
   }else if(fragment==='sample_cart'){
    for(const x of [-24,24])for(const z of [-17,17]){line([x,5,z],[x,42,z],1.1);ring(x,4,z,3,1,C.dark,[0,Math.PI/2,0],0);}box(0,42,0,56,3,41,C.case);box(0,18,0,51,2,35,C.dark);hardcase(-9,20,0,.65,true);
    if(state==='cores'){for(let i=0;i<3;i++)cyl(-16+i*14,48,-4,3.5,23,P.rust,[0,0,.25],0);}
+   else if(state==='triple'){cyl(4,52,-2,5.5,30,P.teal,[0,0,Math.PI/2],2);for(const x of [-6,4,14])ring(x,52,-2,6.6,1.6,C.steel,[0,Math.PI/2,0],5);for(const x of [-12,20])cyl(x,52,-2,7.5,4,C.case,[0,0,Math.PI/2],0);for(const x of [-11,-9,19,21])box(x,51,6,1.6,9,1,C.dark);seal(-17,48,9);seal(25,48,9);box(4,44.4,-2,38,2,16,C.dark);}
    else if(state!=='empty'){bottle(-16,44,-9,.7);bottle(-4,44,-8,.7);pad(16,44,2,14,19);}else pad(7,44,-4,31,23);cloth(-17,45,14,18,20,P.linen,17,-.21);
   }else if(fragment==='drill'){
    for(const x of [-27,27]){box(x,26,0,8,49,18,C.case);line([x,2,20],[x,47,0],2);}cyl(0,48,0,12,58,C.steel,[0,0,Math.PI/2]);for(const x of [-24,-10,3,16,26])ring(x,48,0,13,1.2,C.steel,[0,Math.PI/2,0]);box(-9,23,-15,23,15,8,C.dark);seal(-9,23,-10);
@@ -166,6 +189,51 @@ export function drawStoryComposition(b,p,kind,{index=0,family='research',yaw=0,f
    for(const x of [-10,10]){box(x,5,-13,3,7,38,C.steel,5);box(x+4,6,23,3,7,19,C.steel,5,[0,-.27,0]);}for(const z of [-27,-12,4,22])box(0,2,z,36,3,6,P.rust);box(12,7,12,3,6,9,C.steel,5,[0,.5,.12]);
   }else if(fragment==='film'){
    hardcase(0,0,0,1.2,true);drum(-6,26,-3,11,6);drum(12,11,11,9,4);cloth(-6,22,12,22,29,P.linen,16,.27);
+  }else if(fragment==='thermal'){
+   carrier(0,0,0,1);carrier(2,22,-1,.86);hose([[-17,4,8],[-18,30,6],[-14,45,0],[0,48,-6]],.7,P.cobalt);
+  }else if(fragment==='ammo_swap'){
+   // A munitions crate whose foam cradles now hold oxygen cylinders.
+   box(0,11,0,84,22,36,C.case);box(0,21.7,0,78,1,30,P.ink,8);box(0,30,-21,84,2,30,C.case,0,[-1.18,0,0]);
+   for(const dx of [-30,30]){box(dx,12,18.6,8,14,1,C.steel,5);ring(dx<0?-43:43,14,0,4,1,C.steel,[0,Math.PI/2,0]);}
+   box(-26,12,18.4,16,9,.4,P.crimson,8);for(let i=0;i<3;i++)box(4+i*6,12,18.4,2.5,12,.4,P.hazard,8,[0,0,.5]);
+   for(const dz of [-9.5,0,9.5]){if(state==='empty'){cyl(0,21.3,dz,4.2,70,P.ink,[0,0,Math.PI/2],8);}else{cyl(-2,25,dz,4,62,C.ivory,[0,0,Math.PI/2],0);cyl(31,25,dz,1.8,6,C.steel,[0,0,Math.PI/2],5);ring(-16,25,dz,4.2,.5,P.ink,[0,Math.PI/2,0],0);}}
+   mark(-36,10,18.9,'evacuation',6);
+  }else if(fragment==='guide_strip'){
+   box(0,.9,0,100,1.8,15,C.dark);for(let i=0;i<4;i++)box(-36+i*24,2,0,15,.6,6,P.teal,2);for(const dx of [-48,48])box(dx,1.2,0,2,1.4,14,C.steel,5);
+  }else if(fragment==='warm_tank'){
+   // Insulated warm-water tank, still running: amber gauge lamp, warm loop.
+   for(const [x,z]of [[-14,-14],[14,-14],[-14,14],[14,14]])line([x,0,z],[x*.8,16,z*.8],1.6,C.dark);
+   cyl(0,52,0,21,72,P.linen,[0,0,0],0);orb(0,88,0,21,9,21,C.case,0);for(const h of [24,46,70])ring(0,h,0,21.4,1,P.ink,[Math.PI/2,0,0],0);
+   cyl(0,62,21.2,6,1.6,C.ivory,[Math.PI/2,0,0],0);box(1.5,63,22.2,.6,4.5,.4,P.crimson,8,[0,0,-.7]);box(-7,46,21.4,4,3,.6,P.warm,2);
+   hose([[18,30,8],[30,28,10],[36,12,14],[40,2,24],[52,2,30]],2.4,C.case);ring(31,27,11,4.5,.9,C.steel,[0,Math.PI/2,0]);
+   hose([[-18,34,6],[-30,30,8],[-34,8,14],[-30,2,26]],1.6,P.green);line([0,97,0],[0,108,0],1.6);
+   box(-12,60,21.6,8,6,.4,P.linen,8,[0,0,.08]);
+  }else if(fragment==='book'){
+   box(0,.4,0,25,.8,17,P.green,0);box(-6,1.3,0,11.5,.9,15.5,P.linen,8,[0,0,.07]);box(6,1.3,0,11.5,.9,15.5,P.linen,8,[0,0,-.07]);
+   orb(5,2,1,3.6,.3,2,P.green,8,[0,.5,0]);line([5,2,-1],[8,2,4],.2,P.green,8);for(let i=0;i<4;i++)box(-6,1.9,-4+i*2.6,8,.2,.4,P.ink,8);line([-13,1.3,7],[-2,1.3,9],.45,C.amber,8);
+  }else if(fragment==='seedling'){
+   plant(0,0,0,1.45);box(5,4,5,4,6,.4,P.linen,8,[0,.6,.1]);
+  }else if(fragment==='region_map'){
+   // The nine-region network board, powered but dark: one standby point.
+   for(const x of [-34,34]){line([x,0,0],[x,96,0],1.6,C.dark);box(x,1.5,0,6,3,24,C.dark);}
+   box(0,64,0,84,56,3,C.dark);for(const [dy,w,h]of [[28,86,2],[-28,86,2]])box(0,64+dy,1,w,h,4,C.steel,5);
+   for(let i=0;i<9;i++){const gx=-24+(i%3)*24,gy=80-Math.floor(i/3)*16;cyl(gx,gy,1.8,3.2,.6,P.ink,[Math.PI/2,0,0],8);if(i%3<2)box(gx+12,gy,1.8,18,.6,.3,C.steel,8);if(i<6)box(gx,gy-8,1.8,.6,12,.3,C.steel,8);}
+   box(36,40,1.8,1.6,1.6,.4,C.amber,2);box(-30,44,1.9,12,9,.3,P.linen,8,[0,0,-.12]);
+  }else if(fragment==='warn_sign'){
+   // Painted face on +Z; the moment turns it so it faces the shaft side.
+   for(const x of [-26,26]){line([x,4,0],[x,96,0],1.5,C.steel,5);box(x,3,0,10,6,26,C.dark);orb(x,8,9,7,4,6,P.dust,8);}
+   box(0,74,0,60,40,2,C.case);box(0,88,1.2,58,9,.4,P.crimson,8);box(0,70,1.2,58,24,.4,P.hazard,8);
+   for(let i=0;i<7;i++)box(-21+i*7,70,1.5,3,20,.4,C.dark,8,[0,0,.6]);box(0,57,1.2,58,4,.4,P.crimson,8);
+   box(0,74,-1.3,57,38,.5,C.ivory,0);box(0,54.5,-1.2,60,2,.6,P.crimson,8);
+   // Chalked arrow on the bare back: the warning now points the other way.
+   box(-4,76,-1.7,24,2.4,.3,P.linen,8);box(9,79.5,-1.7,9,2.2,.3,P.linen,8,[0,0,-.7]);box(9,72.5,-1.7,9,2.2,.3,P.linen,8,[0,0,.7]);
+   line([-27,58,-2],[27,90,-2],.9,C.steel,5);line([-27,90,-2],[27,58,-2],.9,C.steel,5);
+   hose([[-26,58,-2],[-20,62,-5],[-12,58,-3]],.6,P.linen,8);box(10,66,-1.3,10,7,.3,P.linen,8,[0,0,.1]);
+  }else if(fragment==='beacon'){
+   // Independent battery keeping a cyan beacon lit.
+   hardcase(0,0,4,.8);line([0,14,-9],[0,96,-9],1.4,C.steel,5);box(0,6,-9,10,12,10,C.dark);
+   cyl(0,99,-9,6,6,C.dark);cyl(0,106,-9,5,9,P.teal,[0,0,0],2);cyl(0,111.5,-9,6.2,2,C.dark);for(let i=0;i<4;i++){const a=i*Math.PI/2;line([Math.cos(a)*5.6,101,-9+Math.sin(a)*5.6],[Math.cos(a)*5.6,111,-9+Math.sin(a)*5.6],.4,C.steel,5);}
+   hose([[8,10,-1],[10,16,-6],[3,30,-9]],.7,P.ink);seal(-9,8,13.6);
   }
   const pose=new T.Matrix4().makeRotationFromEuler(new T.Euler(fragment==='panel'?-Math.PI/2:0,0,fragment==='chair_fallen'?1.36:fragment==='oxygen_fallen'?Math.PI/2:0));
   const bounds=new T.Box3();for(const part of parts){part.g.applyMatrix4(pose);part.g.computeBoundingBox();bounds.union(part.g.boundingBox);}
@@ -206,7 +274,7 @@ export function drawRoomStory(b,r,deck,siteId){
   stain(contact.x,contact.y,126,63,0x4a5950,.23);
   for(const [dx,dz,w,d]of [[27,27,46,19],[55,36,27,13],[71,51,12,8]]){const q=at(dx,anchor.d*.46+dz);stain(q.x,q.y,w,d,0x586359,.34);}
  }else if(moment.trace==='cable'){
-  const power=moment.anchors.find(p=>p.asset==='battery'),light=moment.anchors.find(p=>p.asset==='lamp'||p.asset==='receiver');
+  const power=moment.anchors.find(p=>p.asset==='battery'),light=moment.anchors.find(p=>['lamp','work_lamp','receiver','beacon'].includes(p.asset));
   if(power&&light&&Math.abs(power.x-light.x)<150&&Math.hypot(power.x-light.x,power.y-light.y)<600){
    b.tube([[power.x,5,power.y],[power.x-19,2,power.y+27],[(power.x+light.x)/2-31,2,(power.y+light.y)/2],[light.x-17,2,light.y+19],[light.x,6,light.y]],2.1,P.ink);
   }

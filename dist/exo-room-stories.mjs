@@ -1,4 +1,4 @@
-import './exo-room-story-data.js?v=20261106-lived85';
+import './exo-room-story-data.js?v=20261110-props1';
 const data=globalThis.ExoRoomStoryData;
 export const ROOM_STORIES=data.stories;
 export const STORY_KINDS=data.kinds;

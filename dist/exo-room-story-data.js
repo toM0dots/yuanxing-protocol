@@ -38,7 +38,10 @@ globalThis.ExoRoomStoryData ||= (()=>{
   seed_bed:[222,148,161],seed_carrier:[72,59,26],pot_spill:[59,67,23],cot:[114,212,102],
   lamp:[38,34,108],battery:[59,49,47],radio:[99,70,71],receiver:[88,74,154],
   relay:[131,103,206],pump:[175,145,203],sample_cart:[160,106,143],drill:[198,123,177],
-  filter:[85,49,102],brake:[114,89,76],rail:[200,101,37],film:[113,90,112]
+  filter:[85,49,102],brake:[114,89,76],rail:[200,101,37],film:[113,90,112],
+  // Story props from the v1 concept renders (output/story-props-interiors-v1).
+  thermal:[50,38,66],ammo_swap:[148,80,74],guide_strip:[150,24,4],warm_tank:[118,74,146],work_lamp:[62,58,176],
+  book:[44,31,5],seedling:[26,24,30],region_map:[164,46,180],warn_sign:[118,50,172],beacon:[32,40,150]
  };
  // Furniture positions use fractions of a room half-width/depth. Subsequent
  // details are offsets from the named furniture, so a spill stays by its cup,
@@ -108,8 +111,29 @@ globalThis.ExoRoomStoryData ||= (()=>{
   radio_capped:{items:[['radio',.62,-.52,.05],['case_closed',-.61,.28,-.17]],loose:[['coil',0,-51,48,.31]],trace:'cable',damage:'opened'},
   repair_arrival:{items:[['case_open',-.63,-.54,.26],['bag_open',.61,.28,-.43]],loose:[['tools',0,51,57,.33]],trace:'shoes'},
   brake_open:{items:[['brake',-.62,-.50,-.24],['case_open',.60,.29,.37]],loose:[['tools',0,55,51,.31],['cloth',1,-48,53,-.4]],trace:'repair'},
-  recheck_finished:{items:[['bench',.58,-.54,.03,'calibration'],['case_closed',-.64,.29,-.21]],loose:[['cloth',0,-65,72,.38]],trace:'dust'}
+  recheck_finished:{items:[['bench',.58,-.54,.03,'calibration'],['case_closed',-.64,.29,-.21]],loose:[['cloth',0,-65,72,.38]],trace:'dust'},
+  // Concept-render moments. Each one stages an existing clue's record; no new
+  // discoveries. Ammunition cradles now hold oxygen; a work lamp is left on in
+  // an empty berth; cots are left thrown back by the warm-water tank; a powered
+  // relay room keeps one receiver listening; a warning sign faces the shaft.
+  ammo_swapped:{items:[['ammo_swap',-.50,-.55,.04,'oxygen'],['thermal',.56,-.50,-.14],['oxygen',.72,.24,.1]],loose:[['guide_strip',0,8,92,0],['cloth',1,-44,44,.32]],trace:'wheels',damage:'removed'},
+  thermal_load:{items:[['rack',.62,-.58,.01,'oxygen'],['thermal',-.58,-.52,.12],['ammo_swap',-.40,.34,-.08,'empty']],loose:[['guide_strip',1,-10,84,.06],['bag',1,48,30,-.34]],trace:'packing',damage:'removed'},
+  berth_lamp:{items:[['work_lamp',.60,-.55,.1],['thermal',-.60,-.52,.16],['battery',.74,-.30,.04]],loose:[['guide_strip',0,-24,104,0],['coat',1,36,48,-.4]],trace:'cable'},
+  dorm_left:{items:[['cot',-.62,-.40,.05,'thrown'],['cot',-.24,-.42,-.04,'thrown'],['bag_open',.56,.30,-.42]],loose:[['book',0,72,40,.42],['seedling',1,64,96,0]],trace:'shoes'},
+  warm_water:{items:[['warm_tank',-.62,-.55,.05,'running'],['seed_bed',.56,-.52,-.03,'missing']],loose:[['seedling',1,-34,98,0],['cup',0,66,58,0],['coil',0,74,96,-.3]],trace:'water',damage:'mineral'},
+  map_dark:{items:[['region_map',-.55,-.60,.02,'dark'],['relay',.60,-.55,-.03,'standby'],['chair_turned',-.30,-.20,.8,'bare']],loose:[['panel',1,-62,62,-.4],['cup',2,26,-34,0]],trace:'dust'},
+  listening_on:{items:[['receiver',.58,-.55,.08,'listening'],['chair_turned',.40,-.20,-.92,'coat'],['relay',-.62,-.55,.02,'standby'],['battery',.74,-.30,-.1]],loose:[['cup',0,-34,34,0],['coil',2,44,72,.3]],trace:'cable'},
+  sign_turned:{items:[['warn_sign',-.50,-.55,2.55,'turned'],['sample_cart',.58,-.48,-.2,'triple'],['beacon',.72,.24,.1]],loose:[['tools',1,62,62,.3],['guide_strip',2,-20,70,.5]],trace:'shoes'},
+  beacon_line:{items:[['beacon',-.62,-.55,.1],['battery',-.44,-.34,.2],['beacon',.63,-.52,-.05],['bench',.46,.30,.02,'tickets']],loose:[['guide_strip',0,30,80,.0],['coil',1,40,40,.3]],trace:'cable'}
  };
+ // Program-specific stagings of existing clue kinds: [program, kind, room or
+ // null for both clue rooms, moment]. A deck still gets 13 different moments.
+ const signatures=[
+  ['hangar','passenger',4,'ammo_swapped'],['hangar','conversion',4,'ammo_swapped'],['hangar','oxygen',6,'thermal_load'],['hangar','silent',6,'berth_lamp'],
+  ['greenhouse','care',null,'dorm_left'],['greenhouse','irrigation',null,'warm_water'],
+  ['relay','silent',6,'map_dark'],['relay','receivers',null,'listening_on'],
+  ['mining','locked',6,'sign_turned'],['lift','lamps',null,'beacon_line']
+ ];
  const byKind={passenger:'boarding',conversion:'boarding',belongings:'packing',handoff:'unloading',emptied:'stripped_rack',oxygen:'oxygen_priority',waiting:'short_rest',care:'care_handover',seedlings:'seedlings_taken',irrigation:'water_left',bypass:'valve_paused',locked:'isolate_power',samples:'samples_lifted',comparison:'compare_paused',calibration:'calibration_reset',strata:'cores_examined',drill:'drilling_stopped',silent:'silence_work',receivers:'two_receivers',window:'window_wait',workbench:'repair_open',brakes:'brake_test',filters:'filter_changed',lamps:'lamp_rewired',storm:'storm_repair',rail:'rail_rejected',reroute:'route_changed',film:'film_unpacked',missing:'missing_pages',sealed:'sealed_spares'};
  // The quiet rooms carry different moments from the clue rooms. Repeated
  // functions also progress from preparation through departure to maintenance.
@@ -136,6 +160,7 @@ globalThis.ExoRoomStoryData ||= (()=>{
   if(room.id===7&&id==='window_wait'&&beats.includes('window'))id='signal_backup';
   if(room.id===7&&id==='filter_changed'&&beats.includes('filters'))id='coolant_check';
   if(room.id===7&&id==='unloading'&&beats.includes('handoff'))id='transfer_wait';
+  if([4,6].includes(room.id)){const sig=signatures.find(([prog,k,rid])=>prog===program&&k===kind&&(rid===null||rid===room.id));if(sig)id=sig[3];}
   return {id,kind:kind||'workbench',family:fam,stage:level,role:room.id,instance:siteId+':'+level+':'+room.id,...moments[id]};
  }
  function segmentClear(p,a,b,margin=48){

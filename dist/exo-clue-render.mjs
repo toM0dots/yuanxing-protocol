@@ -1,6 +1,6 @@
 import * as T from './assets/ev01/three.module.mjs';
 import {createInteriorMaterials,createInteriorBuilder,PALETTE as C} from './exo-interior-kit.mjs?v=20261106-diary83';
-import {dressClueContext} from './exo-room-story-art.mjs?v=20261106-lived85';
+import {dressClueContext} from './exo-room-story-art.mjs?v=20261110-props1';
 
 // Physical storytelling props. No screen-sized lore plaques or floating icons.
 // The moving part is kept separate from the three material batches of the body.

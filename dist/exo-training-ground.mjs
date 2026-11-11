@@ -1,4 +1,4 @@
-import {drawStoryComposition} from './exo-room-story-art.mjs?v=20261106-lived85';
+import {drawStoryComposition} from './exo-room-story-art.mjs?v=20261110-props1';
 import * as T from './assets/ev01/three.module.mjs';
 import {mergeGeometries} from './assets/ev01/BufferGeometryUtils.mjs';
 import {createCampusBuilder,createCampusMaterials} from './exo-campus-materials.mjs';
