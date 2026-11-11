@@ -1,5 +1,5 @@
 {
-  "release": "20261110-wiring98",
+  "release": "20261110-props99",
   "files": [
     {
       "path": ".nojekyll",
@@ -2543,8 +2543,8 @@
     },
     {
       "path": "exo-clue-render.mjs",
-      "bytes": 8316,
-      "sha256": "91d398c53d6b1cf75ad2ef3199d55df42fbf248f77e15251e74fb644b19eb3ed"
+      "bytes": 8315,
+      "sha256": "551917d3363710927b14baaa0b040846e44bb1925b27f7f493a61d6e2be473f5"
     },
     {
       "path": "exo-combat-vfx.mjs",
@@ -2603,8 +2603,8 @@
     },
     {
       "path": "exo-facility-render.mjs",
-      "bytes": 18649,
-      "sha256": "5a9af4e6a2ac0e643ae50eac48847ac59f84dcc0ae09dfb97df25688b81d7ed5"
+      "bytes": 18648,
+      "sha256": "abb0342d6d0944936fb9f3db51b75616ac9d142054ccf376e49fd11f1ea90882"
     },
     {
       "path": "exo-facility-ui.js",
@@ -2663,8 +2663,8 @@
     },
     {
       "path": "exo-hangar-art.mjs",
-      "bytes": 15459,
-      "sha256": "176a7f0e1b2a59a3f2a762709b551ca9d415c39cb9ef50a2bcd748e4f1f10970"
+      "bytes": 15458,
+      "sha256": "ff0b08d6a245a9d2ff5a2d811e4a6cc5e9f81ac23039397bde6a2db812acde47"
     },
     {
       "path": "exo-hardware-shadows.mjs",
@@ -2718,8 +2718,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 22086,
-      "sha256": "d9712de9fe5e6f19d2b0d11db04694bc3bfa8bf413bb4afea6a3a8bc85d22fed"
+      "bytes": 22064,
+      "sha256": "7c022846af57e79ac56507a9b9f78c3f3f0d4936b091a34d09d606b58cf5dde1"
     },
     {
       "path": "exo-profile.js",
@@ -2788,18 +2788,18 @@
     },
     {
       "path": "exo-room-stories.mjs",
-      "bytes": 710,
-      "sha256": "e9504232241f9954797305e911a091802ce0cea2b97023904e16e269aba1b4de"
+      "bytes": 709,
+      "sha256": "2f7b2e6e943a89350203089f760feec7f87c5494eee3f5b2393c799fbc68269a"
     },
     {
       "path": "exo-room-story-art.mjs",
-      "bytes": 22496,
-      "sha256": "a7f54063b05858fc0953d19203d362239d3ab28c4ee4bd65302056f824b1f1ca"
+      "bytes": 29209,
+      "sha256": "45482ce33f44232f414203962295f3c90e7cd347b8cc7d1d556a62dded8a8669"
     },
     {
       "path": "exo-room-story-data.js",
-      "bytes": 21056,
-      "sha256": "3e90f05064186fda91c15f4c1f123ac3dedadf6f244cf1824a974bb375a9c09d"
+      "bytes": 24160,
+      "sha256": "12daa794ea2d44a1b855ee1656a071549f8d1e8e278184156682c950cea50d8d"
     },
     {
       "path": "exo-sandbox.js",
@@ -2863,8 +2863,8 @@
     },
     {
       "path": "exo-terrain-stream.mjs",
-      "bytes": 2151,
-      "sha256": "c11bcf5241fc1c19192d0826d785b9915bb040cadd9f18e37bdf4992a582bc97"
+      "bytes": 2144,
+      "sha256": "7112a28b9d34312afa31754cd87c33c658f9aedc47f9b134cfe8344d74958636"
     },
     {
       "path": "exo-terrain-wilds-ui.js",
@@ -2883,8 +2883,8 @@
     },
     {
       "path": "exo-terrain-worker.js",
-      "bytes": 1558,
-      "sha256": "2667b4d8528c3e91abbfbfb6e37da66f1dc99718699b4fd6111702c8bc78d776"
+      "bytes": 1557,
+      "sha256": "1141301dcfa3e3a785fe0aea9de5459db7a8f02fb671bd9336b08185cedcc828"
     },
     {
       "path": "exo-training-ground.js",
@@ -2893,8 +2893,8 @@
     },
     {
       "path": "exo-training-ground.mjs",
-      "bytes": 16891,
-      "sha256": "a1d4a15b9d9e736212e549c1722965f624770ec08dfaab455daeaf73dae23529"
+      "bytes": 16890,
+      "sha256": "54ae502e7b257b39b4af69af9ed01322eb73e03bf59b8826328a9e515a322cdf"
     },
     {
       "path": "exo-training-ui.css",
@@ -2958,8 +2958,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4976,
-      "sha256": "81d6545ab34182b81dfc02daa4b61a20c0812e5748ae246d4492c3cfcc8cd8f2"
+      "bytes": 4973,
+      "sha256": "f0e55b40bcab2fcbecc7c627e4190982504184f5a5316224929c4b0477151563"
     },
     {
       "path": "journey.js",

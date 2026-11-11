@@ -2,7 +2,7 @@ import {loadGameModel,loadGameTexture} from './exo-asset-loader.mjs?v=20261107-l
 import * as T from './assets/ev01/three.module.mjs';
 import {applyPackedPBR} from './exo-packed-materials.mjs?v=45';
 import {createInteriorMaterials,createInteriorBuilder} from './exo-interior-kit.mjs?v=20261106-sites82';
-import {drawRoomStory} from './exo-room-story-art.mjs?v=20261106-lived85';
+import {drawRoomStory} from './exo-room-story-art.mjs?v=20261110-props1';
 
 export const FLAGSHIP='camp-0-0';
 const base=new URL('./assets/hangar-v1/',import.meta.url),Y=new T.Vector3(0,1,0);
