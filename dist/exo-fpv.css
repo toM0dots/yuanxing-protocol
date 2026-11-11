@@ -1,0 +1,11 @@
+/* First-person view (Exo.toggleView / G): EV-04's visor. A soft vignette and a
+   faint canopy edge frame the scene; a small reticle marks where the mech faces. */
+#exo-field.fpv::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:1;
+ background:
+  radial-gradient(ellipse 78% 70% at 50% 52%,rgba(0,0,0,0) 62%,rgba(3,8,9,.42) 88%,rgba(2,5,6,.72) 100%),
+  linear-gradient(180deg,rgba(150,190,180,.06),rgba(0,0,0,0) 9%,rgba(0,0,0,0) 91%,rgba(150,190,180,.05));}
+#exo-field.fpv::before{content:'';position:absolute;left:50%;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;pointer-events:none;z-index:2;
+ border-radius:50%;box-shadow:0 0 0 1px rgba(214,232,222,.55),0 0 6px rgba(0,0,0,.6);
+ background:radial-gradient(circle,rgba(214,232,222,.85) 0 1.5px,transparent 2px);opacity:.75}
+.hud-tools .hud-view-toggle{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){#exo-field.fpv::after{background:radial-gradient(ellipse 80% 72% at 50% 52%,rgba(0,0,0,0) 66%,rgba(2,5,6,.55) 100%)}}

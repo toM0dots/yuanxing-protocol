@@ -1,5 +1,5 @@
 {
-  "release": "20261110-hero100",
+  "release": "20261110-fpv101",
   "files": [
     {
       "path": ".nojekyll",
@@ -2473,8 +2473,8 @@
     },
     {
       "path": "exo-3d.js",
-      "bytes": 28297,
-      "sha256": "9927f737182a5dbce22297f514d67c013098873ca02b8194fc3bc0bfc4b7fe5b"
+      "bytes": 29002,
+      "sha256": "12357add5139e40983b26550e7a905233af8db570100d0a11c9408f0aec9a777"
     },
     {
       "path": "exo-aegis-surface.mjs",
@@ -2693,8 +2693,8 @@
     },
     {
       "path": "exo-hud.js",
-      "bytes": 28772,
-      "sha256": "5cd97fc5797b64e7984bf67e6eb25e658ce5cb511a9863959daa80e53e46913a"
+      "bytes": 28928,
+      "sha256": "c391a318aaa706bd41af3b5e7c3467d19f18e57d3020b12c0e358ab9946cb480"
     },
     {
       "path": "exo-interior-kit.mjs",
@@ -2733,8 +2733,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 22052,
-      "sha256": "fd2f7fbcbd3c451c23698ad73908f2301d6ff97150fd2bd17711dedee6bbdfa8"
+      "bytes": 22083,
+      "sha256": "a45bf1971105b8db7dab86d29e6bbf917894e2b6b0df396f17fcd5618382f629"
     },
     {
       "path": "exo-profile.js",
@@ -2963,8 +2963,8 @@
     },
     {
       "path": "expedition.js",
-      "bytes": 68951,
-      "sha256": "42caa14b6ca392fd32951d5e6794eb5e1b712877114c677e9f6711133acf5745"
+      "bytes": 70019,
+      "sha256": "a6505b88334ac1f7e1048d63feef1c8352bd23dca199dbd80d3d108ce0343570"
     },
     {
       "path": "field-missions.js",
@@ -2973,8 +2973,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4972,
-      "sha256": "a4c7db0ec2bdb5338e6a7f84f4c45ab049d39d095899b1da519160454a2f0bd4"
+      "bytes": 5025,
+      "sha256": "b4a927545041fcc70fea67a00cd967edd4434206c5ca92146d0e7f9a15c7d033"
     },
     {
       "path": "journey.js",
@@ -3065,6 +3065,11 @@
       "path": "exo-lamp-wiring.js",
       "bytes": 7042,
       "sha256": "73f27d711360d93d17af697a6a13ebbc0cb72689854e60dc3035cb44707bdf84"
+    },
+    {
+      "path": "exo-fpv.css",
+      "bytes": 1013,
+      "sha256": "ae49e877f3be23fadee01d5acb81dcfd6ff9073881606da983f811fe4d02be59"
     }
   ]
 }
