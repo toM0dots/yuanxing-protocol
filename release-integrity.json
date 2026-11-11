@@ -1,5 +1,5 @@
 {
-  "release": "20261110-props99",
+  "release": "20261110-hero100",
   "files": [
     {
       "path": ".nojekyll",
@@ -230,6 +230,21 @@
       "path": "assets/echo9-hero-v7/provenance.json",
       "bytes": 1002,
       "sha256": "86978a267323d17f4bce5ad422fab1a82802c6d1449d20a0eb3830725efdee2d"
+    },
+    {
+      "path": "assets/echo9-hero-v8/Echo9_Hero_V8.glb",
+      "bytes": 2873304,
+      "sha256": "5965ea422a9682961ca3328c98357a2b8540c8c3dc03c1f33cceb95d5b668243"
+    },
+    {
+      "path": "assets/echo9-hero-v8/Echo9_Hero_V8.glb.gz",
+      "bytes": 1317384,
+      "sha256": "6adf15657f6a699d52a1bfa3dfa5b05d1d49c6486f988b88c55558c4c5043a63"
+    },
+    {
+      "path": "assets/echo9-hero-v8/provenance.json",
+      "bytes": 1111,
+      "sha256": "a70819db6ba7389c941192400d552b444bd84a5c49e98d66f3ee4551b9340a2f"
     },
     {
       "path": "assets/eurosat/LICENSE-EuroSAT.txt",
@@ -2468,8 +2483,8 @@
     },
     {
       "path": "exo-aegis.mjs",
-      "bytes": 10906,
-      "sha256": "052d4a2b65cb70c2da03d034a5226e14bbe151d1b751a151c7a2566bf0876286"
+      "bytes": 12315,
+      "sha256": "08dadee44b3cc112be09d867d3ac3c4f02182a16af21a039313fb7d0e16adb42"
     },
     {
       "path": "exo-ambience.js",
@@ -2478,23 +2493,23 @@
     },
     {
       "path": "exo-ashland.mjs",
-      "bytes": 10209,
-      "sha256": "2f347a38a8dae656d38b729e7d21d1e1ca5ce4c2f44113b4221e9e368af073f4"
+      "bytes": 10205,
+      "sha256": "d6a22a05c851006816568854bc601487a529cdc99eb58ccdfc8dfa2f53dcaf5a"
     },
     {
       "path": "exo-asset-loader.mjs",
-      "bytes": 3219,
-      "sha256": "dcdfbfa187483c0a839cb5ecf62f478e185a9092e0649fb246eae8176c7365f6"
+      "bytes": 3215,
+      "sha256": "bdba379eced60b5f958ee8c60a3867e74c596133202d11d0e82a9de28a4cd587"
     },
     {
       "path": "exo-asset-manifest.mjs",
       "bytes": 3022,
-      "sha256": "68458c2d6d6e5e8c82895b8a28dd498ba7998f7bdacb824609bfc553bf5a3cd3"
+      "sha256": "6ba3bb17ba875e97a56ef80b121c08fbee269f3c28a0bf4b689e16de24d383dd"
     },
     {
       "path": "exo-biome-textures.mjs",
-      "bytes": 2804,
-      "sha256": "630f4a5606bc327e304d90618a0441747c5795aa59098e8f9cbd7316dc374efa"
+      "bytes": 2800,
+      "sha256": "3d47781120c139a43951ccebf43b34800875a30fdbeea78dd9972651c154d9ad"
     },
     {
       "path": "exo-biomes.mjs",
@@ -2528,8 +2543,8 @@
     },
     {
       "path": "exo-canyon-render.mjs",
-      "bytes": 6251,
-      "sha256": "022cc164039f82c9c27325d66409c582ed610fe0380fd6655a9485941448ef83"
+      "bytes": 6247,
+      "sha256": "a457646a037e5d2984580a9f3387c007de2376d6f211b7f6c6b1f9a053e6e1f2"
     },
     {
       "path": "exo-canyon-v2.js",
@@ -2663,8 +2678,8 @@
     },
     {
       "path": "exo-hangar-art.mjs",
-      "bytes": 15458,
-      "sha256": "ff0b08d6a245a9d2ff5a2d811e4a6cc5e9f81ac23039397bde6a2db812acde47"
+      "bytes": 15454,
+      "sha256": "a6644f6807f89b3a3a82cec8e1f978b3ab7cee3a29c44970e1febe4a4a1c06f2"
     },
     {
       "path": "exo-hardware-shadows.mjs",
@@ -2688,8 +2703,8 @@
     },
     {
       "path": "exo-k09-hero.mjs",
-      "bytes": 3558,
-      "sha256": "6c4f1da5691a1a8e5857155251c0a8960e4bf85525927f5676d3dc19fb2401fb"
+      "bytes": 3554,
+      "sha256": "b9110604fc73aeffd68d0e01932ed2c29734ca1a57609726eab6701854eb3324"
     },
     {
       "path": "exo-lore.js",
@@ -2718,8 +2733,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 22064,
-      "sha256": "7c022846af57e79ac56507a9b9f78c3f3f0d4936b091a34d09d606b58cf5dde1"
+      "bytes": 22052,
+      "sha256": "fd2f7fbcbd3c451c23698ad73908f2301d6ff97150fd2bd17711dedee6bbdfa8"
     },
     {
       "path": "exo-profile.js",
@@ -2958,8 +2973,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4973,
-      "sha256": "f0e55b40bcab2fcbecc7c627e4190982504184f5a5316224929c4b0477151563"
+      "bytes": 4972,
+      "sha256": "a4c7db0ec2bdb5338e6a7f84f4c45ab049d39d095899b1da519160454a2f0bd4"
     },
     {
       "path": "journey.js",
@@ -3013,8 +3028,8 @@
     },
     {
       "path": "exo-interior-dressing.mjs",
-      "bytes": 14197,
-      "sha256": "6016d7d6a3a94df360d842bf6845597cc69d7a13eae7d78a370e37b6f103b152"
+      "bytes": 14193,
+      "sha256": "ac6be890d8b52224d4bb50b9e80e97350e536e1760a89c23de7ba14bfc5a34a3"
     },
     {
       "path": "exo-contact.js",

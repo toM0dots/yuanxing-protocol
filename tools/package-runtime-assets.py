@@ -3,7 +3,7 @@ from pathlib import Path
 import gzip,hashlib,json,shutil,subprocess
 
 root=Path(__file__).resolve().parents[1]/'dist'
-models=['echo9-hero-v7/Echo9_Hero_V7.glb','canyon-v2/canyon-equipment-v87.glb','k09-hero-v1/k09-hangar-field.glb','hangar-v1/helios-kit.glb','wreck-v1/echo9-orbital-wreck.glb','interior-props-v1/interior-props.glb']
+models=['echo9-hero-v8/Echo9_Hero_V8.glb','canyon-v2/canyon-equipment-v87.glb','k09-hero-v1/k09-hangar-field.glb','hangar-v1/helios-kit.glb','wreck-v1/echo9-orbital-wreck.glb','interior-props-v1/interior-props.glb']
 images=['canyon-v2/rock-diff-height.png','canyon-v2/trail-diff-height.png','hangar-v1/metal-normal-rough.png','hangar-v1/panel-normal-rough.png','ashland-v1/ash-normal-rough.png','vegetation-v88/foliage-atlas.png']
 records={}
 for name in models+images:

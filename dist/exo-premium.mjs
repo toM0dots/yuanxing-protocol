@@ -1,6 +1,6 @@
 import {createRoadsideEncounter} from './exo-roadside-encounter.mjs?v=20261108-inspection92b';
 import {installShaderGate,steadyLights} from './exo-shader-gate.mjs?v=20261110-perf94';
-import {loadGameModel,yieldToInput} from './exo-asset-loader.mjs?v=20261107-loading90';
+import {loadGameModel,yieldToInput} from './exo-asset-loader.mjs?v=20261110-hero8';
 import {loadBiomeScans} from './exo-biome-textures.mjs?v=20261107-loading90';
 import {createBiomes} from './exo-biomes.mjs?v=20261108-inspection92b';
 import * as T from './assets/ev01/three.module.mjs';
@@ -12,7 +12,7 @@ import {createDepthPrepass} from './exo-depth-prepass.mjs?v=20261107-performance
 import {createInstanceCuller,sceneGeometryKey,batchRigidModel,partitionStaticMeshes} from './exo-render-optimization.mjs?v=20261107-performance89';
 import {terrainGeometry} from './exo-terrain-geometry.mjs?v=20261107-vegetation88';
 import {createTerrainStream,terrainLevel} from './exo-terrain-stream.mjs?v=20261110-props1';
-import { createAegisRig, poseAegis } from './exo-aegis.mjs?v=20261108-inspection92b';
+import { createAegisRig, poseAegis } from './exo-aegis.mjs?v=20261110-hero8';
 import {applyAegisSurface} from './exo-aegis-surface.mjs?v=20261108-inspection92b';
 import {createGroundContact} from './exo-ground-contact.mjs?v=20261106-art79';
 import {RoomEnvironment} from './assets/ev01/RoomEnvironment.mjs';
@@ -128,5 +128,5 @@ function adaptResolution(interval,now){
  if(next!==resScale){resScale=next;renderer.setPixelRatio(top*resScale);resHold=now+2500;resGood=0;}
 }
 function fail(error,kind='graphics'){engine.ready=false;ExoMapStatus.fail(kind);canvas?.remove();const legacy=document.getElementById('exo-gl');if(legacy)legacy.style.display='';console.warn('EV–04 Aegis / Blender map unavailable.',error);}
-const assetsReady=(async()=>{try{const [gltf,canyon,kit,ashAssets,interiorKit,hero,flora]=await Promise.all([loadGameModel(new URL('./assets/echo9-hero-v7/Echo9_Hero_V7.glb',import.meta.url).href).then(asset=>{ExoMapStatus.loaded('mech');return asset}),loadCanyon(ExoMapStatus.loaded),loadHangarKit(),loadAshland(),loadInteriorProps().catch(e=>{console.warn('Interior prop kit unavailable; rooms keep their built-in dressing.',e);return null}),loadK09Hero().catch(e=>{console.warn('K09 detail kit unavailable; retaining the base building and lamps.',e);return null}),loadBiomeScans()]);k09Root=hero;hangarKit=kit;interiorProps=interiorKit;ashlandAssets=ashAssets;canyonGroup=canyon;Object.assign(canyonGroup.userData.scans,ashAssets.maps,flora);model=gltf.scene;applyAegisSurface(model,kit.maps);rig=createAegisRig(model);poseAegis(rig,0,{speed:0});model.updateMatrixWorld(true);floorOffset=-new T.Box3().setFromObject(model).min.y;model.traverse(obj=>{if(obj.isMesh){obj.castShadow=obj.receiveShadow=true;}});}catch(error){fail(error,'asset');throw error;}})();
+const assetsReady=(async()=>{try{const [gltf,canyon,kit,ashAssets,interiorKit,hero,flora]=await Promise.all([loadGameModel(new URL('./assets/echo9-hero-v8/Echo9_Hero_V8.glb',import.meta.url).href).then(asset=>{ExoMapStatus.loaded('mech');return asset}),loadCanyon(ExoMapStatus.loaded),loadHangarKit(),loadAshland(),loadInteriorProps().catch(e=>{console.warn('Interior prop kit unavailable; rooms keep their built-in dressing.',e);return null}),loadK09Hero().catch(e=>{console.warn('K09 detail kit unavailable; retaining the base building and lamps.',e);return null}),loadBiomeScans()]);k09Root=hero;hangarKit=kit;interiorProps=interiorKit;ashlandAssets=ashAssets;canyonGroup=canyon;Object.assign(canyonGroup.userData.scans,ashAssets.maps,flora);model=gltf.scene;applyAegisSurface(model,kit.maps);rig=createAegisRig(model);poseAegis(rig,0,{speed:0});model.updateMatrixWorld(true);floorOffset=-new T.Box3().setFromObject(model).min.y;model.traverse(obj=>{if(obj.isMesh){obj.castShadow=obj.receiveShadow=true;}});}catch(error){fail(error,'asset');throw error;}})();
 assetsReady.catch(()=>{});

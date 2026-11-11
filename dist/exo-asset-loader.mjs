@@ -1,6 +1,6 @@
 import * as T from './assets/ev01/three.module.mjs';
 import {GLTFLoader} from './assets/ev01/GLTFLoader.mjs';
-import {packedAssets} from './exo-asset-manifest.mjs?v=20261107-loading90';
+import {packedAssets} from './exo-asset-manifest.mjs?v=20261110-hero8';
 
 const base=new URL('./',import.meta.url);
 const status=()=>globalThis.ExoAssetProgress;

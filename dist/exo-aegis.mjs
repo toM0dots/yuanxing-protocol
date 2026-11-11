@@ -16,7 +16,7 @@ export function createAegisRig(root){
   l.support=l.contact.clone();l.soleQ=new T.Quaternion();l.roll=0;l.heelZ=l.foot.worldToLocal(new T.Vector3(b.min.x,b.min.y,b.max.z)).z;l.toeZ=l.foot.worldToLocal(new T.Vector3(b.min.x,b.min.y,b.min.z)).z;
   l.plant=new T.Vector3();l.target=new T.Vector3();l.start=new T.Vector3();l.wasStance=false;l.planted=false;
  });
- rig.work={inverse:new T.Matrix4(),target:new T.Vector3(),direction:new T.Vector3(),pole:new T.Vector3(),knee:new T.Vector3(),lower:new T.Vector3(),support:new T.Vector3(),q:new T.Quaternion(),flightQ:new T.Quaternion(),slopeQ:new T.Quaternion(),normal:new T.Vector3(),up:new T.Vector3(0,1,0),euler:new T.Euler(),lastRoot:new T.Vector3()};
+ rig.work={inverse:new T.Matrix4(),target:new T.Vector3(),direction:new T.Vector3(),pole:new T.Vector3(),knee:new T.Vector3(),lower:new T.Vector3(),support:new T.Vector3(),q:new T.Quaternion(),flightQ:new T.Quaternion(),slopeQ:new T.Quaternion(),normal:new T.Vector3(),up:new T.Vector3(0,1,0),euler:new T.Euler(),lastRoot:new T.Vector3(),twistQ:new T.Quaternion(),twistInverse:new T.Quaternion(),hip:new T.Vector3()};
  rig.motion={speed:0,run:0,air:0,aimYaw:0,aimPitch:0};return rig;
 }
 
@@ -47,7 +47,7 @@ export function poseAegis(rig,phase,{speed=0,run=false,aimYaw=0,aimPitch=0,recoi
  const heading=rig.root.rotation.y,yawDelta=rig.lastHeading==null?0:Math.atan2(Math.sin(heading-rig.lastHeading),Math.cos(heading-rig.lastHeading));rig.lastHeading=heading;
  m.turn=damp(m.turn||0,!flight&&m.speed<.15&&step>0?clamp(Math.abs(yawDelta)/step,0,1):0,9);
  m.aimYaw=damp(m.aimYaw,clamp(aimYaw,-.85,.85),10);m.aimPitch=damp(m.aimPitch,clamp(aimPitch,-1.1,1.1),10);
- const motion=m.speed,gaitMotion=Math.max(motion,m.turn*.38),air=m.air,groundWeight=1-air,stride=lerp(1.65,1.95,m.run),stance=.56,worldScale=rig.root.scale.x||18;
+ const motion=m.speed,gaitMotion=Math.max(motion,m.turn*.38),air=m.air,groundWeight=1-air,stride=lerp(1.52,1.80,m.run),stance=.56,worldScale=rig.root.scale.x||18;
  if(Number.isFinite(distance)){
   const delta=rig.lastDistance==null?0:distance-rig.lastDistance;rig.lastDistance=distance;
   if(delta<0||delta>150)rig.legs.forEach(l=>l.planted=false);
@@ -55,10 +55,16 @@ export function poseAegis(rig,phase,{speed=0,run=false,aimYaw=0,aimPitch=0,recoi
   rig.gaitPhase=(rig.gaitPhase||0)+(delta>=0&&delta<150&&!flight?delta/(2*stride*worldScale/stance)*TAU:0);rig.gaitPhase+=!flight&&motion<.15&&Math.abs(yawDelta)<.4?Math.abs(yawDelta)*2:0;phase=rig.gaitPhase;
  }
  // Stand tall at mid-stance; leg reach lowers the pelvis only at the long step extremes.
- const crouch=(.045+.035*m.run*motion+landing)*groundWeight;
- rig.pelvis.position.y-=crouch;rig.pelvis.position.x+=Math.cos(phase-stance*Math.PI)*.045*motion*groundWeight;
+ // A slight standing knee bend keeps the legs out of the straight-knee
+ // singularity, where tiny reach changes flip the knee angle abruptly.
+ const crouch=(.03+.035*m.run*motion+landing)*groundWeight;
+ rig.pelvis.position.y-=crouch;
+ // The pelvis turns a little with each step, carrying the leading hip forward
+ // so the leg reaches its heel strike without a deep drop of the body.
+ const twist=.18*Math.cos(phase)*motion*groundWeight;rig.pelvis.rotation.y=twist;w.twistQ.setFromAxisAngle(w.up,twist);w.twistInverse.setFromAxisAngle(w.up,-twist);
+rig.pelvis.position.x+=Math.cos(phase-stance*Math.PI)*.045*motion*groundWeight;
  rig.chest.rotation.x=-lerp(.065,.13,m.run)*motion*groundWeight+damage*.07+m.recoil*.07-m.acceleration*.035*groundWeight;
- rig.chest.rotation.y=-m.aimYaw*(1-air*.65)+Math.sin(phase)*.035*motion*groundWeight;
+ rig.chest.rotation.y=-m.aimYaw*(1-air*.65)+Math.sin(phase)*.035*motion*groundWeight-twist*.85;
  rig.chest.rotation.z=Math.sin(phase)*.012*motion*groundWeight;
  rig.head.rotation.y=-m.aimYaw*.18;rig.head.rotation.x=-m.aimPitch*.15;
  rig.root.updateMatrixWorld(true);w.inverse.copy(rig.root.matrixWorld).invert();
@@ -67,7 +73,9 @@ export function poseAegis(rig,phase,{speed=0,run=false,aimYaw=0,aimPitch=0,recoi
  for(let i=0;i<2;i++){
   const l=rig.legs[i],cycle=((phase/TAU+i*.5)%1+1)%1,inStance=cycle<stance,swing=clamp((cycle-stance)/(1-stance),0,1);
   const z=(inStance?-1+2*cycle/stance:1-2*T.MathUtils.smootherstep(swing,0,1))*stride;
-  const lift=Math.sin(swing*Math.PI)**2*(lerp(.23,.42,m.run)*motion+.23*m.turn);
+  // Clearance peaks early in the swing, as the knee folds after toe-off,
+  // then the shin reaches forward for a heel-first landing.
+  const lift=Math.sin(Math.PI*swing**.72)**2*(lerp(.19,.36,m.run)*motion+.23*m.turn);
   l.target.copy(l.sole);l.target.x-=Math.sign(l.sole.x)*.14*motion;l.target.z+=z*gaitMotion;l.target.y+=lift+(footHeights[i]||0);
   if(reset||flight){l.planted=false;l.wasStance=false;}
   if(stateful&&sampleHeight&&!flight&&air<.1){
@@ -85,7 +93,10 @@ export function poseAegis(rig,phase,{speed=0,run=false,aimYaw=0,aimPitch=0,recoi
   }
   // Heel contact, flat support, then toe push-off: the rigid sole pivots around
   // its actual support edge, instead of staying flat throughout the entire step.
-  l.roll=(inStance?.12*(1-T.MathUtils.smoothstep(cycle,0,.10))-.26*T.MathUtils.smoothstep(cycle,.38,stance):.14*Math.sin(swing*Math.PI)**2)*motion*groundWeight;
+  // Heel strike, flat support, then a real toe-off. The swing carries the foot
+  // from its push-off pitch to the next heel strike without a one-frame snap.
+  const S=T.MathUtils.smoothstep,strike=.18,push=-.24;
+  l.roll=(inStance?strike*(1-S(cycle,0,.12))+push*S(cycle,.34,stance):push*(1-S(swing,0,.42))+strike*S(swing,.55,1))*motion*groundWeight;
   l.soleQ.setFromEuler(w.euler.set(l.roll,0,0));
   if(sampleHeight&&!flight&&air<.1){
    // Sample the plane underneath each foot, then express its normal in chassis
@@ -95,17 +106,23 @@ export function poseAegis(rig,phase,{speed=0,run=false,aimYaw=0,aimPitch=0,recoi
    w.normal.set(-dx,1,-dz).normalize().transformDirection(w.inverse);w.slopeQ.setFromUnitVectors(w.up,w.normal);l.soleQ.premultiply(w.slopeQ);
   }
   l.support.copy(l.contact);
-  if(inStance&&Math.abs(l.roll)>.00001)l.support.z=l.roll>0?l.heelZ:l.toeZ;
+  // Pitch about the toe or heel in swing too, so the toe-down push-off pose
+  // never dips the sole through the floor as the foot leaves the ground.
+  if(Math.abs(l.roll)>.00001)l.support.z=l.roll>0?l.heelZ:l.toeZ;
   l.target.add(l.support).sub(l.contact);
   if(stateful&&sampleHeight&&!flight&&air<.1&&inStance){l.target.applyMatrix4(rig.root.matrixWorld);l.target.y=sampleHeight(l.target.x,l.target.z);l.target.applyMatrix4(w.inverse);}
   w.support.copy(l.support).applyQuaternion(l.soleQ);l.target.sub(w.support);
  }
  // Lower the pelvis only as far as needed to keep the downhill leg within reach.
- if(air<.1){let supported=rig.pelvis.position.y;for(const l of rig.legs){const hip=rig.rest.get(l.thigh).p,dx=l.target.x-hip.x,dz=l.target.z-hip.z,reach=l.upperLength+l.lowerLength-.025;
-  supported=Math.min(supported,l.target.y-hip.y+Math.sqrt(Math.max(.1,reach*reach-dx*dx-dz*dz)));
+ // A smooth minimum always sits at or below every limit, so each leg still
+ // reaches its foothold, but the pelvis rises and falls without corners.
+ const smin=(a,b,k)=>(a+b-Math.sqrt((a-b)*(a-b)+k*k))/2;
+ if(air<.1){let supported=rig.pelvis.position.y;for(const l of rig.legs){const hip=w.hip.copy(rig.rest.get(l.thigh).p).applyQuaternion(w.twistQ),dx=l.target.x-hip.x,dz=l.target.z-hip.z,reach=l.upperLength+l.lowerLength-.045;
+  supported=smin(supported,l.target.y-hip.y+Math.sqrt(Math.max(.1,reach*reach-dx*dx-dz*dz)),.05*groundWeight);
  }rig.pelvis.position.y=Math.max(rig.pelvis.position.y-.85,supported);}
  for(let i=0;i<2;i++){const l=rig.legs[i];
-  l.target.sub(rig.pelvis.position).sub(rig.rest.get(l.thigh).p);
+  // Express the foothold and sole in the turned pelvis frame.
+  l.target.sub(rig.pelvis.position).applyQuaternion(w.twistInverse).sub(rig.rest.get(l.thigh).p);l.soleQ.premultiply(w.twistInverse);
   solveLeg(rig,l,l.target);
   for(const [joint,x]of [[l.thigh,.12+m.run*.16+(i?-.035:.035)],[l.shin,-.48-m.run*.4],[l.foot,.12]]){
    w.flightQ.setFromEuler(w.euler.set(x,0,0));joint.quaternion.slerp(w.flightQ,air);

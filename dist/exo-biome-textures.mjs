@@ -1,4 +1,4 @@
-import {loadGameTexture} from './exo-asset-loader.mjs?v=20261107-loading90';
+import {loadGameTexture} from './exo-asset-loader.mjs?v=20261110-hero8';
 import * as T from './assets/ev01/three.module.mjs';
 const hash=(x,y=0)=>{const n=Math.sin(x*127.1+y*311.7)*43758.5453;return n-Math.floor(n)};
 let maps;
