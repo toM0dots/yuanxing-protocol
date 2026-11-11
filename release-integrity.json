@@ -1,5 +1,5 @@
 {
-  "release": "20261110-contact95",
+  "release": "20261110-iron96",
   "files": [
     {
       "path": ".nojekyll",
@@ -2473,8 +2473,8 @@
     },
     {
       "path": "exo-ambience.js",
-      "bytes": 30616,
-      "sha256": "f87933cb81638c941846afeb5496df824cfd8927b9451e8ec337ad58761877e4"
+      "bytes": 33911,
+      "sha256": "cdee72921566858582b550c7eb94e83b58d41e4b3ff6b323dfb07423b08eb5a3"
     },
     {
       "path": "exo-ashland.mjs",
@@ -2958,8 +2958,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4787,
-      "sha256": "f8b3012ab0bf335718ee55f5b5854e28b85c26f45161c07e4c639c679f799c9e"
+      "bytes": 4784,
+      "sha256": "610dff3289664a8df156b7fc80855e90f751d86aacf0d732072a8b8cd117fb89"
     },
     {
       "path": "journey.js",

@@ -114,21 +114,73 @@ const ExoAmbience = (() => {
   }
   const T = () => ctx.currentTime + .01;
 
-  // EV-04 footsteps, one variant per ground type the terrain shader paints.
-  function footstep(surface, weight) {
-    const t = T(), v = voice({ level: weight, wet: surface === 'metal' || surface === 'bridge' ? .5 : .22, life: .8 });
-    tone(v, t, surface === 'snow' || surface === 'meadow' ? 70 : 82, 38, .34, .006, .32);
-    switch (surface) {
-      case 'metal': tone(v, t, 430, 410, .05, .002, .35, 'triangle'); tone(v, t, 667, 640, .03, .002, .25, 'triangle'); burst(v, t, 'bandpass', 2400, 2, .05, .06); break;
-      case 'bridge': tone(v, t, 182, 170, .09, .003, .7, 'triangle'); tone(v, t, 291, 280, .05, .003, .5, 'triangle'); burst(v, t, 'bandpass', 1200, 1.2, .06, .1); break;
-      case 'wet': burst(v, t, 'bandpass', 800, .9, .12, .12); burst(v, t + .015, 'highpass', 1600, .6, .11, .16); for (let i = 0; i < 3; i++) tone(v, t + .05 + i * .04, rand(500, 900), rand(900, 1500), .012, .003, .05); break;
-      case 'meadow': burst(v, t, 'bandpass', 700, .8, .07, .1); burst(v, t + .01, 'bandpass', 3200, .6, .05, .22, .03); break;
-      case 'ash': burst(v, t, 'lowpass', 650, .7, .14, .18); burst(v, t + .02, 'highpass', 4200, .5, .015, .25, .04); break;
-      case 'snow': for (let i = 0; i < 5; i++) burst(v, t + i * .022, 'bandpass', rand(1500, 2300), 1.3, .06, .03); break;
-      case 'cave': burst(v, t, 'bandpass', 900, 1, .14, .12); burst(v, t + .02, 'highpass', 2200, .7, .05, .1); break;
-      default: burst(v, t, 'bandpass', 850, .9, .16, .14); burst(v, t + .02, 'highpass', 2600, .7, .03, .08);
+  // EV-04 footsteps. The mech is tonnes of iron: each step is a heel strike and
+  // a toe plate a few centimetres apart, a deep thud with almost no pitch
+  // movement, a short clank from the sole built from detuned plate modes (struck
+  // metal, not a note), gear lash and hydraulics in the ankle, then the ground.
+  let stepSide = 1;
+  const PLATE = [1, 1.593, 2.136, 2.653, 3.598];
+  const TEX = 2.5;   // iron and ground layers relative to the thud
+  function ironModes(v, t, base, level, decay, brightness = 1) {
+    level *= TEX; if (level <= .002) return;
+    for (let i = 0; i < PLATE.length; i++) {
+      const f = base * PLATE[i] * rand(.985, 1.015);
+      tone(v, t, f, f * .996, level * rand(.55, 1) / (1 + i * .5), .0015, decay / (1 + i * .4));
     }
-    tone(v, t + .05, 1300, 900, .012, .01, .12, 'square');
+    burst(v, t, 'bandpass', Math.min(7000, base * 7 * brightness), 1.1, level * 1.5, .022, .001);
+  }
+  function grains(v, t, count, spread, lo, hi, q, level, decay, type = 'bandpass') {
+    for (let i = 0; i < count; i++) burst(v, t + Math.pow(Math.random(), 1.6) * spread, type, rand(lo, hi), q, level * TEX * rand(.4, 1), decay * rand(.6, 1.3), .001);
+  }
+  function footstep(surface, weight) {
+    stepSide = -stepSide;
+    const t = T(), heavy = clamp(weight, .3, 1.3), roomy = { metal: .5, bridge: .55, cave: .65 }[surface] ?? .2;
+    const v = voice({ pan: stepSide * .12, level: heavy * rand(.88, 1.06), wet: roomy, cutoff: surface === 'ash' || surface === 'snow' ? 5200 : 14000, life: 1.4 });
+    if (!v) return;
+    const toe = t + rand(.028, .045), f0 = rand(46, 54);
+    // Weight first: low body thud and a second, smaller one from the toe.
+    tone(v, t, f0, f0 * .92, .3, .004, .2);
+    burst(v, t, 'lowpass', 220, .7, .2, .1, .002);
+    burst(v, t, 'bandpass', rand(150, 210), 1.4, .16, .09, .002);   // body weight laptop speakers can carry
+    tone(v, toe, f0 * 1.3, f0 * 1.22, .12, .003, .12);
+    // The iron sole: dull and detuned, darker and shorter on soft ground.
+    const soft = { meadow: 1, ash: 1, snow: .9, wet: .8, damp: .35 }[surface] ?? 0;
+    ironModes(v, t, rand(150, 190), .05 * (1 - soft * .75), .22 * (1 - soft * .5), 1 - soft * .5);
+    ironModes(v, toe, rand(225, 275), .026 * (1 - soft * .75), .14, 1 - soft * .5);
+    // Gear lash ticking and a hydraulic sigh as the ankle takes the load.
+    for (let i = 0, n = 2 + (Math.random() < .5 ? 1 : 0); i < n; i++) { const f = rand(2400, 4200); tone(v, t + rand(.05, .11), f, f * .99, .005, .001, .03, 'triangle'); }
+    burst(v, t + .06, 'highpass', 3800, .5, .011 * heavy, .22, .05);
+    switch (surface) {
+      case 'metal': // Deck plate rings under the foot and rattles in its frame.
+        ironModes(v, t + .002, rand(108, 128), .065, .5, 1.1);
+        grains(v, toe, 4, .05, 2500, 5000, 3, .018, .02);
+        break;
+      case 'bridge': // A long hollow span: low structural modes and a groan.
+        ironModes(v, t, rand(62, 72), .085, 1.1, .7); ironModes(v, t + .01, rand(190, 210), .035, .6);
+        burst(v, t + .08, 'bandpass', 140, 6, .03 * TEX, .6, .1);
+        break;
+      case 'cave': // Broken rock underfoot, tight and close.
+        grains(v, t, 9, .07, 900, 3200, 2.2, .065, .03); burst(v, t, 'bandpass', 600, .8, .09 * TEX, .08);
+        break;
+      case 'snow': // Packed crust collapsing in a squeaky crunch.
+        grains(v, t + .01, 14, .14, 1300, 2600, 3, .045, .035); burst(v, t, 'lowpass', 500, .7, .08 * TEX, .14);
+        break;
+      case 'ash': // Soft cinders: a muffled crush and fine sifting.
+        burst(v, t, 'lowpass', 420, .7, .15 * TEX, .2, .006); grains(v, t + .03, 8, .25, 3000, 7000, .8, .011, .05, 'highpass');
+        break;
+      case 'meadow': // Grass over soil: soft give and a swish.
+        burst(v, t, 'lowpass', 300, .7, .13 * TEX, .16, .006); burst(v, t + .01, 'bandpass', 3800, .7, .03 * TEX, .2, .04); grains(v, toe, 4, .06, 700, 1400, 2, .028, .03);
+        break;
+      case 'wet': // Mud and puddles: a heavy slap, then suction as the foot settles.
+        burst(v, t, 'bandpass', 520, 1.2, .18 * TEX, .07, .002); burst(v, t + .015, 'lowpass', 900, 1, .09 * TEX, .18, .01);
+        burst(v, t + .12, 'bandpass', 380, 3, .045 * TEX, .14, .04); grains(v, t + .02, 5, .12, 1800, 3400, 4, .022, .025);
+        break;
+      case 'damp': // Rain-dark basalt grit.
+        grains(v, t, 8, .07, 1000, 3400, 2, .055, .03); burst(v, t + .01, 'bandpass', 700, 1.4, .055 * TEX, .08);
+        break;
+      default: // Gravel and broken basalt: a dense crunch spreading from the heel.
+        grains(v, t, 10, .09, 800, 3600, 1.8, .07, .035); grains(v, toe, 4, .05, 1500, 4000, 2, .035, .03); burst(v, t, 'bandpass', 650, .8, .09 * TEX, .09);
+    }
   }
 
   // Place-specific details -----------------------------------------------------
@@ -166,8 +218,10 @@ const ExoAmbience = (() => {
     // The K-09 gully floor is a maintenance road: the shader keeps grass off it.
     const gully = typeof ExoCanyonV2 !== 'undefined' && ExoCanyonV2.inZone(u.x, u.y, 40);
     const elevation = W().elevation ? W().elevation(u.x, u.y) : 100;
-    if (1 - smooth(-8, 42, elevation) > .4 || Math.random() < .18) return 'wet';
+    if (1 - smooth(-8, 42, elevation) > .4) return 'wet';
     if (!gully && meadow(u.x, u.y) > .4) return 'meadow';
+    // Rain-dark basalt: some steps land on damp grit rather than dry gravel.
+    if (Math.random() < .18) return 'damp';
     return 'gravel';
   }
   // Interior character from the structure's name.
@@ -340,5 +394,5 @@ const ExoAmbience = (() => {
   // (the title screen), so slow frames on weak GPUs don't cause dropouts.
   setInterval(() => { if (ctx && master && (document.hidden || document.getElementById('modal')?.open || performance.now() - lastUpdate > 4000)) ease(master.gain, 0, .3); }, 250);
   function setEnabled(on) { enabled = !!on; writePreference(enabled); if (enabled) ensure(); else if (master) ease(master.gain, 0, .1); }
-  return { update, setEnabled, contact, get enabled() { return enabled; }, get output() { return out; }, get context() { return ctx; } };
+  return { update, setEnabled, contact, step: (surface = 'gravel', weight = .9) => { if (enabled && ensure() && ctx.state === 'running') footstep(surface, weight); }, get enabled() { return enabled; }, get output() { return out; }, get context() { return ctx; } };
 })();
