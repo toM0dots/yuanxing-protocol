@@ -1,7 +1,7 @@
 import * as T from './assets/ev01/three.module.mjs';
 import {biomeTextures} from './exo-biome-textures.mjs?v=20261107-loading90';
 import {treeGeometry,grassGeometry,understoryGeometry,floraRandom as rand} from './exo-flora-meshes.mjs?v=20261107-vegetation88';
-import {indexExactGeometry,createInstanceCuller} from './exo-render-optimization.mjs?v=20261107-performance89';
+import {indexExactGeometry,createInstanceCuller} from './exo-render-optimization.mjs?v=20261110-armory1';
 
 function plantMaterial(material,clock,{wind=0,wood=false,ground=false,focus=null}={}){
  material.userData.skipDepthPrepass=true;material.alphaToCoverage=true;

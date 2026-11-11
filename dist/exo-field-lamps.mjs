@@ -1,7 +1,7 @@
 import * as T from './assets/ev01/three.module.mjs';
 import {mergeGeometries} from './assets/ev01/BufferGeometryUtils.mjs';
 import {createCampusMaterials,createCampusBuilder} from './exo-campus-materials.mjs';
-import {partitionStaticMeshes} from './exo-render-optimization.mjs?v=20261107-performance89';
+import {partitionStaticMeshes} from './exo-render-optimization.mjs?v=20261110-armory1';
 
 /* Salvaged survey lantern family. The silhouette comes from the existing K09
    approach artwork: battery housing, sealed optical tube, metal cage and handle.

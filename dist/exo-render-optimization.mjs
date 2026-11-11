@@ -74,7 +74,7 @@ export function createInstanceCuller(separateShadows=false,{radiusPadding=0,maxD
 }
 
 export function sceneGeometryKey(o,world,rover=null){
- return JSON.stringify([world.cave?.id||'surface',world.interior?.id,!!o.fireCourse?.active,o.sites.map(s=>[s.x,s.y]),o.combat?.drops.map(d=>[d.x,d.y]),rover]);
+ return JSON.stringify([world.cave?.id||'surface',world.interior?.id,!!o.fireCourse?.active,o.sites.map(s=>[s.x,s.y]),globalThis.ExoMaterialDropsReady?null:o.combat?.drops.map(d=>[d.x,d.y]),rover]);
 }
 
 // Preserve the Blender meshes, UVs, materials and animated joint hierarchy,

@@ -1,5 +1,5 @@
 import * as T from './assets/ev01/three.module.mjs';
-import {indexExactGeometry} from './exo-render-optimization.mjs?v=20261107-performance89';
+import {indexExactGeometry} from './exo-render-optimization.mjs?v=20261110-armory1';
 export function terrainGeometry(data,elevation,smooth=true,indexed=true){
  const count=data.length/9,p=new Float32Array(count*3),n=new Float32Array(count*3),c=new Float32Array(count*3),color=new T.Color(),normals=new Map();
  for(let i=0;i<count;i++){

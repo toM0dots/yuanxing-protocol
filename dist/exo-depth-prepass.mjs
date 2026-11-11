@@ -1,5 +1,5 @@
 import * as T from './assets/ev01/three.module.mjs';
-import {useIdentityBatchTransform} from './exo-render-optimization.mjs?v=20261107-performance89';
+import {useIdentityBatchTransform} from './exo-render-optimization.mjs?v=20261110-armory1';
 
 // Draw opaque coverage once with a cheap depth shader. The following color
 // pass still uses every original material, texture and sample; covered pixels

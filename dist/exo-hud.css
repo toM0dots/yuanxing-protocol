@@ -46,3 +46,30 @@
 @media(max-width:760px){.exo .hud-top{height:56px;min-height:56px;padding:0 16px;gap:12px}.exo .hud-top nav{gap:12px}.exo .hud-top button,.exo .hud-top>span{font-size:11px}.exo .hud-top kbd{display:none}.hud-stack{top:76px;left:16px;width:min(255px,65vw);gap:13px}.exo .hud-clean .hud-vitals{gap:12px;font-size:10px}.hud-vitals .exo-energy-track{display:none}.exo .hud-clean .hud-radar{top:76px;right:16px}.exo .hud-clean .hud-target{top:225px;max-width:80%;font-size:11px}.exo .hud-clean .hud-context{bottom:282px;max-width:80%;font-size:12px;min-height:38px;padding:8px 14px}.exo .hud-clean .hud-notice{bottom:330px;max-width:82%;font-size:11px;padding:7px 10px}.exo .hud-clean .hud-tools{left:50%;right:auto;bottom:25px;transform:translateX(-50%);gap:12px}.exo .hud-clean .hud-tools>button,.exo .hud-clean .hud-trim>summary{font-size:10px}.exo .hud-clean .hud-keyboard{left:16px;bottom:70px;gap:10px;flex-wrap:wrap;max-width:90%;font-size:9px}.hud-trim .fc-aim-controls{right:-20px;width:215px}.exo .hud-clean .hud-facility{font-size:10px}.exo .hud-clean .hud-danger{top:56px;font-size:11px}.fc-fit-controls.multi{grid-template-columns:1fr}.fc-fit-controls.multi label:last-child{grid-column:auto}.fc-distance-bands,.fc-condition-bands{gap:8px}.atlas-scenes{display:flex;overflow:auto}.atlas-scenes figure{min-width:75%}.cave-room-index{grid-template-columns:repeat(2,1fr)}}
 @media(max-height:560px){.hud-stack{top:70px;gap:10px}.exo .hud-top{height:50px;min-height:50px}.exo .hud-clean .hud-radar{top:70px}.exo .hud-clean .hud-target{top:67px}.exo .hud-clean .hud-context{bottom:78px}.exo .hud-clean .hud-notice{bottom:125px}.exo .hud-clean .hud-flight{bottom:125px}.exo .hud-clean .hud-course{padding-top:8px;padding-bottom:8px}.exo .hud-clean .hud-course small{display:none}}
 @media(prefers-reduced-motion:reduce){.hud-notice{transition:none}}
+
+/* Staged mech development (exo-armory.js) */
+.hud-material{font-variant-numeric:tabular-nums}
+.hud-material b{margin-left:.15em}
+.hud-material.is-energy b{color:#7fe6d2}
+.hud-material.is-metal b{color:#e3c78f}
+.hud-keyboard .hud-lock-tag{display:none;font-style:normal}
+.hud-keyboard .is-locked{opacity:.5}
+.hud-keyboard .is-locked .hud-lock-tag{display:inline}
+.hud-weapons button[data-locked="true"]{opacity:.45;filter:grayscale(.7)}
+.arm-panel h3{margin-bottom:.3em}
+.arm-stock{display:flex;gap:1.2em;flex-wrap:wrap;margin:.2em 0 .5em}
+.arm-stock b{font-size:1.05em}
+.arm-energy{color:#7fe6d2}
+.arm-metal{color:#e3c78f}
+.arm-stages{list-style:none;margin:0 0 1.2em;padding:0;display:grid;gap:.6em}
+.arm-stages li{display:grid;grid-template-columns:1fr auto auto;align-items:center;gap:.9em;padding:.75em .9em;border:1px solid #3b4d55;border-radius:8px;background:#ffffff08}
+.arm-stages li.owned{border-color:#4d7d6f}
+.arm-stages li.next{border-color:#c9a86a;background:#c9a86a12}
+.arm-stages li.locked{opacity:.6}
+.arm-stages h4{margin:.1em 0;font-size:1.05em}
+.arm-stages p{margin:0;font-size:.9em;opacity:.8}
+.arm-stages small{opacity:.7}
+.arm-cost{display:flex;flex-direction:column;gap:.15em;font-size:.88em;white-space:nowrap}
+.arm-cost i{font-style:normal}
+.arm-stages em{font-style:normal;font-size:.88em;opacity:.8;white-space:nowrap}
+@media (max-width:640px){.arm-stages li{grid-template-columns:1fr auto}.arm-stages li>em,.arm-stages li>button{grid-column:1/-1}}
