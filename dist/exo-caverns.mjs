@@ -1,6 +1,6 @@
 import * as T from './assets/ev01/three.module.mjs';
 import {createFieldLampBatch} from './exo-field-lamps.mjs?v=20261107-performance89';
-import {builder,scannedMaterial} from './exo-world-details.mjs?v=20261108-inspection92b';
+import {builder,scannedMaterial} from './exo-world-details.mjs?v=20261111-ground105';
 import {mergeGeometries} from './assets/ev01/BufferGeometryUtils.mjs';
 
 const caveNoise=(a,b=0)=>{const n=Math.sin(a*127.1+b*311.7)*43758.5453;return n-Math.floor(n);};
@@ -61,7 +61,7 @@ function chamber(room,W){const b=builder(),color=room.theme==='magma'?0xff954c:r
  return group;
 }
 export function createCaverns(scene,textures){const material=scannedMaterial(textures,{color:0x727f87}),tiles=new Map(),rooms=new Map();material.side=T.DoubleSide;let active=null,lanterns=null,fieldLamps=null,surveyFloor=null;
- const surveyMaterials={rock:scannedMaterial(textures,{color:0x8a8d80}),quartz:new T.MeshStandardMaterial({color:0x9daaa0,roughness:.59,metalness:.035,envMapIntensity:.3}),wet:new T.MeshStandardMaterial({color:0x334541,...(textures['rock-diff']?{map:textures['rock-diff']}:{}),roughness:.23,metalness:0,envMapIntensity:.38,side:T.DoubleSide,polygonOffset:true,polygonOffsetFactor:-1}),crust:scannedMaterial(textures,{color:0xaaa18d,ground:true}),cracks:new T.MeshStandardMaterial({color:0x172326,roughness:1,metalness:0,side:T.DoubleSide})};
+ const surveyMaterials={rock:scannedMaterial(textures,{color:0x8a8d80}),quartz:new T.MeshStandardMaterial({color:0x9daaa0,roughness:.59,metalness:.035,envMapIntensity:.3}),wet:new T.MeshStandardMaterial({color:0x334541,...(textures['rock-diff']?{map:textures['rock-diff']}:{}),roughness:.23,metalness:0,envMapIntensity:.38,side:T.DoubleSide,polygonOffset:true,polygonOffsetFactor:-1}),crust:scannedMaterial(textures,{color:0xaaa18d,ground:true,patches:false}),cracks:new T.MeshStandardMaterial({color:0x172326,roughness:1,metalness:0,side:T.DoubleSide})};
  surveyMaterials.crust.polygonOffset=true;surveyMaterials.crust.polygonOffsetFactor=-1;
  function clear(){for(const m of tiles.values()){scene.remove(m);m.geometry.dispose();}tiles.clear();for(const m of rooms.values()){scene.remove(m);m.traverse(o=>o.geometry?.dispose());}rooms.clear();if(lanterns){fieldLamps?.dispose();fieldLamps=null;scene.remove(lanterns);lanterns.traverse(o=>o.geometry?.dispose());lanterns=null;}if(surveyFloor){scene.remove(surveyFloor);surveyFloor.traverse(o=>o.geometry?.dispose());surveyFloor=null;}}
  function update(u,W){const id=W.interior?null:W.cave?.id||null;if(id!==active){clear();active=id;}if(!id)return;

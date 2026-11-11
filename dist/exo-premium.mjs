@@ -4,8 +4,8 @@ import {loadGameModel,yieldToInput} from './exo-asset-loader.mjs?v=20261110-hero
 import {loadBiomeScans} from './exo-biome-textures.mjs?v=20261107-loading90';
 import {createBiomes} from './exo-biomes.mjs?v=20261108-inspection92b';
 import * as T from './assets/ev01/three.module.mjs';
-import {createTrainingGround} from './exo-training-ground.mjs?v=20261110-props1';
-import {createTerrainWilds} from './exo-terrain-wilds.mjs?v=20261108-inspection92b';
+import {createTrainingGround} from './exo-training-ground.mjs?v=20261111-ground105';
+import {createTerrainWilds} from './exo-terrain-wilds.mjs?v=20261111-ground105';
 import {createBuildingCameraGuard} from './exo-building-camera.mjs?v=20261106-wilds79c';
 import {createHardwareShadows} from './exo-hardware-shadows.mjs?v=20261107-performance89';
 import {createDepthPrepass} from './exo-depth-prepass.mjs?v=20261107-performance89';
@@ -22,8 +22,8 @@ import { createCreatureLayer, configureFaunaSurface } from './exo-creatures.mjs?
 import { createWeaponRig, createPlayerWeaponLayer } from './exo-player-weapons.mjs?v=20261110-armory1';
 import { createMaterialDropLayer } from './exo-material-drops.mjs?v=20261110-armory1';
 import { createFlightEffects } from './exo-flight-fx.mjs?v=45';
-import { scannedMaterial, createWorldDetails, configureWorldMaterials } from './exo-world-details.mjs?v=20261108-inspection92b';
-import { createCaverns } from './exo-caverns.mjs?v=20261108-inspection92b';
+import { scannedMaterial, createWorldDetails, configureWorldMaterials } from './exo-world-details.mjs?v=20261111-ground105';
+import { createCaverns } from './exo-caverns.mjs?v=20261111-ground105';
 import { createBoundaryGuardian } from './exo-guardian.mjs?v=20261108-inspection92b';
 import {createGuideLightsAsync,createGuideLightPool} from './exo-guide-lights.mjs?v=20261110-lamps97';
 import {createRepairLamps} from './exo-lamp-repair-render.mjs?v=20261110-lamps97b';

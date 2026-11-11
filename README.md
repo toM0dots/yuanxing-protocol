@@ -10,6 +10,12 @@ This repository contains the complete static game release **v92** (`20261108-ins
 
 Browse the [visual asset library](VISUAL_ASSETS.md) for concept art, editable Blender models, terrain tiles, textures, fonts and their provenance. The [file manifest](visual-assets-manifest.json) lists every included asset and its checksum. Runtime game files remain in `dist/`.
 
+## Broken-up open ground in v105
+
+Open ground no longer reads as one flat sheet. The terrain scans repeat every 3 m and the colour drift spans about 200 m; the ground shader now fills the gap with 15–130 m patches of stony pavement, drained paler grit and mineral staining, graded to the wet basalt palette. The patches follow the existing regional masks: thinner under grass, colder in the ash basin, absent under snow and standing puddles, more stone on the exposed summit, less on roads. Cave floors and steep rock faces are unchanged.
+
+The layer reuses the existing rock and trail scans: two extra low-frequency texture reads per ground pixel, with no new textures or downloads.
+
 ## Staged mech development in v103
 
 The mech now starts with only the **pulse gun (F)**. The other systems are developed one at a time, in a fixed order, from two kinds of material:

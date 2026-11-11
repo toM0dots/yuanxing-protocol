@@ -1,5 +1,5 @@
 {
-  "release": "20261111-cockpit104",
+  "release": "20261111-ground105",
   "files": [
     {
       "path": ".nojekyll",
@@ -2568,8 +2568,8 @@
     },
     {
       "path": "exo-caverns.mjs",
-      "bytes": 12475,
-      "sha256": "969065560a1ccfd1c16f61eadbe37c726f1301dbad9b3637c4aeed7123e38ff7"
+      "bytes": 12485,
+      "sha256": "ea042b36e41dbbb0bc529b2488df2a811fdfd19ca06417c004ad6159a8fa1270"
     },
     {
       "path": "exo-clue-render.mjs",
@@ -2753,8 +2753,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 22828,
-      "sha256": "286aa473c73dc963e3a64fa18a6aff67315b350a855968180848817bc38a6563"
+      "bytes": 22819,
+      "sha256": "b297aa1fce4cdc4ea32443e7a5d9326cec70e5f65476b90a95ad38e4c943d746"
     },
     {
       "path": "exo-profile.js",
@@ -2913,8 +2913,8 @@
     },
     {
       "path": "exo-terrain-wilds.mjs",
-      "bytes": 19547,
-      "sha256": "0490dde0ddd80192f58fcbcc25e60fa3e3904777c0459f2aab546417b8528126"
+      "bytes": 19543,
+      "sha256": "1f16c4fbf297895ea2782e057a088dda0c330d55a6bb17378557d87e584359c9"
     },
     {
       "path": "exo-terrain-worker.js",
@@ -2928,8 +2928,8 @@
     },
     {
       "path": "exo-training-ground.mjs",
-      "bytes": 16890,
-      "sha256": "54ae502e7b257b39b4af69af9ed01322eb73e03bf59b8826328a9e515a322cdf"
+      "bytes": 16886,
+      "sha256": "e5ec8c2214e3c9c9300b8e4e7061d114ce7dab65d6ed92174142d25770630afb"
     },
     {
       "path": "exo-training-ui.css",
@@ -2953,8 +2953,8 @@
     },
     {
       "path": "exo-world-details.mjs",
-      "bytes": 27990,
-      "sha256": "9b6822274145fab5d4cab301221e112c430bef2d4f48ccce50cd854932c36ebf"
+      "bytes": 30051,
+      "sha256": "7faac2058d3954c47d3c401c787637e65f968d010ea68e5e61450b289802f43e"
     },
     {
       "path": "exo-world-layout.js",
@@ -2993,8 +2993,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5166,
-      "sha256": "664444e2ef71da14821d368f9da51d697651dd817276e2454d7428ffea66cad9"
+      "bytes": 5165,
+      "sha256": "e45a32e642e1af2a9453334685a8f67b1011a6eb39aaa6ceea7ae7fa3c937daa"
     },
     {
       "path": "journey.js",

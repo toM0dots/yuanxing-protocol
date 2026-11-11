@@ -4,7 +4,7 @@ import {mergeGeometries,mergeVertices} from './assets/ev01/BufferGeometryUtils.m
 import {applyPackedPBR} from './exo-packed-materials.mjs?v=59';
 import {exteriorDetailKit,EXTERIOR,weatherExteriorMaterial} from './exo-exterior-kit.mjs?v=20261106-exterior86';
 
-export function scannedMaterial(textures,{vertexColors=false,color=0xc6c5b8,ground=false,vegetation=true}={}){
+export function scannedMaterial(textures,{vertexColors=false,color=0xc6c5b8,ground=false,vegetation=true,patches=ground}={}){
  const material=new T.MeshStandardMaterial({name:ground?'Scanned terrain':'Scanned stones',color,vertexColors,roughness:.93,metalness:.035});
  const habitat=typeof ExoWorld!=='undefined'?ExoWorld.landmarks?.find(p=>p.region===3):null,summit=typeof ExoWorld!=='undefined'?ExoWorld.landmarks?.find(p=>p.region===7):null;
  material.onBeforeCompile=s=>{Object.assign(s.uniforms,{habitatCenter:{value:new T.Vector2(habitat?.x||8250,habitat?.y||8500)},summitCenter:{value:new T.Vector2(summit?.x||17600,summit?.y||2550)},worldGrass:{value:textures['grass-color']||biomeTextures().grass},worldGrassRelief:{value:textures['grass-height']||biomeTextures().grass},worldForest:{value:textures['forest-color']||textures['trail-diff']},worldForestRelief:{value:textures['forest-height']||textures['trail-diff']},worldRock:{value:textures['rock-diff']},worldDirt:{value:textures['trail-diff']},worldHeight:{value:textures['rock-height']},worldAsh:{value:textures['ash-color']||textures['trail-diff']}});
@@ -31,10 +31,10 @@ vec2 sideX=vec2(tp.z*.51+sin(tp.y*.31)*.13,tp.y*1.15);
 vec2 sideZ=vec2(tp.x*.51+sin(tp.y*.29+1.)*.13,tp.y*1.15);
 vec4 rockX=mix(texture2D(worldRock,sideX),texture2D(worldRock,sideX.yx*1.71+vec2(.37,.19)),.42);
 vec4 rockZ=mix(texture2D(worldRock,sideZ),texture2D(worldRock,sideZ.yx*1.71+vec2(.63,.41)),.42);
-vec4 rockTexel=rockX*tw.x+texture2D(worldRock,tp.xz)*tw.y+rockZ*tw.z;vec3 rock=rockTexel.rgb;
+vec4 rockTop=texture2D(worldRock,tp.xz);vec4 rockTexel=rockX*tw.x+rockTop*tw.y+rockZ*tw.z;vec3 rock=rockTexel.rgb;
 vec2 groundUV=surfaceP.xz/58.0;
 float macro=.5+.25*sin(surfaceP.x*.0017+sin(surfaceP.z*.0021)*2.)+.25*sin(surfaceP.z*.0031+surfaceP.x*.0007);
-vec4 soilTexel=mix(texture2D(worldDirt,groundUV),texture2D(worldDirt,mat2(.8,-.6,.6,.8)*groundUV*.37+vec2(.23,.63)),.35);vec3 soil=soilTexel.rgb;
+vec4 soilWide=texture2D(worldDirt,mat2(.8,-.6,.6,.8)*groundUV*.37+vec2(.23,.63));vec4 soilTexel=mix(texture2D(worldDirt,groundUV),soilWide,.35);vec3 soil=soilTexel.rgb;
 float wreckZone=1.-smoothstep(650.,2200.,distance(surfaceP.xz,vec2(5500.,6500.)));
 float basinZone=1.-smoothstep(1400.,2800.,distance(surfaceP.xz,vec2(13400.,8000.)));
 float ashZone=max(wreckZone*.83,basinZone)*smoothstep(.60,.96,abs(surfaceN.y));
@@ -98,16 +98,43 @@ float grassCover=smoothstep(.065,.72,living*(.78+.22*plantPatch))*smoothstep(.56
 grassCover*=1.-smoothstep(0.,1.,surfaceRoad);
 soil=mix(soil,livingSoil,grassCover);scanHeight=mix(scanHeight,plantRelief,grassCover*.85);
 puddle*=1.-grassCover;damp*=1.-grassCover*.6;
+// Mid-scale ground patches (v105). The 3 m scans and the 200 m colour drift left
+// nothing between them, so open ground read as one flat sheet. Two low-frequency
+// reads of the existing height channels add 15-130 m patches of stony pavement,
+// drained paler grit and mineral staining, graded to the wet basalt palette.
+// The regional masks tune them: thinner under grass, colder in ash, absent
+// under snow and standing water, more stone on the exposed summit. No new textures.
+float patchRelief=0.;
+${patches?`if(sediment>.003){
+float midA=texture2D(worldDirt,groundUV*.071+vec2(.13,.57)).a;
+float midB=texture2D(worldRock,mat2(.6,-.8,.8,.6)*groundUV*.024+vec2(.41,.22)).a;
+// Height channels: soil .62 +/- .06, rock .52 +/- .14. Centre and rescale
+// so the combined field spans 0..1 with about a quarter of bare ground stony.
+float patchN=clamp(.5+((midA-.621)*3.4+(midB-.524)*1.45+(soilWide.a-.621)*1.0)*.6,0.,1.);
+float patchRoad=${vegetation?'surfaceRoad':'0.'};
+float patchCold=max(max(ashZone,habitatZone*.5),summitZone*.6);
+float screeMask=smoothstep(-.035,.045,patchN-.65+summitZone*.09+ashZone*.03-grassCover*.10-patchRoad*.08+(rockTop.a-.524)*.22)*(1.-grassCover*.75)*(1.-snow)*(1.-puddle);
+float drained=(1.-smoothstep(.29,.39,patchN))*(1.-screeMask)*(1.-grassCover)*(1.-lowWet*.85)*(1.-snow)*(1.-puddle);
+vec3 groundTone=soil*mix(mix(.80,.90,grassCover),1.10-.04*grassCover,smoothstep(.25,.75,midB));
+groundTone=mix(groundTone,groundTone*vec3(1.24,1.22,1.18)+vec3(.010),drained*.75);
+vec3 screeTone=rockTop.rgb*mix(.74,.98,soilWide.a);
+screeTone=mix(vec3(dot(screeTone,vec3(.2126,.7152,.0722)))*mix(vec3(.76,.85,.95),vec3(.66,.76,.84),patchCold),screeTone,.14)*.92;
+groundTone=mix(groundTone,screeTone,screeMask*.80);
+soil=mix(soil,groundTone,sediment);
+scanHeight=mix(scanHeight,mix(scanHeight*(1.-drained*.6),rockTop.a,screeMask),sediment);
+damp*=1.-drained*.6*sediment;
+patchRelief=sediment*(patchN*9.*(1.-grassCover*.5)+screeMask*rockTop.a*1.3);
+}`:''}
 diffuseColor.rgb*=mix(rock,soil,sediment)*mix(1.18,1.72,smoothstep(.08,.85,scanHeight))*mix(1.,.50,puddle);`);
   s.fragmentShader=s.fragmentShader.replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor=mix(clamp(.78+sediment*.12+(1.-scanHeight)*.13,.78,1.)-damp*.14,.14,puddle);');
   s.fragmentShader=s.fragmentShader.replace('#include <normal_fragment_maps>',`#include <normal_fragment_maps>
-float terrainH=(scanHeight*mix(.78,.65,sediment)+cliff*beds*.24)*(1.-puddle*.92);vec3 tx=dFdx(-vViewPosition),ty=dFdy(-vViewPosition);vec3 r1=cross(ty,normal),r2=cross(normal,tx);float det=dot(tx,r1)*faceDirection;normal=normalize(abs(det)*normal-sign(det)*(dFdx(terrainH)*r1+dFdy(terrainH)*r2));`);
+float terrainH=(scanHeight*mix(.78,.65,sediment)+cliff*beds*.24+patchRelief)*(1.-puddle*.92);vec3 tx=dFdx(-vViewPosition),ty=dFdy(-vViewPosition);vec3 r1=cross(ty,normal),r2=cross(normal,tx);float det=dot(tx,r1)*faceDirection;normal=normalize(abs(det)*normal-sign(det)*(dFdx(terrainH)*r1+dFdy(terrainH)*r2));`);
   s.fragmentShader=s.fragmentShader.replace('#include <fog_fragment>',`#include <fog_fragment>
 #ifdef USE_FOG
 float valleyHaze=smoothstep(900.,4300.,length(vViewPosition))*(1.-smoothstep(150.,780.,surfaceP.y))*.16;
 gl_FragColor.rgb=mix(gl_FragColor.rgb,fogColor,valleyHaze);
 #endif`);
- };material.customProgramCacheKey=()=>ground?'world-scans-ground-v93-'+vegetation:'world-scans-rock-v93';return material;
+ };material.customProgramCacheKey=()=>ground?'world-scans-ground-v105-'+vegetation+'-'+patches:'world-scans-rock-v93';return material;
 }
 
 const hull=new T.MeshStandardMaterial({vertexColors:true,metalness:.32,roughness:.84}),glass=new T.MeshStandardMaterial({name:'Exterior / weathered glazing',vertexColors:true,metalness:.36,roughness:.29,envMapIntensity:1.25}),lights=new T.MeshBasicMaterial({vertexColors:true,toneMapped:false}),mineral=new T.MeshStandardMaterial({vertexColors:true,metalness:.32,roughness:.2,emissive:0x123b36,emissiveIntensity:.4});

@@ -2,7 +2,7 @@ import {drawStoryComposition} from './exo-room-story-art.mjs?v=20261110-props1';
 import * as T from './assets/ev01/three.module.mjs';
 import {mergeGeometries} from './assets/ev01/BufferGeometryUtils.mjs';
 import {createCampusBuilder,createCampusMaterials} from './exo-campus-materials.mjs';
-import {scannedMaterial} from './exo-world-details.mjs?v=20261108-inspection92b';
+import {scannedMaterial} from './exo-world-details.mjs?v=20261111-ground105';
 import {createFieldLampBatch} from './exo-field-lamps.mjs?v=20261107-performance89';
 
 /* Authored maintenance architecture with physical-density scanned PBR surfaces.
