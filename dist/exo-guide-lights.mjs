@@ -16,7 +16,9 @@ function* buildGuideLights(scene,maps,W,C=null){
   const x=camp.x+side*90,y=camp.y;batch.add({x,y,z:W.elevation(x,y),height:45,groundAt:W.elevation,seed:311+i*2+side,color:0x9ed9b6});
   yield;
  }
- if(C)for(const [i,p] of (typeof ExoStoryRoute!=='undefined'?ExoStoryRoute.lamps:CANYON_LAMP_SOCKETS).entries()){
+ // The three K-09 message lamps are drawn by exo-lamp-repair-render so their
+ // cells can be taken and returned.
+ if(C&&!(typeof ExoLampRepair!=='undefined'&&typeof ExoStoryRoute!=='undefined'))for(const [i,p] of (typeof ExoStoryRoute!=='undefined'?ExoStoryRoute.lamps:CANYON_LAMP_SOCKETS).entries()){
   const q=Array.isArray(p)?C.world(...p):p;batch.add({...q,z:W.elevation(q.x,q.y),height:29,groundAt:W.elevation,seed:709+i,color:0x9fe9b7});
   yield;
  }
@@ -41,7 +43,7 @@ export function createGuideLightPool(scene){
   }});}
   lamps.forEach((light,i)=>{const p=closest[i];light.visible=!!p;if(!p)return;const s=p.height/58;
    light.position.set(p.x,p.coreZ??p.z+p.height*.64,p.y);light.color.setHex(p.color).lerp(new T.Color(0xe9f1d8),.38);
-   light.distance=160+120*s;light.intensity=2200*s*s*Math.min(1,(420-ranges[i])/100);
+   light.distance=160+120*s;light.intensity=2200*s*s*(p.gain??1)*Math.min(1,(420-ranges[i])/100);
   });
  }
  return {update,lights:lamps,dispose(){lamps.forEach(light=>scene.remove(light));}};

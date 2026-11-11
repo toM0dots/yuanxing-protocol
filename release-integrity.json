@@ -1,5 +1,5 @@
 {
-  "release": "20261110-iron96",
+  "release": "20261110-lamps97",
   "files": [
     {
       "path": ".nojekyll",
@@ -2473,8 +2473,8 @@
     },
     {
       "path": "exo-ambience.js",
-      "bytes": 33911,
-      "sha256": "cdee72921566858582b550c7eb94e83b58d41e4b3ff6b323dfb07423b08eb5a3"
+      "bytes": 35594,
+      "sha256": "62d21bdb481286f8be8f8ed6964ec71ac187e78f28de7ccca2b8d3855c0ec803"
     },
     {
       "path": "exo-ashland.mjs",
@@ -2658,8 +2658,8 @@
     },
     {
       "path": "exo-guide-lights.mjs",
-      "bytes": 3124,
-      "sha256": "f6d55b01188cd8f3c3cbcd6d5055e49b93db774de695eb28f2902709c039e1d8"
+      "bytes": 3326,
+      "sha256": "7dbabe642c610c970d8351f42ac17483e2c2114ac6d4340b1c7fa2dbac53dd31"
     },
     {
       "path": "exo-hangar-art.mjs",
@@ -2678,8 +2678,8 @@
     },
     {
       "path": "exo-hud.js",
-      "bytes": 28216,
-      "sha256": "8d72a9b0330897969dbccf5a9b746eea40cfa8a181ec13e9d704518c4a000a63"
+      "bytes": 28772,
+      "sha256": "5cd97fc5797b64e7984bf67e6eb25e658ce5cb511a9863959daa80e53e46913a"
     },
     {
       "path": "exo-interior-kit.mjs",
@@ -2718,8 +2718,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 21791,
-      "sha256": "5a3436160274a251e346044f2bcf542b795cb02a1fb6d4b9e4c0db0617d2199e"
+      "bytes": 22086,
+      "sha256": "d9712de9fe5e6f19d2b0d11db04694bc3bfa8bf413bb4afea6a3a8bc85d22fed"
     },
     {
       "path": "exo-profile.js",
@@ -2948,8 +2948,8 @@
     },
     {
       "path": "expedition.js",
-      "bytes": 67351,
-      "sha256": "3cb88ec12c8a84a2a772745a94f5a5f8f69ef5b88e93f3df6b924e58708956a6"
+      "bytes": 68406,
+      "sha256": "339e02823bad2895fe8099f68e481be5113c7bc1a054d598fa948045b61d0327"
     },
     {
       "path": "field-missions.js",
@@ -2958,8 +2958,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4784,
-      "sha256": "610dff3289664a8df156b7fc80855e90f751d86aacf0d732072a8b8cd117fb89"
+      "bytes": 4839,
+      "sha256": "78e320aa71c1ac11298a6cb3b8e8790f8969b63da0f37e7ebf01aed1cbc84fa7"
     },
     {
       "path": "journey.js",
@@ -3030,6 +3030,16 @@
       "path": "exo-hud-quiet.js",
       "bytes": 2839,
       "sha256": "e41d6b8de75f041907a423720240a19ec2b5f4209a9eba2d7abad1ae524e516f"
+    },
+    {
+      "path": "exo-lamp-repair-render.mjs",
+      "bytes": 3208,
+      "sha256": "fe04e0cfcfce4d492c3b0aa5078de37bc1adacf86496fa78673b8d1e49490b6c"
+    },
+    {
+      "path": "exo-lamp-repair.js",
+      "bytes": 5755,
+      "sha256": "db49572fcba8d1d35cb9764b55d92a28fa0da9e745a0426106124dfd867fdebd"
     }
   ]
 }

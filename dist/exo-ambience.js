@@ -299,6 +299,28 @@ const ExoAmbience = (() => {
       default: tone(v, t, 96, 44, .22 + k * .2, .003, .34); tone(v, t, rand(280, 340), 250, .03 + k * .05, .002, .5 + k * .4, 'triangle'); tone(v, t, rand(610, 720), 560, .015 + k * .025, .002, .35, 'triangle'); burst(v, t, 'bandpass', 1400, 1.2, .04 + k * .07, .1);
     }
   }
+  // Lamp repair: pulling a cell, a lamp coming on, a lamp going dark.
+  function lamp(kind, x, y) {
+    if (!enabled || !ensure() || ctx.state !== 'running') return;
+    const p = Number.isFinite(x) ? at(x, y, 360) : { pan: 0, level: 1, cutoff: 16000 }, t = T();
+    const v = voice({ ...p, level: p.level, wet: .35, life: 2.4 }); if (!v) return;
+    // Every action starts with the service latch and the cell sliding in its rails.
+    burst(v, t, 'highpass', 3200, .8, .05, .02, .001); tone(v, t, 1650, 1600, .02, .001, .06, 'triangle');
+    burst(v, t + .05, 'bandpass', 1400, 2, .025, .12, .03);
+    if (kind === 'take') { burst(v, t + .19, 'highpass', 3000, .8, .04, .02, .001); return; }
+    const buzz = ctx.createOscillator(), band = filter('bandpass', 900, 2.5), g = gain(0);
+    buzz.type = 'sawtooth'; buzz.frequency.value = 100; chain(buzz, band, g, v);
+    if (kind === 'light') {
+      burst(v, t + .22, 'highpass', 2600, .8, .05, .03, .001); tone(v, t + .24, 2300, 2250, .012, .001, .18);
+      g.gain.setValueAtTime(0, t + .22); g.gain.linearRampToValueAtTime(.035, t + .5); g.gain.exponentialRampToValueAtTime(.008, t + 1.6); g.gain.exponentialRampToValueAtTime(.0001, t + 2.2);
+      buzz.start(t + .2); buzz.stop(t + 2.3);
+    } else {
+      g.gain.setValueAtTime(.03, t + .2); buzz.frequency.setValueAtTime(100, t + .2); buzz.frequency.exponentialRampToValueAtTime(62, t + 1.1);
+      for (let i = 0; i < 4; i++) { g.gain.setValueAtTime(.03 * rand(.2, 1), t + .3 + i * rand(.08, .16)); }
+      g.gain.exponentialRampToValueAtTime(.0001, t + 1.2); buzz.start(t + .2); buzz.stop(t + 1.3);
+      burst(v, t + .9, 'bandpass', 700, 1.5, .02, .2, .02);
+    }
+  }
   function warning() { const t = T(), v = voice({ level: .7, wet: .05 }); for (let i = 0; i < 2; i++) tone(v, t + i * .16, 880, 880, .03, .005, .09, 'square'); }
 
   function combat(b, dt) {
@@ -394,5 +416,5 @@ const ExoAmbience = (() => {
   // (the title screen), so slow frames on weak GPUs don't cause dropouts.
   setInterval(() => { if (ctx && master && (document.hidden || document.getElementById('modal')?.open || performance.now() - lastUpdate > 4000)) ease(master.gain, 0, .3); }, 250);
   function setEnabled(on) { enabled = !!on; writePreference(enabled); if (enabled) ensure(); else if (master) ease(master.gain, 0, .1); }
-  return { update, setEnabled, contact, step: (surface = 'gravel', weight = .9) => { if (enabled && ensure() && ctx.state === 'running') footstep(surface, weight); }, get enabled() { return enabled; }, get output() { return out; }, get context() { return ctx; } };
+  return { update, setEnabled, contact, lamp, step: (surface = 'gravel', weight = .9) => { if (enabled && ensure() && ctx.state === 'running') footstep(surface, weight); }, get enabled() { return enabled; }, get output() { return out; }, get context() { return ctx; } };
 })();
