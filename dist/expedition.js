@@ -128,6 +128,11 @@ const Exo=(()=>{
   if(activeBattle.saber&&!unit.flight){drive.x*=.28;drive.y*=.28;}
   const previousPosition={x:unit.x,y:unit.y};
   const boosting=boost||keys.has(' ')||keys.has('shift'),motion=unit.flight?M.stepFlight(unit,drive,dt,boosting,activeBattle.down?0:verticalInput+Number(keys.has('r'))-Number(keys.has('c'))):M.step(unit,drive,dt,boosting),rocks=[...(ExoWorld.cave?[]:M.rocks),...ExoWorld.rocks(unit.x,unit.y)];
+   // First person: the body faces where the pilot looks; strafing no longer turns it.
+   if(camera.firstPerson&&!unit.flight)unit.angle=-camera.yaw;
+   // Head bob: the eye dips a little on every footfall, scaled by walking speed.
+   camera.bob=camera.firstPerson&&!unit.flight&&!reduced?-Math.abs(Math.sin((unit.distance||0)*.07))*3.4*Math.min(1,(motion.speed||0)/125):0;
+   if(camera.firstPerson&&typeof ExoFPV!=='undefined')ExoFPV.update(camera.yaw,unit,activeBattle);
   if(terrainField&&typeof ExoTerrainWilds!=='undefined'){const result=ExoTerrainField.step(terrainField,{unit,previous:previousPosition,model:terrain,battle:combat,dt,data:ExoTerrainWilds,course:ExoTerrainCourse,context:ExoWorld.cave?.id||null,enabled:expeditionActive()&&!ExoWorld.interior});if(result.braked||result.recovered){target=null;ExoWorld.cancelRoute();}if(result.message){combat.message=result.message;ExoHUD.setText(document.getElementById('exo-radio'),result.message);}}
   if(armory){unit.jetpack=armory.has('jetpack');if(!fireCourse.active){armory.sync(combat);const n=armory.notice();if(n){combat.message=n;ExoHUD.setText(document.getElementById('exo-radio'),n);}}}
   calCooldown=Math.max(0,calCooldown-dt);try{if(typeof ExoAmbience!=='undefined')ExoAmbience.update({unit,motion,dt,boosting,battle:activeBattle,yaw:camera.yaw})}catch(e){}

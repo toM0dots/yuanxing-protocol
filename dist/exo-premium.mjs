@@ -70,7 +70,7 @@ function render(o,api,preparing=false){if(!renderer)return false;const current=d
  perf?.mark('terrain cache');const markerKey=sceneGeometryKey(o,ExoWorld,o.terrain?ExoTerrainCourse.rover(o.terrain):null);if(markerKey!==worldGeometryKey){const old=worldMesh.geometry;worldMesh.geometry=geometry(api.sceneGeometry(o,false,false,false,false));old.dispose();worldGeometryKey=markerKey;}
  perf?.mark('world geometry');const u=o.unit,scale=18,ground=ExoWorld.elevation(u.x,u.y),dt=Math.min(.05,Math.max(0,(o.now-lastTime)/1000));lastTime=o.now;
  const hp=o.combat?.hp??100;if(hp<lastHP)damage=1;lastHP=hp;damage=Math.max(0,damage-dt*3);
- model.visible=!o.c.firstPerson;
+ model.visible=true;
  {// When the camera is pressed close, EV-04 dithers to a see-through veil.
   const chest=new T.Vector3(u.x,ground+(u.altitude||0)+68,u.y),near=camera.position.distanceTo(chest),fade=o.c.firstPerson?1:Math.max(.2,Math.min(1,(near-120)/150));
   if(Math.abs(fade-mechFade)>.01){mechFade=fade;for(const m of mechMaterials)m.opacity=fade;}}

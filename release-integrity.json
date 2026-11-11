@@ -1,5 +1,5 @@
 {
-  "release": "20261111-armory103",
+  "release": "20261111-cockpit104",
   "files": [
     {
       "path": ".nojekyll",
@@ -2483,8 +2483,8 @@
     },
     {
       "path": "exo-3d.js",
-      "bytes": 29842,
-      "sha256": "7fbf8f889e31dfc913b80552bf86a58fa0852c9ba2a278e3e8f8aff13c3a76f7"
+      "bytes": 29911,
+      "sha256": "6a184f4528223096ae6823953c5a49defb4025907a20570a1b2f0e2a2ec41c74"
     },
     {
       "path": "exo-aegis-surface.mjs",
@@ -2753,8 +2753,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 22840,
-      "sha256": "93c88f061fce14a4142a9f5255fa65f1a35db5781cd1b6ca2d5efada0b36b093"
+      "bytes": 22828,
+      "sha256": "286aa473c73dc963e3a64fa18a6aff67315b350a855968180848817bc38a6563"
     },
     {
       "path": "exo-profile.js",
@@ -2983,8 +2983,8 @@
     },
     {
       "path": "expedition.js",
-      "bytes": 71554,
-      "sha256": "cfb53a0335e9e96ed2ec7891899fdc354d40cc6c561fbb5537bd599a4332fcf8"
+      "bytes": 72027,
+      "sha256": "fa6832e8de44a6a1000fccb0d0081d21e3e501d47154096890fc9b281d511042"
     },
     {
       "path": "field-missions.js",
@@ -2993,8 +2993,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5100,
-      "sha256": "039dd4fc4d1cc87a0c5dad636b874785365da823f6c027116e88daf04df06ecb"
+      "bytes": 5166,
+      "sha256": "664444e2ef71da14821d368f9da51d697651dd817276e2454d7428ffea66cad9"
     },
     {
       "path": "journey.js",
@@ -3088,8 +3088,13 @@
     },
     {
       "path": "exo-fpv.css",
-      "bytes": 1013,
-      "sha256": "ae49e877f3be23fadee01d5acb81dcfd6ff9073881606da983f811fe4d02be59"
+      "bytes": 3245,
+      "sha256": "f98d711714027abbdade68e0d0a53ad403033e0bec7c4d026f7aae6d4f3b61fb"
+    },
+    {
+      "path": "exo-fpv.js",
+      "bytes": 2974,
+      "sha256": "b8be54900dc67a8c6144129373b486b40f701493f0ddc099f979d9dc00ba0893"
     }
   ]
 }

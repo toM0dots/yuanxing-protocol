@@ -6,7 +6,7 @@ const Exo3D=(()=>{
  function init(){const next=document.getElementById('exo-gl');if(next===canvas&&gl&&!lost)return true;canvas=next;if(!canvas)return false;try{gl=canvas.getContext('webgl',{alpha:true,antialias:true,powerPreference:'high-performance'});if(!gl||!gl.createShader)return false;const shader=(type,src)=>{const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s};program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,vs));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,fs));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error('3D shader link failed');buffer=gl.createBuffer();loc={p:gl.getAttribLocation(program,'p'),n:gl.getAttribLocation(program,'n'),color:gl.getAttribLocation(program,'color'),eye:gl.getUniformLocation(program,'eye'),right:gl.getUniformLocation(program,'cameraRight'),up:gl.getUniformLocation(program,'cameraUp'),forward:gl.getUniformLocation(program,'cameraForward'),lens:gl.getUniformLocation(program,'lens'),depth:gl.getUniformLocation(program,'depthRange'),terrainPass:gl.getUniformLocation(program,'terrainPass')};gl.enable(gl.DEPTH_TEST);canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true});canvas.addEventListener('webglcontextrestored',()=>{lost=false;gl=null;meshes.clear()});lost=false;return true}catch{gl=null;return false}}
  // Keep orbit input, collision and rendering separate: projection never advances the camera.
  const cameraPoses=new WeakMap();
- const cameraKey=c=>[c.x,c.y,c.z,c.yaw,c.pitch,c.distance,c.focusHeight,c.shoulder,c.flight,c.firstPerson?1:0,Math.round((c.lift||0)*1000),ExoWorld.cave?.id].join(':');
+ const cameraKey=c=>[c.x,c.y,c.z,c.yaw,c.pitch,c.distance,c.focusHeight,c.shoulder,c.flight,c.firstPerson?1:0,Math.round((c.lift||0)*1000),Math.round((c.bob||0)*10),ExoWorld.cave?.id].join(':');
  function resetOrbit(c){c.orbitYaw=c.yaw;c.orbitPitch=c.pitch;delete c.boomDistance;cameraPoses.delete(c);}
  function orbitDrag(c,dx,dy){
   // Drag right to look right (first person turns a little slower).
@@ -37,7 +37,7 @@ const Exo3D=(()=>{
   // maps to looking 13 degrees up through 39 degrees down.
   if(c.firstPerson){
    const ground=Number.isFinite(c.z)?c.z:ExoWorld.elevation(c.x,c.y),look=pitch-.35,f=[-Math.sin(yaw)*Math.cos(look),-Math.cos(yaw)*Math.cos(look),-Math.sin(look)];
-   const eye=[c.x+f[0]*14,c.y+f[1]*14,ground+(c.eyeHeight??112)],target=eye.map((v,i)=>v+f[i]*240);
+   const eye=[c.x+f[0]*(c.eyeForward??17),c.y+f[1]*(c.eyeForward??17),ground+(c.eyeHeight??108)+(c.bob||0)],target=eye.map((v,i)=>v+f[i]*240);
    return {eye,target,terrainEye:ExoWorld.elevation(c.x,c.y),rayClearance:0};
   }
   // lift: when walls or slopes cut the boom short, the camera rises and looks

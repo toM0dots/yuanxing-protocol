@@ -9,3 +9,29 @@
  background:radial-gradient(circle,rgba(214,232,222,.85) 0 1.5px,transparent 2px);opacity:.75}
 .hud-tools .hud-view-toggle{white-space:nowrap}
 @media (prefers-reduced-motion:reduce){#exo-field.fpv::after{background:radial-gradient(ellipse 80% 72% at 50% 52%,rgba(0,0,0,0) 66%,rgba(2,5,6,.55) 100%)}}
+
+/* Visor readouts (exo-fpv.js): heading tape, armour and energy arcs, speed. */
+.fpv-visor{display:none}
+#exo-field.fpv .fpv-visor{display:block;position:absolute;inset:0;pointer-events:none;z-index:3;color:#d9ece2;
+ text-shadow:0 1px 2px rgba(0,0,0,.9),0 0 10px rgba(0,0,0,.6);font-variant-numeric:tabular-nums}
+#exo-field.fpv .hud-vitals{opacity:0;pointer-events:none}
+.fpv-tape{position:absolute;top:14px;left:50%;width:min(420px,60vw);height:30px;transform:translateX(-50%);overflow:hidden;
+ -webkit-mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent);mask-image:linear-gradient(90deg,transparent,#000 18%,#000 82%,transparent)}
+.fpv-ticks span{position:absolute;bottom:4px;transform:translateX(-50%);font-size:10px;letter-spacing:.06em;opacity:.65}
+.fpv-ticks span::after{content:'';position:absolute;left:50%;bottom:-4px;width:1px;height:4px;background:currentColor}
+.fpv-ticks span.is-major{font-size:12px;opacity:.95;color:#e9d9a8}
+.fpv-caret{position:absolute;left:50%;top:0;width:0;height:0;transform:translateX(-50%);border:5px solid transparent;border-top-color:#e9d9a8}
+.fpv-deg{position:absolute;left:50%;top:-1px;transform:translateX(-50%);font-size:10px;opacity:0}
+.fpv-gauge{position:absolute;bottom:62px;width:110px;text-align:center}
+.fpv-gauge.fpv-left{left:28px}.fpv-gauge.fpv-right{right:28px}
+.fpv-gauge svg{width:110px;height:64px;display:block;overflow:visible}
+.fpv-arc-bg,.fpv-arc{fill:none;stroke-width:5;stroke-linecap:round}
+.fpv-arc-bg{stroke:rgba(210,230,220,.16)}
+.fpv-arc{stroke:#9fd9c0;filter:drop-shadow(0 0 3px rgba(150,220,190,.45));transition:stroke-dasharray .25s ease}
+.fpv-arc.fpv-energy{stroke:#e2bd72;filter:drop-shadow(0 0 3px rgba(230,190,110,.45))}
+.fpv-gauge.is-low .fpv-arc{stroke:#ff7a52}
+.fpv-gauge b{display:block;margin-top:-30px;font-size:18px;font-weight:600}
+.fpv-gauge small,.fpv-speed small{display:block;font-size:10px;letter-spacing:.14em;opacity:.7}
+.fpv-speed{position:absolute;bottom:72px;left:50%;transform:translateX(-50%);text-align:center}
+.fpv-speed b{font-size:15px;font-weight:600}
+@media (max-width:700px){.fpv-gauge{bottom:120px;transform:scale(.8)}.fpv-gauge.fpv-left{left:6px}.fpv-gauge.fpv-right{right:6px}.fpv-speed{bottom:128px}}
