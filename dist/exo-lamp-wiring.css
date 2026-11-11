@@ -1,0 +1,41 @@
+/* Lamp wiring junction box (exo-lamp-wiring.js). Worn console plate, not a UI card. */
+.lamp-wiring{width:min(600px,94vw);padding:0;border:0;border-radius:10px;color:#dfe6dc;
+ background:linear-gradient(160deg,#1d2624 0%,#141b1a 55%,#101614 100%);
+ box-shadow:0 0 0 1px rgba(170,186,168,.16),0 18px 60px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.05);
+ font-family:inherit;overflow:hidden}
+.lamp-wiring::backdrop{background:radial-gradient(ellipse at center,rgba(4,8,8,.35),rgba(2,4,4,.72))}
+.lamp-wiring header{display:grid;grid-template-columns:1fr auto;align-items:end;padding:16px 18px 6px;border-bottom:1px solid rgba(200,210,190,.08)}
+.lamp-wiring .lw-kicker{grid-column:1;font-size:11px;letter-spacing:.14em;color:#c7a46a;opacity:.85}
+.lamp-wiring h2{grid-column:1;margin:2px 0 0;font-size:19px;font-weight:600;letter-spacing:.04em}
+.lamp-wiring .lw-close{grid-row:1/3;grid-column:2;align-self:center;width:34px;height:34px;border-radius:50%;border:1px solid rgba(200,210,190,.2);background:rgba(0,0,0,.25);color:#cfd8cc;font-size:18px;cursor:pointer}
+.lamp-wiring .lw-brief{margin:10px 18px 0;font-size:13px;line-height:1.6;color:#b9c4b6}
+.lamp-wiring .lw-board{margin:10px 14px;border-radius:8px;
+ background:repeating-linear-gradient(90deg,rgba(255,255,255,.012) 0 2px,transparent 2px 7px),linear-gradient(180deg,#232c29,#1a211f);
+ box-shadow:inset 0 0 0 1px rgba(0,0,0,.5),inset 0 8px 24px rgba(0,0,0,.35)}
+.lw-svg{display:block;width:100%;height:auto;touch-action:none;user-select:none;-webkit-user-select:none}
+.lw-block{fill:#2b3431;stroke:rgba(210,220,200,.14);stroke-width:1.2}
+.lw-label{fill:#8f9a8c;font-size:11px;letter-spacing:.1em}
+.lw-scratch{stroke:rgba(230,225,205,.07);stroke-width:1;fill:none}
+.lw-stub{stroke-width:7;stroke-linecap:round;fill:none;opacity:.95}
+.lw-faded{opacity:.42;stroke-dasharray:3 4}
+.lw-cap{stroke:rgba(0,0,0,.55);stroke-width:2}
+.lw-post{fill:#3a433f;stroke:#7d877c;stroke-width:2}
+.lw-tag{opacity:.55}
+.lw-mark{fill:#141a18;font-size:13px;font-weight:700;pointer-events:none}
+.lw-mark-faint{fill:#a7b0a2;opacity:.75}
+.lw-node{cursor:pointer;outline:none}
+.lw-node:focus-visible .lw-cap,.lw-node:focus-visible .lw-post,.lw-node.is-picked .lw-cap{stroke:#f3e3b8;stroke-width:3}
+.lw-node.is-picked .lw-cap{filter:drop-shadow(0 0 6px rgba(243,227,184,.7))}
+.lw-node.is-done{cursor:default}
+.lw-node.is-done .lw-post{fill:#55605a;stroke:#c9d4c4}
+.lw-node.is-done .lw-tag{opacity:1}
+.lw-node.is-wrong .lw-cap,.lw-node.is-wrong .lw-post{stroke:#ff7a52;stroke-width:3;filter:drop-shadow(0 0 8px rgba(255,122,82,.85))}
+.lw-live,.lw-link{fill:none;stroke-width:6;stroke-linecap:round}
+.lw-live{opacity:.85;stroke-dasharray:2 0}
+.lw-link{filter:drop-shadow(0 1px 1px rgba(0,0,0,.6))}
+.lamp-wiring footer{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:4px 18px 16px;font-size:12px;color:#9aa596}
+.lamp-wiring .lw-progress{color:#d8c79c}
+.lamp-wiring.is-powered .lw-board{box-shadow:inset 0 0 0 1px rgba(255,200,120,.35),inset 0 0 40px rgba(255,170,80,.22)}
+.lamp-wiring.is-powered .lw-link{filter:drop-shadow(0 0 6px rgba(255,190,110,.8))}
+@media (max-width:520px){.lamp-wiring .lw-help{display:none}.lamp-wiring h2{font-size:17px}}
+@media (prefers-reduced-motion:reduce){.lw-node.is-picked .lw-cap,.lw-node.is-wrong .lw-cap{filter:none}}

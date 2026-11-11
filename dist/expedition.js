@@ -6,7 +6,11 @@ const Exo=(()=>{
  const journey=ExoProgress.create({storage:window.localStorage||localStorage,structures:ExoWorld.structures,sites:M.sites,camps:ExoWorld.surfaceCamps,caves:ExoWorld.caves,label:ExoFacilities.label});
  if(typeof ExoLampRepair!=='undefined')ExoLampRepair.setReader(id=>journey.trailEarned.includes(id));
  const lampNear=()=>typeof ExoLampRepair!=='undefined'&&mode==='world'&&!ExoWorld.cave&&!ExoWorld.interior&&!unit.flight&&!combat.trial?ExoLampRepair.near(unit):null;
- function lampAct(lamp){clearDrive();const r=ExoLampRepair.act(lamp);combat.message=r.message;document.getElementById('exo-radio').textContent=r.message;if(r.sound&&typeof ExoAmbience!=='undefined')ExoAmbience.lamp?.(r.sound,lamp.x,lamp.y);}
+ function lampSay(r,lamp){combat.message=r.message;document.getElementById('exo-radio').textContent=r.message;if(r.sound&&typeof ExoAmbience!=='undefined')ExoAmbience.lamp?.(r.sound,lamp.x,lamp.y);}
+ function lampAct(lamp){clearDrive();if(typeof ExoLampWiring!=='undefined'&&ExoLampWiring.open)return;const r=ExoLampRepair.act(lamp);
+  // Repairs go through the junction box; the cell is only used once it is wired.
+  if(r.wiring&&typeof ExoLampWiring!=='undefined'){ExoLampWiring.start({title:'检修 · '+lamp.name,seed:lamp.id,onDone:()=>{clearDrive();lampSay(ExoLampRepair.repair(lamp),lamp);},onCancel:()=>{clearDrive();lampSay({message:'接线没有完成，电池还在你手里。'},lamp);}});return;}
+  if(r.wiring)r.message=ExoLampRepair.repair(lamp).message;lampSay(r,lamp);}
  journey.migrate({found:[...found],facilities:ExoFacilities.progress,fire:fireCourse.completed,terrain:terrain.unlocked});
  const campaignState=typeof ExoCampaign!=='undefined'?ExoCampaign.create({storage:window.localStorage||localStorage,fireAPI:ExoFireControl,points:{mother:typeof ExoStoryRoute!=='undefined'?ExoStoryRoute.mother:null,captain:typeof ExoStoryRoute!=='undefined'?ExoStoryRoute.captain:null,spawn:ExoTrainingGround.campaign.start,route:[{...ExoTrainingGround.campaign.caution,radius:65,instruction:'前方的旧路塌了。先在橙黄色警戒灯前停下，看看路面。'},...ExoTrainingGround.campaign.bypass.map(p=>({...p,radius:70,instruction:'跟着东侧的青色路灯绕过去，避开断裂的旧路。'})),{...ExoTrainingGround.campaign.exit,radius:95,instruction:'回到峡谷道路上。沿青色路灯走，前面似乎有人维护。'}],lamps:ExoGreenTrail.records.map(r=>({x:r.x,y:r.y,radius:100})),refuge:{...ExoWorld.structures.find(s=>s.id==='k09-hero-hangar').entrance,radius:140},range:{...ExoTrainingGround.fire.base,radius:180}}}):null;
  const terrainField=typeof ExoTerrainField!=='undefined'?ExoTerrainField.create():null;

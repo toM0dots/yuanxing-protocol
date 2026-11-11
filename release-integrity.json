@@ -1,5 +1,5 @@
 {
-  "release": "20261110-lamps97",
+  "release": "20261110-wiring98",
   "files": [
     {
       "path": ".nojekyll",
@@ -2473,8 +2473,8 @@
     },
     {
       "path": "exo-ambience.js",
-      "bytes": 35594,
-      "sha256": "62d21bdb481286f8be8f8ed6964ec71ac187e78f28de7ccca2b8d3855c0ec803"
+      "bytes": 36234,
+      "sha256": "86944662da59be7f43e66f53dcf8399f229959f44cb25bb44fe745e9b173faf7"
     },
     {
       "path": "exo-ashland.mjs",
@@ -2948,8 +2948,8 @@
     },
     {
       "path": "expedition.js",
-      "bytes": 68406,
-      "sha256": "339e02823bad2895fe8099f68e481be5113c7bc1a054d598fa948045b61d0327"
+      "bytes": 68951,
+      "sha256": "42caa14b6ca392fd32951d5e6794eb5e1b712877114c677e9f6711133acf5745"
     },
     {
       "path": "field-missions.js",
@@ -2958,8 +2958,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 4839,
-      "sha256": "78e320aa71c1ac11298a6cb3b8e8790f8969b63da0f37e7ebf01aed1cbc84fa7"
+      "bytes": 4976,
+      "sha256": "81d6545ab34182b81dfc02daa4b61a20c0812e5748ae246d4492c3cfcc8cd8f2"
     },
     {
       "path": "journey.js",
@@ -3038,8 +3038,18 @@
     },
     {
       "path": "exo-lamp-repair.js",
-      "bytes": 5755,
-      "sha256": "db49572fcba8d1d35cb9764b55d92a28fa0da9e745a0426106124dfd867fdebd"
+      "bytes": 6091,
+      "sha256": "bfddee657366264746b2ac660708c537ad21e75e9a010cd8630f2552fa781376"
+    },
+    {
+      "path": "exo-lamp-wiring.css",
+      "bytes": 3311,
+      "sha256": "5ffc71252f36cabd7e57b547920adc1b5ee10f06468ea879236b4d6b8828c958"
+    },
+    {
+      "path": "exo-lamp-wiring.js",
+      "bytes": 7042,
+      "sha256": "73f27d711360d93d17af697a6a13ebbc0cb72689854e60dc3035cb44707bdf84"
     }
   ]
 }

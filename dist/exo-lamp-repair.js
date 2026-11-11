@@ -45,7 +45,7 @@ const ExoLampRepair=(()=>{
  function label(item){
   if(!item)return '';
   if(item.kind==='cache')return '取出电池';
-  if(item.kind==='broken')return state.cells>0?'装上电池，修好'+item.name:'查看'+item.name;
+  if(item.kind==='broken')return state.cells>0?'打开接线盒，修好'+item.name:'查看'+item.name;
   const d=state.drawn[item.id]||0;
   if(d>0&&state.cells>0)return '把电池装回'+item.name;
   return d===0?'从'+item.name+'取一块电池':'取走最后一块电池';
@@ -60,9 +60,7 @@ const ExoLampRepair=(()=>{
   if(item.kind==='broken'){
    if(level(item)===1)return {message:item.name+'已经亮着。'};
    if(state.cells<1)return {message:item.name+'的电池仓是空的。需要一块电池：路边的补给箱里或许还有，K–09 的灯箱里也各装着两块。'};
-   state.cells--;state.fixed.push(item.id);save();
-   const lit=state.fixed.length;
-   return {message:'灯亮了。这段路以后不必摸黑走。'+left()+(lit===broken.length?' 沿线的灯都亮着了。':''),sound:'light',lit:item.id};
+   return {wiring:true,message:'打开'+item.name+'的接线盒。'};
   }
   const d=state.drawn[item.id]||0;
   if(d>0&&state.cells>0){
@@ -77,7 +75,15 @@ const ExoLampRepair=(()=>{
   }
   return {message:item.name+'里已经没有电池了。'};
  }
+ // Called once the wiring is reconnected (exo-lamp-wiring.js).
+ function repair(item){
+  if(item.kind!=='broken'||level(item)===1)return {message:item.name+'已经亮着。'};
+  if(state.cells<1)return {message:'没有电池了。'};
+  state.cells--;state.fixed.push(item.id);save();
+  const lit=state.fixed.length;
+  return {message:'灯亮了。这段路以后不必摸黑走。（电池 '+state.cells+'）'+(lit===broken.length?' 沿线的灯都亮着了。':''),sound:'light',lit:item.id};
+ }
  function summary(){return {cells:state.cells,fixed:state.fixed.length,total:broken.length,caches:caches.length-state.caches.length};}
- return {broken,caches,spares,all,near,label,act,level,summary,taken:id=>state.caches.includes(id),setReader(fn){reader=typeof fn==='function'?fn:()=>false;},get state(){return JSON.parse(JSON.stringify(state));},reset(){state=empty();save();}};
+ return {broken,caches,spares,all,near,label,act,repair,level,summary,taken:id=>state.caches.includes(id),setReader(fn){reader=typeof fn==='function'?fn:()=>false;},get state(){return JSON.parse(JSON.stringify(state));},reset(){state=empty();save();}};
 })();
 if(typeof module!=='undefined')module.exports=ExoLampRepair;

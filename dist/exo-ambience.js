@@ -321,6 +321,14 @@ const ExoAmbience = (() => {
       burst(v, t + .9, 'bandpass', 700, 1.5, .02, .2, .02);
     }
   }
+  // Junction box wiring: a seated terminal clicks and ticks with current; a wrong
+  // one spits a short spark.
+  function wire(ok) {
+    if (!enabled || !ensure() || ctx.state !== 'running') return;
+    const t = T(), v = voice({ level: .9, wet: .12, life: .6 }); if (!v) return;
+    if (ok) { burst(v, t, 'highpass', 3400, .8, .06, .015, .001); tone(v, t, 1900, 1850, .018, .001, .05, 'triangle'); tone(v, t + .03, 120, 118, .012, .004, .14, 'sawtooth'); }
+    else { burst(v, t, 'bandpass', 4200, 1.2, .07, .09, .001); burst(v, t + .03, 'highpass', 6000, .7, .04, .12, .002); tone(v, t, 100, 96, .02, .002, .2, 'sawtooth'); }
+  }
   function warning() { const t = T(), v = voice({ level: .7, wet: .05 }); for (let i = 0; i < 2; i++) tone(v, t + i * .16, 880, 880, .03, .005, .09, 'square'); }
 
   function combat(b, dt) {
@@ -416,5 +424,5 @@ const ExoAmbience = (() => {
   // (the title screen), so slow frames on weak GPUs don't cause dropouts.
   setInterval(() => { if (ctx && master && (document.hidden || document.getElementById('modal')?.open || performance.now() - lastUpdate > 4000)) ease(master.gain, 0, .3); }, 250);
   function setEnabled(on) { enabled = !!on; writePreference(enabled); if (enabled) ensure(); else if (master) ease(master.gain, 0, .1); }
-  return { update, setEnabled, contact, lamp, step: (surface = 'gravel', weight = .9) => { if (enabled && ensure() && ctx.state === 'running') footstep(surface, weight); }, get enabled() { return enabled; }, get output() { return out; }, get context() { return ctx; } };
+  return { update, setEnabled, contact, lamp, wire, step: (surface = 'gravel', weight = .9) => { if (enabled && ensure() && ctx.state === 'running') footstep(surface, weight); }, get enabled() { return enabled; }, get output() { return out; }, get context() { return ctx; } };
 })();
