@@ -1,5 +1,5 @@
 {
-  "release": "20261110-fpv101",
+  "release": "20261111-camera102",
   "files": [
     {
       "path": ".nojekyll",
@@ -2473,8 +2473,8 @@
     },
     {
       "path": "exo-3d.js",
-      "bytes": 29002,
-      "sha256": "12357add5139e40983b26550e7a905233af8db570100d0a11c9408f0aec9a777"
+      "bytes": 29774,
+      "sha256": "0b82d6dacb3b029b3c008135faedb819fce819a982aac1c502ef4c62445b0f8b"
     },
     {
       "path": "exo-aegis-surface.mjs",
@@ -2733,8 +2733,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 22083,
-      "sha256": "a45bf1971105b8db7dab86d29e6bbf917894e2b6b0df396f17fcd5618382f629"
+      "bytes": 22579,
+      "sha256": "fb4deb23ec922a8f879be99dbf65c5399d2b1c7a90d875ca0db862f3992ae09c"
     },
     {
       "path": "exo-profile.js",
@@ -2973,8 +2973,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5025,
-      "sha256": "b4a927545041fcc70fea67a00cd967edd4434206c5ca92146d0e7f9a15c7d033"
+      "bytes": 5030,
+      "sha256": "d7b1735e215bdb90850228e30fc57da583d9d924ef63f45cfc078723eff39454"
     },
     {
       "path": "journey.js",
