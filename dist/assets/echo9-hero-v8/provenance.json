@@ -1,0 +1,20 @@
+{
+  "design": "ECHO-9 / Hero v8",
+  "revision": "v8 smooth sculpted armour: continuous subdivided shells over a smooth undersuit, domed joint caps; keeps the cobalt/ivory/crimson palette, swept-crest helmet and cyan visor, chest chevron, crimson knees, thruster pack, arm cannon and blade sheath; bolts, hoses, exposed hydraulics, radiator fins, harness and pouches removed",
+  "source": "art/echo9-hero-v8/Echo9_Hero_V8.blend",
+  "generator": "tools/build-echo9-hero-v8.py",
+  "reference": "Smoothed from the v7 builder at the user's request for sleek, sculpted powered-armour surfaces; original Blender geometry, no downloaded model",
+  "parts": 306,
+  "triangles": 88004,
+  "joints": 20,
+  "materials": 10,
+  "forward": "-Z",
+  "up": "+Y",
+  "rig": "Unchanged leg lengths and sole footprint; arms and muzzle shifted inward by .22 m; independent pauldrons, hip guards and functional jet sockets",
+  "textures": {
+    "source": "https://polyhaven.com/a/blue_metal_plate",
+    "license": "CC0-1.0",
+    "maps": "../hangar-v1/panel-color.jpg + panel-normal-rough.png",
+    "credit": "Powered by Poly Haven"
+  }
+}

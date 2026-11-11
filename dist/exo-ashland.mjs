@@ -1,4 +1,4 @@
-import {loadGameModel,loadGameTexture} from './exo-asset-loader.mjs?v=20261107-loading90';
+import {loadGameModel,loadGameTexture} from './exo-asset-loader.mjs?v=20261110-hero8';
 import * as T from './assets/ev01/three.module.mjs';
 import {applyPackedPBR} from './exo-packed-materials.mjs?v=45';
 import {mergeVertices} from './assets/ev01/BufferGeometryUtils.mjs';

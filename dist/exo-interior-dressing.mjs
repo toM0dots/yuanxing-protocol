@@ -1,6 +1,6 @@
 import * as T from './assets/ev01/three.module.mjs';
 import {mergeGeometries} from './assets/ev01/BufferGeometryUtils.mjs';
-import {loadGameModel} from './exo-asset-loader.mjs?v=20261107-loading90';
+import {loadGameModel} from './exo-asset-loader.mjs?v=20261110-hero8';
 
 // Hand-dressed hero rooms. The props are Blender models (tools/build-interior-props.py)
 // placed by hand, one composition per room, instead of the procedural kit. Every
