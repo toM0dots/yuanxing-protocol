@@ -43,7 +43,7 @@ export function createWeaponRig(rig){
  for(const x of [-.21,.21])armor(cannon,[x,0,.28],[.14,.36,.66]);
  for(let i=0;i<3;i++)cyl(cannon,[0,0,.03+i*.16],.18,.035,3,[Math.PI/2,0,0]);cyl(cannon,[0,0,-.08],.2,.12,0,[Math.PI/2,0,0]);cyl(cannon,[0,0,-.15],.13,.025,2,[Math.PI/2,0,0]);
  for(const {parent,mat,geos} of bins.values()){const g=mergeGeometries(geos,false),m=new T.Mesh(g,materials[mat]);m.castShadow=m.receiveShadow=true;parent.add(m);geos.forEach(x=>x.dispose());}
- return {saber,blade,pods,doors,cannon,update(b,enabled,time,reduced=false){saber.visible=cannon.visible=enabled;pods.forEach(p=>p.visible=enabled);const a=b?.saber,t=a?T.MathUtils.clamp(a.age/a.duration,0,1):0;blade.visible=enabled&&!!a;blade.scale.y=a?1+Math.sin(t*Math.PI)*.06:1;halo.material.opacity=reduced?.25:.25+Math.sin(time*16)*.018;saber.rotation.z=a?-.12:0;
+ return {saber,blade,pods,doors,cannon,update(b,enabled,time,reduced=false){const armory=globalThis.ExoArmory,owns=id=>!armory||armory.has(id);cannon.visible=enabled;saber.visible=enabled&&owns('saber');pods.forEach(p=>p.visible=enabled&&owns('cannon'));const a=b?.saber,t=a?T.MathUtils.clamp(a.age/a.duration,0,1):0;blade.visible=enabled&&!!a;blade.scale.y=a?1+Math.sin(t*Math.PI)*.06:1;halo.material.opacity=reduced?.25:.25+Math.sin(time*16)*.018;saber.rotation.z=a?-.12:0;
   const elapsed=5.5-(b?.missileCooldown||0),open=elapsed>=0&&elapsed<1.1?T.MathUtils.smoothstep(elapsed,0,.16)*(1-T.MathUtils.smoothstep(elapsed,.72,1.1)):0;doors.forEach((d,i)=>d.rotation.x=-1.75*open);materials[3].emissiveIntensity=.18+(b?.cooldown>0?.65:0);
  }};
 }

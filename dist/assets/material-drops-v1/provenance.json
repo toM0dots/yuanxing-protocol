@@ -1,0 +1,11 @@
+{
+  "design": "ECHO-9 material drops",
+  "contents": {
+    "Drop_Energy": "能源晶核 / energy core: faceted vein-lit crystal in a cobalt cage, amber status lamp",
+    "Drop_Metal": "合金 / alloy salvage: strapped brushed ingots, crimson tag, bent cobalt armour fragment"
+  },
+  "generator": "tools/build-material-drops.py",
+  "textures": "Generated in the builder (brushed alloy colour/roughness/normal, crystal vein colour/emission); no downloads",
+  "units": "metres; the game scales them to world units",
+  "triangles": 11852
+}

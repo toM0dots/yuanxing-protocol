@@ -1,5 +1,5 @@
 import * as T from './assets/ev01/three.module.mjs';
-import {indexExactGeometry} from './exo-render-optimization.mjs?v=20261107-performance89';
+import {indexExactGeometry} from './exo-render-optimization.mjs?v=20261110-armory1';
 import {mergeGeometries} from './assets/ev01/BufferGeometryUtils.mjs';
 import {faunaMaterial,applyFaunaScan} from './exo-fauna-surface.mjs?v=20261106-fauna81';
 
