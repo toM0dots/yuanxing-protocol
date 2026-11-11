@@ -10,7 +10,7 @@ This repository contains the complete static game release **v92** (`20261108-ins
 
 Browse the [visual asset library](VISUAL_ASSETS.md) for concept art, editable Blender models, terrain tiles, textures, fonts and their provenance. The [file manifest](visual-assets-manifest.json) lists every included asset and its checksum. Runtime game files remain in `dist/`.
 
-## Staged mech development in v102
+## Staged mech development in v103
 
 The mech now starts with only the **pulse gun (F)**. The other systems are developed one at a time, in a fixed order, from two kinds of material:
 

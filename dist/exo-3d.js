@@ -6,7 +6,7 @@ const Exo3D=(()=>{
  function init(){const next=document.getElementById('exo-gl');if(next===canvas&&gl&&!lost)return true;canvas=next;if(!canvas)return false;try{gl=canvas.getContext('webgl',{alpha:true,antialias:true,powerPreference:'high-performance'});if(!gl||!gl.createShader)return false;const shader=(type,src)=>{const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s};program=gl.createProgram();gl.attachShader(program,shader(gl.VERTEX_SHADER,vs));gl.attachShader(program,shader(gl.FRAGMENT_SHADER,fs));gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error('3D shader link failed');buffer=gl.createBuffer();loc={p:gl.getAttribLocation(program,'p'),n:gl.getAttribLocation(program,'n'),color:gl.getAttribLocation(program,'color'),eye:gl.getUniformLocation(program,'eye'),right:gl.getUniformLocation(program,'cameraRight'),up:gl.getUniformLocation(program,'cameraUp'),forward:gl.getUniformLocation(program,'cameraForward'),lens:gl.getUniformLocation(program,'lens'),depth:gl.getUniformLocation(program,'depthRange'),terrainPass:gl.getUniformLocation(program,'terrainPass')};gl.enable(gl.DEPTH_TEST);canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true});canvas.addEventListener('webglcontextrestored',()=>{lost=false;gl=null;meshes.clear()});lost=false;return true}catch{gl=null;return false}}
  // Keep orbit input, collision and rendering separate: projection never advances the camera.
  const cameraPoses=new WeakMap();
- const cameraKey=c=>[c.x,c.y,c.z,c.yaw,c.pitch,c.distance,c.focusHeight,c.shoulder,c.flight,c.firstPerson?1:0,ExoWorld.cave?.id].join(':');
+ const cameraKey=c=>[c.x,c.y,c.z,c.yaw,c.pitch,c.distance,c.focusHeight,c.shoulder,c.flight,c.firstPerson?1:0,Math.round((c.lift||0)*1000),ExoWorld.cave?.id].join(':');
  function resetOrbit(c){c.orbitYaw=c.yaw;c.orbitPitch=c.pitch;delete c.boomDistance;cameraPoses.delete(c);}
  function orbitDrag(c,dx,dy){
   // Drag right to look right (first person turns a little slower).
@@ -40,8 +40,11 @@ const Exo3D=(()=>{
    const eye=[c.x+f[0]*14,c.y+f[1]*14,ground+(c.eyeHeight??112)],target=eye.map((v,i)=>v+f[i]*240);
    return {eye,target,terrainEye:ExoWorld.elevation(c.x,c.y),rayClearance:0};
   }
-  const ground=Number.isFinite(c.z)?c.z:ExoWorld.elevation(c.x,c.y),target=[c.x+Math.cos(yaw)*(c.shoulder||0),c.y-Math.sin(yaw)*(c.shoulder||0),ground+(c.focusHeight??68)];
-  let eye=[target[0]+Math.sin(yaw)*Math.cos(pitch)*distance,target[1]+Math.cos(yaw)*Math.cos(pitch)*distance,target[2]+Math.sin(pitch)*distance];
+  // lift: when walls or slopes cut the boom short, the camera rises and looks
+  // down over the mech instead of pressing against its back (prepareCamera).
+  const lift=c.lift||0,tilt=Math.min(1.22,pitch+lift);
+  const ground=Number.isFinite(c.z)?c.z:ExoWorld.elevation(c.x,c.y),target=[c.x+Math.cos(yaw)*(c.shoulder||0),c.y-Math.sin(yaw)*(c.shoulder||0),ground+(c.focusHeight??68)+lift*55];
+  let eye=[target[0]+Math.sin(yaw)*Math.cos(tilt)*distance,target[1]+Math.cos(yaw)*Math.cos(tilt)*distance,target[2]+Math.sin(tilt)*distance];
   if(!c.flight&&!ExoWorld.cave&&typeof ExoCanyonV2!=='undefined')eye=ExoCanyonV2.constrainCamera(target,eye);
   if(ExoWorld.constrainCamera)eye=ExoWorld.constrainCamera(target,eye);
   const terrainAt=(x,y)=>Math.max(ExoWorld.elevation(Math.max(100,Math.min(ExoWorld.width-100,x)),Math.max(100,Math.min(ExoWorld.height-100,y))),c.flight&&typeof ExoCanyonV2!=='undefined'?(ExoCanyonV2.flightSurface?.(x,y)??-Infinity):-Infinity);
@@ -53,6 +56,11 @@ const Exo3D=(()=>{
  }
  function prepareCamera(c,dt){
   if(c.firstPerson){cameraPoses.set(c,{key:cameraKey(c),pose:cameraPose(c)});return;}
+  // How much room is there at the player's chosen angle? Measure without lift so
+  // rising does not feed back into itself, then ease lift toward that need.
+  const lifted=c.lift||0;c.lift=0;const base=cameraPose(c),room=Math.hypot(...base.eye.map((v,i)=>v-base.target[i]))/Math.max(1,Number.isFinite(c.distance)?c.distance:950);c.lift=lifted;
+  const need=c.flight?0:Math.min(.55,Math.max(0,(.62-room)*1.15)),rate=need>lifted?4:1.6;
+  c.lift=lifted+(need-lifted)*(1-Math.exp(-Math.max(0,dt)*rate));if(c.lift<.002)c.lift=0;
   const pose=cameraPose(c),d=pose.eye.map((v,i)=>v-pose.target[i]),safe=Math.hypot(...d);
   // Obstruction response is immediate; opening space restores distance gently.
   c.boomDistance=c.boomDistance==null? safe:Math.min(safe,c.boomDistance+(safe-c.boomDistance)*(1-Math.exp(-Math.max(0,dt)*6)));

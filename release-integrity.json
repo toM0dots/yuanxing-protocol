@@ -1,5 +1,5 @@
 {
-  "release": "20261111-armory102",
+  "release": "20261111-armory103",
   "files": [
     {
       "path": ".nojekyll",
@@ -2483,8 +2483,8 @@
     },
     {
       "path": "exo-3d.js",
-      "bytes": 29070,
-      "sha256": "797f330b24abb738f56e793d98edbf2305d32c53fe9deab1c179d1299b3e3b00"
+      "bytes": 29842,
+      "sha256": "7fbf8f889e31dfc913b80552bf86a58fa0852c9ba2a278e3e8f8aff13c3a76f7"
     },
     {
       "path": "exo-aegis-surface.mjs",
@@ -2753,8 +2753,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 22344,
-      "sha256": "01109a2d8640c6972de12028fafb7fca03667b18b93b649351a4d2e521f1ac27"
+      "bytes": 22840,
+      "sha256": "93c88f061fce14a4142a9f5255fa65f1a35db5781cd1b6ca2d5efada0b36b093"
     },
     {
       "path": "exo-profile.js",
@@ -2899,7 +2899,7 @@
     {
       "path": "exo-terrain-stream.mjs",
       "bytes": 2147,
-      "sha256": "cb7970ea2cf6a36d10a7ca162a117fdaa17b41eaa76f236ad8b797bc15b37c62"
+      "sha256": "83ce84d61b15a35e4d09b0f856f1112ebd217e4ca38a545cc9ec72a5fde8e5da"
     },
     {
       "path": "exo-terrain-wilds-ui.js",
@@ -2919,7 +2919,7 @@
     {
       "path": "exo-terrain-worker.js",
       "bytes": 1553,
-      "sha256": "9c2b3452ba290c0cf5289a9bbfb72fe26f199663cb4a974ef7f7133ed179bd44"
+      "sha256": "e4ca952517b902c85b79692f4619171b4942f97f999166343e8abe9c5467095b"
     },
     {
       "path": "exo-training-ground.js",
@@ -2994,7 +2994,7 @@
     {
       "path": "index.html",
       "bytes": 5100,
-      "sha256": "aa3174399634244aaff8073fcf906524ebd1ff212305819c23da871a7ed8980c"
+      "sha256": "039dd4fc4d1cc87a0c5dad636b874785365da823f6c027116e88daf04df06ecb"
     },
     {
       "path": "journey.js",
