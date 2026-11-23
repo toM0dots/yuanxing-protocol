@@ -1,14 +1,14 @@
 /* Lamps the player keeps lit. Dark lanterns stand along the first-act route;
    each takes one salvaged cell and then stays lit for good. Cells are scarce:
-   three roadside caches hold one each, and the three K-09 message lamps run on
+   four roadside caches hold one each, and the three K-09 message lamps run on
    two cells apiece. Take one and that lamp dims; take both and it goes dark;
    put a cell back and it lights again. The map slowly fills with the lights
    the player chose to keep on. State lives in this browser. */
 const ExoLampRepair=(()=>{
- const KEY='exo-lamps-v1',REACH=125;
+ const KEY='exo-lamps-v1',REACH=160;
  const empty=()=>({cells:0,fixed:[],caches:[],drawn:{}});
  let state=empty(),reader=()=>false,confirm=null;
- try{const raw=JSON.parse(localStorage.getItem(KEY)||'null');if(raw&&typeof raw==='object')state={cells:Math.max(0,Math.min(9,raw.cells|0)),fixed:Array.isArray(raw.fixed)?raw.fixed.filter(x=>typeof x==='string'):[],caches:Array.isArray(raw.caches)?raw.caches.filter(x=>typeof x==='string'):[],drawn:raw.drawn&&typeof raw.drawn==='object'?Object.fromEntries(Object.entries(raw.drawn).map(([k,v])=>[k,Math.max(0,Math.min(2,v|0))])):{}};}catch{}
+ try{const raw=JSON.parse(localStorage.getItem(KEY)||'null');if(raw&&typeof raw==='object')state={cells:Math.max(0,Math.min(10,raw.cells|0)),fixed:Array.isArray(raw.fixed)?raw.fixed.filter(x=>typeof x==='string'):[],caches:Array.isArray(raw.caches)?raw.caches.filter(x=>typeof x==='string'):[],drawn:raw.drawn&&typeof raw.drawn==='object'?Object.fromEntries(Object.entries(raw.drawn).map(([k,v])=>[k,Math.max(0,Math.min(2,v|0))])):{}};}catch{}
  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));}catch{}};
  // Off the road shoulder, on the left of travel, so lamps never block the trail.
  function shoulder(a,b,t,side=1,offset=62){const x=a[0]+(b[0]-a[0])*t,y=a[1]+(b[1]-a[1])*t,dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1;return {x:x-dy/l*offset*side,y:y+dx/l*offset*side};}
@@ -21,6 +21,7 @@ const ExoLampRepair=(()=>{
   {id:'lamp:river-road',name:'河谷路标灯',...shoulder([5000,8200],[4930,9000],.5,-1)}
  ].map(l=>({...l,kind:'broken'}));
  const caches=[
+  {id:'cache:crash-kit',name:'翻倒的检修包',x:1770,y:9160},
   {id:'cache:belongings',name:'车辙旁的补给箱',x:2706,y:7052},
   {id:'cache:lookout',name:'望哨下的电池箱',x:2586,y:5596},
   {id:'cache:cargo',name:'货架上的应急电池',x:5066,y:5548}
@@ -50,7 +51,7 @@ const ExoLampRepair=(()=>{
   if(d>0&&state.cells>0)return '把电池装回'+item.name;
   return d===0?'从'+item.name+'取一块电池':'取走最后一块电池';
  }
- function act(item,now=Date.now()){
+ function act(item,now=Date.now(),choice='auto'){
   const left=()=>'（电池 '+state.cells+'）';
   if(item.kind==='cache'){
    if(!cacheFull(item))return {message:'箱子已经空了。'};
@@ -63,13 +64,14 @@ const ExoLampRepair=(()=>{
    return {wiring:true,message:'打开'+item.name+'的接线盒。'};
   }
   const d=state.drawn[item.id]||0;
-  if(d>0&&state.cells>0){
+  if(d>0&&state.cells>0&&choice!=='take'){
    state.drawn[item.id]=d-1;state.cells--;save();confirm=null;
    return {message:'你把电池装回'+item.name+'。'+(d-1===0?'灯重新亮稳了。':'灯又亮了起来，只是还暗着一些。')+left(),sound:'light'};
   }
+  if(choice==='return')return {message:'没有可装回的电池。'};
   if(d===0){state.drawn[item.id]=1;state.cells++;save();return {message:'取下一块电池。'+item.name+'暗了一些，但还亮着。'+left(),sound:'take'};}
   if(d===1){
-   if(!confirm||confirm.id!==item.id||now-confirm.at>5000){confirm={id:item.id,at:now};return {message:'这是'+item.name+'里最后一块电池。取走它，这盏灯就会熄灭。再按一次 E 确认。'};}
+   if(!confirm||confirm.id!==item.id||now-confirm.at>5000){confirm={id:item.id,at:now};return {message:'这是'+item.name+'里最后一块电池。取走它，这盏灯就会熄灭。确定要让这盏灯熄灭吗？',confirm:true};}
    confirm=null;state.drawn[item.id]=2;state.cells++;save();
    return {message:item.name+'熄了。这段路又回到黑暗里。'+left(),sound:'dark'};
   }

@@ -1,10 +1,15 @@
 {
-  "release": "20261111-ground105",
+  "release": "20261123-guidance106",
   "files": [
     {
       "path": ".nojekyll",
       "bytes": 0,
       "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "academy.html",
+      "bytes": 1093,
+      "sha256": "d0901007ce828aae43f16a6c8d4faba26a742f7bc60d7b45ecbeb185ee50b8d5"
     },
     {
       "path": "app.js",
@@ -1917,6 +1922,26 @@
       "sha256": "501e3f0169a1f08057e819b22b6e07a2213769d1274becf4358ad79767ea3416"
     },
     {
+      "path": "assets/interior-props-v1/interior-props.glb",
+      "bytes": 4288828,
+      "sha256": "cd01901dcff3cea6517e4ac2bb3c91442c93a4a70b4ee2ed1fc732f857a62727"
+    },
+    {
+      "path": "assets/interior-props-v1/interior-props.glb.gz",
+      "bytes": 1002923,
+      "sha256": "2ee4f7ce92cb52d098f59ec4f43cbeb0aaf66ddfa80db89f3475d44885189436"
+    },
+    {
+      "path": "assets/interior-props-v1/props-manifest.json",
+      "bytes": 2995,
+      "sha256": "4d26f64c72d9cb141b84f2657a41498ebf68199411e09cd5145c0045d306fd3e"
+    },
+    {
+      "path": "assets/interior-props-v1/provenance.json",
+      "bytes": 180,
+      "sha256": "795555623ba3cc3d403faef6f8e24d57a8bcb79d1af812675974c8cd3a92aeeb"
+    },
+    {
       "path": "assets/k09-hero-v1/k09-hangar-field.glb",
       "bytes": 1027688,
       "sha256": "b85809b95e6fd5cffef8439a67e77900276f1ca9598816afaed6309c8a4eaf35"
@@ -2502,6 +2527,11 @@
       "sha256": "86944662da59be7f43e66f53dcf8399f229959f44cb25bb44fe745e9b173faf7"
     },
     {
+      "path": "exo-app.js",
+      "bytes": 1760,
+      "sha256": "ba50de2091830981aad516926fb674a3b99b7f533b34d69022746f32a56866b6"
+    },
+    {
       "path": "exo-armory.js",
       "bytes": 7586,
       "sha256": "a62a53076fa1dccff20c3a27fadb20930902d0b5f80b08f7aa208c779e9a6dc2"
@@ -2520,6 +2550,11 @@
       "path": "exo-asset-manifest.mjs",
       "bytes": 3022,
       "sha256": "6ba3bb17ba875e97a56ef80b121c08fbee269f3c28a0bf4b689e16de24d383dd"
+    },
+    {
+      "path": "exo-base.css",
+      "bytes": 2429,
+      "sha256": "b351ff67cdcf26ac720b6517e58e67a163f53ddabbf8128416f6ed2672987b9c"
     },
     {
       "path": "exo-biome-textures.mjs",
@@ -2548,8 +2583,8 @@
     },
     {
       "path": "exo-campaign.js",
-      "bytes": 20910,
-      "sha256": "99b7fdf657e1995cc26475f484c1a4f31f89ea6258258e0253678e287923b0e5"
+      "bytes": 21407,
+      "sha256": "e2a54e8a645c6ee3afd1bfd984a8cf860b8107a5d5c953dba6b6f67c72490524"
     },
     {
       "path": "exo-campus-materials.mjs",
@@ -2585,6 +2620,11 @@
       "path": "exo-console.css",
       "bytes": 58242,
       "sha256": "dd0d9df774bd75e5928e715dc12fa969220ca1a5d4da5f5231679ff04f236503"
+    },
+    {
+      "path": "exo-contact.js",
+      "bytes": 3727,
+      "sha256": "f48442b51f852b83499caea381ef5c1235745368ba63edd680d7db55862d7378"
     },
     {
       "path": "exo-creature-models.mjs",
@@ -2672,9 +2712,19 @@
       "sha256": "803d28d3a8b1fd459d9505d210d6cd98c13e06c02a839bef06f837b81fc42fc1"
     },
     {
+      "path": "exo-fpv.css",
+      "bytes": 3245,
+      "sha256": "f98d711714027abbdade68e0d0a53ad403033e0bec7c4d026f7aae6d4f3b61fb"
+    },
+    {
+      "path": "exo-fpv.js",
+      "bytes": 2974,
+      "sha256": "b8be54900dc67a8c6144129373b486b40f701493f0ddc099f979d9dc00ba0893"
+    },
+    {
       "path": "exo-green-trail.js",
-      "bytes": 6078,
-      "sha256": "f7b6ea393bd80574ae40ddf0050e4123d8febaeada060452be364cb6e65d5e57"
+      "bytes": 6058,
+      "sha256": "4a44b103824ea91be65e86d4302991f7c5081447868f5ed2e6f2f0d596bf33e9"
     },
     {
       "path": "exo-ground-contact.mjs",
@@ -2687,9 +2737,24 @@
       "sha256": "6193cf85dea8f5602fc93caeec6775ab3aca5767d0af9441217dbdeb8c3aaf0b"
     },
     {
+      "path": "exo-guidance-render.mjs",
+      "bytes": 1899,
+      "sha256": "67ce4c3b49b253daadb4c1e5ccca4050ba0353592441b918d3843c8841f286db"
+    },
+    {
+      "path": "exo-guidance.css",
+      "bytes": 5734,
+      "sha256": "17037903419298f22aa16887114f9ec9e17f80780d5c8977a209f799dabd6110"
+    },
+    {
+      "path": "exo-guidance.js",
+      "bytes": 5438,
+      "sha256": "21b7c6017abb3c56a855fd09cbc9ce98c90540aa6f5d8873e9ebdbde3046b530"
+    },
+    {
       "path": "exo-guide-lights.mjs",
       "bytes": 3326,
-      "sha256": "7dbabe642c610c970d8351f42ac17483e2c2114ac6d4340b1c7fa2dbac53dd31"
+      "sha256": "50cbbf37bbcd902b27ce0c29f23a56efc80d4d069f0596f224dc3de8cb555bfc"
     },
     {
       "path": "exo-hangar-art.mjs",
@@ -2702,14 +2767,29 @@
       "sha256": "cc3c4de7846e4d90b82ca5c56e04c26a4a67dcd22f76db91995d85089c218a52"
     },
     {
+      "path": "exo-hud-quiet.css",
+      "bytes": 4196,
+      "sha256": "721ce4791e5b6d2189fdc9a63ed1006ac22e24b574b605cc776f2700008180e2"
+    },
+    {
+      "path": "exo-hud-quiet.js",
+      "bytes": 2845,
+      "sha256": "f8b15946d5d3dd983ada295a3e5ace09904170c574dd0279c7105c4f99c0b823"
+    },
+    {
       "path": "exo-hud.css",
       "bytes": 16754,
       "sha256": "2f2d35a3546850855fbf62ed5b85a39afe7f2c3d29cb663d526904d29bfcb5e3"
     },
     {
       "path": "exo-hud.js",
-      "bytes": 29908,
-      "sha256": "4e3954b40f2e3130ec44fe41214a7aa17b0868d1da9404fd48d11f089496d54d"
+      "bytes": 29912,
+      "sha256": "6b667906a3921a18d556dea9da57399e26e5c0089c461a17e7ceda9fd7598dca"
+    },
+    {
+      "path": "exo-interior-dressing.mjs",
+      "bytes": 14193,
+      "sha256": "ac6be890d8b52224d4bb50b9e80e97350e536e1760a89c23de7ba14bfc5a34a3"
     },
     {
       "path": "exo-interior-kit.mjs",
@@ -2720,6 +2800,26 @@
       "path": "exo-k09-hero.mjs",
       "bytes": 3554,
       "sha256": "b9110604fc73aeffd68d0e01932ed2c29734ca1a57609726eab6701854eb3324"
+    },
+    {
+      "path": "exo-lamp-repair-render.mjs",
+      "bytes": 3208,
+      "sha256": "87d5dc135a7abaf1eb9dbf4f24ba09db13c0e227488b55ec6edb11a83e98ec3a"
+    },
+    {
+      "path": "exo-lamp-repair.js",
+      "bytes": 6281,
+      "sha256": "4d6685fd294624f7703bef7c0d51c1363aba76fccba6c6276974cef6b4a2680f"
+    },
+    {
+      "path": "exo-lamp-wiring.css",
+      "bytes": 3311,
+      "sha256": "5ffc71252f36cabd7e57b547920adc1b5ee10f06468ea879236b4d6b8828c958"
+    },
+    {
+      "path": "exo-lamp-wiring.js",
+      "bytes": 7042,
+      "sha256": "73f27d711360d93d17af697a6a13ebbc0cb72689854e60dc3035cb44707bdf84"
     },
     {
       "path": "exo-lore.js",
@@ -2753,8 +2853,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 22819,
-      "sha256": "b297aa1fce4cdc4ea32443e7a5d9326cec70e5f65476b90a95ad38e4c943d746"
+      "bytes": 23034,
+      "sha256": "5f14405f0292748decac13557a8f66ad64bb0837fee17bf75a9edda15c4a8b98"
     },
     {
       "path": "exo-profile.js",
@@ -2858,8 +2958,8 @@
     },
     {
       "path": "exo-shell.js",
-      "bytes": 10871,
-      "sha256": "7939a83f00b4f146832af260c268b72bca2c5ae6b43dfeed75e09fe6ef5f7edc"
+      "bytes": 10540,
+      "sha256": "483a8a6daf68838bc8466503171baf9b4919a11c5d37b96e9b5e0a8a6a20881a"
     },
     {
       "path": "exo-space.mjs",
@@ -2874,7 +2974,7 @@
     {
       "path": "exo-story-route.js",
       "bytes": 7325,
-      "sha256": "978bd211940dd66d8c00d84553234e8c4cb87656aecedc2c1c81e6cb28733e14"
+      "sha256": "63d207111942bb5e51e114fc6d77619d8d60924b3de8d1be82a55fdcc531adad"
     },
     {
       "path": "exo-story.js",
@@ -2983,8 +3083,8 @@
     },
     {
       "path": "expedition.js",
-      "bytes": 72027,
-      "sha256": "fa6832e8de44a6a1000fccb0d0081d21e3e501d47154096890fc9b281d511042"
+      "bytes": 78600,
+      "sha256": "a4b31932399b73e3d57e809f76ff182e4cba64a8f49edf824793aa2de8c6f1f7"
     },
     {
       "path": "field-missions.js",
@@ -2993,8 +3093,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5165,
-      "sha256": "e45a32e642e1af2a9453334685a8f67b1011a6eb39aaa6ceea7ae7fa3c937daa"
+      "bytes": 5120,
+      "sha256": "178c66ad84bb81e5c80bb11639529c94b1a7ad0fbae33981590c6ca11053cb38"
     },
     {
       "path": "journey.js",
@@ -3025,76 +3125,6 @@
       "path": "vision-posters.js",
       "bytes": 84,
       "sha256": "8852dbe637ebc496b74ebf7cbdb51367462ef8fe936f9c3acc04ec03f6c66248"
-    },
-    {
-      "path": "assets/interior-props-v1/interior-props.glb",
-      "bytes": 4288828,
-      "sha256": "cd01901dcff3cea6517e4ac2bb3c91442c93a4a70b4ee2ed1fc732f857a62727"
-    },
-    {
-      "path": "assets/interior-props-v1/interior-props.glb.gz",
-      "bytes": 1002923,
-      "sha256": "2ee4f7ce92cb52d098f59ec4f43cbeb0aaf66ddfa80db89f3475d44885189436"
-    },
-    {
-      "path": "assets/interior-props-v1/props-manifest.json",
-      "bytes": 2995,
-      "sha256": "4d26f64c72d9cb141b84f2657a41498ebf68199411e09cd5145c0045d306fd3e"
-    },
-    {
-      "path": "assets/interior-props-v1/provenance.json",
-      "bytes": 180,
-      "sha256": "795555623ba3cc3d403faef6f8e24d57a8bcb79d1af812675974c8cd3a92aeeb"
-    },
-    {
-      "path": "exo-interior-dressing.mjs",
-      "bytes": 14193,
-      "sha256": "ac6be890d8b52224d4bb50b9e80e97350e536e1760a89c23de7ba14bfc5a34a3"
-    },
-    {
-      "path": "exo-contact.js",
-      "bytes": 3727,
-      "sha256": "f48442b51f852b83499caea381ef5c1235745368ba63edd680d7db55862d7378"
-    },
-    {
-      "path": "exo-hud-quiet.css",
-      "bytes": 4196,
-      "sha256": "721ce4791e5b6d2189fdc9a63ed1006ac22e24b574b605cc776f2700008180e2"
-    },
-    {
-      "path": "exo-hud-quiet.js",
-      "bytes": 2839,
-      "sha256": "e41d6b8de75f041907a423720240a19ec2b5f4209a9eba2d7abad1ae524e516f"
-    },
-    {
-      "path": "exo-lamp-repair-render.mjs",
-      "bytes": 3208,
-      "sha256": "fe04e0cfcfce4d492c3b0aa5078de37bc1adacf86496fa78673b8d1e49490b6c"
-    },
-    {
-      "path": "exo-lamp-repair.js",
-      "bytes": 6091,
-      "sha256": "bfddee657366264746b2ac660708c537ad21e75e9a010cd8630f2552fa781376"
-    },
-    {
-      "path": "exo-lamp-wiring.css",
-      "bytes": 3311,
-      "sha256": "5ffc71252f36cabd7e57b547920adc1b5ee10f06468ea879236b4d6b8828c958"
-    },
-    {
-      "path": "exo-lamp-wiring.js",
-      "bytes": 7042,
-      "sha256": "73f27d711360d93d17af697a6a13ebbc0cb72689854e60dc3035cb44707bdf84"
-    },
-    {
-      "path": "exo-fpv.css",
-      "bytes": 3245,
-      "sha256": "f98d711714027abbdade68e0d0a53ad403033e0bec7c4d026f7aae6d4f3b61fb"
-    },
-    {
-      "path": "exo-fpv.js",
-      "bytes": 2974,
-      "sha256": "b8be54900dc67a8c6144129373b486b40f701493f0ddc099f979d9dc00ba0893"
     }
   ]
 }

@@ -6,7 +6,7 @@ const ExoQuietHUD=(()=>{
  const KEY='exo-quiet-hud-v1';
  let on=true;try{on=localStorage.getItem(KEY)!=='off';}catch{}
  const blocks=[
-  {sel:'.hud-stack .campaign-hud',hold:n=>3800+n*90,max:11000},
+  {sel:'.hud-stack #site-investigation',hold:n=>3800+n*90,max:11000},
   {sel:'#hud-facility',hold:n=>3200+n*55,max:8000},
   {sel:'#exp-transmission',hold:n=>6500+n*85,max:16000},
   {sel:'#field-observation',hold:n=>7500+n*85,max:18000}

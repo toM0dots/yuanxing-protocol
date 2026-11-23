@@ -9,7 +9,7 @@ export function createRepairLamps(scene,maps,W,kit=null){
  const root=new T.Group();root.name='Repairable lamps';
  const lamps=[],caches=[];
  if(typeof ExoLampRepair==='undefined')return {root,update(){},dispose(){}};
- const items=[...ExoLampRepair.broken.map((item,i)=>({item,height:44,seed:900+i*7,color:0xe4bd87})),...ExoLampRepair.spares().map((item,i)=>({item,height:29,seed:709+i,color:0x9fe9b7}))];
+ const items=[...ExoLampRepair.broken.map((item,i)=>({item,height:44,seed:900+i*7,color:0xe4bd87})),...ExoLampRepair.spares().map((item,i)=>({item,height:58,seed:709+i,color:0x9fe9b7}))];
  for(const {item,height,seed,color} of items){
   const batch=createFieldLampBatch(maps);
   batch.add({x:item.x,y:item.y,z:W.elevation(item.x,item.y),height,seed,color,groundAt:W.elevation});

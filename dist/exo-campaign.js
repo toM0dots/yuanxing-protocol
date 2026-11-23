@@ -5,7 +5,7 @@ const ExoCampaign = (() => {
   const episodes = [
     ['坠落后的呼吸','舰队失联。陆寻独自从峡谷中的驾驶舱醒来。岩壁后有一束青光，AEGIS 却无法确认是谁留下的。','story'],
     ['地图说这里能走','旧地图还把损坏的道路标为安全。到警戒灯旁查看路况，再从安全的一侧绕过去。','field'],
-    ['灯为什么还亮着','沿着青色灯光走进峡谷，扫描三处维护记录，看看灾后是谁回来修好了这些灯。','field'],
+    ['灯为什么还亮着','沿着青色灯光走进峡谷，查看三处灯箱旁的遗物，看看灾后是谁回来修好了这些灯。','field'],
     ['没有寄出的二十七秒','母亲林遥说过三年就回来。十五年后，陆寻带着没能说出口的话来到这里。','story'],
     ['最后一次舰队呼叫','沈砚从外侧锁上逃生舱：如果下面还有人，把他们带回有光的地方。','story'],
     ['来的人不是救援队','抵达 K–09 维修间。老林需要一台能守住接驳口的机甲，陆寻则需要先修好瞄准系统。','field'],
@@ -99,6 +99,7 @@ const ExoCampaign = (() => {
     }
     function observe({unit,fireCourse,earned=[],enabled=true,interior=null,cave=null,insideRefuge=false,battle=null}={}) {
       if(!enabled||battle?.down){lastUnit=null;lastInsideRefuge=false;return false;}
+      const previousUnit=lastUnit;
       lastInsideRefuge=!!insideRefuge;
       lastUnit=finitePoint(unit)?{x:unit.x,y:unit.y,flight:!!unit.flight}:null;
       if(interior||cave){if(!insideRefuge)lastUnit=null;}
@@ -108,7 +109,11 @@ const ExoCampaign = (() => {
       if(id==='route'&&grounded()&&places.route.length) {
         routeIndex=Math.min(routeIndex,places.route.length-1);
         const target=places.route[routeIndex];
-        if(target&&at(target)){routeIndex++;change();if(routeIndex===places.route.length)advance('route');}
+        const crossed=target&&grounded()&&previousUnit&&!previousUnit.flight&&distance(previousUnit,lastUnit)<=320&&(()=>{
+          const dx=lastUnit.x-previousUnit.x,dy=lastUnit.y-previousUnit.y,t=Math.max(0,Math.min(1,((target.x-previousUnit.x)*dx+(target.y-previousUnit.y)*dy)/(dx*dx+dy*dy||1)));
+          return Math.hypot(target.x-previousUnit.x-dx*t,target.y-previousUnit.y-dy*t)<=(target.radius||110);
+        })();
+        if(target&&(at(target)||crossed)){routeIndex++;change();if(routeIndex===places.route.length)advance('route');}
       } else if(id==='lamps') {
         const has=value=>earned instanceof Set?earned.has(value):Array.isArray(earned)&&earned.includes(value);
         const found=lampIds.filter(has);
@@ -159,9 +164,11 @@ const ExoCampaign = (() => {
       if(key===lastDrawn&&title.textContent===o.title)return;lastDrawn=key;
       const tag=root.getElementById('campaign-hud-episode'),detail=root.getElementById('campaign-hud-detail');
       if(tag)tag.textContent=o.finished?'第一幕 / 完成':'主线 · EP'+String(o.episode).padStart(2,'0');
-      const prompts={crash:'点这里打开当前任务，再选择“接管 EV–04”。',mother:'点这里读完母亲的回忆，再继续旅程。',captain:'点这里听完舰长的嘱托，再去寻找幸存者。'};
-      const instruction=prompts[o.id]||(o.action==='acknowledge'?(o.id==='refuge'?'点这里与老林交谈，了解下一步。':o.id==='stabilizer'?'点这里安装稳定架，能量恢复速度将提高 10%。':o.instruction):o.instruction);
-      title.textContent=o.title;if(detail)detail.textContent=d+instruction;
+      const prompts={crash:'按 E 接管机甲。沿青灯寻找一条能走的路。'};
+      const pointName=typeof ExoGuidance!=='undefined'?ExoGuidance.name(o):o.title;
+      const instruction=prompts[o.id]||(o.action==='acknowledge'?'已到达 · 按 E '+o.label:o.id==='lamps'?'前往'+pointName+' · 靠近按 E。已查看 '+scanned.length+'/3。':['mother','captain','refuge','stabilizer'].includes(o.id)?'前往'+pointName+' · 青灯和路面折线会指路。':o.instruction);
+
+      title.textContent=o.title;if(detail)detail.textContent=instruction;
     }
     return {start,checkpoint,configure,observe,award,objective,panel,hud,updateHUD,telemetry,bonuses:()=>({stabilizer:stabilizer?1.1:1}),get state(){return {version:1,started,done:[...done],routeIndex,scanned:[...scanned],refugeReached,stabilizer,storageOK,revision,lastMessage,checkpoint:savedCheckpoint?{...savedCheckpoint}:null,finished:done.length===beats.length};}};
   }

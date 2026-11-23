@@ -1,10 +1,18 @@
-# 远星协议 · EXO / AI Academy
+# 远星协议 · ECHO–9
 
 [Play the game](https://tom0dots.github.io/yuanxing-protocol/)
 
 A science-fiction exploration game with AI learning missions. Anyone can play from the link; no account or invitation is needed.
 
-This repository contains the complete static game release **v92** (`20261108-inspection92b`), including its models, textures, fonts and bundled asset attribution files.
+This repository contains the complete static game release **v106** (`20261123-guidance106`), including its models, textures, fonts and bundled asset attribution files.
+
+## Guidance and standalone game in v106
+
+The main story route starts automatically and stays visible as a named destination, distance, ground chevrons and a persistent objective. Checkpoints detect grounded movement between frames. Story objects remain available until inspected, and the **E** key and touch prompt select the same nearby object. Optional paths still loop back to the main road; **重新指路** restores story guidance after a detour.
+
+Green lamps can be inspected, story lamps reveal the evacuation through nearby belongings, and damaged lamps open the wiring puzzle. A maintenance pack on the crash trail supplies the first repair battery. Taking or returning batteries is an explicit choice; reading a clue never drains its lamp, and cancelling a repair keeps the battery.
+
+`dist/index.html` now boots the game directly through its own UI lifecycle, base styles and saved progress. It does not load Academy scripts, mount the course home page or use Academy progress. The old lesson app is retained only at the separate `academy.html` entry. Existing game saves and the latest terrain, cockpit and staged mech development are preserved.
 
 ## Visual assets and editing sources
 
@@ -34,7 +42,7 @@ Targets now distinguish detection, obstruction and actual firing range. Use **T*
 
 Enemy hits now produce directional flinches, guarded stagger and a visible collapse. The existing detailed hero has clearer material contrast, slope-aligned feet, turning steps and more weight in movement and recoil. Enemy armor and windups are easier to read against the ground.
 
-An abandoned maintenance stop on the existing freight road provides a compact encounter with clear escape lanes, outcrops, a damaged cart and scattered equipment. To try it immediately, open **暂停 → 沿途学习 → 想换个玩法？ → 战斗练习**, then choose an enemy. It also exists in the open world. Existing story progress, the v91 route and detailed vegetation remain intact.
+An abandoned maintenance stop on the existing freight road provides a compact encounter with clear escape lanes, outcrops, a damaged cart and scattered equipment. To try it immediately, open **暂停 → 沿途工具 → 想换个玩法？ → 战斗练习**, then choose an enemy. It also exists in the open world. Existing story progress, the v91 route and detailed vegetation remain intact.
 
 ## Story route in v91
 

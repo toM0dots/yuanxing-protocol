@@ -6,7 +6,7 @@ const ExoStoryRoute=(()=>{
  const start={x:1950,y:9880,angle:-.48},pod=point(1860,10020);
  const approach=line([[1950,9880],[1740,9440],[1830,8930],[2100,8450],[2450,8010],[2890,7770],[3310,7520],[3708,7360]]);
  const lamps=[point(3370,6840),point(2770,6210),point(3260,5530)];
- const mother={x:3770,y:5370,radius:130},captain={x:4410,y:5580,radius:130},refuge={x:4284,y:6406,radius:140};
+ const mother={x:3770,y:5370,radius:165},captain={x:4410,y:5580,radius:165},refuge={x:4284,y:6406,radius:140};
  const fireOffset=point(2050,540),range={x:5830,y:8110,radius:180};
  const paths=[
   {id:'crash',name:'迫降支谷',points:approach,kind:'main',quiet:true},
@@ -56,7 +56,7 @@ const ExoStoryRoute=(()=>{
  }
  const beacons=[];
  for(const path of paths){
-  const isSide=path.kind==='side',spacing=isSide?700:500;let next=isSide?300:220;
+  const isSide=path.kind==='side',spacing=isSide?700:400;let next=isSide?300:220;
   for(let i=1;i<path.points.length;i++){
    const a=path.points[i-1],b=path.points[i],d=distance(a,b),side=isSide?-1:1;
    for(;next<d;next+=spacing){const t=next/d,p={x:a.x+(b.x-a.x)*t-(b.y-a.y)/d*85*side,y:a.y+(b.y-a.y)*t+(b.x-a.x)/d*85*side,side:isSide,path:path.id};

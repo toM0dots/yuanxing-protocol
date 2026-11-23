@@ -1,7 +1,7 @@
 /* K–09 field memories, attached to the existing Blender guidance lamps.
    Canyon local metres -> world units (18:1). No additional GPU assets. */
 const ExoGreenTrail = (() => {
-  const radius = 5.8 * ExoCanyonV2.scale;
+  const radius = 160;
   const records = [
     {
       id:'trail:k09:1', name:'路口灯箱', title:'最后一辆车没有等天亮',

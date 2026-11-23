@@ -8,7 +8,7 @@ function* buildGuideLights(scene,maps,W,C=null){
  const batch=createFieldLampBatch(maps);
  for(const [i,p] of (W.beacons||[]).entries()){
   if(C?.inZone(p.x,p.y)){const q=C.local(p.x,p.y);if(C.clearance(q.x,q.y)<3)continue;}
-  batch.add({...p,z:W.elevation(p.x,p.y),height:46,groundAt:W.elevation,seed:i+13,color:p.side?0xe4bd87:0xa1d5b4});
+  batch.add({...p,z:W.elevation(p.x,p.y),height:58,groundAt:W.elevation,seed:i+13,color:p.side?0xe4bd87:0xa1d5b4});
   yield;
  }
  for(const [i,camp] of (W.surfaceCamps||[]).entries())for(const side of [-1,1]){
