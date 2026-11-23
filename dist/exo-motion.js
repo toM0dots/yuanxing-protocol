@@ -2,7 +2,7 @@
 const ExoMotion=(()=>{
  const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
  const rocks=[{x:520,y:490,r:92},{x:1110,y:920,r:90},{x:1520,y:480,r:115},{x:710,y:1120,r:105}];
- const sites=[{x:510,y:1010,name:'断裂的信号阵列',type:'人工结构',desc:'阵列的反射面偏离了原来的方向。测量偏差，再用线性回归寻找修正方法。'},{x:880,y:730,name:'玄武岩断层',type:'岩质地貌',desc:'这里的地面粗糙程度和坡度变化很大。决策树可以帮助判断哪些地方能通过。'},{x:1400,y:1070,name:'蓝晶矿脉',type:'矿物沉积',desc:'同一片矿区里混有多种矿物。采集它们的光谱，再用 K-Means 聚类寻找相似的样本。'},{x:1590,y:700,name:'遗迹边缘',type:'未知结构',desc:'这些整齐的结构很像人工遗迹。视觉分类模型可以学习它们与天然岩层的区别。'},{x:1150,y:300,name:'风蚀峡谷',type:'复杂地形',desc:'前面的直路被挡住了。探索其他路线，是学习自主导航的第一步。'},{x:520,y:270,name:'失联中继站',type:'通信设施',desc:'这里留下了残缺的任务日志。对照前后内容，或许能推测丢失的消息。'}];
+ const sites=typeof ExoSurvey!=='undefined'?ExoSurvey.sites:[];
  function create(){return {x:270,y:1090,vx:0,vy:0,angle:0,energy:100,distance:0,altitude:0,flight:null}}
  function resetFlight(s){s.flight=null;s.altitude=0;s.flightNotice='';}
  function aerialSurface(x,y,obstacles=[]){let z=Math.max(ExoWorld.elevation(x,y),ExoWorld.structureHeight?.(x,y)??-Infinity);if(typeof ExoCanyonV2!=='undefined')z=Math.max(z,ExoCanyonV2.flightSurface?.(x,y)??-Infinity);for(const r of obstacles)if(Math.hypot(x-r.x,y-r.y)<r.r+30)z=Math.max(z,ExoWorld.elevation(r.x,r.y)+r.r*1.55);return z;}

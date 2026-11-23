@@ -375,8 +375,9 @@ const ExoAmbience = (() => {
     ease(L.whistleBand.frequency, 600 + gust * 900 + height * 500 + summit * 700, .8);
     ease(L.roomTone.gain, place === 'interior' ? (kind === 'hangar' ? .12 : .08) : place === 'cave' ? .07 : 0, .6);
     ease(L.mains.gain, kind === 'instrument' ? .02 : place === 'interior' ? .01 : 0, .6);
-    ease(L.fan.gain, kind === 'mine' ? .09 : 0, .6); ease(L.fanLfo.gain, kind === 'mine' ? .05 : 0, .6);
-    ease(L.pipes.gain, kind === 'greenhouse' ? .03 : 0, .6);
+    const refugeNear=outdoor&&typeof ExoSurvey!=='undefined'?Math.max(0,1-Math.hypot(u.x-4095,u.y-6535)/450):0,fanFixed=typeof ExoSurvey!=='undefined'&&ExoSurvey.installed('filter');
+    ease(L.fan.gain, kind === 'mine' ? .09 : refugeNear*(fanFixed?.028:.065), .6); ease(L.fanLfo.gain, kind === 'mine' ? .05 : refugeNear*(fanFixed?.003:.04), .6);
+    ease(L.pipes.gain, kind === 'greenhouse' ? .03 : refugeNear&&ExoSurvey.installed('valve')?.018*refugeNear:0, .6);
     ease(verbSend.gain, place === 'cave' ? .6 : kind === 'hangar' ? .45 : place === 'interior' ? .28 : .14, .8);
 
     scanTimer -= dt;

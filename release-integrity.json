@@ -1,5 +1,5 @@
 {
-  "release": "20261123-opening107",
+  "release": "20261123-beacons108",
   "files": [
     {
       "path": ".nojekyll",
@@ -2523,8 +2523,8 @@
     },
     {
       "path": "exo-ambience.js",
-      "bytes": 36234,
-      "sha256": "86944662da59be7f43e66f53dcf8399f229959f44cb25bb44fe745e9b173faf7"
+      "bytes": 36533,
+      "sha256": "fc76d27302412f66187e9782d2cae25df254358bfc5fe81058b38ee2d9c750b4"
     },
     {
       "path": "exo-app.js",
@@ -2703,8 +2703,8 @@
     },
     {
       "path": "exo-field-story.js",
-      "bytes": 8523,
-      "sha256": "f587e767235d4f3b0e0947af077929cba14d645fedf8b3beff9f876dbc77bcd2"
+      "bytes": 8607,
+      "sha256": "d8466bd691b69ea3d462d428d218c2530bc78e5288c649b5bf67d29581dbbd4c"
     },
     {
       "path": "exo-fire-control.js",
@@ -2793,8 +2793,8 @@
     },
     {
       "path": "exo-hud.js",
-      "bytes": 29912,
-      "sha256": "6b667906a3921a18d556dea9da57399e26e5c0089c461a17e7ceda9fd7598dca"
+      "bytes": 29985,
+      "sha256": "d38326b261ee1ae1a73424fd9d152bff99baadb968483e3cfaee6cdbf75ad0c4"
     },
     {
       "path": "exo-interior-dressing.mjs",
@@ -2853,8 +2853,8 @@
     },
     {
       "path": "exo-motion.js",
-      "bytes": 8067,
-      "sha256": "7daca6a2556541fd2e484f32aa785223a5ddccfc22806451b22a70881d0b4c50"
+      "bytes": 7129,
+      "sha256": "0a93aef67a55ef2260a1d51de8af82ed6d370f138afd7e97b46673218fbfb0a7"
     },
     {
       "path": "exo-opening.js",
@@ -2873,8 +2873,8 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 23268,
-      "sha256": "a1f86fdf05cd1201ae983a5e821aed13484c5b7c817f7068944fc04f1c56c02b"
+      "bytes": 23486,
+      "sha256": "c2a99692aedb616738adf6cb6b70d79d6ff7ab3d7c5dfa1ac2172d4b7b949d8f"
     },
     {
       "path": "exo-profile.js",
@@ -2898,8 +2898,8 @@
     },
     {
       "path": "exo-progress.js",
-      "bytes": 37301,
-      "sha256": "d262a97f16d036ab9ea94b483a5cc6907b8ea73f51fae3baa9d290449e00a0d3"
+      "bytes": 37407,
+      "sha256": "57cce9a06219580accece03fca43f572bfe95d84725515fb2dd80116628ee52e"
     },
     {
       "path": "exo-region-art.css",
@@ -2988,8 +2988,8 @@
     },
     {
       "path": "exo-story-map.js",
-      "bytes": 3571,
-      "sha256": "91f910dff87558bb458d0fb4a811c814cb49f982f12c525c7127fdb605b0e258"
+      "bytes": 3847,
+      "sha256": "b764ebce37b1800691c6c231c13d9c836720198968ced7d06f566fa60ca3b221"
     },
     {
       "path": "exo-story-route.js",
@@ -3000,6 +3000,26 @@
       "path": "exo-story.js",
       "bytes": 5867,
       "sha256": "a9cddbfb2b68df0d7814efce7bdba14a5668b538902b17dfb0b7c00e6d972e3e"
+    },
+    {
+      "path": "exo-survey-render.mjs",
+      "bytes": 6120,
+      "sha256": "56ac946851abee8884c552eb293ba78662094d6778b500f96099b08aa11a3f2e"
+    },
+    {
+      "path": "exo-survey-ui.js",
+      "bytes": 10881,
+      "sha256": "f4e3534bdcdf7669d9194fb51e3ab074f679ce5dfb003c83c3b503f8d070b81f"
+    },
+    {
+      "path": "exo-survey.css",
+      "bytes": 3663,
+      "sha256": "0b80cbd3237a637173ee41187dff6e1a9f6c2bccf77ff92bfe977686927e3939"
+    },
+    {
+      "path": "exo-survey.js",
+      "bytes": 6659,
+      "sha256": "ea02cfd45138affe27beb1d5e2ec23f63515b23fb69429c3646d3ddb383cc39f"
     },
     {
       "path": "exo-terrain-course.js",
@@ -3103,8 +3123,8 @@
     },
     {
       "path": "expedition.js",
-      "bytes": 82705,
-      "sha256": "f16724782d313e592596a7907bd5bb339c5c1e8dd2fa7578033e30db6258028d"
+      "bytes": 89815,
+      "sha256": "a8ea585ac5c36433aa6534c7ad60d8014258b6607ee8bad9aa110fb69ae770e8"
     },
     {
       "path": "field-missions.js",
@@ -3113,8 +3133,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5326,
-      "sha256": "73e0f558abcfc6013481f42a2f764ccfba7c9969e0eb8c12e755b3483e661bcb"
+      "bytes": 5532,
+      "sha256": "5770d8fef6d1b9340210a9b26b5ef9b550f065a1de4dad3237a7adbf9945de3d"
     },
     {
       "path": "journey.js",

@@ -71,7 +71,7 @@ const ExoProgress = (() => {
       const entered=complete('facility'),hasLog=complete('log'),hasCore=[...earned].some(id=>id.startsWith('core:'));
       const facility=structures.find(s=>earned.has('facility:'+s.id)&&!earned.has('core:'+s.id))||structures.find(s=>s.id==='camp-0-0')||structures[0];
       const relay=structures.find(s=>s.id==='camp-4-0')||structures.find(s=>s.type==='relay');
-      const beacon=sites.findIndex((s,i)=>!earned.has('beacon:'+i)),count=sites.filter((s,i)=>earned.has('beacon:'+i)).length;
+      const surveyed=i=>typeof ExoSurvey!=='undefined'?ExoSurvey.calibrated(i):earned.has('beacon:'+i),beacon=sites.findIndex((s,i)=>!surveyed(i)),count=sites.filter((s,i)=>surveyed(i)).length;
       const steps=[
         {title:'调查仍有电的建筑',detail:'从 HELIOS 01 接驳口进入。按 E 交互；地图可查看其他设施。',done:entered,action:{kind:'facility',id:facility?.id}},
         {title:'留意设备旁的痕迹',detail:'靠近设备旁的物件，按 E 打开、转动或收听。发现会自动记进日记，无需停下来阅读。',done:hasLog,action:{kind:'facility',id:facility?.id}},
@@ -80,7 +80,7 @@ const ExoProgress = (() => {
         {title:'带回设施深处的核心',detail:'任选一座设施，每层接通两处电源。到达 B3 后击败守卫，带回核心。',done:hasCore,action:{kind:'facility',id:facility?.id}},
         {title:'沿灯标进入玄武岩山洞',detail:'前往山洞前哨，进入天然洞网并回收最深处矿核。建议先分配机甲升级点。',done:earned.has('cavecore:basalt'),action:{kind:'cave',id:'basalt'}},
         {title:'取回中继离线密钥',detail:'调查盆地离线中继，在 B3 回收核心。恢复本地供电不会自动触发广播。',done:!!choice||!!relay&&earned.has('core:'+relay.id),action:{kind:'facility',id:relay?.id}},
-        {title:'找到六座旧信标 · '+count+'/'+sites.length,detail:'前往迫降荒原，走近六处地标后按 E 扫描。先找哪一处都可以。',done:count===sites.length,action:{kind:'beacon',id:beacon}},
+        {title:'校准六座旧信标 · '+count+'/'+sites.length,detail:'信标分布在六片地区。沿道路接近测绘台，用现场扫描修正旧图；随身地图会标出下一段路。',done:count===sites.length,action:{kind:'beacon',id:beacon}},
         {title:'决定如何回应星环',detail:'找到所有线索后，由你决定：回应星环，还是保持静默，为地下的幸存者留一条归路。',done:!!choice,action:{kind:'choice'}}
       ];const index=steps.findIndex(s=>!s.done);return {steps,index:index<0?steps.length-1:index,finished:!!choice,...steps[index<0?steps.length-1:index]};
     }
