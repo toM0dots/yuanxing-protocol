@@ -1,0 +1,22 @@
+const assert=require('node:assert/strict'),harness=require('./expedition-harness.cjs'),Opening=require('../dist/exo-opening.js');
+const saved=new Map(),storage={getItem:k=>saved.get(k),setItem:(k,v)=>saved.set(k,v)};
+let o=Opening.create({storage});assert(!o.active);o.start({x:0,y:0});assert(o.locked);assert.equal(o.act(),'power');assert.equal(o.act(),null,'hatch waits for a traversable map');
+o=Opening.create({storage});o.start({x:0,y:0});assert.equal(o.stage,'release','controls resume after reload');o.update({x:0,y:0},true);assert.equal(o.act(),'release');assert(!o.update({x:240,y:0,flight:true},true));assert(o.update({x:240,y:0},true));assert(!o.active);
+const before=saved.get('exo-opening-v1');o.start({x:0,y:0},true);o.act();o.update({x:0,y:0},true);o.act();o.update({x:240,y:0},true);assert.equal(saved.get('exo-opening-v1'),before,'replaying never overwrites opening save');
+const h=harness(),{run,qa}=h;run('Exo.resume()');assert(!h.nodes.get('modal').open);assert(h.nodes.get('exo-opening'));const x=qa.unit.x,y=qa.unit.y;
+h.events.keydown({key:'w',preventDefault(){}});h.settle();assert.equal(qa.unit.x,x);assert.equal(qa.unit.y,y,'locked cockpit cannot move');assert(!run('Exo.flightToggle()'));h.escapeOpening();assert.equal(qa.campaign.objective().id,'route');assert(!h.nodes.get('exo-opening'));
+const checkpoint=JSON.stringify(qa.campaign.state.checkpoint),campaignBefore=h.saved.get('exo-campaign-v1');run('Exo.replayOpening()');assert(h.nodes.get('exo-opening'));h.escapeOpening();assert.equal(JSON.stringify(qa.campaign.state.checkpoint),checkpoint);assert.equal(h.saved.get('exo-campaign-v1'),campaignBefore,'replay does not advance or move campaign save');run('Exo.intro()');
+// A completed first act gets an actual mission, not a production roadmap.
+const seed=new Map([['exo-campaign-v1',JSON.stringify({version:1,started:true,done:['crash','route','lamps','mother','captain','refuge','model','defense','stabilizer'],checkpoint:{x:4284,y:6406,angle:0}})],['exo-lamps-v1',JSON.stringify({cells:1})]]);
+const r=harness(seed),rq=r.qa,rr=r.run;rr('Exo.resume()');assert.equal(rq.campaign.objective().id,'relay');assert(rq.campaign.state.finished);assert(!rq.campaign.objective().finished);
+rr('Exo.relayPower("battery")');assert.equal(rr('ExoLampRepair.summary().cells'),1,'distant relay cannot charge inventory');
+// Walk the production route over the bridge and every mountain switchback.
+rr('Exo.trackCampaign()');const route=rr('ExoWorld.navigation(Exo.__qa.unit).route.points');assert(route.some(p=>p.x===4700&&p.y===11200),'route crosses the actual bridge');assert(route.some(p=>p.x===6210&&p.y===11640)||route.some(p=>p.x===4890&&p.y===12130),'route follows an authored mountain trail');assert(!route.some(p=>p.x===6250&&p.y===11262),'navigation never cuts through the dangerous ford');
+let steps=0;for(const p of route.slice(1))steps+=r.driveTo(p);
+assert.equal(rr('Exo.interaction().kind'),'relay');rr('Exo.interact()');assert(rr('ExoFieldStory.panelOpen'));assert(!r.nodes.get('modal').open);
+rq.unit.energy=20;rr('Exo.relayPower("mech")');assert(!rr('ExoFieldStory.state.relayPower'));rq.unit.energy=100;rr('Exo.relayPower("mech")');assert.equal(rq.unit.energy,55);rr('Exo.relayPower("mech")');assert.equal(rq.unit.energy,55,'power is charged once');
+rr('Exo.relayTransmit()');assert(!rr('ExoFieldStory.state.relayComplete'),'wrong antenna direction cannot transmit');rr('Exo.relayTurn(ExoFieldStory.bearing);Exo.relayTransmit()');assert(rr('ExoFieldStory.state.relayComplete'));assert.equal(rq.campaign.objective().id,'homeward');
+rr('Exo.relayPower("battery")');assert.equal(rr('ExoLampRepair.summary().cells'),0);rr('Exo.relayPower("battery")');assert.equal(rr('ExoLampRepair.summary().cells'),0);rr('Exo.closeRelay()');assert(rr('ExoFieldStory.state.relayPower'),'permanent battery keeps beacon lit');
+const restored=harness(seed);assert(restored.run('ExoFieldStory.state.relayComplete'));assert(restored.run('ExoFieldStory.state.relayPower'));assert.equal(restored.qa.campaign.objective().id,'homeward');
+const temp=harness(new Map([['exo-field-story-v1',JSON.stringify({relayPower:true,relayBattery:false})]]));assert(!temp.run('ExoFieldStory.state.relayPower'),'mech cable disconnects on reload');rr('Exo.intro()');
+console.log('PASS: playable/resumable cockpit, grounded escape, replay save preservation, complete post-act objective, '+steps+' route motion frames across bridge and ridge, proximity/power/alignment gates, one-time costs and persistent relay consequences.');

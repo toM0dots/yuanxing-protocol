@@ -5,7 +5,7 @@ const ExoCampaign = (() => {
   const episodes = [
     ['坠落后的呼吸','舰队失联。陆寻独自从峡谷中的驾驶舱醒来。岩壁后有一束青光，AEGIS 却无法确认是谁留下的。','story'],
     ['地图说这里能走','旧地图还把损坏的道路标为安全。到警戒灯旁查看路况，再从安全的一侧绕过去。','field'],
-    ['灯为什么还亮着','沿着青色灯光走进峡谷，查看三处灯箱旁的遗物，看看灾后是谁回来修好了这些灯。','field'],
+    ['灯为什么还亮着','沿着青色灯光走进峡谷，查看灯箱旁的遗物，看看灾后是谁回来修好了这些灯。','field'],
     ['没有寄出的二十七秒','母亲林遥说过三年就回来。十五年后，陆寻带着没能说出口的话来到这里。','story'],
     ['最后一次舰队呼叫','沈砚从外侧锁上逃生舱：如果下面还有人，把他们带回有光的地方。','story'],
     ['来的人不是救援队','抵达 K–09 维修间。老林需要一台能守住接驳口的机甲，陆寻则需要先修好瞄准系统。','field'],
@@ -118,7 +118,7 @@ const ExoCampaign = (() => {
         const has=value=>earned instanceof Set?earned.has(value):Array.isArray(earned)&&earned.includes(value);
         const found=lampIds.filter(has);
         if(found.length!==scanned.length){scanned=found;change();}
-        if(scanned.length===3)advance('lamps');
+        if(scanned.length>=1)advance('lamps');
       } else if(id==='refuge'&&atRefuge()) {
         if(!refugeReached){refugeReached=true;change();}
       } else if(id==='model'&&evidence.model)advance('model');
@@ -137,24 +137,25 @@ const ExoCampaign = (() => {
     function objective(){
       const index=Math.min(done.length,8), id=current(), episode=episodes[index];
       let point=null,action='navigate',label='标记下一步位置',instruction='',event=null;
-      if(id==='crash'){action='acknowledge';event='crash-read';label='接管 EV–04';instruction='点击“接管 EV–04”，先检查驾驶舱。舰队失联了，AEGIS 暂时也找不到可靠信号；我们得自己寻找线索。';}
-      if(id==='route'){point=places.route[routeIndex]||places.spawn;instruction=(places.route[routeIndex]?.instruction||(['先到警戒灯旁看看断路。旧地图不一定可靠，要亲眼确认哪里能走。','沿青色灯带从安全的一侧绕过去。留在地面驾驶，逐段查看路况。'][Math.min(routeIndex,1)]))+' · 路段 '+Math.min(routeIndex+1,places.route.length)+'/'+places.route.length;}
-      if(id==='lamps'){const next=lampIds.findIndex(v=>!scanned.includes(v));point=places.lamps[next];instruction='沿青灯林道逐处查看遗物，靠近后按 E。琥珀色灯的小路会绕回主路。已找到 '+scanned.length+'/3。';}
+      if(id==='crash'){action='acknowledge';event='crash-read';label='接管 EV–04';instruction='恢复备用电源，打开卡住的舱盖。通讯里似乎还有人。';}
+      if(id==='route'){point=places.route[routeIndex]||places.spawn;instruction=(places.route[routeIndex]?.instruction||(['先到警戒灯旁看看断路。旧地图不一定可靠，要亲眼确认哪里能走。','沿青色灯带从安全的一侧绕过去。留在地面驾驶，逐段查看路况。'][Math.min(routeIndex,1)]));}
+      if(id==='lamps'){const next=lampIds.findIndex(v=>!scanned.includes(v));point=places.lamps[next];instruction='灯箱旁有撤离时留下的东西。靠近按 E 看看谁走过这里。支路上的遗物可以稍后再找。';}
       if(id==='mother'){action='acknowledge';event='mother-memory';label='停下查看合影';point=places.mother||null;if(point&&!at(point)){action='navigate';label='沿步道寻找休息点';}instruction='“三年。”母亲林遥临行时这样说。陆寻七岁时记住的承诺，已经过去十五年。'+(point&&!at(point)?' 到林道前方的休息点停一停，陆寻想看看驾驶舱侧袋里的旧合影。':'');}
-      if(id==='captain'){action='acknowledge';event='captain-memory';label='听完残留录音';point=places.captain||null;if(point&&!at(point)){action='navigate';label='走到撤离通话点';}instruction='沈砚从外面锁死舱盖：“如果下面还有人，把他们带回有光的地方。”七个频道仍没有回应。'+(point&&!at(point)?' 继续沿步道，去看看倒在路边的通话器。':'');}
+      if(id==='captain'){action='acknowledge';event='captain-memory';label='接通路边通话器';point=places.captain||null;if(point&&!at(point)){action='navigate';label='走到撤离通话点';}instruction='沈砚从外面锁死舱盖：“如果下面还有人，把他们带回有光的地方。”七个频道仍没有回应。'+(point&&!at(point)?' 继续沿步道，去看看倒在路边的通话器。':'');}
       if(id==='refuge'){point=places.refuge;instruction='沿撤离步道绕到高灯下，从机库南面接驳口找到老林。';if(refugeReached&&atRefuge()){action='acknowledge';event='refuge-briefed';label='和老林交谈';instruction='老林：“东侧接驳坪的电接好了，可那些家伙也快到了。先去试几枪，远近都试试。把记录带回来，我们一起把瞄准调准。”';}}
       if(id==='model'){point=places.range;action='fire';label='沿维护路去试射';instruction='到维修间东南侧的接驳坪，记录至少 8 次射击，包含近、中、远距离和移动目标。回来训练模型，再安装瞄准辅助。已有记录 '+evidence.samples+' 发。';}
       if(id==='defense'){point=places.range;action='fire';label='继续保卫维修站';instruction='开启瞄准辅助，击败三台主要敌人。近、中、远距离各需一发偏差小于 2° 的新射击，用来独立测试。已完成距离 '+evidence.bands+'/3。';}
       if(id==='stabilizer'){point=places.refuge;instruction='返回 K–09 维修间，安装老林修复的稳定架。安装后，能量恢复速度提高 10%。';if(atRefuge()){action='acknowledge';event='stabilizer-installed';label='安装稳定架 · 恢复动力';}}
-      if(!id){action='explore';label='查看南行探路记录';instruction='归路打通了，机甲也重新站稳了。旧地图在断路处失过准，南侧河谷的路况同样需要亲眼核对。带上探测车，沿维护路继续勘察河岸、山脊与洞穴；这是自由探索，后续主线仍在制作中。';}
+      if(!id&&typeof ExoFieldStory!=='undefined')return {...ExoFieldStory.objective(),index:9,episode:9,done:done.length,total:beats.length,actComplete:true};
+      if(!id){action='explore';label='继续旅途';instruction='维修间的灯还亮着。带上探测车，沿维护路核对南侧的河岸与山路。';}
       return {id:id||'complete',index,episode:episode.episode,title:id?episode.title:'第一幕完成 · 灯仍亮着',instruction,action,label,event,point:point?{...point}:null,...(point?{x:point.x,y:point.y,radius:point.radius||110}:{}),finished:!id,done:done.length,total:beats.length};
     }
     function button(o){
-      return o.action==='acknowledge'?'<button class="primary campaign-primary" onclick="Exo.campaignAcknowledge(\''+o.event+'\')">'+escape(o.label)+' <span aria-hidden="true">→</span></button>':'<button class="primary campaign-primary" onclick="Exo.trackCampaign()">'+escape(o.label)+' <span aria-hidden="true">→</span></button>';
+      return o.action==='acknowledge'?'<button class="primary campaign-primary" onclick="Exo.storyMoment()">'+escape(o.label)+' <span aria-hidden="true">→</span></button>':'<button class="primary campaign-primary" onclick="Exo.trackCampaign()">'+escape(o.label)+' <span aria-hidden="true">→</span></button>';
     }
     function panel(){
       const o=objective();
-      return '<div class="campaign-panel"><section class="campaign-hero"><div class="campaign-kicker">ECHO–9 / 回声之下</div><div class="campaign-heading"><div><h2>先找到一条归路。</h2><p>跟着青灯找到老林，修好机甲，去寻找仍在等待救援的人。</p></div><div class="campaign-progress"><strong>'+done.length+'<small> / 9</small></strong><span>第一幕进度</span></div></div><div class="campaign-meter" role="progressbar" aria-label="第一幕进度" aria-valuemin="0" aria-valuemax="9" aria-valuenow="'+done.length+'"><i style="width:'+done.length/9*100+'%"></i></div></section><section class="campaign-active"><div class="campaign-step-number">'+(o.finished?'✓':String(o.episode).padStart(2,'0'))+'</div><div><span class="campaign-kicker">'+(o.finished?'K–09 · 第一幕完成':'当前任务 · 第 '+String(o.episode).padStart(2,'0')+' 集')+'</span><h3>'+escape(o.title)+'</h3><p>'+escape(o.instruction)+'</p>'+button(o)+'</div></section><div class="campaign-route-caption"><span>坠落点</span><i>→</i><span>损坏道路</span><i>→</i><span>青灯归路</span><i>→</i><span>K–09 维修间</span><i>→</i><span>修复与守卫</span><i>→</i><span>南行探路</span></div><ol class="campaign-beats">'+episodes.slice(0,9).map((e,i)=>'<li class="'+(i<done.length?'is-complete':i===done.length?'is-current':'is-waiting')+'"><span class="campaign-beat-index">'+(i<done.length?'✓':String(e.episode).padStart(2,'0'))+'</span><div><div class="campaign-beat-title"><h4>'+escape(e.title)+'</h4><small>'+ (e.kind==='story'?'剧情记录':'现场任务')+'</small></div><p>'+escape(e.description)+'</p></div></li>').join('')+'</ol><section class="campaign-side"><div><span class="campaign-kicker">维修间以南 · 可随时探索</span><h3>旧地图以外的路</h3><p>旧地图留下的是灾前的道路。如今的裂隙、河水与松动岩层，都需要重新查看。维修间外的青灯继续向南，经过河岸、断崖与旧勘测洞。把探测车带上，留在稳固路面记录它的试走结果，再判断下一段路；这条路将由你亲自核对。</p></div><button onclick="Exo.visitTraining(\'terrain\')">查看原野勘测路线 ↗</button></section><details class="campaign-roadmap"><summary><span>40 集故事路线</span><small>前 9 集可以游玩 · 后 31 集为制作规划</small></summary><p class="campaign-note">这里保留了 40 集故事的顺序和标题。灰色章节还在规划中，暂时不能游玩。完成第一幕后，你仍然可以探索九境或沿途收集与核对观察记录。</p><ol start="10">'+episodes.slice(9).map(e=>'<li><span>'+String(e.episode).padStart(2,'0')+'</span><div><h4>'+escape(e.title)+'</h4><p>'+escape(e.description)+'</p></div><small>制作规划</small></li>').join('')+'</ol></details><p class="campaign-save">'+(storageOK?'进度会自动保存在当前浏览器。收起工具、重试或重读记录，都不会丢失已完成的任务。':'这个浏览器暂时无法保存进度。你可以继续玩，但关闭页面后可能需要重新开始。')+'</p></div>';
+      return '<div class="campaign-panel"><section class="campaign-hero"><div class="campaign-kicker">随行笔记 / 回声之下</div><h2>'+escape(o.title)+'</h2><p>'+escape(o.instruction)+'</p>'+button(o)+'</section><p class="campaign-pencil">灯还亮着，就有人走过这里。</p>'+(done.length?'<details class="campaign-recap"><summary>翻看已经走过的路</summary>'+episodes.slice(0,done.length).map(e=>'<article><h3>'+escape(e.title)+'</h3><p>'+escape(e.description)+'</p></article>').join('')+'</details>':'')+'<p class="campaign-save">'+(storageOK?'旅途会自动保存。遗物和旧照片留在随身日记里，可以有空时再翻。':'当前浏览器无法保存进度。关闭页面前请留意。')+'</p></div>';
     }
     function hud(){return '<button class="campaign-hud" id="campaign-hud" onclick="Exo.campaign()" aria-label="打开当前剧情目标"><span id="campaign-hud-episode"></span><strong id="campaign-hud-title"></strong><small id="campaign-hud-detail"></small></button>';}
     function updateHUD(root=typeof document!=='undefined'?document:null){
@@ -163,10 +164,10 @@ const ExoCampaign = (() => {
       const title=root.getElementById('campaign-hud-title');if(!title)return;
       if(key===lastDrawn&&title.textContent===o.title)return;lastDrawn=key;
       const tag=root.getElementById('campaign-hud-episode'),detail=root.getElementById('campaign-hud-detail');
-      if(tag)tag.textContent=o.finished?'第一幕 / 完成':'主线 · EP'+String(o.episode).padStart(2,'0');
+      if(tag)tag.textContent=o.actComplete?'南线 / 短波通讯':'回声之下';
       const prompts={crash:'按 E 接管机甲。沿青灯寻找一条能走的路。'};
       const pointName=typeof ExoGuidance!=='undefined'?ExoGuidance.name(o):o.title;
-      const instruction=prompts[o.id]||(o.action==='acknowledge'?'已到达 · 按 E '+o.label:o.id==='lamps'?'前往'+pointName+' · 靠近按 E。已查看 '+scanned.length+'/3。':['mother','captain','refuge','stabilizer'].includes(o.id)?'前往'+pointName+' · 青灯和路面折线会指路。':o.instruction);
+      const instruction=prompts[o.id]||(o.action==='acknowledge'?'已到达 · 按 E '+o.label:o.id==='lamps'?'前往'+pointName+' · 靠近按 E 查看遗物。':['mother','captain','refuge','stabilizer'].includes(o.id)?'前往'+pointName+' · 青灯和路面折线会指路。':o.instruction);
 
       title.textContent=o.title;if(detail)detail.textContent=instruction;
     }

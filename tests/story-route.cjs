@@ -18,7 +18,7 @@ for(const branch of S.paths.filter(p=>p.kind==='side')){
  assert(route?.length>1,'tracking can resume from '+branch.id);
  for(const p of route)assert(S.roadDistance(p.x,p.y)<.01,'return navigation stays on the trail');
 }
-run('Exo.startCampaign();Exo.campaignAcknowledge("crash-read")');
+run('Exo.startCampaign()');h.escapeOpening();
 const objective=qa.campaign.objective().id;
 for(const clue of S.detours){
  assert(!qa.journey.state.earned.includes('detour:'+clue.id));

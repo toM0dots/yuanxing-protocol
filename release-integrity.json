@@ -1,5 +1,5 @@
 {
-  "release": "20261123-guidance106",
+  "release": "20261123-opening107",
   "files": [
     {
       "path": ".nojekyll",
@@ -2583,8 +2583,8 @@
     },
     {
       "path": "exo-campaign.js",
-      "bytes": 21407,
-      "sha256": "e2a54e8a645c6ee3afd1bfd984a8cf860b8107a5d5c953dba6b6f67c72490524"
+      "bytes": 18800,
+      "sha256": "888f06ff57ce13c252626c3658a5a1cdcec0f675a541ba09907c795e9b331eae"
     },
     {
       "path": "exo-campus-materials.mjs",
@@ -2697,6 +2697,16 @@
       "sha256": "cc3a121c16ef393ca9d3dcc01ebd834588eed596a9ee2a2866e132e08c9b2af6"
     },
     {
+      "path": "exo-field-story-render.mjs",
+      "bytes": 4513,
+      "sha256": "d78733693bd3ef56f513f324c042a17694e78f5df6c8e440bb8a2f0d104f0cd3"
+    },
+    {
+      "path": "exo-field-story.js",
+      "bytes": 8523,
+      "sha256": "f587e767235d4f3b0e0947af077929cba14d645fedf8b3beff9f876dbc77bcd2"
+    },
+    {
       "path": "exo-fire-control.js",
       "bytes": 26209,
       "sha256": "da17f5b5e0dc0f5062ec0f010af54f7098ab030a5d3aa9e655f65d570edbba92"
@@ -2748,8 +2758,8 @@
     },
     {
       "path": "exo-guidance.js",
-      "bytes": 5438,
-      "sha256": "21b7c6017abb3c56a855fd09cbc9ce98c90540aa6f5d8873e9ebdbde3046b530"
+      "bytes": 5688,
+      "sha256": "efee27832cb4f47b8da652ed7f16cd1b01dac37623c4c6dfb881a764e8ed5137"
     },
     {
       "path": "exo-guide-lights.mjs",
@@ -2808,8 +2818,8 @@
     },
     {
       "path": "exo-lamp-repair.js",
-      "bytes": 6281,
-      "sha256": "4d6685fd294624f7703bef7c0d51c1363aba76fccba6c6276974cef6b4a2680f"
+      "bytes": 6348,
+      "sha256": "dde2da336aa9d556aa3aa4099eaabacb34585a2b47ce14a48339246e1235ea9c"
     },
     {
       "path": "exo-lamp-wiring.css",
@@ -2820,6 +2830,11 @@
       "path": "exo-lamp-wiring.js",
       "bytes": 7042,
       "sha256": "73f27d711360d93d17af697a6a13ebbc0cb72689854e60dc3035cb44707bdf84"
+    },
+    {
+      "path": "exo-lived-story.css",
+      "bytes": 7370,
+      "sha256": "e475388a1b2d786115e3c0d882144f1f2291ebe546b57c15b54e129521370396"
     },
     {
       "path": "exo-lore.js",
@@ -2842,6 +2857,11 @@
       "sha256": "7daca6a2556541fd2e484f32aa785223a5ddccfc22806451b22a70881d0b4c50"
     },
     {
+      "path": "exo-opening.js",
+      "bytes": 3265,
+      "sha256": "688d8295690179cdebdeae6525761d93e77db9fbe2e46e1510b68e0ba227f8d3"
+    },
+    {
       "path": "exo-packed-materials.mjs",
       "bytes": 1247,
       "sha256": "cc5016ed5eed66328faeaae19ff0efd11c50c8a8b2a94fb2dc0ef3dcf213a8f8"
@@ -2853,13 +2873,13 @@
     },
     {
       "path": "exo-premium.mjs",
-      "bytes": 23034,
-      "sha256": "5f14405f0292748decac13557a8f66ad64bb0837fee17bf75a9edda15c4a8b98"
+      "bytes": 23268,
+      "sha256": "a1f86fdf05cd1201ae983a5e821aed13484c5b7c817f7068944fc04f1c56c02b"
     },
     {
       "path": "exo-profile.js",
-      "bytes": 2787,
-      "sha256": "286ae8bc6abafdc9c0039ba2f5c3844173020d856090dd819a31afad959dee10"
+      "bytes": 3019,
+      "sha256": "6ba18601b35a96babf8ea018c0d59094af1c8f16bca6e2ea8312d7fa381f0581"
     },
     {
       "path": "exo-program-architecture.mjs",
@@ -2958,8 +2978,8 @@
     },
     {
       "path": "exo-shell.js",
-      "bytes": 10540,
-      "sha256": "483a8a6daf68838bc8466503171baf9b4919a11c5d37b96e9b5e0a8a6a20881a"
+      "bytes": 10668,
+      "sha256": "79b6f504c769adc9864146152d1d44955c4a424d183b577c970c0719eb282731"
     },
     {
       "path": "exo-space.mjs",
@@ -3083,8 +3103,8 @@
     },
     {
       "path": "expedition.js",
-      "bytes": 78600,
-      "sha256": "a4b31932399b73e3d57e809f76ff182e4cba64a8f49edf824793aa2de8c6f1f7"
+      "bytes": 82705,
+      "sha256": "f16724782d313e592596a7907bd5bb339c5c1e8dd2fa7578033e30db6258028d"
     },
     {
       "path": "field-missions.js",
@@ -3093,8 +3113,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5120,
-      "sha256": "178c66ad84bb81e5c80bb11639529c94b1a7ad0fbae33981590c6ca11053cb38"
+      "bytes": 5326,
+      "sha256": "73e0f558abcfc6013481f42a2f764ccfba7c9969e0eb8c12e755b3483e661bcb"
     },
     {
       "path": "journey.js",

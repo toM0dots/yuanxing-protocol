@@ -6,7 +6,7 @@ assert.equal(fullCells,10,'all four caches and six lamp cells survive reload');
 assert.equal(run('ExoGuidance.clear({x:0,y:0},{x:1,y:1},{elevation:()=>0,structuresBlocked:()=>true})'),false,'walls block lamp actions as well as prompts');
 assert.match(h.nodes.get('app').innerHTML,/开始冒险/);
 assert.equal(run('typeof Engine'),'undefined');assert.equal(run('typeof home'),'undefined');
-run('Exo.resume();Exo.campaignAcknowledge("crash-read")');h.settle();
+run('Exo.resume()');h.escapeOpening();h.settle();
 assert(run('ExoWorld.navigation(Exo.__qa.unit).target.story'),'new game guides automatically');
 const routeIndex=qa.campaign.state.routeIndex;
 run('Exo.travel();closeModal();Exo.intro();Exo.resume()');

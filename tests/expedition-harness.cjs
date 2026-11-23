@@ -8,7 +8,7 @@ function harness(saved=new Map()){
   const ctx=new Proxy({createRadialGradient:()=>gradient,createLinearGradient:()=>gradient},{get:(t,k)=>t[k]||(()=>{}),set:(t,k,v)=>(t[k]=v,true)});
   function element(id){
     let html='',children=[];
-    const el={id,style:{},dataset:{},open:false,hidden:false,textContent:'',paused:true,currentTime:0,classList:{contains:()=>false,toggle(){},add(){},remove(){}},setAttribute(){},removeAttribute(){},addEventListener(){},querySelector:()=>element('selector'),querySelectorAll:()=>[],showModal(){this.open=true;},close(){this.open=false;},appendChild(n){this.append(n);},contains(){return false;},matches(){return false;},play(){this.paused=false;return Promise.resolve();},pause(){this.paused=true;},load(){},getBoundingClientRect:()=>({width:900,height:700,left:0,top:0}),getContext:()=>ctx,setPointerCapture(){},focus(){},remove(){nodes.delete(id);},append(n){if(n.id)nodes.set(n.id,n);}};
+    const el={id,isConnected:false,parentNode:null,style:{},dataset:{},open:false,hidden:false,textContent:'',paused:true,currentTime:0,classList:{contains:()=>false,toggle(){},add(){},remove(){}},setAttribute(){},removeAttribute(){},addEventListener(){},querySelector:()=>element('selector'),querySelectorAll:()=>[],showModal(){this.open=true;},close(){this.open=false;},appendChild(n){this.append(n);},contains(){return false;},matches(){return false;},play(){this.paused=false;return Promise.resolve();},pause(){this.paused=true;},load(){},getBoundingClientRect:()=>({width:900,height:700,left:0,top:0}),getContext:()=>ctx,setPointerCapture(){},focus(){},remove(){nodes.delete(this.id);this.isConnected=false;this.parentNode=null;},append(n){n.isConnected=true;n.parentNode=this;if(n.id)nodes.set(n.id,n);}};
     Object.defineProperty(el,'innerHTML',{get:()=>html,set:value=>{for(const child of children)nodes.delete(child);children=[];html=String(value);for(const m of html.matchAll(/\bid="([^"]+)"/g)){children.push(m[1]);nodes.set(m[1],element(m[1]));}}});
     return el;
   }
@@ -33,6 +33,7 @@ function harness(saved=new Map()){
   run('ExoScene.draw=()=>{};ExoGreenTrail.draw=()=>{};ExoFireControl.overlay=()=>{};ExoTerrainCourse.overlay=()=>{};ExoTrainingUI.overlay=()=>{};');
   const qa=run('Exo.__qa');
   function frame(ms=50){now+=ms;const pending=[...frames.entries()].at(-1);assert(pending,'world animation is running');frames.delete(pending[0]);pending[1](now);}
+  function escapeOpening(){run('Exo.openingAct()');frame();run('Exo.openingAct()');frame();driveTo({x:qa.unit.x,y:qa.unit.y-250});}
   function settle(n=10){for(let i=0;i<n;i++)frame();}
   function pointer(x,y){return {pointerId:77,clientX:x,clientY:y,preventDefault(){}};}
   function driveTo(p){
@@ -47,7 +48,7 @@ function harness(saved=new Map()){
     assert(steps<2500,`ground route blocked: ${JSON.stringify({from:{x:qa.unit.x,y:qa.unit.y},to:p})}`);
     return steps;
   }
-  return {run,qa,frame,settle,driveTo,nodes,events,saved,frames};
+  return {run,qa,frame,settle,escapeOpening,driveTo,nodes,events,saved,frames};
 }
 
 module.exports=harness;

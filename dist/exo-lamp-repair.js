@@ -13,7 +13,7 @@ const ExoLampRepair=(()=>{
  // Off the road shoulder, on the left of travel, so lamps never block the trail.
  function shoulder(a,b,t,side=1,offset=62){const x=a[0]+(b[0]-a[0])*t,y=a[1]+(b[1]-a[1])*t,dx=b[0]-a[0],dy=b[1]-a[1],l=Math.hypot(dx,dy)||1;return {x:x-dy/l*offset*side,y:y+dx/l*offset*side};}
  const broken=[
-  {id:'lamp:crash-bend',name:'谷口折返灯',...shoulder([1830,8930],[2100,8450],.6)},
+  {id:'lamp:crash-bend',name:'谷口折返灯',x:1680,y:9460},
   {id:'lamp:crash-ridge',name:'车辙坡灯',...shoulder([2450,8010],[2890,7770],.5,-1)},
   {id:'lamp:rest-path',name:'休息点小路灯',...shoulder([3770,5370],[4410,5580],.5)},
   {id:'lamp:refuge-turn',name:'维修间转角灯',...shoulder([4780,5830],[4760,6520],.5,-1)},
@@ -21,7 +21,7 @@ const ExoLampRepair=(()=>{
   {id:'lamp:river-road',name:'河谷路标灯',...shoulder([5000,8200],[4930,9000],.5,-1)}
  ].map(l=>({...l,kind:'broken'}));
  const caches=[
-  {id:'cache:crash-kit',name:'翻倒的检修包',x:1770,y:9160},
+  {id:'cache:crash-kit',name:'翻倒的检修包',x:1770,y:9640},
   {id:'cache:belongings',name:'车辙旁的补给箱',x:2706,y:7052},
   {id:'cache:lookout',name:'望哨下的电池箱',x:2586,y:5596},
   {id:'cache:cargo',name:'货架上的应急电池',x:5066,y:5548}
@@ -86,6 +86,7 @@ const ExoLampRepair=(()=>{
   return {message:'灯亮了。这段路以后不必摸黑走。（电池 '+state.cells+'）'+(lit===broken.length?' 沿线的灯都亮着了。':''),sound:'light',lit:item.id};
  }
  function summary(){return {cells:state.cells,fixed:state.fixed.length,total:broken.length,caches:caches.length-state.caches.length};}
- return {broken,caches,spares,all,near,label,act,repair,level,summary,taken:id=>state.caches.includes(id),setReader(fn){reader=typeof fn==='function'?fn:()=>false;},get state(){return JSON.parse(JSON.stringify(state));},reset(){state=empty();save();}};
+ function useCell(){if(state.cells<1)return false;state.cells--;save();return true;}
+ return {useCell,broken,caches,spares,all,near,label,act,repair,level,summary,taken:id=>state.caches.includes(id),setReader(fn){reader=typeof fn==='function'?fn:()=>false;},get state(){return JSON.parse(JSON.stringify(state));},reset(){state=empty();save();}};
 })();
 if(typeof module!=='undefined')module.exports=ExoLampRepair;

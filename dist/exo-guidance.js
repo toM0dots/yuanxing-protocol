@@ -3,7 +3,7 @@
 const ExoGuidance=(()=>{
  const REACH=160,NOTICE=440;
  const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
- const names={crash:'迫降驾驶舱',route:'断路警戒灯',lamps:'青灯林道',mother:'撤离休息点 · 旧合影',captain:'撤离通话点 · 通话器',refuge:'K–09 · 老林',model:'东侧接驳坪',defense:'东侧接驳坪',stabilizer:'K–09 · 稳定架'};
+ const names={relay:'断帆山 · 中继天线',homeward:'K–09 · 回程',crash:'迫降驾驶舱',route:'断路警戒灯',lamps:'青灯林道',mother:'撤离休息点 · 旧合影',captain:'撤离通话点 · 通话器',refuge:'K–09 · 老林',model:'东侧接驳坪',defense:'东侧接驳坪',stabilizer:'K–09 · 稳定架'};
  function name(o){if(o?.id==='route'&&o.point?.name)return o.point.name;if(o?.id==='lamps'&&o.point){const r=ExoGreenTrail.records.find(r=>distance(r,o.point)<5);if(r)return r.name;}return names[o?.id]||o?.title||'沿途灯标';}
  function clear(u,p,world){return !world.cave&&!world.interior&&!u.flight&&(!world.structuresBlocked?.({...u,z:world.elevation(u.x,u.y)+70},{...p,z:world.elevation(p.x,p.y)+45}))&&(typeof ExoCanyonV2==='undefined'||!ExoCanyonV2.blocked(u,p));}
  const waylightCache=new WeakMap();
@@ -22,6 +22,7 @@ const ExoGuidance=(()=>{
  function resolve({unit:u,world,objective:o,disabled=false,earned=[]}){
   if(disabled||world.cave||world.interior||u.flight)return null;
   if(o?.action==='acknowledge'&&(!o.point||distance(u,o.point)<=o.radius)&&(!o.point||clear(u,o.point,world)))return {kind:'story',id:o.id,point:o.point||u,label:o.label,detail:'主线 · 停下来看看',priority:0};
+  if(o?.action==='relay'&&distance(u,o.point)<=o.radius&&clear(u,o.point,world))return {kind:'relay',id:o.id,point:o.point,label:o.label,detail:'山脊中继 · 手动检修',priority:0};
   const list=[],add=(kind,point,label,detail,priority,extra={})=>{const d=distance(u,point);if(d<=REACH&&clear(u,point,world))list.push({kind,id:point.id,point,label,detail,priority,d,...extra});};
   if(typeof ExoLampRepair!=='undefined')for(const lamp of ExoLampRepair.all()){
    const read=earned.includes(lamp.id),required=o?.id==='lamps'&&o.point&&distance(lamp,o.point)<5;

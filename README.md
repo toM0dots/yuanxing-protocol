@@ -4,7 +4,19 @@
 
 A science-fiction exploration game with AI learning missions. Anyone can play from the link; no account or invitation is needed.
 
-This repository contains the complete static game release **v106** (`20261123-guidance106`), including its models, textures, fonts and bundled asset attribution files.
+This repository contains the complete static game release **v107** (`20261123-opening107`), including its models, textures, fonts and bundled asset attribution files.
+
+## Playable opening and south relay in v107
+
+**开始冒险** starts inside the damaged cockpit. Restore auxiliary power, release the hydraulic lock when the world is ready, and walk the mech out of the wreck. A maintenance pack and a dark lamp sit along the first bend. **重温迫降** replays this opening without overwriting campaign progress.
+
+One evacuation clue is enough to pick up the trail. Other lamp memories remain optional discoveries. The photo, receiver and workshop interactions play short captions while movement stays active; the diary contains the longer recap. Old Lin now works beside the workshop entrance. The pause screen shows the present objective and completed memories, rather than a nine-item checklist and unplayable chapter roadmap.
+
+Finishing Act 1 opens a complete southbound relay mission: follow the existing bridge and mountain trails, power the summit antenna, align it toward K–09 and make contact. Temporary mech power costs energy; leaving a battery keeps the beacon lit. The physical dish rotates with its controls and the outcome persists. This is a playable continuation, not a claim that all 40 planned episodes are finished.
+
+The new actors reuse existing textures and are batched to six material draws for the mechanic and four for the relay. The previous rendering/performance fixes remain; this release does not claim that the low frame rate on integrated graphics is solved.
+
+Validation includes the cockpit state/save/replay tests, complete ground-route traversal through Act 1 and the mountain relay, physical interaction/resource/alignment gates, legacy-save isolation, bounded render geometry, desktop browser play and a mobile layout check. Run the `tests/*.cjs` files with Node and the renderer tests with `node tests/field-story-render.mjs`, `node tests/guidance-render.mjs` and `node tests/guide-light-integration.mjs`.
 
 ## Guidance and standalone game in v106
 
