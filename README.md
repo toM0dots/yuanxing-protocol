@@ -4,11 +4,11 @@
 
 A science-fiction exploration game with AI learning missions. Anyone can play from the link; no account or invitation is needed.
 
-This repository contains the complete static game release **v108** (`20261123-beacons108`), including its models, textures, fonts and bundled asset attribution files.
+This repository contains the complete static game release **v108** (`20261123-beacons108a`), including its models, textures, fonts and bundled asset attribution files.
 
 ## Survey beacons and a growing refuge in v108
 
-After the south relay answers, the next objective leads to six survey beacons spread across the existing road network. Read two ground measurements, adjust the old elevation datum, then validate against a third measurement before publishing the survey. The map distinguishes unverified pencil routes from surveyed roads, lamps and facility/cave entrances. An unlocked map is not a guarantee of safe terrain. Previously visited camps remain available for return travel; an old scan keeps its discovery credit without silently completing a new calibration.
+After the south relay answers, the next objective leads to six survey beacons spread across the existing road network. Read two ground measurements, adjust the old elevation datum, then validate against a third measurement before publishing the survey. During Act 1 the local K–09 trail stays first; distant survey coverage is a collapsed old chart. The later map links directly to the river, bridge and mountain sketch. The map distinguishes unverified pencil routes from surveyed roads, lamps and facility/cave entrances. An unlocked map is not a guarantee of safe terrain. Previously visited camps remain available for return travel; an old scan keeps its discovery credit without silently completing a new calibration.
 
 Three beacon lockers contain a filter, a pump seal and folding berths. Bring these back to Old Lin at K–09 to uncover the fan, restore the growing trays and shelter two returning technicians. The fan becomes quieter and steadier, the supply lockers stay open after collection, and the repairs persist. The refuge offers repair/save, building entry and a next destination. Its props sit beside the walking path. Shared player traces and the later novel chapters are still future work.
 

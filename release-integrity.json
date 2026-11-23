@@ -1,5 +1,5 @@
 {
-  "release": "20261123-beacons108",
+  "release": "20261123-beacons108a",
   "files": [
     {
       "path": ".nojekyll",
@@ -3008,8 +3008,8 @@
     },
     {
       "path": "exo-survey-ui.js",
-      "bytes": 10881,
-      "sha256": "f4e3534bdcdf7669d9194fb51e3ab074f679ce5dfb003c83c3b503f8d070b81f"
+      "bytes": 11647,
+      "sha256": "f51bfe10314760ca3c1b0518861bdec4b98968112356ef4e8617d865451221a6"
     },
     {
       "path": "exo-survey.css",
@@ -3123,8 +3123,8 @@
     },
     {
       "path": "expedition.js",
-      "bytes": 89815,
-      "sha256": "a8ea585ac5c36433aa6534c7ad60d8014258b6607ee8bad9aa110fb69ae770e8"
+      "bytes": 89891,
+      "sha256": "39db8be70cf6377973a67bb5945eae395c0e9fac9167b0e932d9cb5d09d7992b"
     },
     {
       "path": "field-missions.js",
@@ -3133,8 +3133,8 @@
     },
     {
       "path": "index.html",
-      "bytes": 5532,
-      "sha256": "5770d8fef6d1b9340210a9b26b5ef9b550f065a1de4dad3237a7adbf9945de3d"
+      "bytes": 5534,
+      "sha256": "3bb9f8cc0af6f6516927fa3631274892c08bea72c35a6011e69f15bd1c68924b"
     },
     {
       "path": "journey.js",

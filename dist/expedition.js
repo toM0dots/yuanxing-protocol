@@ -54,7 +54,7 @@ const Exo=(()=>{
  function hub(section='journey',view='records'){closeSurvey();
   if(!ExoShell.sections.some(s=>s[0]===section))section='journey';
   let content;
-  if(section==='map')content=ExoHUD.atlas(unit,terrain,campaignState);
+  if(section==='map')content=ExoHUD.atlas(hasSortie?unit:campaignState?.state.checkpoint||ExoTrainingGround.campaign.start,terrain,campaignState);
   else if(section==='mech')content=journey.journal('upgrades');
   else if(section==='archive')content=(view==='regions'?ExoShell.archiveNav(view):'')+journey.journal(view==='regions'?'regions':'records');
   else if(section==='training')content=(typeof ExoTrainingUI!=='undefined'?ExoTrainingUI.summary({fire:fireCourse,terrain}):'')+ExoShell.training({fire:fireCourse.active,terrain:terrain.active,trial:!!combat.trial});
