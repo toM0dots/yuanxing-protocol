@@ -299,6 +299,24 @@ const ExoAmbience = (() => {
       default: tone(v, t, 96, 44, .22 + k * .2, .003, .34); tone(v, t, rand(280, 340), 250, .03 + k * .05, .002, .5 + k * .4, 'triangle'); tone(v, t, rand(610, 720), 560, .015 + k * .025, .002, .35, 'triangle'); burst(v, t, 'bandpass', 1400, 1.2, .04 + k * .07, .1);
     }
   }
+  // Distinct local hull taps and filtered replies; the opening owns timing.
+  function knock(remote=false) {
+    if (!enabled || !ensure() || ctx.state !== 'running') return;
+    lastUpdate=performance.now();ease(master.gain,.9,.01);
+    const t=T(),v=voice({pan:remote?-.3:.18,level:remote?.7:1,cutoff:remote?1300:5500,wet:remote?.65:.15,life:1});
+    if(!v)return;
+    tone(v,t,remote?210:125,remote?180:94,.16,.002,.27,'triangle');
+    tone(v,t,remote?490:370,remote?460:340,.055,.001,.16,'triangle');
+    burst(v,t,'bandpass',remote?1200:2100,1.4,.08,.045,.001);
+  }
+  function refugeRepair(kind) {
+    if (!enabled || !ensure() || ctx.state !== 'running') return;
+    const t=T(),v=voice({...at(4080,6315,600),wet:.3,life:3});if(!v)return;
+    tone(v,t,180,110,.15,.002,.2,'triangle');
+    if(kind==='filter'){tone(v,t+.2,38,110,.07,.8,1.2,'sawtooth');burst(v,t+.4,'lowpass',800,.7,.13,1.6,.8);}
+    else if(kind==='valve')burst(v,t+.1,'bandpass',1900,.7,.14,1.6,.35);
+    else for(let i=0;i<3;i++)tone(v,t+i*.25,580,440,.05,.002,.2,'triangle');
+  }
   // Lamp repair: pulling a cell, a lamp coming on, a lamp going dark.
   function lamp(kind, x, y) {
     if (!enabled || !ensure() || ctx.state !== 'running') return;
@@ -375,8 +393,8 @@ const ExoAmbience = (() => {
     ease(L.whistleBand.frequency, 600 + gust * 900 + height * 500 + summit * 700, .8);
     ease(L.roomTone.gain, place === 'interior' ? (kind === 'hangar' ? .12 : .08) : place === 'cave' ? .07 : 0, .6);
     ease(L.mains.gain, kind === 'instrument' ? .02 : place === 'interior' ? .01 : 0, .6);
-    const refugeNear=outdoor&&typeof ExoSurvey!=='undefined'?Math.max(0,1-Math.hypot(u.x-4095,u.y-6535)/450):0,fanFixed=typeof ExoSurvey!=='undefined'&&ExoSurvey.installed('filter');
-    ease(L.fan.gain, kind === 'mine' ? .09 : refugeNear*(fanFixed?.028:.065), .6); ease(L.fanLfo.gain, kind === 'mine' ? .05 : refugeNear*(fanFixed?.003:.04), .6);
+    const refugeNear=outdoor&&typeof ExoSurvey!=='undefined'?Math.max(0,1-Math.hypot(u.x-4080,u.y-6315)/650):0,fanFixed=typeof ExoSurvey!=='undefined'&&ExoSurvey.installed('filter');
+    ease(L.fan.gain, kind === 'mine' ? .09 : refugeNear*(fanFixed?.045:.09), .6); ease(L.fanLfo.gain, kind === 'mine' ? .05 : refugeNear*(fanFixed?.003:.04), .6);
     ease(L.pipes.gain, kind === 'greenhouse' ? .03 : refugeNear&&ExoSurvey.installed('valve')?.018*refugeNear:0, .6);
     ease(verbSend.gain, place === 'cave' ? .6 : kind === 'hangar' ? .45 : place === 'interior' ? .28 : .14, .8);
 
@@ -425,5 +443,5 @@ const ExoAmbience = (() => {
   // (the title screen), so slow frames on weak GPUs don't cause dropouts.
   setInterval(() => { if (ctx && master && (document.hidden || document.getElementById('modal')?.open || performance.now() - lastUpdate > 4000)) ease(master.gain, 0, .3); }, 250);
   function setEnabled(on) { enabled = !!on; writePreference(enabled); if (enabled) ensure(); else if (master) ease(master.gain, 0, .1); }
-  return { update, setEnabled, contact, lamp, wire, step: (surface = 'gravel', weight = .9) => { if (enabled && ensure() && ctx.state === 'running') footstep(surface, weight); }, get enabled() { return enabled; }, get output() { return out; }, get context() { return ctx; } };
+  return { update, setEnabled, contact, lamp, wire, knock, refugeRepair, step: (surface = 'gravel', weight = .9) => { if (enabled && ensure() && ctx.state === 'running') footstep(surface, weight); }, get enabled() { return enabled; }, get output() { return out; }, get context() { return ctx; } };
 })();

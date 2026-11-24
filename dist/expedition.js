@@ -17,7 +17,7 @@ const Exo=(()=>{
   if(r.wiring)r.message=ExoLampRepair.repair(lamp).message;lampSay(r,lamp);}
  journey.migrate({found:[...found],facilities:ExoFacilities.progress,fire:fireCourse.completed,terrain:terrain.unlocked});
  const campaignState=typeof ExoCampaign!=='undefined'?ExoCampaign.create({storage:window.localStorage||localStorage,fireAPI:ExoFireControl,points:{mother:typeof ExoStoryRoute!=='undefined'?ExoStoryRoute.mother:null,captain:typeof ExoStoryRoute!=='undefined'?ExoStoryRoute.captain:null,spawn:ExoTrainingGround.campaign.start,route:[{...ExoTrainingGround.campaign.caution,name:'断路警戒灯',radius:100,instruction:'前方的旧路塌了。先在橙黄色警戒灯前停下，看看路面。'},...ExoTrainingGround.campaign.bypass.map((p,i)=>({...p,name:i?'东侧绕行出口':'东侧绕行路标',radius:100,instruction:'跟着东侧的青色路灯绕过去，避开断裂的旧路。'})),{...ExoTrainingGround.campaign.exit,name:'青灯林道入口',radius:110,instruction:'回到峡谷道路上。沿青色路灯走，前面似乎有人维护。'}],lamps:ExoGreenTrail.records.map(r=>({x:r.x,y:r.y,radius:160})),refuge:{...ExoWorld.structures.find(s=>s.id==='k09-hero-hangar').entrance,radius:140},range:{...ExoTrainingGround.fire.base,radius:180}}}):null;
- const opening=ExoOpening.create({storage:window.localStorage||localStorage,completed:!!campaignState?.state.done.includes('crash')});
+ const opening=ExoOpening.create({storage:window.localStorage||localStorage,completed:!!campaignState?.state.done.includes('crash'),onKnock:remote=>{try{ExoAmbience.knock(remote);}catch{}}});
  let openingView=camera.firstPerson,replaySnapshot=null;
  let surveyPanel=null,surveySession=null,surveyId=null,surveyVisitAt=0;
  const terrainField=typeof ExoTerrainField!=='undefined'?ExoTerrainField.create():null;
@@ -114,6 +114,7 @@ const Exo=(()=>{
  }
  function loop(now){
   if(mode!=='world')return;
+  ExoFieldStory.update(0,{unit,world:ExoWorld,now,finished:!!campaignState?.state.finished&&!opening.active,reducedMotion:reduced});
   // Keep the loading console responsive. Building the compatibility terrain
   // every frame here competes with downloads/decoding and is immediately
   // discarded once the detailed world is ready.
@@ -125,7 +126,6 @@ const Exo=(()=>{
   const mapBlocked=typeof ExoMapStatus!=='undefined'&&!ExoWorld.cave&&ExoCanyonV2.inZone(unit.x,unit.y,20)&&ExoMapStatus.snapshot().blocked;
   const dt=window.ExoPerf?.fixed||document.getElementById('modal')?.open||mapBlocked?0:Math.min(.05,(now-last)/1000);last=now;if(mapBlocked)clearDrive();
   if(opening.update(unit,true))finishOpening();opening.draw(document.getElementById('exo-field'));
-  ExoFieldStory.update(dt,{unit,world:ExoWorld,finished:!!campaignState?.state.finished&&!opening.active,reducedMotion:reduced});
   if(!opening.active&&now-surveyVisitAt>1000){surveyVisitAt=now;ExoSurvey.visit(unit,ExoWorld);}
   if(surveyPanel?.isConnected&&!surveyReach(surveyId==='refuge'?ExoSurvey.home:ExoSurvey.sites[surveyId]))closeSurvey();
   if(campaignState?.objective().id==='route'&&Math.hypot(unit.x-ExoTrainingGround.campaign.caution.x,unit.y-ExoTrainingGround.campaign.caution.y)<400)ExoFieldStory.say('washout');
@@ -238,22 +238,15 @@ const Exo=(()=>{
   const id=lamp.id,isMemory=lamp.kind==='spare',isCache=lamp.kind==='cache',isWay=lamp.kind==='waylight';
   const firstReading=isMemory&&!journey.trailEarned.includes(id);
   if(isMemory){journey.scanTrail(unit,expeditionActive());journey.dismiss();observeCampaign();syncUpgrades();const nav=ExoWorld.navigation(unit);if(campaignTracked&&(!nav||nav.target?.story))guideCampaign();campaignState.updateHUD();}
-  const observations={
-   'trail:k09:1':'灯箱接着一块独立电池。车辙尽头的转运单被油污划过：“设备优先”改成了“孩子、伤员、不能自己走的人”。最后一辆车运走了人，留下了矿石。',
-   'trail:k09:2':'工具散落在检修桩脚下。值守器的残音说，他要留下来换两盏灯。工单上的签字比末班车晚了十九分钟；录音没说他有没有追上车。',
-   'trail:k09:3':'补给箱写着“给落单的人留一份”。新电池的批次晚于撤离日，壶底还有烧过的痕迹——灾难以后，有人沿着这条路回来过。'
-  };
   if(firstReading&&!feedback){ExoFieldStory.cue('陆寻',id==='trail:k09:1'?'转运单被改过。最后一辆车没有装矿石，装的是孩子和伤员。':id==='trail:k09:2'?'他留下来换灯，错过了末班车。后来呢？':'有人回来过。还给落单的人留下了电池。');closeModal();return;}
   const level=isWay?1:ExoLampRepair.level(lamp),cells=ExoLampRepair.summary().cells,drawn=ExoLampRepair.state.drawn[id]||0;
   const status=isCache?(ExoLampRepair.taken(id)?'补给已取出':'发现应急电池'):level===1?'灯光稳定':level>0?'灯光微弱':'灯已熄灭';
-  const copy=observations[id]||(isCache?'检修包被风吹倒，里面的电池仍有余量。取出后，可以给断电的路灯接上电源。':isWay?(lamp.side?'旧灯牌上画着一条绕回主路的小径。这里通往沿途遗物，之后还能回到青灯归路。':'磨损的灯牌指向前方。青绿灯串起主路；路面的双折线是机甲投出的当前路线。'):level===1?'接线盒已经合拢，灯头稳定地照着路面。你修好的灯会一直留在这条路上。':'灯罩有裂痕，电池仓已经空了。装入一块电池，再把断开的线接回灯头，就能让它重新亮起来。');
+  const copy=isMemory?'灯箱的电池还在供电，取走最后一块，这段路就会暗下来。':isCache?(ExoLampRepair.taken(id)?'检修包空了，电池已经放进机甲侧袋。':'翻倒的检修包里，还有一块能用的电池。'):isWay?(lamp.side?'旧灯牌指向支路，走过去还能绕回主路。':'灯牌指向前方，沿着青灯继续走。'):level===1?'灯重新亮了，后来的人也能看见这段路。':cells?'电池仓空了：装入一块电池，把断线接回去。':'电池仓空了，先找路边翻倒的检修包。';
   let actions='';
-  if(isCache)actions=ExoLampRepair.taken(id)?'<span>这个补给点已经搜过了。</span>':`<button class="primary" onclick="Exo.lampAction('${id}','take')">取出应急电池</button>`;
-  else if(lamp.kind==='broken'&&level===0)actions=`<button class="primary" ${cells?'':'disabled'} onclick="Exo.lampAction('${id}','repair')">装入电池并打开接线盒</button>${cells?'':'<small>还缺一块电池。沿路找翻倒的检修包或补给箱。</small>'}`;
-  else if(isMemory)actions=`<details class="exo-lamp-battery"><summary>电池仓 · ${2-drawn} / 2 块</summary><p>取走一块会让灯变暗；取走最后一块会熄灯。也可以把电池装回去。</p><div class="exo-object-actions"><button ${drawn>=2?'disabled':''} onclick="Exo.lampAction('${id}','take')">${confirm?'确认取走最后一块':'取一块备用电池'}</button><button ${drawn>0&&cells?'':'disabled'} onclick="Exo.lampAction('${id}','return')">装回一块电池</button></div></details>`;
-  const o=campaignState.objective();
-  modal(lamp.name,`<section class="exo-object-panel exo-lamp-panel"><span class="exo-object-tag">${isMemory?'路边遗物 · 已记入日记':isWay?'维护路标':'现场检修'}</span><h2>${objectEscape(lamp.name)}</h2><div class="exo-lamp-status"><i data-power="${level}"></i><strong>${status}</strong><span>随身电池 ${cells}</span></div><p class="exo-object-observation">${copy}</p><p class="exo-lamp-feedback" role="status">${objectEscape(feedback)}</p><div class="exo-object-actions">${actions}</div><div class="exo-lamp-next"><small>接下来</small><strong>${objectEscape(ExoGuidance.name(o))}</strong><p>${o.id==='lamps'?'这盏灯已经指向归路。其他遗物可以稍后再找。':o.finished?'沿主路继续探索。':'沿青灯前行；支路可以随时再来。'}</p><button class="primary" onclick="Exo.trackCampaign()">继续沿主路走</button><button onclick="closeModal()">收起</button></div></section>`);
-  if(confirm){const details=document.querySelector('.exo-lamp-battery');if(details)details.open=true;}
+  if(isCache)actions=ExoLampRepair.taken(id)?'':`<button class="primary" onclick="Exo.lampAction('${id}','take')">取出应急电池</button>`;
+  else if(lamp.kind==='broken'&&level===0)actions=`<button class="primary" ${cells?'':'disabled'} onclick="Exo.lampAction('${id}','repair')">打开接线盒 · 使用 1 块电池</button>`;
+  else if(isMemory)actions=`<button ${drawn>=2?'disabled':''} onclick="Exo.lampAction('${id}','take')">${confirm?'确认取走最后一块':'取一块备用电池'}</button>${drawn>0&&cells?`<button onclick="Exo.lampAction('${id}','return')">装回一块电池</button>`:''}`;
+  modal(lamp.name,`<section class="exo-object-panel exo-lamp-panel"><h2>${objectEscape(lamp.name)}</h2><div class="exo-lamp-status"><i data-power="${level}"></i><strong>${status}</strong><span>随身电池 ${cells}</span></div><p class="exo-object-observation" role="status">${objectEscape(feedback||copy)}</p><div class="exo-object-actions">${actions||'<button class="primary" onclick="closeModal()">收起</button>'}</div></section>`);
  }
  function lampAction(id,choice){
   const lamp=nearbyLamp(id);if(!lamp||!['take','return','repair'].includes(choice))return;
@@ -263,13 +256,13 @@ const Exo=(()=>{
  }
  function startCampaign(){
   leaveCave();clearDrive();M.resetFlight(unit);ExoWorld.cancelRoute();fireCourse.active=false;terrain.active=false;fireCourse.uiPending=null;terrain.uiPending=null;terrain.probe=null;combat=surfaceCombat;combat.hp=100;combat.down=0;combat.invulnerable=5;combat.bolts=[];combat.hazards=[];ExoSandbox.clearWeapons(combat);
-  const p=campaignState.state.checkpoint||ExoTrainingGround.campaign.start;Object.assign(unit,{x:p.x,y:p.y,vx:0,vy:0,angle:p.angle||0,energy:100});camera.yaw=-unit.angle;camera.pitch=.20;camera.distance=560;campaignState.start();campaignTracked=true;if(campaignState.objective().id==='crash'){openingView=camera.firstPerson;if(opening.start(unit)){camera.firstPerson=true;camera.pitch=.08;}else campaignState.award('crash-read');}world();observeCampaign();guideCampaign();campaignState.updateHUD();
+  const p=campaignState.state.checkpoint||ExoTrainingGround.campaign.start;Object.assign(unit,{x:p.x,y:p.y,vx:0,vy:0,angle:p.angle||0,energy:100});camera.yaw=-unit.angle;camera.pitch=.20;camera.distance=560;campaignState.start();campaignTracked=true;if(campaignState.objective().id==='crash'){openingView=camera.firstPerson;if(opening.start(unit)){camera.firstPerson=true;camera.pitch=.08;ExoFieldStory.clear();}else campaignState.award('crash-read');}world();observeCampaign();guideCampaign();campaignState.updateHUD();
  }
  function openingAct(){
-  if(!opening.active)return;const result=opening.act();clearDrive();if(result==='power'){sound(320,.3);setTimeout(()=>{if(opening.active)sound(95,.09);},700);setTimeout(()=>{if(opening.active)sound(95,.09);},1040);ExoFieldStory.say('power',!opening.replay);}if(result==='release')sound(100,.4);opening.draw(document.getElementById('exo-field'));document.getElementById('exo-world')?.focus({preventScroll:true});
+  if(!opening.active)return;const result=opening.act();clearDrive();if(result==='power'){sound(320,.3);ExoFieldStory.clear();}if(result==='release'){sound(100,.4);ExoFieldStory.clear();}opening.draw(document.getElementById('exo-field'));document.getElementById('exo-world')?.focus({preventScroll:true});
  }
  function finishOpening(){
-  clearDrive();camera.firstPerson=openingView;
+  clearDrive();ExoFieldStory.clear();camera.firstPerson=openingView;
   if(replaySnapshot){Object.assign(unit,replaySnapshot.unit);Object.assign(camera,replaySnapshot.camera);combat.hp=replaySnapshot.hp;camera.x=unit.x;camera.y=unit.y;camera.z=ExoWorld.elevation(unit.x,unit.y);checkpointAt=performance.now();replaySnapshot=null;}
   else {campaignState.award('crash-read');campaignState.checkpoint(unit);ExoFieldStory.say('escaped');}
   document.getElementById('exo-field')?.classList.toggle('fpv',camera.firstPerson);Exo3D.resetOrbit(camera);syncUpgrades();campaignTracked=true;guideCampaign();campaignState.updateHUD();
@@ -277,6 +270,7 @@ const Exo=(()=>{
  function replayOpening(){
   if(!campaignState.state.done.includes('crash')){startCampaign();return;}
   if(opening.active){closeModal();world();return;}
+  ExoFieldStory.clear();
   const p=hasSortie&&!ExoWorld.cave&&!ExoWorld.interior?{...unit}:{...campaignState.state.checkpoint||ExoTrainingGround.campaign.start,energy:100};
   replaySnapshot={unit:p,camera:{...camera},hp:combat.hp};openingView=camera.firstPerson;
   leaveCave();if(ExoWorld.interior)leaveFacility();clearDrive();M.resetFlight(unit);fireCourse.active=false;terrain.active=false;combat=surfaceCombat;combat.invulnerable=60;ExoWorld.cancelRoute();
@@ -313,7 +307,7 @@ const Exo=(()=>{
   const error=ExoSurvey.error(surveySession,true).toFixed(1);drawSurvey('独立测点偏差 '+error+' m。'+s.area+'的路灯与入口已补上。');ExoFieldStory.cue('AEGIS','另一处测点核验通过。旧图标高偏差从 '+Math.abs(s.bias/18)+' 米降到 '+error+' 米。');syncUpgrades();guideCampaign();campaignState.updateHUD();sound(420,.24);
  }
  function surveyTake(id){if(surveyId!==id||!surveyPanel?.isConnected||!surveyReach(ExoSurvey.sites[id]))return;const k=ExoSurvey.take(id,unit,ExoWorld);if(!k)return;drawSurvey(ExoSurvey.cargo[k].name+'已放进侧箱。回去交给老林。');ExoFieldStory.cue('陆寻','这个还能用。带回维修间。');guideCampaign();campaignState.updateHUD();}
- function refugeDeliver(){if(surveyId!=='refuge'||!surveyPanel?.isConnected||!surveyReach(ExoSurvey.home))return;const items=ExoSurvey.deliver(unit,ExoWorld);if(!items.length)return;for(const k of items)ExoFieldStory.cue('老林',ExoSurvey.cargo[k].after);drawSurvey('东西已经用上了。收起面板，看看门口有什么不同。');campaignState.checkpoint(unit);guideCampaign();campaignState.updateHUD();sound(180,.25);}
+ function refugeDeliver(){if(surveyId!=='refuge'||!surveyPanel?.isConnected||!surveyReach(ExoSurvey.home))return;const items=ExoSurvey.deliver(unit,ExoWorld);if(!items.length)return;closeSurvey();ExoFieldStory.clear();for(const k of items){try{ExoAmbience.refugeRepair(k);}catch{}ExoFieldStory.cue('老林',k==='filter'?'听，风扇顺了。门口的风带也动起来了。':k==='valve'?'水接上了。门外那几盘苗，总算能活下来。':'床铺好了。以后从外面回来，能在棚下歇一会儿。');}campaignState.checkpoint(unit);guideCampaign();campaignState.updateHUD();document.getElementById('exo-world')?.focus({preventScroll:true});}
  function refugeEnter(){if(surveyId!=='refuge'||!surveyPanel?.isConnected||!surveyReach(ExoSurvey.home))return;const site=ExoWorld.structures.find(p=>p.id==='k09-hero-hangar');closeSurvey();enterFacility(site);}
  function refugeRest(){if(surveyId!=='refuge'||!surveyPanel?.isConnected||!surveyReach(ExoSurvey.home))return;combat.hp=100;combat.down=0;combat.invulnerable=8;unit.energy=100;campaignState.checkpoint(unit);drawSurvey('机甲检修好了，旅途也已保存。再出发时，沿青灯走。');}
  function surveyRoute(target){

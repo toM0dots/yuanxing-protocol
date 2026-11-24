@@ -31,7 +31,7 @@ run(`Exo.lampAction('${cache.id}','take')`);assert.equal(run('ExoLampRepair.summ
 run(`Exo.lampAction('${cache.id}','take')`);assert.equal(run('ExoLampRepair.summary().cells'),1,'cache cannot duplicate cells');
 run('closeModal()');
 const broken=run('ExoLampRepair.broken[0]');Object.assign(qa.unit,broken);qa.observe();
-run('Exo.interact()');assert.match(h.nodes.get('modal').innerHTML,/装入电池并打开接线盒/);
+run('Exo.interact()');assert.match(h.nodes.get('modal').innerHTML,/打开接线盒 · 使用 1 块电池/);
 // Stub only the SVG connector UI here; assert the real shell waits for its
 // completion callback. The actual wiring UI is exercised in browser QA.
 run('globalThis.wiringOptions=null;ExoLampWiring.start=o=>{globalThis.wiringOptions=o;}');

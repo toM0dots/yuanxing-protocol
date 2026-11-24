@@ -1,6 +1,7 @@
 /* The opening is part of the cockpit, and communications leave the world live. */
 #exo-opening{position:absolute;inset:0;z-index:32;pointer-events:none;color:#e5e9df;background:linear-gradient(180deg,#03080b42,transparent 45%,#050c1070)}
-#exo-opening:not(.is-ready){background:#091218 url('assets/visual-v13/cockpit-reference.webp') center/cover}
+#exo-opening:not(.is-ready){background:repeating-linear-gradient(0deg,#101c20 0 2px,#091316 2px 5px)}
+#exo-opening:not(.is-ready) .opening-glass{background:repeating-linear-gradient(108deg,transparent 0 38px,#789d9b0d 39px 40px),linear-gradient(20deg,#0a1216aa,transparent 50%,#52636022)}
 #exo-opening[data-stage=power]{background-color:#020609b8}
 .opening-glass{position:absolute;inset:0;background:linear-gradient(112deg,transparent 46%,#9fafaf22 46.08%,transparent 46.25%),linear-gradient(28deg,transparent 56%,#c9d6d51a 56.2%,transparent 56.4%);box-shadow:inset 0 0 100px 40px #010709b0;transition:opacity .9s}
 .opening-glass i{position:absolute;top:-15%;left:17%;height:145%;width:8%;transform:rotate(-22deg);background:#263137 url('assets/ui/crash-v78/crashed-metal.webp') center/cover;border:2px solid #4b5356;box-shadow:9px 8px 28px #0009;transition:transform 1.2s,opacity 1.2s}
@@ -23,3 +24,11 @@
 
 .opening-locked .hud-tools,.in-opening .hud-notice{visibility:hidden}.in-opening #exo-live-radio{top:15%;bottom:auto;z-index:34;width:min(540px,calc(100% - 36px))}
 .campaign-recap{margin-top:24px;border-top:1px solid #80958255;padding:20px 0}.campaign-recap summary{cursor:pointer;font-size:16px}.campaign-recap article{margin:20px 0;padding-left:16px;border-left:1px solid #788c7244}.campaign-recap h3{font-size:17px;margin:0 0 7px}.campaign-recap p{font-size:14px;line-height:1.8;color:#afc3b6}.campaign-pencil{font-size:17px;color:#c6c6a8;transform:rotate(-.7deg);padding:20px}
+
+/* Damaged glass overlays the rendered crash gully, never a different landscape. */
+.opening-signal{position:absolute;top:19%;left:8%;font:14px var(--exo-data,monospace);color:#98aaa6;letter-spacing:.08em}
+.opening-knock{background:linear-gradient(120deg,#343e3f,#1b282d);border-color:#b3b39d}.opening-knock i{height:30px;width:34px;border-radius:50%;background:radial-gradient(ellipse,#848b7b,#354244 65%);box-shadow:inset 2px 2px 6px #0009}
+.opening-knock-marks{display:flex;gap:8px;margin-left:auto}.opening-knock-marks b{width:9px;height:9px;border:1px solid #99b2a3;border-radius:50%}.opening-knock-marks .answered{background:#d0dec2;box-shadow:0 0 8px #a6d4bf66}.opening-knock kbd{margin-left:0}
+#exo-live-radio{transition:opacity .45s ease;background:linear-gradient(90deg,transparent,#07131ed9 12% 88%,transparent);border:0;box-shadow:none;text-align:center;padding:8px 20px}
+#exo-live-radio.is-fading{opacity:0}.live-radio-wave{display:none}
+.in-opening .fpv-visor{visibility:hidden}

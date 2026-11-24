@@ -3,7 +3,7 @@
 const ExoFieldStory=(()=>{
  const KEY='exo-field-story-v1',relay={x:5200,y:12230,radius:170,name:'断帆山 · 失联中继'},refuge={x:4284,y:6406};
  const bearing=((Math.atan2(refuge.x-relay.x,-(refuge.y-relay.y))*180/Math.PI)+360)%360;
- let state={heard:[],relayYaw:90,relayPower:false,relayBattery:false,relayComplete:false},queue=[],caption=null,captionLeft=0,root=null,relayPanel=null,last='',lastPanel='';
+ let state={heard:[],relayYaw:90,relayPower:false,relayBattery:false,relayComplete:false},queue=[],caption=null,captionUntil=0,root=null,relayPanel=null,last='',lastPanel='';
  try{const v=JSON.parse(localStorage.getItem(KEY)||'null');if(v){state.heard=Array.isArray(v.heard)?v.heard.filter(x=>typeof x==='string'):[];state.relayYaw=Number.isFinite(v.relayYaw)?((v.relayYaw%360)+360)%360:90;for(const k of ['relayPower','relayBattery','relayComplete'])state[k]=v[k]===true;}}catch{}
  state.relayPower=state.relayBattery;
  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));}catch{}};
@@ -19,16 +19,21 @@ const ExoFieldStory=(()=>{
   arrival:[['AEGIS','天线偏离了 K–09。先接通电源，再慢慢调整朝向。']],
   linked:[['K–09 · 老林','收到了。你的声音很清楚。'],['老林','我会把南线的人往灯下引。回来吧，维修间给你留了位置。']]
  };
- function say(id,once=true){if(once&&state.heard.includes(id))return false;const rows=scenes[id];if(!rows)return false;if(once){state.heard.push(id);save();}queue.push(...rows.map(([speaker,text])=>({speaker,text,duration:Math.max(4.5,text.length*.16)})));return true;}
- function cue(speaker,text){queue.push({speaker,text,duration:Math.max(4.5,text.length*.14)});}
+ const duration=text=>Math.min(6500,Math.max(3200,text.length*130));
+ function enqueue(speaker,text){const at=Math.max(performance.now(),queue.at(-1)?.until||captionUntil);queue.push({speaker,text,at,until:at+duration(text)});}
+ function say(id,once=true){if(once&&state.heard.includes(id))return false;const rows=scenes[id];if(!rows)return false;if(once){state.heard.push(id);save();}for(const [speaker,text] of rows)enqueue(speaker,text);return true;}
+ function cue(speaker,text,{replace=false}={}){if(replace)clear();enqueue(speaker,text);}
+ function clear(){queue=[];caption=null;captionUntil=0;last='';if(root){root.hidden=true;root.classList.remove('is-fading');}}
  function mount(){const field=document.getElementById('exo-field');if(!field)return;if(root?.isConnected&&root.parentNode===field)return;root=document.createElement('aside');root.id='exo-live-radio';root.setAttribute('aria-live','polite');root.setAttribute('aria-label','短波通讯');root.hidden=true;field.appendChild(root);last='';}
- function update(dt,{unit,world,finished=false,reducedMotion=false}={}){
+ function update(dt,{unit,world,finished=false,reducedMotion=false,now=performance.now()}={}){
   mount();if(!root)return;
   if(finished&&!state.relayComplete)say('south');
   if(finished&&!world.cave&&!world.interior&&Math.hypot(unit.x-relay.x,unit.y-relay.y)<350)say('arrival');
   if(relayPanel?.isConnected&&(world.cave||world.interior||unit.flight||Math.hypot(unit.x-relay.x,unit.y-relay.y)>230))closeRelay();
-  if(caption){captionLeft-=dt;if(captionLeft<=0)caption=null;}
-  if(!caption&&queue.length){caption=queue.shift();captionLeft=caption.duration;}
+  if(caption&&now>=captionUntil)caption=null;
+  while(queue.length&&queue[0].until<=now)queue.shift();
+  if(!caption&&queue.length&&queue[0].at<=now){caption=queue.shift();captionUntil=caption.until;}
+  root.classList.toggle('is-fading',!!caption&&captionUntil-now<450);
   const key=caption?caption.speaker+caption.text:'';if(key===last)return;last=key;root.hidden=!caption;
   if(caption){root.innerHTML='<span class="live-radio-speaker"></span><p></p><i class="live-radio-wave" aria-hidden="true"></i>';root.querySelector('span').textContent=caption.speaker;root.querySelector('p').textContent=caption.text;}
  }
@@ -43,6 +48,6 @@ const ExoFieldStory=(()=>{
  function power(battery=false){state.relayPower=true;if(battery)state.relayBattery=true;save();drawRelay();}
  function transmit(){if(!state.relayPower||signal()<.97||state.relayComplete)return false;state.relayComplete=true;save();say('linked');drawRelay();return true;}
  function closeRelay(){relayPanel?.remove();relayPanel=null;if(!state.relayBattery){state.relayPower=false;save();}}
- return {relay,bearing,say,cue,update,objective,openRelay,closeRelay,drawRelay,turn,power,transmit,signal,get panelOpen(){return !!relayPanel?.isConnected;},get state(){return {...state,heard:[...state.heard]};}};
+ return {relay,bearing,say,cue,clear,update,objective,openRelay,closeRelay,drawRelay,turn,power,transmit,signal,get speaking(){return !!caption;},get panelOpen(){return !!relayPanel?.isConnected;},get state(){return {...state,heard:[...state.heard]};}};
 })();
 if(typeof module!=='undefined')module.exports=ExoFieldStory;

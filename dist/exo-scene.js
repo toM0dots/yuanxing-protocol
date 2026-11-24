@@ -25,6 +25,7 @@ const ExoScene=(()=>{
  function rock(g,r,c,w,h){const p=project(r.x,r.y,0,c,w,h);if(p.d<100||p.x<-r.r*p.s*2||p.x>w+r.r*p.s*2)return;const rx=r.r*p.s,ry=rx*.32,top=project(r.x-12,r.y-10,r.z||r.r*.9,c,w,h);g.fillStyle='#07101466';g.beginPath();g.ellipse(p.x+rx*.25,p.y+ry*.2,rx*1.1,ry,0,0,7);g.fill();g.fillStyle=r.ridge?'#38454e':'#4c595f';g.beginPath();g.moveTo(p.x-rx,p.y);g.lineTo(top.x-rx*.17,top.y+ry*.2);g.lineTo(top.x+rx*.25,top.y);g.lineTo(p.x+rx,p.y);g.closePath();g.fill();g.fillStyle=r.ridge?'#202e38':'#2e3d46';g.beginPath();g.moveTo(top.x+rx*.25,top.y);g.lineTo(p.x+rx,p.y);g.lineTo(p.x+rx*.08,p.y+ry);g.lineTo(top.x-rx*.17,top.y+ry*.2);g.closePath();g.fill();g.strokeStyle='#a5bec033';g.lineWidth=1;g.beginPath();g.moveTo(p.x-rx,p.y);g.lineTo(top.x-rx*.17,top.y+ry*.2);g.lineTo(top.x+rx*.25,top.y);g.stroke()}
  // Names belong to the place the pilot is approaching, not every object on the horizon.
  function landmarkLabels(g,{unit,c,w,h,sites,found}){
+  const prompt=document.getElementById('hud-context');if(prompt&&!prompt.hidden||document.getElementById('exo-survey-console')?.isConnected||typeof ExoFieldStory!=='undefined'&&ExoFieldStory.panelOpen)return;
   const nav=ExoWorld.navigation?.(unit),destination=nav?.target,ground=ExoWorld.elevation(c.x,c.y),candidates=[];
   const add=(point,name,color,height=70)=>{
    const distance=Math.hypot(point.x-unit.x,point.y-unit.y),selected=destination&&Math.hypot(destination.x-point.x,destination.y-point.y)<125;

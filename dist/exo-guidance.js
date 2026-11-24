@@ -4,7 +4,7 @@ const ExoGuidance=(()=>{
  const REACH=160,NOTICE=440;
  const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
  const names={relay:'断帆山 · 中继天线',homeward:'K–09 · 回程',crash:'迫降驾驶舱',route:'断路警戒灯',lamps:'青灯林道',mother:'撤离休息点 · 旧合影',captain:'撤离通话点 · 通话器',refuge:'K–09 · 老林',model:'东侧接驳坪',defense:'东侧接驳坪',stabilizer:'K–09 · 稳定架'};
- function name(o){if(o?.id==='route'&&o.point?.name)return o.point.name;if(o?.id==='lamps'&&o.point){const r=ExoGreenTrail.records.find(r=>distance(r,o.point)<5);if(r)return r.name;}return names[o?.id]||o?.title||'沿途灯标';}
+ function name(o){if(o?.id==='route'&&o.point?.name)return o.point.name;if(o?.id==='lamps'&&o.point){const r=ExoGreenTrail.records.find(r=>distance(r,o.point)<5);if(r)return r.name;}return names[o?.id]||o?.point?.name||o?.title||'沿途灯标';}
  function clear(u,p,world){return !world.cave&&!world.interior&&!u.flight&&(!world.structuresBlocked?.({...u,z:world.elevation(u.x,u.y)+70},{...p,z:world.elevation(p.x,p.y)+45}))&&(typeof ExoCanyonV2==='undefined'||!ExoCanyonV2.blocked(u,p));}
  const waylightCache=new WeakMap();
  function waylights(world){
@@ -45,11 +45,12 @@ const ExoGuidance=(()=>{
   return result;
  }
  function draw(g,{unit,c,w,h},target,objective,project){
+  if(target)return; // The single E/touch prompt owns nearby interaction text.
   const point=target?.point||(objective?.point&&distance(unit,objective.point)<NOTICE?objective.point:null);if(!point||!clear(unit,point,ExoWorld))return;
   const p=project(point.x,point.y,ExoWorld.elevation(point.x,point.y)+80-ExoWorld.elevation(c.x,c.y),c,w,h);
   if(p.d<20||p.x<80||p.x>w-80||p.y<90||p.y>h-120)return;
   const text=target?'E · '+target.label:name(objective)+' · '+Math.ceil(distance(unit,point)/18)+' m';
-  g.save();g.font='600 15px system-ui, "PingFang SC", sans-serif';g.textAlign='center';g.lineWidth=5;g.strokeStyle='#071a20';g.fillStyle=target?'#d4ffe9':'#b7ead6';g.strokeText(text,p.x,p.y-18);g.fillText(text,p.x,p.y-18);g.beginPath();g.moveTo(p.x-6,p.y-7);g.lineTo(p.x,p.y);g.lineTo(p.x+6,p.y-7);g.stroke();g.restore();
+  g.save();g.font='600 15px system-ui, "PingFang SC", sans-serif';g.textAlign='center';g.lineWidth=5;g.strokeStyle='#071a20';g.fillStyle=target?'#d4ffe9':'#b7ead6';g.beginPath();g.moveTo(p.x-6,p.y-7);g.lineTo(p.x,p.y);g.lineTo(p.x+6,p.y-7);g.stroke();g.restore();
  }
  return {REACH,NOTICE,distance,name,label,clear,resolve,waylights,breadcrumbs,draw};
 })();

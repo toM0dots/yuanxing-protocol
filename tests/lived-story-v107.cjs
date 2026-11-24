@@ -1,8 +1,4 @@
 const assert=require('node:assert/strict'),harness=require('./expedition-harness.cjs'),Opening=require('../dist/exo-opening.js');
-const saved=new Map(),storage={getItem:k=>saved.get(k),setItem:(k,v)=>saved.set(k,v)};
-let o=Opening.create({storage});assert(!o.active);o.start({x:0,y:0});assert(o.locked);assert.equal(o.act(),'power');assert.equal(o.act(),null,'hatch waits for a traversable map');
-o=Opening.create({storage});o.start({x:0,y:0});assert.equal(o.stage,'release','controls resume after reload');o.update({x:0,y:0},true);assert.equal(o.act(),'release');assert(!o.update({x:240,y:0,flight:true},true));assert(o.update({x:240,y:0},true));assert(!o.active);
-const before=saved.get('exo-opening-v1');o.start({x:0,y:0},true);o.act();o.update({x:0,y:0},true);o.act();o.update({x:240,y:0},true);assert.equal(saved.get('exo-opening-v1'),before,'replaying never overwrites opening save');
 const h=harness(),{run,qa}=h;run('Exo.resume()');assert(!h.nodes.get('modal').open);assert(h.nodes.get('exo-opening'));const x=qa.unit.x,y=qa.unit.y;
 h.events.keydown({key:'w',preventDefault(){}});h.settle();assert.equal(qa.unit.x,x);assert.equal(qa.unit.y,y,'locked cockpit cannot move');assert(!run('Exo.flightToggle()'));h.escapeOpening();assert.equal(qa.campaign.objective().id,'route');assert(!h.nodes.get('exo-opening'));
 const checkpoint=JSON.stringify(qa.campaign.state.checkpoint),campaignBefore=h.saved.get('exo-campaign-v1');run('Exo.replayOpening()');assert(h.nodes.get('exo-opening'));h.escapeOpening();assert.equal(JSON.stringify(qa.campaign.state.checkpoint),checkpoint);assert.equal(h.saved.get('exo-campaign-v1'),campaignBefore,'replay does not advance or move campaign save');run('Exo.intro()');

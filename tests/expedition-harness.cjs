@@ -33,7 +33,7 @@ function harness(saved=new Map()){
   run('ExoScene.draw=()=>{};ExoGreenTrail.draw=()=>{};ExoFireControl.overlay=()=>{};ExoTerrainCourse.overlay=()=>{};ExoTrainingUI.overlay=()=>{};');
   const qa=run('Exo.__qa');
   function frame(ms=50){now+=ms;const pending=[...frames.entries()].at(-1);assert(pending,'world animation is running');frames.delete(pending[0]);pending[1](now);}
-  function escapeOpening(){run('Exo.openingAct()');frame();run('Exo.openingAct()');frame();driveTo({x:qa.unit.x,y:qa.unit.y-250});}
+  function escapeOpening(){run('Exo.openingAct()');settle(34);run('Exo.openingAct()');frame(250);run('Exo.openingAct()');settle(34);run('Exo.openingAct()');frame();driveTo({x:qa.unit.x,y:qa.unit.y-250});}
   function settle(n=10){for(let i=0;i<n;i++)frame();}
   function pointer(x,y){return {pointerId:77,clientX:x,clientY:y,preventDefault(){}};}
   function driveTo(p){

@@ -6,6 +6,18 @@ A science-fiction exploration game with AI learning missions. Anyone can play fr
 
 This repository contains the complete static game release **v108** (`20261123-beacons108a`), including its models, textures, fonts and bundled asset attribution files.
 
+## Opening and interface in v109
+
+The cockpit now overlays cracked glass on the actual crash gully. While the world loads, an unavailable-view/static display replaces the mismatched canyon concept painting. After connecting power, answer two knocks with two separate presses of E (or clicks); a filtered pair of knocks answers before the hatch release. This exchange resumes between controls and replay preserves campaign saves.
+
+Walking uses one destination-and-distance line. Route recall appears only after leaving the story route, and the nearby E/touch prompt replaces floating interaction labels. AEGIS captions fade after 3.2–6.5 real seconds, including at low frame rates or while paused; hatch release clears cockpit speech. Active repair consoles suppress the surrounding objective/prompt/caption overlays. Lamp inspection is one sentence and its action; the wiring puzzle and last-battery confirmation retain their consequences.
+
+The first filter delivery uncovers a larger fan on the approach-facing façade, sets its fabric strips moving and lights the doorway. The repair panel closes to reveal the result, a motor-start sound plays, and the uneven ventilation settles. Seedlings and beds remain separate later deliveries. These additions reuse existing textures and stay within nine material batches / 4,368 submitted triangles for the refuge and nearby beacon.
+
+Mac measurement on 2026-11-23: Intel i5-1038NG7, 16 GB, Intel Iris Plus through Chrome/ANGLE Metal. At the crash site `(1950,9880)`, heading `-0.48`, camera distance `560`, pitch `0.2`, a 1200 × 728 viewport rendered at 840 × 509 (70%). Settings showed **18 FPS** before pause; five warmed 60-frame windows had a **16.3 FPS median**, 15.1–19.0 FPS range, 35.49 ms median GPU time, 9.12 ms CPU time and 100.3 ms median p95 frame interval. The v108 baseline median was 15.9 FPS; the difference does not establish a rendering speedup. Disabling MSAA gave no reliable improvement and was reverted. Integrated-GPU performance remains below the 30 FPS target. Settings now exposes the actual render dimensions as well as FPS.
+
+Validation: opening timing/debounce/resume/replay and loading-without-audio tests; real-time subtitle expiry; off-route recall; lamp inventory/wiring cancellation and completion; first-delivery visibility and render budgets; existing Act 1 / mountain-route / beacon and save regressions; browser play through the opening and wiring, first delivery, and a 390 px repair-panel layout. Web Audio scheduling is tested; subjective sound balance still needs a listening pass.
+
 ## Survey beacons and a growing refuge in v108
 
 After the south relay answers, the next objective leads to six survey beacons spread across the existing road network. Read two ground measurements, adjust the old elevation datum, then validate against a third measurement before publishing the survey. During Act 1 the local K–09 trail stays first; distant survey coverage is a collapsed old chart. The later map links directly to the river, bridge and mountain sketch. The map distinguishes unverified pencil routes from surveyed roads, lamps and facility/cave entrances. An unlocked map is not a guarantee of safe terrain. Previously visited camps remain available for return travel; an old scan keeps its discovery credit without silently completing a new calibration.

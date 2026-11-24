@@ -23,9 +23,13 @@ export function createSurveyWorld(scene,W,S,maps={}){
  });
  const yard=group(4240,6535,'K–09 / a place to return to');
  // A covered fan before repair; afterwards the cloth hangs from one corner.
- const vent=new T.Group();yard.add(vent);vent.position.set(-145,W.elevation(4095,6535)-yard.position.y,0);box(66,69,28,dark,vent,0,36,0);const rim=mesh(new T.TorusGeometry(25,3,6,24),steel,vent,0,40,-17);
+ const vent=new T.Group();yard.add(vent);vent.position.set(-160,W.elevation(4080,6315)-yard.position.y,-220);vent.rotation.y=Math.PI;vent.scale.setScalar(1.5);box(66,69,28,dark,vent,0,36,0);const rim=mesh(new T.TorusGeometry(25,3,6,24),steel,vent,0,40,-17);
  const fan=new T.Group();vent.add(fan);fan.position.set(0,40,-20);for(let i=0;i<4;i++){const blade=box(9,23,2,steel,fan,0,12,0);blade.rotation.z=i*Math.PI/2;blade.position.set(Math.sin(i*Math.PI/2)*11,Math.cos(i*Math.PI/2)*11,0);}tube(3,62,steel,vent,40,31,0);
  const cover=box(57,62,2,cloth,vent,0,40,-23);cover.rotation.z=.08;
+ // The repaired intake and doorway indicator face the approach, not the yard.
+ const windTies=new T.Group();vent.add(windTies);windTies.position.set(0,68,-24);
+ for(const x of [-16,0,16]){const strip=box(4,24,1,cloth,windTies,x,12,0);strip.rotation.z=x*.01;}
+ const welcome=new T.Group();yard.add(welcome);welcome.position.set(44,W.elevation(4284,6315)-yard.position.y,-220);box(116,12,6,dark,welcome,0,190,0);const doorLamp=box(101,5,7,glow,welcome,0,190,4);
  const planter=new T.Group();yard.add(planter);planter.position.set(340,W.elevation(4580,6700)-yard.position.y,165);planter.rotation.y=-.22;
  for(let i=0;i<2;i++){box(94,16,36,dark,planter,i*5,16,i*64);box(84,3,26,cloth,planter,i*5,25,i*64);for(const x of [-35,35])tube(2,17,steel,planter,x,8,i*64);}
  const plants=new T.Group();planter.add(plants);for(let i=0;i<12;i++){const x=-33+(i%4)*21,z=Math.floor(i/4)*29;const stem=tube(1,16+i%3*5,leaf,plants,x,34,z);stem.rotation.z=Math.sin(i*7)*.12;for(let j=0;j<3;j++){const petal=mesh(new T.SphereGeometry(3.5,6,4),leaf,plants,x+Math.sin(j*2+i)*7,34+j*4,z+Math.cos(j*2+i)*4);petal.scale.set(2,.32,1);petal.rotation.z=Math.sin(i+j)*.5;}}
@@ -38,7 +42,7 @@ export function createSurveyWorld(scene,W,S,maps={}){
   const changed=lastRevision!==S.revision;if(changed)lastRevision=S.revision;
   for(const t of towers){const visible=Math.hypot(u.x-S.sites[t.id].x,u.y-S.sites[t.id].y)<2300,justVisible=visible&&!t.root.visible;t.root.visible=visible;if(visible&&(changed||justVisible)){t.crown.visible=S.calibrated(t.id);const k=S.sites[t.id].cargo,taken=k&&(S.installed(k)||S.state.carrying.includes(k));t.lid.rotation.x=taken?-1.9:0;t.supply.visible=!!k&&!taken;t.root.updateMatrixWorld(true);t.b.sync();}}
   yard.visible=Math.hypot(u.x-4240,u.y-6535)<1500;if(!yard.visible)return;
-  const fixed=S.installed('filter');cover.position.x=fixed?-37:0;cover.rotation.z=fixed?-.7:.08;fan.rotation.z=fixed?time*2.5:0;plants.visible=S.installed('valve');sleeping.visible=S.installed('berths');yard.updateMatrixWorld(true);yardBatch.sync();
+  const fixed=S.installed('filter');cover.position.x=fixed?-37:0;cover.rotation.z=fixed?-.7:.08;fan.rotation.z=fixed?time*5:Math.sin(time*6)*.06;windTies.visible=fixed;windTies.rotation.x=fixed?-.5+Math.sin(time*3)*.14:0;doorLamp.visible=fixed;plants.visible=S.installed('valve');sleeping.visible=S.installed('berths');yard.updateMatrixWorld(true);yardBatch.sync();
  }
- return {root,towers,yard,plants,sleeping,fan,update,dispose(){for(const b of batches)b.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();root.removeFromParent();}};
+ return {root,towers,yard,plants,sleeping,fan,vent,windTies,doorLamp,update,dispose(){for(const b of batches)b.dispose();for(const g of geometries)g.dispose();for(const m of materials)m.dispose();root.removeFromParent();}};
 }

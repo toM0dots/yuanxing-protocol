@@ -157,19 +157,19 @@ const ExoCampaign = (() => {
       const o=objective();
       return '<div class="campaign-panel"><section class="campaign-hero"><div class="campaign-kicker">随行笔记 / 回声之下</div><h2>'+escape(o.title)+'</h2><p>'+escape(o.instruction)+'</p>'+button(o)+'</section><p class="campaign-pencil">灯还亮着，就有人走过这里。</p>'+(done.length?'<details class="campaign-recap"><summary>翻看已经走过的路</summary>'+episodes.slice(0,done.length).map(e=>'<article><h3>'+escape(e.title)+'</h3><p>'+escape(e.description)+'</p></article>').join('')+'</details>':'')+'<p class="campaign-save">'+(storageOK?'旅途会自动保存。遗物和旧照片留在随身日记里，可以有空时再翻。':'当前浏览器无法保存进度。关闭页面前请留意。')+'</p></div>';
     }
-    function hud(){return '<button class="campaign-hud" id="campaign-hud" onclick="Exo.campaign()" aria-label="打开当前剧情目标"><span id="campaign-hud-episode"></span><strong id="campaign-hud-title"></strong><small id="campaign-hud-detail"></small></button>';}
+    function hud(){return '<button class="campaign-hud" id="campaign-hud" onclick="Exo.campaign()" aria-label="打开当前剧情目标"><strong id="campaign-hud-title"></strong><span id="campaign-hud-distance"></span><span id="campaign-hud-episode" hidden></span><small id="campaign-hud-detail" hidden></small></button>';}
     function updateHUD(root=typeof document!=='undefined'?document:null){
       if(!root)return;const o=objective(),d=finitePoint(lastUnit)&&o.point?Math.round(distance(lastUnit,o.point)/18)+' m · ':'';
       const key=[revision,o.id,o.action,evidence.samples,evidence.test,evidence.bands,d].join(':');
       const title=root.getElementById('campaign-hud-title');if(!title)return;
-      if(key===lastDrawn&&title.textContent===o.title)return;lastDrawn=key;
+      if(key===lastDrawn&&title.textContent)return;lastDrawn=key;
       const tag=root.getElementById('campaign-hud-episode'),detail=root.getElementById('campaign-hud-detail');
       if(tag)tag.textContent=o.actComplete?'南线 / 短波通讯':'回声之下';
       const prompts={crash:'按 E 接管机甲。沿青灯寻找一条能走的路。'};
       const pointName=typeof ExoGuidance!=='undefined'?ExoGuidance.name(o):o.title;
       const instruction=prompts[o.id]||(o.action==='acknowledge'?'已到达 · 按 E '+o.label:o.id==='lamps'?'前往'+pointName+' · 靠近按 E 查看遗物。':['mother','captain','refuge','stabilizer'].includes(o.id)?'前往'+pointName+' · 青灯和路面折线会指路。':o.instruction);
 
-      title.textContent=o.title;if(detail)detail.textContent=instruction;
+      title.textContent=o.action==='acknowledge'?o.label:o.point?'前往 '+pointName:o.title;if(detail)detail.textContent=instruction;root.getElementById('campaign-hud')?.setAttribute('title',instruction);
     }
     return {start,checkpoint,configure,observe,award,objective,panel,hud,updateHUD,telemetry,bonuses:()=>({stabilizer:stabilizer?1.1:1}),get state(){return {version:1,started,done:[...done],routeIndex,scanned:[...scanned],refugeReached,stabilizer,storageOK,revision,lastMessage,checkpoint:savedCheckpoint?{...savedCheckpoint}:null,finished:done.length===beats.length};}};
   }
