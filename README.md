@@ -4,7 +4,17 @@
 
 A science-fiction exploration game with AI learning missions. Anyone can play from the link; no account or invitation is needed.
 
-This repository contains the complete static game release **v108** (`20261123-beacons108a`), including its models, textures, fonts and bundled asset attribution files.
+This repository contains the complete static game release **v110** (`20261123-systems110e`), including its models, textures, fonts and bundled asset attribution files.
+
+## Physical world systems in v110
+
+[Try the parts depot](https://tom0dots.github.io/yuanxing-protocol/?playtest=systems110&v=20261123-systems110e). This explicit playtest starts after EP09 and saves separately from the story game. The normal game also unlocks the depot after Old Lin installs the stabilizer.
+
+Batteries are persistent objects. EV–04 has four visible rack slots; Z drops or retrieves a cell, E picks one up or transfers it at a socket. One larger item fits in the hand slot. Metal contact, cables and shallow water conduct power; removing a source cuts power immediately. A second cell overloads a single socket. Remove the cells, hold E to rewire, then reconnect. Non-hostile 缝针 creatures drain live equipment and can be drawn away with a dropped battery. Legacy batteries migrate once; overflow is left at the K–09 door, without rewriting the old saves.
+
+Collect the reel at the depot. Hold X to aim and release to throw; once attached, hold X to reel or tap X to detach. Hold R to brace for heavy loads, or toggle the on-screen brace control. Phone players hold and drag the tow button to aim. Early throws have a repeatable distance bias. Fit a correction from four throws at different distances, install it, and use new throws for an independent test. The same spring moves debris and carts, topples a pylon into a bridge, operates pressure plates and winches the mech onto a ledge. A cable wrapped around a powered metal anchor also conducts power.
+
+This is the M1–M3 checkpoint, with depot arrangements 1–8 and 11–12. Creature perception, weather, the event director and Act 1 integration (M4–M7) await a player playtest. New rules run at 10 Hz near the player, cap activation at 300 objects, and add no real-time lights. The existing integrated-GPU renderer remains below the 30 FPS target; this release is not a whole-game performance fix. See [checkpoint validation](tests/world-systems-status.md) for measurements and test coverage.
 
 ## Opening and interface in v109
 

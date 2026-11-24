@@ -13,11 +13,26 @@ export function createDepotView(scene,W,S,maps={}){
  const pools={};
  for(const [key,g,m] of [['steel','box',steel],['dark','box',dark],['glow','box',glow],['pipe','cylinder',steel],['rubber','cylinder',dark],['shell','sphere',shell],['eye','sphere',glow],['water','water',water],['ring','ring',glow]]){const mesh=new T.InstancedMesh(geos[g],m,600);mesh.count=0;mesh.frustumCulled=false;mesh.instanceMatrix.setUsage(T.DynamicDrawUsage);root.add(mesh);pools[key]={mesh,n:0};}
  const waterPatches=new Map();
- const pose=new T.Object3D(),color=new T.Color(),open=new Map();
+ const pose=new T.Object3D(),color=new T.Color(),open=new Map(),up=new T.Vector3(0,1,0),direction=new T.Vector3();
  const off=0x56605b,on=0xb6db9b,amber=0xda9252;
  function part(key,x,z,y,sx,sz,sy,rx=0,ry=0,rz=0,tint){const p=pools[key];if(p.n>=600)return;pose.position.set(x,z,y);pose.scale.set(sx,sz,sy);pose.rotation.set(rx,ry,rz);pose.updateMatrix();p.mesh.setMatrixAt(p.n,pose.matrix);if(tint!==undefined){color.setHex(tint);p.mesh.setColorAt(p.n,color);}p.n++;}
+ function beam(key,ax,az,ay,bx,bz,by,width=8,depth=8){const p=pools[key];if(p.n>=600)return;direction.set(bx-ax,bz-az,by-ay);const length=direction.length();pose.position.set((ax+bx)/2,(az+bz)/2,(ay+by)/2);pose.scale.set(width,length,depth);pose.quaternion.setFromUnitVectors(up,direction.normalize());pose.updateMatrix();p.mesh.setMatrixAt(p.n++,pose.matrix);}
  function fixture(t,x,y,z,time){
   const lit=t.state.powered?on:off,bad=t.state.broken;
+  if(t.kind==='reel'){part('dark',x,z+3,y,55,6,45);for(const d of [-13,13])part('pipe',x+d,z+24,y,42,4,42,0,0,Math.PI/2);part('rubber',x,z+24,y,30,25,30,0,0,Math.PI/2);part('glow',x,z+24,y+16,15,4,2,0,0,0,on);return;}
+  if(t.kind==='anchor'){part('dark',x,z+4,y,65,8,65);part('pipe',x,z+22,y,15,40,15);part('steel',x,z+42,y,45,10,15);for(const side of [-1,1])part('pipe',x+side*21,z+8,y+19,6,14,6);return;}
+  if(t.kind==='plate'){part('dark',x,z+2,y,136,4,136);part('steel',x,z+(t.state.pressed?3:7),y,125,6,125);for(const side of [-1,1])part('glow',x+side*57,z+11,y,4,2,110,0,0,0,t.state.pressed?on:amber);return;}
+  if(t.kind==='gap'){for(const side of [-1,1])part('steel',x+side*101,z+27,y,9,50,170);part('rubber',x,z+14,y,22,185,22,Math.PI/2);return;}
+  if(t.kind==='pylon'){
+   const v=(open.get(t.id)??(t.state.fallen?1:0))*.85+(t.state.fallen?1:0)*.15;open.set(t.id,v);const angle=t.state.fallAngle||0,tip={x:x+Math.cos(angle)*Math.sin(v*Math.PI/2)*t.height,y:y+Math.sin(angle)*Math.sin(v*Math.PI/2)*t.height,z:z+18+Math.cos(v*Math.PI/2)*t.height};
+   part('dark',x,z+5,y,68,10,68);for(const side of [-1,1])beam('steel',x+side*14,z+18,y,tip.x+side*14,tip.z,tip.y,9,13);for(let i=0;i<=8;i++){const f=i/8;beam('steel',x-14+(tip.x-x)*f,z+18+(tip.z-z-18)*f,y+(tip.y-y)*f,x+14+(tip.x-x)*f,z+18+(tip.z-z-18)*f,y+(tip.y-y)*f,7,20);}return;
+  }
+  if(t.kind==='debris'){
+   for(const side of [-1,1]){part('steel',x+side*43,z+30,y,10,60,80,0,0,side*.13);part('dark',x,z+side*18+32,y,96,9,84,0,0,.09);}beam('steel',x-40,z+12,y-30,x+44,z+61,y+32,9,8);part('pipe',x,z+56,y+43,10,25,10,0,0,Math.PI/2);return;
+  }
+  if(t.kind==='cart'){
+   part('steel',x,z+24,y,90,10,130);for(const side of [-1,1])for(const end of [-1,1])part('rubber',x+side*42,z+12,y+end*47,24,12,24,0,0,Math.PI/2);for(const [dx,dy] of [[-20,-31],[21,-28],[0,31]]){part('dark',x+dx,z+42,y+dy,33,30,40,0,.08*dx);part('steel',x+dx,z+45,y+dy+21,27,3,2);}part('steel',x,z+32,y+70,40,5,8);return;
+  }
   if(t.kind==='water'){
    let patch=waterPatches.get(t.id);if(!patch){const geometry=new T.CircleGeometry(t.radius,40),positions=geometry.attributes.position;for(let i=0;i<positions.count;i++){const dx=positions.getX(i),dy=positions.getY(i);positions.setXYZ(i,dx,W.elevation(x+dx,y+dy)-z+1.3,dy);}for(let i=0;i<geometry.index.count;i+=3){const a=geometry.index.getX(i+1);geometry.index.setX(i+1,geometry.index.getX(i+2));geometry.index.setX(i+2,a);}geometry.computeVertexNormals();const mesh=new T.Mesh(geometry,water),arcGeometry=new T.BufferGeometry(),arcPositions=new Float32Array(40*2*3);arcGeometry.setAttribute('position',new T.BufferAttribute(arcPositions,3));const arcMaterial=new T.LineBasicMaterial({color:0xc4dfac,transparent:true,opacity:.48,depthWrite:false}),arc=new T.LineSegments(arcGeometry,arcMaterial);root.add(mesh,arc);patch={mesh,arc,geometry,arcGeometry,arcMaterial,arcPositions,at:-1};waterPatches.set(t.id,patch);}
    patch.mesh.visible=true;patch.mesh.position.set(x,z,y);patch.arc.visible=!!t.state.powered;patch.arc.position.set(x,z,y);

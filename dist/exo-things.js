@@ -32,9 +32,9 @@ const ExoThings=(()=>{
   function dispatch(){const events=queued;queued=[];for(const event of events)for(const listener of listeners)try{listener(event);}catch(e){console.warn('Thing event listener failed',e);}}
   function transaction(fn,{save=true}={}){
    if(depth){depth++;try{return fn();}finally{depth--;}}
-   const before=new Map(objects),oldFlags=copy(flags),oldRevision=revision;depth=1;
+   const before=new Map(objects),oldFlags=copy(flags),oldRevision=revision,oldDirty=dirty;depth=1;
    try{const result=fn();depth=0;if(save&&!persist())throw Error(error);dispatch();return result;}
-   catch(e){depth=0;objects.clear();grid.clear();buckets.clear();locations.clear();located.clear();for(const [id,t] of before){objects.set(id,t);index(t);}flags=oldFlags;revision=oldRevision;queued=[];dirty=false;throw e;}
+   catch(e){depth=0;objects.clear();grid.clear();buckets.clear();locations.clear();located.clear();for(const [id,t] of before){objects.set(id,t);index(t);}flags=oldFlags;revision=oldRevision;queued=[];dirty=oldDirty;throw e;}
   }
   function patch(id,delta,reason='change'){
    const before=objects.get(id);if(!before)return null;

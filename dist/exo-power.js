@@ -31,7 +31,7 @@ const ExoPower=(()=>{
    topologyKey=key;cachedNetwork={nodes,powered};return cachedNetwork;
   }
   function apply(rows,network){
-   for(const t of rows){if(!allowed(t)||t.kind==='creature')continue;const powered=network.powered.has(t.id),state={powered};if(t.kind==='lamp')state.lit=powered;if(t.kind==='door')state.open=powered;if(Object.keys(state).some(k=>t.state[k]!==state[k]))things.patch(t.id,{state},powered?'power-on':'power-off');}
+   for(const t of rows){if(!allowed(t)||t.kind==='creature')continue;const powered=network.powered.has(t.id),state={powered};if(t.kind==='lamp')state.lit=powered;if(t.kind==='door')state.open=!!(powered||t.manualOpen||t.controls?.some(id=>things.get(id)?.state.pressed));if(Object.keys(state).some(k=>t.state[k]!==state[k]))things.patch(t.id,{state},powered?'power-on':'power-off');}
   }
   function refresh(p=point){if(!p||busy)return last;point={...p};busy=true;try{const rows=things.wake(point).filter(allowed);last=solve(rows);things.transaction(()=>apply(rows,last),{save:false});return last;}finally{busy=false;}}
   // A battery transfer cuts the component in the same input turn, before

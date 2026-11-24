@@ -47,6 +47,7 @@ const Exo3D=(()=>{
   let eye=[target[0]+Math.sin(yaw)*Math.cos(tilt)*distance,target[1]+Math.cos(yaw)*Math.cos(tilt)*distance,target[2]+Math.sin(tilt)*distance];
   if(!c.flight&&!ExoWorld.cave&&typeof ExoCanyonV2!=='undefined')eye=ExoCanyonV2.constrainCamera(target,eye);
   if(ExoWorld.constrainCamera)eye=ExoWorld.constrainCamera(target,eye);
+  if(typeof ExoSystems!=='undefined')eye=ExoSystems.constrainCamera(target,eye,ExoWorld);
   const terrainAt=(x,y)=>Math.max(ExoWorld.elevation(Math.max(100,Math.min(ExoWorld.width-100,x)),Math.max(100,Math.min(ExoWorld.height-100,y))),c.flight&&typeof ExoCanyonV2!=='undefined'?(ExoCanyonV2.flightSurface?.(x,y)??-Infinity):-Infinity);
   // Shorten the boom at terrain instead of pitching the whole camera up a mountain.
   const d=eye.map((v,i)=>v-target[i]),steps=Math.max(1,Math.ceil(Math.hypot(...d)/18)),rayClearance=24;
