@@ -7,7 +7,7 @@
 const ExoLampRepair=(()=>{
  const KEY='exo-lamps-v1',REACH=160;
  const empty=()=>({cells:0,fixed:[],caches:[],drawn:{}});
- let state=empty(),reader=()=>false,confirm=null;
+ let state=empty(),reader=()=>false,confirm=null,inventory=null;
  try{const raw=JSON.parse(localStorage.getItem(KEY)||'null');if(raw&&typeof raw==='object')state={cells:Math.max(0,Math.min(10,raw.cells|0)),fixed:Array.isArray(raw.fixed)?raw.fixed.filter(x=>typeof x==='string'):[],caches:Array.isArray(raw.caches)?raw.caches.filter(x=>typeof x==='string'):[],drawn:raw.drawn&&typeof raw.drawn==='object'?Object.fromEntries(Object.entries(raw.drawn).map(([k,v])=>[k,Math.max(0,Math.min(2,v|0))])):{}};}catch{}
  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));}catch{}};
  // Off the road shoulder, on the left of travel, so lamps never block the trail.
@@ -30,8 +30,8 @@ const ExoLampRepair=(()=>{
  const spares=()=>(typeof ExoGreenTrail!=='undefined'?ExoGreenTrail.records:[]).map(r=>({id:r.id,name:r.name,x:r.x,y:r.y,kind:'spare'}));
  const all=()=>[...broken,...caches,...spares()];
  // 1 lit, .55 dimmed, 0 dark.
- function level(item){if(item.kind==='broken')return state.fixed.includes(item.id)?1:0;if(item.kind==='spare'){const d=state.drawn[item.id]||0;return d===0?1:d===1?.55:0;}return 0;}
- const cacheFull=c=>!state.caches.includes(c.id);
+ function level(item){if(inventory)return inventory.level(item);if(item.kind==='broken')return state.fixed.includes(item.id)?1:0;if(item.kind==='spare'){const d=state.drawn[item.id]||0;return d===0?1:d===1?.55:0;}return 0;}
+ const cacheFull=c=>inventory?!inventory.taken(c.id):!state.caches.includes(c.id);
  function near(u){
   if(!u||u.flight)return null;let best=null,dist=REACH;
   for(const item of all()){
@@ -52,6 +52,7 @@ const ExoLampRepair=(()=>{
   return d===0?'从'+item.name+'取一块电池':'取走最后一块电池';
  }
  function act(item,now=Date.now(),choice='auto'){
+  if(inventory)return inventory.act(item,now,choice);
   const left=()=>'（电池 '+state.cells+'）';
   if(item.kind==='cache'){
    if(!cacheFull(item))return {message:'箱子已经空了。'};
@@ -79,14 +80,15 @@ const ExoLampRepair=(()=>{
  }
  // Called once the wiring is reconnected (exo-lamp-wiring.js).
  function repair(item){
+  if(inventory)return inventory.repair(item);
   if(item.kind!=='broken'||level(item)===1)return {message:item.name+'已经亮着。'};
   if(state.cells<1)return {message:'没有电池了。'};
   state.cells--;state.fixed.push(item.id);save();
   const lit=state.fixed.length;
   return {message:'灯亮了。这段路以后不必摸黑走。（电池 '+state.cells+'）'+(lit===broken.length?' 沿线的灯都亮着了。':''),sound:'light',lit:item.id};
  }
- function summary(){return {cells:state.cells,fixed:state.fixed.length,total:broken.length,caches:caches.length-state.caches.length};}
- function useCell(){if(state.cells<1)return false;state.cells--;save();return true;}
- return {useCell,broken,caches,spares,all,near,label,act,repair,level,summary,taken:id=>state.caches.includes(id),setReader(fn){reader=typeof fn==='function'?fn:()=>false;},get state(){return JSON.parse(JSON.stringify(state));},reset(){state=empty();save();}};
+ function summary(){return inventory?inventory.summary():{cells:state.cells,fixed:state.fixed.length,total:broken.length,caches:caches.length-state.caches.length};}
+ function useCell(){if(inventory)return inventory.useCell();if(state.cells<1)return false;state.cells--;save();return true;}
+ return {useCell,broken,caches,spares,all,near,label,act,repair,level,summary,bindInventory(value){inventory=value;},taken:id=>inventory?inventory.taken(id):state.caches.includes(id),setReader(fn){reader=typeof fn==='function'?fn:()=>false;},get state(){return inventory?inventory.state():JSON.parse(JSON.stringify(state));},reset(){if(inventory)return;state=empty();save();}};
 })();
 if(typeof module!=='undefined')module.exports=ExoLampRepair;

@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import * as T from '../dist/assets/ev01/three.module.mjs';
+import {createThingsView} from '../dist/exo-things-render.mjs';
+const require=createRequire(import.meta.url),Things=require('../dist/exo-things.js'),Carry=require('../dist/exo-carry.js'),Data=require('../dist/exo-things-data.js');
+const things=Things.create({placements:Array.from({length:8},(_,i)=>Data.battery('b'+i,i<4?'rack':'world',i<7?0:9000,0))});
+for(let i=0;i<4;i++)things.patch('b'+i,{slot:i});const carry=Carry.create(things),scene=new T.Scene(),chest=new T.Group();scene.add(chest);chest.scale.setScalar(18);chest.position.set(0,80,0);
+const world={elevation:()=>0},systems={things,carry,point:(u)=>({...u,context:'surface'})},view=createThingsView(scene,world,systems,{}, {chest});
+view.update({x:0,y:0},world);assert.equal(view.body.count,7);assert.equal(view.caps.count,14);assert.equal(view.stripes.count,7);assert(view.mount.parent===chest);
+let lights=0,draws=0,tris=0;scene.traverseVisible(o=>{if(o.isLight)lights++;if(o.isMesh){draws++;tris+=(o.geometry.index?.count||o.geometry.attributes.position.count)/3*(o.count??1);}});assert.equal(lights,0);assert.equal(draws,4);assert(tris<4000);
+const m=new T.Matrix4();view.body.getMatrixAt(0,m);const oldX=m.elements[12];chest.position.x=50;view.update({x:0,y:0},world);view.body.getMatrixAt(0,m);assert.equal(Math.round(m.elements[12]-oldX),50,'cells follow the animated chest');
+carry.drop({x:0,y:0});view.update({x:0,y:0},world);assert.equal(view.body.count,7,'drop transfers the same rendered cell');view.dispose();assert.equal(chest.children.length,0);assert.equal(scene.children.length,1);
+console.log({status:'PASS: rack attachment, cell identity, world culling, no lights, disposal',draws,tris});
