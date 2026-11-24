@@ -15,6 +15,16 @@ Everything below is grounded in systems that already exist in `dist/`, and in
 the novel's own logic: EV–04 is a work machine, power is scarce, light means
 someone cared, and AEGIS learns from what the pilot actually sees.
 
+## Decisions (agreed 2026-11-24)
+
+| Question | Decision | Where it applies |
+|---|---|---|
+| Can systemic effects kill creatures? | **No. Stun only.** Shocked water, falling debris and overloads stun; only combat can defeat | P3, W3, §5.2 |
+| How much can EV–04 carry? | **A back rack of cells plus one item in hand** | §4 Carry/place, §5.1 |
+| Do mech lights off darken the screen? | **Yes, genuinely darker**, with an accessibility floor | L3, §5.2 |
+| Where is the test valley? | **K–09 东侧备件库 yard and its interior** | §8.1 |
+| Phone cable aiming | **Hold to aim, release to throw** | §4 Tow cable |
+
 ---
 
 ## 1. Design pillars
@@ -93,9 +103,9 @@ Rules:
 | Verb | Key / touch | Works on | Notes |
 |---|---|---|---|
 | **Interact** | `E` / context button (existing) | sockets, doors, switches, cargo, story objects | Still resolved by `exo-guidance.js`; now also asks Things for an action |
-| **Carry / place** | `Z` / hold context button | `physics: 'carry'` (cells, filters, seals, small crates) | One item at a time in EV–04's hand. Place on ground, in a socket, or into water |
-| **Tow cable** | hold `X` to aim, release to throw; `X` again to reel/detach | `physics: 'tow'` and `tag: 'anchor'` | See §5.3. Aim offset is the calibration lesson |
-| **Mech lights** | `L` / lamp button | — | Three levels: off, work light, flood. Changes what creatures see (§5.2) and what you see in caves |
+| **Carry / place** | `Z` / hold context button | `physics: 'carry'` (cells, filters, seals, small crates) | **Back rack:** up to 4 cells, visible on EV–04's back; `Z` near a socket seats the next cell. **Hand:** one larger item (filter, seal, small crate, stunned small creature). Each carried mass slows the mech slightly. Place on ground, in a socket, or into water |
+| **Tow cable** | hold `X` to aim, release to throw; `X` again to reel/detach. **Phone:** hold the cable button to show the arc, drag to adjust, release to throw | `physics: 'tow'` and `tag: 'anchor'` | See §5.3. Aim offset is the calibration lesson |
+| **Mech lights** | `L` / lamp button | — | Three levels: off, work light, flood. Off **really darkens the view** (§5.2 L3). Changes what creatures see and what you see in caves |
 | **Shove** | walk into it (existing contact) | `physics: 'push'`, fragile props | Impact strength from `exo-contact.js` decides push vs break |
 
 Free keys checked against current bindings: `L`, `X`, `Z`, `N`, number keys.
@@ -123,7 +133,7 @@ relay). It becomes physical.
 |---|---|---|
 | P1 | A socket with a charged cell is powered; it consumes `drawPerMin` | A lamp you fixed stays on; a pump you run for the greenhouse slowly empties its cell |
 | P2 | Power **conducts** through touching metal Things and through a laid cable | Push a metal crate against a dead door panel next to a powered lamp: the door wakes |
-| P3 | Power conducts through **standing water** within 120 units of the source, weaker with distance | Drop a charged cell into the flooded underpass: the pump at the far side starts; creatures standing in the water are stunned |
+| P3 | Power conducts through **standing water** within 120 units of the source, weaker with distance. Creatures in powered water are **stunned** for 4–8 s (never killed); EV–04 takes a small armour hit if it stands in it too | Drop a charged cell into the flooded underpass: the pump at the far side starts; creatures standing in the water are stunned |
 | P4 | Taking a cell from a socket removes its power at once (existing battery choice, generalised) | Take the message lamp's cell and its light, sound and AEGIS memory change |
 | P5 | Overload: two full cells in one socket that accepts one → spark, socket `broken` | Players can break doors on purpose; repair needs the junction puzzle |
 | P6 | 缝针-type creatures are **attracted** to powered Things and drain them | Leave a spare cell as a lure to save a lamp, or lose the lamp |
@@ -162,7 +172,7 @@ Creatures stop being "aggro radius" machines and start *perceiving*.
 |---|---|
 | L1 | Detection = sight (light level × distance × line of sight) + hearing (noise × distance). Above threshold → existing `chase` |
 | L2 | Lit lamps make a "safe zone" for small species (levels 1, 缝针 flee flood light) but *attract* 孢囊炮蛛 |
-| L3 | Mech lights off: you see less (caves get dark), creatures see you less |
+| L3 | Mech lights off: the view genuinely darkens (exposure and mech fill light drop; caves and interiors become very dark), and creatures see you less. **Accessibility floor:** a 设置 slider "暗处可见度" sets a minimum brightness, and the HUD keeps faint edge outlines on nearby Things and creatures so play stays readable |
 | L4 | Noise travels further on metal grating, bridges and inside interiors |
 
 **Feedback.** A subtle eye indicator per nearby creature (closed / half / open),
@@ -189,7 +199,7 @@ EV–04's real tool in chapter 1 ("挂钩第一次落在目标后方").
 |---|---|---|
 | W1 | Towed Things slide, tip at slope > 35°, and stop on rocks (existing rock list) | Drag a fallen support from the 维修间 door |
 | W2 | A Thing of mass ≥ 40 on a **pressure plate** holds it down | Hold a floodgate open with a cart |
-| W3 | Pulling a `break`/`pylon` past its threshold topples it along the pull direction | Topple a pylon across the river to make a crossing |
+| W3 | Pulling a `break`/`pylon` past its threshold topples it along the pull direction. Anything it lands on is stunned or knocked aside, not killed | Topple a pylon across the river to make a crossing |
 | W4 | Anchored cable + reel = winch: EV–04 can climb a ledge or lower itself | Short-cuts and vertical routes in the canyon |
 | W5 | A cable between two metal Things conducts (links to P2) | Carry power across a gap by cable |
 
@@ -259,11 +269,28 @@ A small event scheduler that keeps the world moving between story beats.
 
 ## 8. Content plan
 
-### 8.1 Test valley first
+### 8.1 Test valley first: the K–09 spare-parts yard
 
-Build one dense sandbox before touching the story route: the flat area east of
-K–09 near the existing training ground (`exo-training-ground.*`), reachable from
-the pause menu like 战斗练习.
+Build one dense sandbox before touching the story route.
+
+**Location: K–09 东侧备件库 (`camp-8-0`, around x 6000, y 7000).** Checked
+against the current map:
+
+- About 1,800 units east of the refuge (4284, 6406) and 860 units off the
+  story road, so it never blocks Act 1; the Act 1 lamps are all to the west.
+- Between the refuge and the firing range (5830, 8040), on the way players
+  already travel for EP07–EP08.
+- Flat, damp lowland (elevation about 25, below the shader's wet threshold), so
+  puddles, standing water and pushing/towing on the flat all read naturally.
+- It is an enterable structure, so its **interior** hosts the dark-room
+  setups (lights off, noise on grating).
+- The yard is too flat for natural ledges: the winch and topple setups use
+  authored depot structures (loading dock, light pylons, a gantry).
+- Story reason to go there: 老林 sends you for spare cells and a cable reel
+  after EP09 ("东边备件库里还有电池架和绞盘，自己去拿"). The yard is where
+  EV–04 gets the **back rack** and the **tow cable**, so the tools are earned,
+  not menu-granted. It stays reachable afterwards and from
+  暂停 → 沿途工具, like 战斗练习.
 
 Twelve setups to prove the rules:
 
@@ -358,10 +385,10 @@ Each milestone is playable on its own and ends with its acceptance check.
 
 | # | Milestone | Done when |
 |---|---|---|
-| M1 | Things registry + physical cells + Carry/place | Cells can be carried, seated and taken from lamps and the relay; saves round-trip; lamp repair runs through adapters |
+| M1 | Things registry + physical cells + back rack + Carry/place | Cells ride visibly on EV–04's rack (up to 4) and can be seated in and taken from lamps and the relay; one hand item; saves round-trip; lamp repair runs through adapters |
 | M2 | Power rules P1–P6 + 缝针 | Test-valley setups 1–4 and 11–12 work with captions only |
-| M3 | Tow cable + calibration lesson | Setups 5–8 work; throw bias measurably shrinks after training; tested on held-out throws |
-| M4 | Perception + mech lights | Setups 9–10 work; each species reacts as in §5.2 |
+| M3 | Tow cable + calibration lesson | Setups 5–8 work at the spare-parts yard; throw bias measurably shrinks after training; tested on held-out throws; phone hold-to-aim works |
+| M4 | Perception + mech lights | Setups 9–10 work; each species reacts as in §5.2; lights off genuinely darkens the view, with the 暗处可见度 floor and edge outlines |
 | M5 | Water as data + weather hooks | Puddles conduct, slow and splash; storm masks noise |
 | M6 | Ambient director + refuge routines + world memory | Events fire with cooldowns; survivors react to at least five player actions |
 | M7 | Story route integration (§8.2) | All six Act 1 beats are systemic; old saves still load |
@@ -380,12 +407,41 @@ Recommended order: M1 → M2 → M3, then decide with playtests before M4–M7.
 - **Two sessions editing `main`.** One session owns `main`; milestones land as
   branches and pull requests.
 
-## 13. Open questions
+## 13. Map density: where to add interactive objects
 
-1. Should creatures ever die from systemic effects (shocked water), or only be
-   stunned? (Novel tone suggests stun and spare.)
-2. Is carrying limited to one item, or can EV–04 have a back rack for cells?
-3. Should lights off make the screen genuinely darker, or only change creature
-   perception? (Accessibility.)
-4. Where exactly is the test valley, and is it reachable before Act 1 ends?
-5. Touch controls: hold-to-aim for the cable on phones, or tap a target?
+Do not scatter hundreds of new props across the map. Add objects **where
+players actually walk**, and make each one either *do* something (backed by a
+rule) or *tell* something (a story trace). Decoration without a rule is the
+first thing to cut when frame rate suffers.
+
+**Order**
+
+1. Build the systems first (M1–M3). Once Things and rules exist, every object
+   placed afterwards is interactive for free; objects placed before them are
+   just decoration that has to be redone.
+2. Then raise density along the paths in this order: K–09 corridor and refuge,
+   the spare-parts yard, the six beacon sites, the routes between beacons, then
+   regions off the main paths.
+
+**Targets along main paths**
+
+| Measure | Target |
+|---|---|
+| Something to do or notice while walking | about every 30–60 seconds |
+| Systemic setup (combination of rules, §6) | one per 300–400 units of road |
+| Carryable cells in the world | scarce: enough for about two-thirds of the sockets, so choices stay real |
+| Story traces (belongings, signs, notes) | clustered at stops, not spread evenly |
+
+**Kit, not one-offs.** Reuse about ten Thing kinds (cell, lamp, door, pump,
+crate, cart, debris, pylon, plate, lure) in many arrangements. Variety comes
+from combinations and placement, not from new code per object.
+
+**Budget.** Every density pass must keep the §10.4 budget on an integrated GPU.
+Check draw calls and triangles with the 设置 stats before and after.
+
+## 14. Open questions
+
+1. Rack size: 4 cells is the starting value; tune after playtests.
+2. Should powered water ever hurt EV–04 badly, or only chip armour?
+3. Does the spare-parts yard unlock straight after EP09, or after the south
+   relay?
