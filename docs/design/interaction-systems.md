@@ -133,7 +133,7 @@ relay). It becomes physical.
 |---|---|---|
 | P1 | A socket with a charged cell is powered; it consumes `drawPerMin` | A lamp you fixed stays on; a pump you run for the greenhouse slowly empties its cell |
 | P2 | Power **conducts** through touching metal Things and through a laid cable | Push a metal crate against a dead door panel next to a powered lamp: the door wakes |
-| P3 | Power conducts through **standing water** within 120 units of the source, weaker with distance. Creatures in powered water are **stunned** for 4–8 s (never killed); EV–04 takes a small armour hit if it stands in it too | Drop a charged cell into the flooded underpass: the pump at the far side starts; creatures standing in the water are stunned |
+| P3 | Power conducts through **standing water** within 120 units of the source, weaker with distance. Creatures in powered water are **stunned** for 4–8 s (never killed); EV–04 standing in it **only chips armour** (small, repeated) | Drop a charged cell into the flooded underpass: the pump at the far side starts; creatures standing in the water are stunned |
 | P4 | Taking a cell from a socket removes its power at once (existing battery choice, generalised) | Take the message lamp's cell and its light, sound and AEGIS memory change |
 | P5 | Overload: two full cells in one socket that accepts one → spark, socket `broken` | Players can break doors on purpose; repair needs the junction puzzle |
 | P6 | 缝针-type creatures are **attracted** to powered Things and drain them | Leave a spare cell as a lure to save a lamp, or lose the lamp |
@@ -439,9 +439,8 @@ from combinations and placement, not from new code per object.
 **Budget.** Every density pass must keep the §10.4 budget on an integrated GPU.
 Check draw calls and triangles with the 设置 stats before and after.
 
-## 14. Open questions
+## 14. Resolved follow-ups (2026-11-24)
 
-1. Rack size: 4 cells is the starting value; tune after playtests.
-2. Should powered water ever hurt EV–04 badly, or only chip armour?
-3. Does the spare-parts yard unlock straight after EP09, or after the south
-   relay?
+1. Rack size: **4 cells**.
+2. Powered water and EV–04: **chips armour only** (small, repeated while standing in it).
+3. The spare-parts yard **opens right after EP09** (stabilizer installed).
