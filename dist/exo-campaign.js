@@ -146,6 +146,7 @@ const ExoCampaign = (() => {
       if(id==='model'){point=places.range;action='fire';label='沿维护路去试射';instruction='到维修间东南侧的接驳坪，记录至少 8 次射击，包含近、中、远距离和移动目标。回来训练模型，再安装瞄准辅助。已有记录 '+evidence.samples+' 发。';}
       if(id==='defense'){point=places.range;action='fire';label='继续保卫维修站';instruction='开启瞄准辅助，击败三台主要敌人。近、中、远距离各需一发偏差小于 2° 的新射击，用来独立测试。已完成距离 '+evidence.bands+'/3。';}
       if(id==='stabilizer'){point=places.refuge;instruction='返回 K–09 维修间，安装老林修复的稳定架。安装后，能量恢复速度提高 10%。';if(atRefuge()){action='acknowledge';event='stabilizer-installed';label='安装稳定架 · 恢复动力';}}
+      if(!id&&typeof ExoSystems!=='undefined'&&ExoSystems.objective())return {...ExoSystems.objective(),index:9,episode:9,done:done.length,total:beats.length,actComplete:true};
       if(!id&&typeof ExoFieldStory!=='undefined')return {...ExoFieldStory.objective(),index:9,episode:9,done:done.length,total:beats.length,actComplete:true};
       if(!id){action='explore';label='继续旅途';instruction='维修间的灯还亮着。带上探测车，沿维护路核对南侧的河岸与山路。';}
       return {id:id||'complete',index,episode:episode.episode,title:id?episode.title:'第一幕完成 · 灯仍亮着',instruction,action,label,event,point:point?{...point}:null,...(point?{x:point.x,y:point.y,radius:point.radius||110}:{}),finished:!id,done:done.length,total:beats.length};

@@ -27,6 +27,7 @@ export function createThingsView(scene,W,S,maps={},rig){
   }
   const p=S.point(unit,world);
   for(const t of S.things.near(p,700,{kind:'battery'})){pose.position.set(t.x,world.elevation(t.x,t.y)+14+(t.z||0),t.y);pose.scale.set(1,1,1);pose.rotation.set(0,0,.12);pose.updateMatrix();cell(t,pose.matrix);}
+  for(const t of S.things.near(p,700).filter(t=>t.zone==='depot'&&t.socket)){for(const b of S.carry.contents(t.id)){pose.position.set(t.x+19,world.elevation(t.x,t.y)+23,t.y+29);pose.scale.set(.75,.75,.75);pose.rotation.set(0,0,0);pose.updateMatrix();cell(b,pose.matrix);}}
   body.count=stripes.count=n;caps.count=n*2;
   for(const mesh of [body,caps,stripes]){mesh.visible=mesh.count>0;mesh.instanceMatrix.needsUpdate=true;}if(stripes.instanceColor)stripes.instanceColor.needsUpdate=true;
  }

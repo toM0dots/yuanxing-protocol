@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import {createRequire} from 'node:module';
+import * as T from '../dist/assets/ev01/three.module.mjs';
+import {createDepotView} from '../dist/exo-depot-render.mjs';
+const require=createRequire(import.meta.url),Things=require('../dist/exo-things.js'),Carry=require('../dist/exo-carry.js'),Data=require('../dist/exo-depot-data.js');
+const things=Things.create({placements:Data.placements()}),carry=Carry.create(things),S={things,carry,point:u=>u,signals:[],time:0},scene=new T.Scene(),W={elevation:()=>20};
+const view=createDepotView(scene,W,S);view.update({x:6100,y:7100,angle:0},W,1);
+let lights=0,draws=0,triangles=0;scene.traverse(o=>{if(o.isLight)lights++;if(o.isInstancedMesh&&o.visible&&o.count){draws++;triangles+=o.count*(o.geometry.index.count/3);}});assert.equal(lights,0);assert(draws<=9);assert(triangles<30000);
+const door=things.get('depot:door');things.patch(door.id,{state:{powered:true,open:true}});view.update({x:6190,y:7180},W,2);
+carry.lift('depot:bridge-crate');view.update({x:9000,y:9000,angle:0},W,3);assert(view.pools.steel.mesh.count>0,'the hand item follows outside the depot');
+carry.lower({x:9000,y:9000,angle:0});view.update({x:2000,y:2000},W,4);assert(Object.values(view.pools).every(p=>!p.mesh.count),'distant yard costs no draws');
+view.dispose();assert.equal(scene.children.length,0);console.log({status:'PASS: instanced depot, hand rendering, culling, disposal, zero new lights',draws,triangles});

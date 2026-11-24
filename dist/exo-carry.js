@@ -7,12 +7,15 @@ const ExoCarry=(()=>{
   const contents=id=>things.contents('socket:'+id).filter(t=>t.kind==='battery');
   function result(ok,message,extra={}){return {ok,message,...extra};}
   function take(id){const t=things.get(id);if(!t||t.kind!=='battery'||t.location==='rack')return result(false,'这里没有可取的电池。');if(rack().length>=CAPACITY)return result(false,'背架满了。先放下一块电池。');const slots=new Set(rack().map(t=>t.slot));const slot=[0,1,2,3].find(i=>!slots.has(i));things.transaction(()=>things.patch(id,{location:'rack',slot},'battery-taken'));return result(true,'电池扣上背架。',{id,sound:'take'});}
-  function insert(socketId){const socket=things.get(socketId),cell=rack().find(t=>t.state.charge>0);if(!socket?.socket)return result(false,'这里没有电池插槽。');if(contents(socketId).length>=socket.socket.capacity)return result(false,'插槽已经装满了。');if(!cell)return result(false,'背架上没有带电的电池。');things.transaction(()=>things.patch(cell.id,{location:'socket:'+socketId,slot:0,x:socket.x,y:socket.y,context:socket.context},'battery-inserted'));return result(true,'电池卡进插槽。',{id:cell.id,sound:'light'});}
+  function insert(socketId,{overload=false}={}){const socket=things.get(socketId),cell=rack().find(t=>t.state.charge>0),n=contents(socketId).length;if(!socket?.socket)return result(false,'这里没有电池插槽。');const short=overload&&socket.socket.capacity===1&&n===1&&!socket.state.broken;if(n>=socket.socket.capacity&&!short)return result(false,'插槽已经装满了。');if(!cell)return result(false,'背架上没有带电的电池。');things.transaction(()=>{things.patch(cell.id,{location:'socket:'+socketId,slot:n,x:socket.x,y:socket.y,context:socket.context},'battery-inserted');if(short)things.patch(socketId,{state:{broken:true,rewired:false,powered:false,lit:false}},'overload');});if(short)things.signal('overload',{id:socketId});return result(true,short?'过载了！先取出两块电池，再接回断线。':'电池卡进插槽。',{id:cell.id,sound:short?'dark':'light',overloaded:short});}
   function remove(socketId){const cell=contents(socketId).at(-1);return cell?take(cell.id):result(false,'电池仓是空的。');}
   function cache(id){const cell=things.contents('cache:'+id).find(t=>t.kind==='battery');return cell?take(cell.id):result(false,'箱子已经空了。');}
   function nearest(unit,canReach=()=>true){return things.near(unit,REACH,{kind:'battery'}).find(t=>canReach(t))||null;}
   function drop(unit,{canPlace=()=>true}={}){const cell=rack().at(-1);if(!cell)return result(false,'背架上没有电池；走近地上的电池按 Z 拾取。');const angle=unit.angle||0,point={x:unit.x+Math.sin(angle)*65,y:unit.y-Math.cos(angle)*65,context:unit.context||'surface'};if(!canPlace(point))return result(false,'这里放不稳。换一块平地。');things.transaction(()=>things.patch(cell.id,{...point,location:'world',slot:0,z:0},'battery-dropped'));return result(true,'电池放在这里。',{id:cell.id,sound:'take'});}
-  function toggle(unit,options={}){const cell=nearest(unit,options.canReach);return cell?take(cell.id):drop(unit,options);}
+  const hand=()=>things.contents('hand')[0]||null;
+  function lift(id){const t=things.get(id);if(hand())return result(false,'手里已经有东西了，按 Z 放下。');if(!t||t.location!=='world'||!['carry','push'].includes(t.physics)||t.kind==='battery'||t.mass>40)return result(false,'这个太重，要用牵引索。');things.transaction(()=>things.patch(id,{location:'hand'},'item-lifted'));return result(true,'抱稳了，按 Z 放下。',{id,sound:'take'});}
+  function lower(unit,{canPlace=()=>true}={}){const t=hand();if(!t)return result(false,'手里没有东西。');const point={x:unit.x+Math.sin(unit.angle||0)*(70+t.radius),y:unit.y-Math.cos(unit.angle||0)*(70+t.radius),context:unit.context||'surface'};if(!canPlace(point,t))return result(false,'这里放不稳，换一块平地。');things.transaction(()=>things.patch(t.id,{...point,location:'world',z:0},'item-placed'));return result(true,'放稳了。',{id:t.id,sound:'take'});}
+  function toggle(unit,options={}){if(hand())return lower(unit,options);const cell=nearest(unit,options.canReach);return cell?take(cell.id):drop(unit,options);}
   function migrate({lamp={},relay=false}={}){
    if(things.getFlag('batteriesMigrated'))return false;
    things.transaction(()=>{
@@ -27,7 +30,7 @@ const ExoCarry=(()=>{
     things.flag('batteriesMigrated',true);things.flag('legacyOverflow',overflow);
    });return true;
   }
-  return {rack,contents,take,insert,remove,cache,nearest,drop,toggle,migrate,get count(){return rack().length;},capacity:CAPACITY};
+  return {rack,contents,take,insert,remove,cache,nearest,drop,toggle,migrate,hand,lift,lower,get count(){return rack().length;},capacity:CAPACITY};
  }
  return {create,CAPACITY,REACH};
 })();
