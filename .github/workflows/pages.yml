@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      actions: read
       pages: write
       id-token: write
     environment:
@@ -24,9 +25,31 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload game
+        id: upload
         uses: actions/upload-pages-artifact@v4
         with:
           path: dist
+          name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+      - name: Wait for the uploaded game to be discoverable
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
+          ARTIFACT_NAME: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          for attempt in {1..12}; do
+            found="$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" \
+              --jq ".artifacts[] | select(.id == $ARTIFACT_ID and .name == \"$ARTIFACT_NAME\" and .expired == false) | .id")"
+            if [[ "$found" == "$ARTIFACT_ID" ]]; then
+              # Allow the Actions artifact service to catch up with the REST index.
+              sleep 5
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "::error::The uploaded Pages artifact was not discoverable within one minute."
+          exit 1
       - name: Publish game
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
